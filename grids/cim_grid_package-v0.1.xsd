@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
+	elementFormDefault="qualified"
+	version="0.1">
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+	<xs:import namespace="http://www.gfdl.noaa.gov/gridspec" schemaLocation="esg/gridspec-v0.3.xsd"/>
+	<!--  -->
+	<!-- Definition of geometryModel element and associated GeometryModelType -->
+	<xs:element name="geometryModel" type="GeometryModelType"/>
+	<xs:complexType name="GeometryModelType">
+		<xs:choice>
+			<xs:element name="gridGeometry" type="GridGeometryType"/>
+			<xs:element name="featureGeometry" type="FeatureGeometryType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--  -->
+	<!-- Definition of GridGeometryType  -->
+	<xs:complexType name="GridGeometryType">
+		<xs:choice>
+			<xs:element name="gfdlGridGeometry" type="gridspec:GridSpecType"/>
+			<xs:element name="gmlGridGeometry" type="gml:DomainSetType"/>
+			<xs:element name="customGridGeometry" type="xs:anyType"/>
+		</xs:choice>
+	</xs:complexType>
+	<!--  -->
+	<!-- Definition of FeatureGeometryType -->
+	<xs:complexType name="FeatureGeometryType">
+		<xs:choice>
+			<xs:element name="gmlFeatureGeometry" type="gml:GeometricComplexPropertyType"/>
+			<xs:element name="customFeatureGeometry" type="xs:anyType"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

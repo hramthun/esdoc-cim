@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://www.gfdl.noaa.gov/gridspec"
+	xmlns="http://www.gfdl.noaa.gov/gridspec"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="0.3">
+
+	<!--
+	IH comment: Should make it possible to put different mosaics/sub-mosaics associated with 
+	different models in different files.  Balaji says there should be separate files for each
+	mosaic, tile and contact region. e.g. "grid_mosaic.xml", "grid_tile.xml", "contact_region.xml"
+	
+	TODO: resolve coord ref system types and usage.
+	TODO: add elements for defining grid coords.
+	TODO: resolve usage differences between overlap contacts and exchange grids.
+	TODO: implement mask objects properly - or remove.
+	-->
+
+<!-- ================= -->
+<!-- Import statements -->
+<!-- ================= -->
+
+	<!-- Import GML basic geometry schema. -->
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../gml/3.2.1/geometryBasic0d1d.xsd"/>
+
+<!-- ============================= -->
+<!-- Top-level (document) elements -->
+<!-- ============================= -->
+
+	<xs:element name="ESM_GridSpec" type="GridSpecType">
+		<xs:annotation><xs:documentation>
+			The ESM_GridSpec element is a container element for encapsulating model grid definitions.
+			This element may be used in any of the following ways:
+			- To define a single grid used by a particular earth system model.
+			- To define multiple grids used by a model framework.
+			- To define one or more exchange grids.
+			- To define a number of model grids and exchange grids in one large document.
+		</xs:documentation></xs:annotation>
+	</xs:element>
+	
+	<xs:element name="ESM_ModelGrid" type="GridMosaicType">
+		<xs:annotation><xs:documentation>
+			The ESM_GridMosaic element is used to describe the geometry, and other characteristics,
+			of a grid required by an earth system numerical model. The hierarchical nature of the
+			ESM_GridMosaic element means that it may be used to describe a single grid for a single
+			model, or a number of grids used by a framework of such models.
+		</xs:documentation></xs:annotation>
+	</xs:element>
+
+	<xs:element name="ESM_ExchangeGrid" type="GridMosaicType">
+		<xs:annotation><xs:documentation>
+			The ESM_ExchangeGrid element may be used to describe the exchange grid that is produced by
+			the intersection of two earth system model grids. Note that an exchange grid is defined as
+			a grid mosaic, just like a model grid: they differ mainly in purpose. In most cases it is
+			envisaged that an ESM_ExchangeGrid element will contain only grid tiles, not nested grid
+			mosaics (although that possibility is allowed for by this XML content model.)
+		</xs:documentation></xs:annotation>
+	</xs:element>
+	
+<!-- ======================== -->
+<!-- Complex Type Definitions -->
+<!-- ========================= -->
+
+	<!-- GridSpecType -->
+	<xs:complexType name="GridSpecType">
+		<xs:annotation><xs:documentation>
+			An ESM_GridSpec element contains zero or more ESM_ModelGrid definitions followed by zero or
+			more ESM_ExchangeGrid definitions.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element ref="ESM_ModelGrid" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="ESM_ExchangeGrid" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>	
+		<xs:attribute name="version" type="xs:string" use="required">
+			<xs:annotation><xs:documentation>
+				Used to identify the version of a GridSpec instance.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- GridMosaicType -->
+	<xs:element name="gridMosaic" type="GridMosaicType"/>
+	<xs:complexType name="GridMosaicType">
+		<xs:annotation><xs:documentation>
+			A gridMosaic consists of either one or more gridMosaics, or	one or more gridTiles, but
+			not both. In the latter case the mosaic may optionally contain a list of the contact
+			regions between pairs of gridTiles. A GridMosaic object should be uniquely identified
+			- within its hierarchy - by the 'id' attribute.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:group ref="IdElemGroup"/>
+			<xs:choice>
+				<xs:element ref="gridMosaic" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:sequence>
+					<xs:element ref="gridTile" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element ref="contactRegions" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdAttrGroup"/>
+		<xs:attribute name="isLeaf" type="xs:boolean">
+			<xs:annotation><xs:documentation>
+				Set to true if this is a leaf mosaic; that is, it contains only grid tiles.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="gridType" type="GridTypeEnum">
+			<xs:annotation><xs:documentation>
+				The type of all grid tiles in the mosaic, e.g. "tripolar". If the mosaic is a root
+				or a branch mosaic (i.e. it consists of other mosaics rather than grid tiles), then
+				this attribute may be omitted.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- GridTileType -->
+	<xs:element name="gridTile" type="GridTileType"/>
+	<xs:complexType name="GridTileType">
+		<xs:annotation><xs:documentation>
+			A contiguous area of grid cells distinct in some way from other such areas, e.g. the 6
+			faces of a cubed sphere. Note that many mosaics will have only one tile. The "isRegular"
+			and "isUniform" attributes can be used to reduce the amount of data required for a grid
+			specification, e.g. if grid cells are at regular intervals, then coordinates do not need
+			to be supplied for every cell as they can be calculated. A GridTile object should be
+			uniquely identified	- within its parent mosaic - by the 'id' attribute.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:group ref="IdElemGroup"/>
+			<xs:element name="geometryType" type="GeometryTypeEnum"/>
+			<xs:element name="discretizationType" type="DiscretizationEnum"/>
+			<xs:element name="horizontalCS" type="HorizontalCoordSystemType"/>
+			<xs:element name="verticalCS" type="VerticalCoordSystemType" minOccurs="0"/>
+			<xs:element name="mapProjection" type="MapProjectionType" minOccurs="0"/>
+			<xs:element name="gridNorthPole" type="gml:PointPropertyType" minOccurs="0"/>
+			<xs:element name="simpleGridGeom" type="SimpleGridGeometryType" minOccurs="0"/>
+			<xs:element name="cellArray" type="CellArrayType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdAttrGroup"/>
+		<xs:attribute name="isRegular" type="xs:boolean" use="required">
+			<xs:annotation><xs:documentation>
+				Set to true if the dimensions of the grid cells in the first row and column
+				are repeated across the grid.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isUniform" type="xs:boolean" use="required">
+			<xs:annotation><xs:documentation>
+				Set to true if the grid cells are of equal magnitude in both directions.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isConformal" type="xs:boolean"/>
+		<xs:attribute name="isPoleCovered" type="xs:boolean">
+			<xs:annotation><xs:documentation>
+				Set to true if at least one pole is covered by the grid tile. This information is
+				used by the OASIS4 coupler.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<!-- GridCellType -->
+	<xs:element name="gridCell" type="GridCellType" abstract="true"/>
+	<xs:complexType name="GridCellType" abstract="true">
+		<xs:annotation><xs:documentation>
+			Abstract base type (class) for different kinds of grid cell. Object types for specific
+			kinds of grid cell should be derived from this type, e.g. UnstructuredCellType. Each cell
+			is uniquely identified - within its parent tile - by the 'id' attribute.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:group ref="IdElemGroup"/>
+			<xs:element name="centroid" type="gml:PointPropertyType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdAttrGroup"/>
+	</xs:complexType>
+
+	<!-- SimpleGridGeometryType -->
+	<xs:complexType name="SimpleGridGeometryType">
+		<xs:annotation><xs:documentation>
+			This type may be used to specify the geometry of a simple square or rectangular grid
+			in a compact fashion. Note that numCols and numRows define the number of cells in the
+			i (or X) and j (or Y) directions, respectively. This is 1 less than the number of grid
+			lines in the enclosing mesh.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="origin" type="gml:PointPropertyType"/>
+			<xs:element name="xOffset" type="xs:double"/>
+			<xs:element name="yOffset" type="xs:double"/>
+			<xs:element name="numCols" type="xs:positiveInteger"/>
+			<xs:element name="numRows" type="xs:positiveInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- TileRefType -->
+	<xs:complexType name="TileRefType">
+		<xs:annotation><xs:documentation>
+			A tile specification is a list of ID references from the top-level mosaic downwards to the
+			grid tile itself. Tiles must be fully qualified like this so that they can be identified
+			uniquely (across mosaics). A tile reference can be specified either as a sequence of
+			elements or as a text string containing colon-delimited ID values (e.g. "m1:m2:m3:t1")
+		</xs:documentation></xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
+				<xs:element name="tileID" type="IdType"/>
+			</xs:sequence>
+			<xs:element name="idPath" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	
+	<!-- CellRefType -->
+	<xs:complexType name="CellRefType">
+		<xs:annotation><xs:documentation>
+			A CellRefType object consists of a reference to a cell in a separately-defined grid tile,
+			together with an optional fractional area that indicates the portion of the target cell
+			'occupied' by the refering cell. If this area is not specified, a default value of 1.0
+			is assumed. A cell reference can be specified either as a sequence of elements or as a
+			text string containing colon-delimited ID values terminated with a number representing 
+			the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").
+		</xs:documentation></xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
+				<xs:element name="tileID" type="IdType"/>
+				<xs:element name="cellID" type="IdType"/>
+				<xs:element name="fractionalArea" type="xs:double" default="1.0"/>
+			</xs:sequence>
+			<xs:element name="idPath" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- EdgeType -->
+	<xs:complexType name="EdgeType">
+		<xs:annotation><xs:documentation>
+			Constraint: the two vertices making up an edge must be part of the same grid cell.
+			The two vertexRefs objects are references to GML Point objects.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="vertexRef" type="gml:PointPropertyType" minOccurs="2" maxOccurs="2"/>
+			<xs:element name="departureAngle" type="xs:double"/>
+			<xs:element name="arrivalAngle" type="xs:double"/>
+			<xs:element name="length" type="xs:double"/>
+		</xs:sequence>
+		<xs:attribute name="arcType" type="ArcTypeEnum" use="required"/>
+	</xs:complexType>
+
+	<!-- CellArrayType -->
+	<xs:complexType name="CellArrayType">
+		<xs:annotation><xs:documentation>
+			This object type may be used to specify an array of grid cell elements. Any element that
+			belongs to the gridCell substitution group may be substituted here.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element ref="gridCell" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- UnstructuredCellType -->
+	<xs:element name="unstructuredCell" type="UnstructuredCellType" substitutionGroup="gridCell"/>
+	<xs:complexType name="UnstructuredCellType">
+		<xs:annotation><xs:documentation>
+			Unstructured cells are grid cells that need to be fully specified geometrically: complete
+			information on vertices and edges must be supplied.
+		</xs:documentation></xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GridCellType">
+				<xs:sequence>
+					<xs:element name="vertex" type="gml:PointPropertyType" minOccurs="3"
+						maxOccurs="unbounded"/>
+					<xs:element name="edge" type="EdgeType" minOccurs="3" maxOccurs="unbounded"/>
+					<xs:element name="area" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- ExchangeCellType -->
+	<xs:element name="exchangeCell" type="ExchangeCellType" substitutionGroup="gridCell"/>
+	<xs:complexType name="ExchangeCellType">
+		<xs:annotation><xs:documentation>
+			(description required)
+		</xs:documentation></xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GridCellType">
+				<xs:sequence>
+					<xs:element name="parentCell" type="CellRefType" minOccurs="2" maxOccurs="2"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- contactRegions -->
+	<xs:element name="contactRegions">
+		<xs:annotation><xs:documentation>
+			This element may be used to specify a list of the contact regions that occur between
+			pairs of gridTiles in a gridMosaic.
+		</xs:documentation></xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:choice>
+					<xs:element ref="boundaryContact"/>
+					<xs:element ref="overlapContact"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ContactGeometryType -->
+	<xs:element name="contactGeometry" type="ContactGeometryType" abstract="true"/>
+	<xs:complexType name="ContactGeometryType" abstract="true">
+		<xs:annotation><xs:documentation>
+			The ContactGeometry type is used to define the topology of the contact between two grid
+			tiles (or the same tile for cyclic contact regions) in a grid mosaic. This abstract base
+			type is not instantiable: objects should be based upon one of the concrete sub-types, e.g.
+			BoundaryContact or OverlapContact.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="tileRef" type="TileRefType" minOccurs="2" maxOccurs="2"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- OverlapContactType -->
+	<xs:element name="overlapContact" type="OverlapContactType" substitutionGroup="contactGeometry"/>
+	<xs:complexType name="OverlapContactType">
+		<xs:complexContent>
+			<xs:extension base="ContactGeometryType">
+				<xs:sequence>
+					<xs:element name="cellArray" type="CellArrayType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- BoundaryContactType -->
+	<xs:element name="boundaryContact" type="BoundaryContactType" substitutionGroup="contactGeometry"/>
+	<xs:complexType name="BoundaryContactType">
+		<xs:annotation><xs:documentation>
+			The BoundaryContactType is used to describe a boundary contact between two grid tiles in
+			a mosaic. If a common anchor point in both tiles can be specified in index space then
+			the isAligned attribute should be set to true and the indexes of the point provided as a
+			list of integers in the indexAnchorPoints element. For 2D grid tiles there would be four
+			integers, e.g. "1 2 10 11" for grid points (1,2) and (10,11). Otherwise the anchor point
+			is specified in world coordinates using the geoAnchorPoint element (this element may be
+			provided in addition to indexAnchorPoints if so desired).
+		</xs:documentation></xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContactGeometryType">
+				<xs:sequence>
+					<xs:element name="indexAnchorPoints" type="gml:integerList" minOccurs="0"/>
+					<xs:element name="geoAnchorPoint" type="gml:PointPropertyType" minOccurs="0"/>
+					<xs:element name="orientation" type="xs:string"/>
+				</xs:sequence>
+				<xs:attribute name="isAligned" type="xs:boolean"/>
+				<xs:attribute name="refinementType" type="RefinementTypeEnum"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- HorizontalCoordSystemType -->
+	<!-- TODO: this type needs more work. Can we use GML CRS definitions? -->
+   <!-- TODO: mask element doesn't seem to belong here. -->
+	<xs:complexType name="HorizontalCoordSystemType">
+		<xs:annotation><xs:documentation>
+			Some information about the horizontal coords, e.g. whether geodetic or cartesian coordinates
+			being used. Optionally, coordinate values themselves can be provided - xAxis might be
+			longitudes, yAxis might be latitudes. This could be done in the case of regular and uniform
+			grids.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="xAxis" type="CoordSystemAxisType" minOccurs="0"/>
+			<xs:element name="yAxis" type="CoordSystemAxisType" minOccurs="0"/>
+			<xs:element name="mask" type="MaskType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="csType" type="HorizontalCSEnum" use="required"/>
+	</xs:complexType>
+
+	<!-- VerticalCoordSystemType -->
+	<!-- TODO: this type needs more work. Can we use GML CRS definitions? -->
+	<xs:complexType name="VerticalCoordSystemType">
+		<xs:annotation><xs:documentation>
+			Used to specify information about the vertical coordinates used by a grid tile, e.g.
+			is the vertical coordinate mass- or space-based, terrain following? Optionally,
+			coordinate values themselves can be provided.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="zAxis" type="CoordSystemAxisType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="csType" type="VerticalCSEnum" use="required"/>
+		<xs:attribute name="isTerrainFollowing" type="xs:boolean"/>
+	</xs:complexType>
+
+	<!-- AxisType -->
+	<xs:complexType name="CoordSystemAxisType">
+		<xs:annotation><xs:documentation>
+			This type allows axes to be specified for coordinate systems - it
+			is intended for regular or uniform grids. I think it's more flexible to place all
+			coordinates (points and edges) in one array, then provide arrays that index them
+			(e.g. <!-- <points>2,4,6,8</points> <edges>1,3,5,7,9</edges> -->).
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="validMin" type="xs:double" minOccurs="0"/>
+			<xs:element name="validMax" type="xs:double" minOccurs="0"/>
+			<xs:element name="coordinates" type="DataArrayType"/>
+			<xs:element name="indices" type="DataArrayType"/>
+		</xs:sequence>
+		<xs:attribute name="units" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<!-- MaskType -->
+	<xs:complexType name="MaskType">
+		<xs:annotation><xs:documentation>
+			The mask type allows a mask to be specified for a horizontal coordinate system. Only land
+			masks are supported in this version of the schema.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="values" type="DataArrayType"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" fixed="land"/>
+	</xs:complexType>
+	
+	<!-- DataArrayType -->
+	<xs:complexType name="DataArrayType" mixed="true">
+		<xs:annotation><xs:documentation>
+			The DataArrayType type is based on the NcML (NetCDF XML) "values"
+			element. It's intended to carry reasonably large amounts of data that, in "proper"
+			NetCDF, would be the arrays of data in the .nc file. Start and increment values can
+			be used to describe the data if it is equally-spaced, for instance
+			latitude/longitude points. Values don't have to be separated by whitespace (the
+			default) - they can be comma-delimited for example (use the "separator" attribute).
+			Values may be in exponential notation e.g. 1.78452433424E-5.
+			Example:	"&lt;values count="64"&gt;2.8125 8.4375 14.0625 ...&lt;/values&gt;"
+		</xs:documentation></xs:annotation>
+		<xs:attribute name="featureType" type="FeatureTypeEnum"/>
+		<xs:attribute name="start" type="xs:double"/>
+		<xs:attribute name="increment" type="xs:double"/>
+		<xs:attribute name="count" type="xs:integer" use="required"/>
+		<xs:attribute name="separator" type="xs:string"/>
+	</xs:complexType>
+	
+	<!-- MapProjectionType -->
+	<xs:complexType name="MapProjectionType">
+		<xs:annotation><xs:documentation>
+			This type may be used to provide details of the map projection, if any, used in the
+			generation of grid tile rectangular coordinates.
+		</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<!-- PB comment: contactPoint is not a property of map projections and does not appear
+			to be mentioned in the gridspec article. -->
+			<!-- xs:element name="contactPoint" type="gml:PointPropertyType"/ -->
+		</xs:sequence>
+	</xs:complexType>
+
+<!-- ======================= -->
+<!-- Simple Type Definitions -->
+<!-- ======================= -->
+
+	<!-- IdType -->
+	<xs:simpleType name="IdType">
+		<xs:annotation><xs:documentation>
+			The IdType is used to identify grid mosaics, tiles and cells. We cannot used the xs:ID
+			type because that requires uniqueness of identity within any given XML document based
+			on this schema. And while grid tile and grid cell ID's will be unique within their parent
+			mosaics and tiles, respectively, those same IDs are likely to be re-used across other
+			mosaics and tiles.
+		</xs:documentation></xs:annotation>
+		<xs:restriction base="xs:NMTOKEN"/>
+	</xs:simpleType>
+
+<!-- ============== -->
+<!-- Element Groups -->
+<!-- ============== -->
+
+	<!-- IdElemGroup -->
+	<xs:group name="IdElemGroup">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+		   <xs:element name="label" type="xs:string" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+
+<!-- ================ -->
+<!-- Attribute Groups -->
+<!-- ================ -->
+
+	<!-- IdAttrGroup -->
+	<xs:attributeGroup name="IdAttrGroup">
+		<xs:attribute name="id" type="xs:NMTOKEN" use="required">
+			<xs:annotation><xs:documentation>
+				Unique identifier for a grid tile or grid mosaic. Used for cross-referencing from other
+				parts of a grid specification, e.g. by boundary objects.
+			</xs:documentation></xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+<!-- ============ -->
+<!-- Enumerations -->
+<!-- ============ -->
+
+	<!-- ArcEnum -->
+	<xs:simpleType name="ArcTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="geodesic"/>
+			<xs:enumeration value="great_circle"/>
+			<xs:enumeration value="small_circle"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- RefinementEnum -->
+	<!-- IH comment: Seems there's a missing type of refinement - when the grid line counts have a
+	common factor,	as with integer, but grid lines from the coarse grid are not always continuous on
+	the fine grid. -->
+	<xs:simpleType name="RefinementTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none">
+				<xs:annotation><xs:documentation>
+					Boundaries of the two tiles match exactly.
+				</xs:documentation></xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="integer">
+				<xs:annotation><xs:documentation>
+					Grid lines from the coarser grid are continuous on the finer grid.
+				</xs:documentation></xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="rational">
+				<xs:annotation><xs:documentation>
+					The contact grid tiles have grid line counts that are co-prime.
+				</xs:documentation></xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- GridTypeEnum -->
+	<xs:simpleType name="GridTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="cubed_sphere"/>
+			<xs:enumeration value="displaced_pole"/>
+			<xs:enumeration value="icosahedral_geodesic"/>
+			<xs:enumeration value="reduced_gaussian"/>
+			<xs:enumeration value="regular_lat_lon"/>
+			<xs:enumeration value="spectral_gaussian"/>
+			<xs:enumeration value="tripolar"/>
+			<xs:enumeration value="yin_yang"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- DiscretizationEnum -->
+	<xs:simpleType name="DiscretizationEnum">
+		<xs:annotation><xs:documentation>
+			Specifies the way a grid tile is discretized.
+		</xs:documentation></xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="logically_rectangular"/>
+			<xs:enumeration value="pixel-based_catchment"/>
+			<xs:enumeration value="structured_triangular"/>
+			<xs:enumeration value="unstructured_polygonal"/>
+			<xs:enumeration value="unstructured_triangular"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- GeometryEnum -->
+	<!-- PB comment: There seems to be some degree of overlap in intent between this enumeration and
+		the HorizontalCSEnum enumeration below. Consider using GML CRS definitions? -->
+	<xs:simpleType name="GeometryTypeEnum">
+		<xs:annotation><xs:documentation>
+			Specifies the geometry used to approximate the figure of the Earth.
+		</xs:documentation></xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ellipsoid"/>
+			<xs:enumeration value="plane"/>
+			<xs:enumeration value="sphere"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- HorizontalCSEnum -->
+	<!-- PB comment: There seems to be some degree of overlap in intent between this enumeration and
+		the GeometryEnum enumeration above. Consider using GML CRS definitions. -->
+	<xs:simpleType name="HorizontalCSEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="cartesian"/>
+			<xs:enumeration value="ellipsoidal"/>
+			<xs:enumeration value="polar"/>
+			<xs:enumeration value="spherical"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- VerticalCSEnum -->
+	<xs:simpleType name="VerticalCSEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="mass-based"/>
+			<xs:enumeration value="space-based"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- FeatureTypeEnum -->
+	<xs:simpleType name="FeatureTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="point"/>
+			<xs:enumeration value="edge"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- ContactTypeEnum -->
+	<xs:simpleType name="ContactTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="boundary"/>
+			<xs:enumeration value="overlap"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+<!-- ======================================================================= -->
+<!-- All definitions below here are deprecated in this version of the schema -->
+<!-- ======================================================================= -->
+
+	<!-- IdRefType -->
+	<xs:simpleType name="IdRefType">
+		<xs:restriction base="xs:IDREF"/>
+	</xs:simpleType>
+
+	<!-- GeoRefPointType replaced by references to gml:PointPropertyType -->
+	<xs:complexType name="GeoRefPointType">
+		<xs:sequence>
+			<xs:element name="lat" type="xs:double"/>
+			<xs:element name="lon" type="xs:double"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="IdAttrGroup"/>
+	</xs:complexType>
+
+	<!-- AbstractGridObjectType -->
+	<xs:complexType name="AbstractGridObjectType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract base type potentially usable for both grid mosaics and grid
+				tiles. </xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="IdAttrGroup"/>
+	</xs:complexType>
+	<xs:element name="abstractGridObject" type="AbstractGridObjectType" abstract="true">
+		<xs:annotation>
+			<xs:documentation>The abstractGridObject element serves as the head of a substitution
+				group. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<!-- ExchangeGridType -->
+	<!-- PB comment: Is this type definition required? An exchange grid is just a grid with a 
+		specific purpose (i.e. exchange), in which case just use GridTileType, or GridMosaicType if
+		it might potentially be a composite grid. Otherwise, if it's just a collection of grid
+		cells, then just use CellArrayType. -->
+	<xs:element name="exchangeGrid" type="ExchangeGridType"/>
+	<xs:complexType name="ExchangeGridType">
+		<xs:annotation>
+			<xs:documentation>Usage?</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cellArray" type="CellArrayType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- EnumType -->
+	<!-- PB comment: NMTOKEN is likely to be too restrictive for some enumerations. Use string? -->
+	<xs:simpleType name="EnumType">
+		<xs:restriction base="xs:NMTOKEN"/>
+	</xs:simpleType>
+	
+	<!-- OrientationEnum -->
+	<xs:simpleType name="OrientationEnum">
+		<xs:annotation><xs:documentation>
+			IH comment: Orientation is a property of boundaries between grid tiles used to
+			indicate how vector quantities are transformed from one tile to the other. XY may
+			indicate that longitude lines on the first grid tile map to latitude lines on the
+			second tile across the boundary, for example (a possibility with a cubed sphere). XX
+			and YY might be more common. Should check this with Balaji - I've probably not
+			understood this properly.
+		</xs:documentation></xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="XX"/>
+			<xs:enumeration value="XY"/>
+			<xs:enumeration value="YX"/>
+			<xs:enumeration value="YY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- UnitsEnum -->
+	<xs:simpleType name="UnitsEnum">
+		<xs:annotation>
+			<xs:documentation>Units to use for axis points. I've not constrained the axis (x/y/z) to
+				which these units can refer - this may not be desirable. This list is very
+				incomplete. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumType">
+			<xs:enumeration value="degrees_east"/>
+			<xs:enumeration value="degrees_north"/>
+			<xs:enumeration value="sigma"/>
+			<xs:enumeration value="metres_depth"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
