@@ -6,7 +6,7 @@
 	elementFormDefault="qualified"
 	version="0.1">
 	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
-	<xs:import namespace="http://www.gfdl.noaa.gov/gridspec" schemaLocation="esg/gridspec-v0.3.xsd"/>
+	<xs:import namespace="http://www.gfdl.noaa.gov/gridspec" schemaLocation="esg/gridspec-v0.4.xsd"/>
 	<!--  -->
 	<!-- Definition of geometryModel element and associated GeometryModelType -->
 	<xs:element name="geometryModel" type="GeometryModelType"/>
