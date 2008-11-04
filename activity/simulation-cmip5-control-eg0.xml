@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simulation>
     <document>
-        <uri> blah</uri>
+        <uri>http://badc.blah</uri>
         <name>UM Control Run for CMIP5</name>
         <author>Charlotte</author>
         <created>10 October</created>
-        <lastModified>21 October</lastModified>
+        <lastModified>4 November</lastModified>
     </document>
     <name>abcde</name>
-    <description> Pre-Industrial Control </description>
+    <description> Pre-Industrial Control </description>   
     <duration>
         <CloseDateRange>
             <perpetual type="years">
@@ -16,17 +16,25 @@
                 <period unit="years">550</period>
             </perpetual>
         </CloseDateRange>
-    </duration>
+    </duration>   
+    <dateDeployed>
+        <ClosedDateRange>
+            <RealCalendar>
+                <startDate>01-01-2009</startDate>
+            </RealCalendar>
+        </ClosedDateRange>
+    </dateDeployed>
     <platform>
         <ComputingEnvironment>
-            <!-- structure from other packages --> HPCX </ComputingEnvironment>
+            <!-- structure from other packages --> HPCX 
+        </ComputingEnvironment>
     </platform>
     <uses>
         <!-- This points to the uri of a document describing the configured model -->
-        <uri>xxxx</uri></uses>
+        <uri>xxxx</uri>
+    </uses>
     <conformsTo>
         <!-- Use datasets (blaha, blahb) to conform to requirements bc1 and bc2 -->
-        <conformance>
             <requirementURI>bc1</requirementURI>
             <datasetURI>blahA</datasetURI>
         </conformance>
@@ -40,7 +48,7 @@
             <componentURI>uabc</componentURI>
         </conformance>
     </conformsTo>
-    <simulationCollection>
+    <simulationComposite>
         <!-- Actualy, the UML should allow us either to inline or point out using xlink -->
         <simulation>
             <name>azaaa</name>
@@ -70,7 +78,8 @@
             </spinup>
         </simulation>
         <simulation>
-            <name>azbb</name>
+            <name>azbbb</name>
+            <uri>azbbb</uri>
             <description>Second Block of requirement with specific temporal averaging</description>
             <duration>
                 <perpetual type="years">
@@ -94,5 +103,5 @@
                 </DataSet>
             </initialCondition>
         </simulation>
-    </simulationCollection>
+    </simulationComposite>
 </simulation>
