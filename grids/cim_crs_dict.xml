@@ -44,6 +44,26 @@
 	</gml:dictionaryEntry>
 
 	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="um-crs1">
+			<gml:identifier codeSpace="UKMO">um-crs1</gml:identifier>
+			<gml:name>UM Global Atmosphere Model CRS</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#um-datum1"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+	
+	<gml:dictionaryEntry>
+		<gml:GeodeticCRS gml:id="nemo-crs1">
+			<gml:identifier codeSpace="NEMO">nemo-crs1</gml:identifier>
+			<gml:name>NEMO Model CRS</gml:name>
+			<gml:scope>World Oceans</gml:scope>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:geodeticDatum xlink:href="#nemo-datum1"/>
+		</gml:GeodeticCRS>
+	</gml:dictionaryEntry>
+	
+	<gml:dictionaryEntry>
 		<gml:ProjectedCRS gml:id="EPSG-3395">
 			<gml:identifier codeSpace="EPSG">EPSG-3395</gml:identifier>
 			<gml:name>WGS 84 World Mercator Projected CRS</gml:name>
@@ -69,7 +89,7 @@
 	<gml:dictionaryEntry>
 		<gml:CartesianCS gml:id="EPSG-4400">
 			<gml:identifier codeSpace="EPSG">EPSG-4400</gml:identifier>
-			<gml:name>Cartesian 2D CS</gml:name>
+			<gml:name>Cartesian 2D CS: Eastings and Northings</gml:name>
 			<gml:axis xlink:href="#EPSG-9906"/>
 			<gml:axis xlink:href="#EPSG-9907"/>
 		</gml:CartesianCS>
@@ -78,7 +98,7 @@
 	<gml:dictionaryEntry>
 		<gml:EllipsoidalCS gml:id="EPSG-6422">
 			<gml:identifier codeSpace="EPSG">EPSG-6422</gml:identifier>
-			<gml:name>Ellipsoidal 2D CS</gml:name>
+			<gml:name>Ellipsoidal 2D CS: Geodetic Latitude and Longitude</gml:name>
 			<gml:axis xlink:href="#EPSG-9901"/>
 			<gml:axis xlink:href="#EPSG-9902"/>
 		</gml:EllipsoidalCS>
@@ -87,7 +107,7 @@
 	<gml:dictionaryEntry>
 		<gml:EllipsoidalCS gml:id="EPSG-6423">
 			<gml:identifier codeSpace="EPSG">EPSG-6423</gml:identifier>
-			<gml:name>Ellipsoidal 3D CS</gml:name>
+			<gml:name>Ellipsoidal 3D CS: Geodetic Latitude and Longitude, Ellipsoidal Height</gml:name>
 			<gml:axis xlink:href="#EPSG-9901"/>
 			<gml:axis xlink:href="#EPSG-9902"/>
 			<gml:axis xlink:href="#EPSG-9903"/>
@@ -97,7 +117,7 @@
 	<gml:dictionaryEntry>
 		<gml:SphericalCS gml:id="EPSG-6404">
 			<gml:identifier codeSpace="EPSG">EPSG-6404</gml:identifier>
-			<gml:name>Spherical 3D CS</gml:name>
+			<gml:name>Spherical 3D CS: Sperical Latitude and Longitude, Geocentric Radius</gml:name>
 			<gml:axis xlink:href="#EPSG-9926"/>
 			<gml:axis xlink:href="#EPSG-9927"/>
 			<gml:axis xlink:href="#EPSG-9928"/>
@@ -107,7 +127,7 @@
 	<gml:dictionaryEntry>
 		<gml:VerticalCS gml:id="EPSG-6499">
 			<gml:identifier codeSpace="EPSG">EPSG-6499</gml:identifier>
-			<gml:name>Vertical CS</gml:name>
+			<gml:name>Vertical CS: Gravity-related Height</gml:name>
 			<gml:axis xlink:href="#EPSG-9904"/>
 		</gml:VerticalCS>
 	</gml:dictionaryEntry>
@@ -187,6 +207,26 @@
 		</gml:VerticalDatum>
 	</gml:dictionaryEntry>
 
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="um-datum1">
+			<gml:identifier codeSpace="UKMO">um-datum1</gml:identifier>
+			<gml:name>Unified Model Datum</gml:name>
+			<gml:scope>World</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#um-sphere1"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
+	<gml:dictionaryEntry>
+		<gml:GeodeticDatum gml:id="nemo-datum1">
+			<gml:identifier codeSpace="NEMO">nemo-datum1</gml:identifier>
+			<gml:name>NEMO Model Datum</gml:name>
+			<gml:scope>World Oceans</gml:scope>
+			<gml:primeMeridian xlink:href="#EPSG-8901"/>
+			<gml:ellipsoid xlink:href="#nemo-sphere1"/>
+		</gml:GeodeticDatum>
+	</gml:dictionaryEntry>
+
 	<!-- Prime Meridians -->
 
 	<gml:dictionaryEntry>
@@ -222,12 +262,34 @@
 			</gml:secondDefiningParameter>
 		</gml:Ellipsoid>
 	</gml:dictionaryEntry>
-	
+
 	<gml:dictionaryEntry>
 		<gml:Ellipsoid gml:id="EPSG-7057">
 			<gml:identifier codeSpace="EPSG">EPSG-7057</gml:identifier>
 			<gml:name>International 1924 Authalic Sphere</gml:name>
 			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371228.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="um-sphere1">
+			<gml:identifier codeSpace="UKMO">um-sphere1</gml:identifier>
+			<gml:name>Unified Model Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
+			<gml:secondDefiningParameter>
+				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
+			</gml:secondDefiningParameter>
+		</gml:Ellipsoid>
+	</gml:dictionaryEntry>
+
+	<gml:dictionaryEntry>
+		<gml:Ellipsoid gml:id="nemo-sphere1">
+			<gml:identifier codeSpace="NEMO">nemo-sphere1</gml:identifier>
+			<gml:name>NEMO/ORCA Grid Sphere</gml:name>
+			<gml:semiMajorAxis uom="urn:x-epsg:v6.17:uom:metre">6371229.0</gml:semiMajorAxis>
 			<gml:secondDefiningParameter>
 				<gml:SecondDefiningParameter><gml:isSphere>true</gml:isSphere></gml:SecondDefiningParameter>
 			</gml:secondDefiningParameter>
