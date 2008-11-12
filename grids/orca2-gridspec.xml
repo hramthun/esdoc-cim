@@ -2,14 +2,14 @@
 <!-- Definition of the ORCA2 model grid. -->
 <!-- This grid specification may be referenced from a remote CIM object using the syntax: -->
 <!-- <geometryModel xlink:href="orca2-gridspec.xml#orca2-gridspec"/> -->
-<ESM_GridSpec version="0.4" id="orca2-gridspec" 
+<ESM_GridSpec version="0.5" gml:id="orca2-gridspec" 
 	xmlns="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gml="http://www.opengis.net/gml/3.2"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
 	dc:creator="Phil Bentley"
-	dc:date="2008-10-30">
+	dc:date="2008-11-12">
 	<esmModelGrid id="orca2-grid" isLeaf="true" gridType="regular_lat_lon">
 		<shortName>ORCA2 Grid</shortName>
 		<longName>ORCA2 2-Degree Tripolar Grid</longName>
@@ -22,7 +22,7 @@
 			spacing in the y/latitude direction (~ cos(lat)). The south tile origin is located at:
 			(i=1,j=1) = (78.190582275 S, 102 W).
 				The second, or north, tile extends north from the aforementioned bounding latitude and
-			is represented by a complex bi-polar grid in which the grid cells are irregular quadri-
+			is represented by a complex dipolar grid in which the grid cells are irregular quadri-
 			laterals. The two poles occur at (50N, 80E) and (70N, 100W). The great circle arc connecting
 			the two poles represents the locus of the fold in the grid tile: the boundary of the tile
 			contacts itself along this fold.
@@ -42,52 +42,75 @@
 				The ORCA2 grid is based upon a spherical figure of Earth with a radius of 6371229 m.
 		</description>
 		<referenceList>
-		   <reference>Madec and Imbard, 19xx. A global mesh to overcome the North Pole singularity.
+		   <reference>Madec,G. &amp; Imbard,M. 1996. A global mesh to overcome the North Pole singularity.
 		      Climate Dynamics, vol 12, pp 381-388</reference>
 		</referenceList>
-		<gridTile id="tgrid" discretizationType="logically_rectangular" geometryType="sphere"
-			isUniform="false" isRegular="false">
+		<gridTile id="tgrid" isUniform="false" isRegular="false">
 			<shortName>T-Grid</shortName>
 			<longName>ORCA2 T-Grid</longName>
 			<description>The T-grid defines the grid locations of scalar (T) quantities.</description>
-		   <horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole><gml:Point><gml:pos>50.0 80.0</gml:pos></gml:Point></gridNorthPole>
-			<gridSouthPole><gml:Point><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
+			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
+			<gridNorthPole><gml:Point gml:id="np"><gml:pos>50.0 80.0</gml:pos></gml:Point></gridNorthPole>
+			<gridSouthPole><gml:Point gml:id="sp"><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
 			<!-- TODO: Insert valid file URI -->
 			<coordFileURI>file://my/grids/orca2_tgrid_coords.nc</coordFileURI>
+			<!-- TODO: Following coord list is incomplete -->
+			<zcoords>5.0216 15.0785 25.1605</zcoords>
 		</gridTile>
-		<gridTile id="ugrid" discretizationType="logically_rectangular" geometryType="sphere"
-			isUniform="false" isRegular="false">
+		<gridTile id="ugrid" isUniform="false" isRegular="false">
 			<shortName>U-Grid</shortName>
 			<longName>ORCA2 U-Grid</longName>
 			<description>The U-grid defines the grid locations of U-component vector quantities.</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole><gml:Point><gml:pos>50.0 80.0</gml:pos></gml:Point></gridNorthPole>
-			<gridSouthPole><gml:Point><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
+			<gridNorthPole xlink:href="#np"/>
+			<gridSouthPole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
 			<coordFileURI>file://my/grids/orca2_ugrid_coords.nc</coordFileURI>
 		</gridTile>
-		<gridTile id="vgrid" discretizationType="logically_rectangular" geometryType="sphere"
-			isUniform="false" isRegular="false">
+		<gridTile id="vgrid" isUniform="false" isRegular="false">
 			<shortName>V-Grid</shortName>
 			<longName>ORCA2 V-Grid</longName>
 			<description>The V-grid defines the grid locations of V-component vector quantities.</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole><gml:Point><gml:pos>50.0 80.0</gml:pos></gml:Point></gridNorthPole>
-			<gridSouthPole><gml:Point><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
+			<gridNorthPole xlink:href="#np"/>
+			<gridSouthPole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
 			<coordFileURI>file://my/grids/orca2_vgrid_coords.nc</coordFileURI>
 		</gridTile>
-		<gridTile id="wgrid" discretizationType="logically_rectangular" geometryType="sphere"
-			isUniform="false" isRegular="false">
+		<gridTile id="wgrid" isUniform="false" isRegular="false">
 			<shortName>W-Grid</shortName>
 			<longName>ORCA2 W-Grid</longName>
-			<description>The W-grid defines the grid locations of W-component vector quantities.</description>
+			<description>The W-grid defines the grid locations of W-component vector quantities.
+			Note that W-grid locations share the same horizontal coordinates as T-grid locations
+			but are one-half grid cell offset in the vertical direction.</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
-			<gridNorthPole><gml:Point><gml:pos>50.0 80.0</gml:pos></gml:Point></gridNorthPole>
-			<gridSouthPole><gml:Point><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
+			<gridNorthPole xlink:href="#np"/>
+			<gridSouthPole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
-			<coordFileURI>file://my/grids/orca2_wgrid_coords.nc</coordFileURI>
+			<coordFileURI>file://my/grids/orca2_tgrid_coords.nc</coordFileURI>
+			<!-- TODO: Following coord list is incomplete -->
+			<zcoords>0.0</zcoords>
+		</gridTile>
+		<gridTile id="fgrid" isUniform="false" isRegular="false">
+			<shortName>F-Grid</shortName>
+			<longName>ORCA1 F-Grid</longName>
+			<description>The F-grid defines the grid locations of F-type quantities, such as the
+				coriolis force. F-grid locations lie at the corners of the ORCA1 grid cells.</description>
+			<geometryType>sphere</geometryType>
+			<discretizationType>logically_rectangular</discretizationType>
+			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
+			<gridNorthPole xlink:href="#np"/>
+			<gridSouthPole xlink:href="#sp"/>
+			<!-- TODO: Insert valid file URI -->
+			<coordFileURI>file://my/grids/orca1_fgrid_coords.nc</coordFileURI>
 		</gridTile>
 	</esmModelGrid>
 </ESM_GridSpec>

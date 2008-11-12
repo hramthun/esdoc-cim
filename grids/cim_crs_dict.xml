@@ -38,7 +38,7 @@
 			<gml:identifier codeSpace="EPSG">EPSG-4979</gml:identifier>
 			<gml:name>Geodetic 3D CRS / WGS 1984</gml:name>
 			<gml:scope>World</gml:scope>
-			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
+			<gml:ellipsoidalCS xlink:href="#EPSG-6423"/>
 			<gml:geodeticDatum xlink:href="#EPSG-6326"/>
 		</gml:GeodeticCRS>
 	</gml:dictionaryEntry>
@@ -56,7 +56,7 @@
 	<gml:dictionaryEntry>
 		<gml:GeodeticCRS gml:id="nemo-crs1">
 			<gml:identifier codeSpace="NEMO">nemo-crs1</gml:identifier>
-			<gml:name>NEMO Model CRS</gml:name>
+			<gml:name>NEMO Ocean Model CRS</gml:name>
 			<gml:scope>World Oceans</gml:scope>
 			<gml:ellipsoidalCS xlink:href="#EPSG-6422"/>
 			<gml:geodeticDatum xlink:href="#nemo-datum1"/>
@@ -66,7 +66,7 @@
 	<gml:dictionaryEntry>
 		<gml:ProjectedCRS gml:id="EPSG-3395">
 			<gml:identifier codeSpace="EPSG">EPSG-3395</gml:identifier>
-			<gml:name>WGS 84 World Mercator Projected CRS</gml:name>
+			<gml:name>World Mercator Projected CRS / WGS 1984</gml:name>
 			<gml:scope>World</gml:scope>
 			<gml:conversion xlink:href="#EPSG-19883"/>
 			<gml:baseGeodeticCRS xlink:href="#EPSG-4326"/>
@@ -324,7 +324,7 @@
 			<gml:axisDirection codeSpace="EPSG">up</gml:axisDirection>
 		</gml:CoordinateSystemAxis>
 	</gml:dictionaryEntry>
-	
+
 	<gml:dictionaryEntry>
 		<gml:CoordinateSystemAxis gml:id="EPSG-9904" uom="urn:x-epsg:v6.17:uom:metre">
 			<gml:identifier codeSpace="EPSG">EPSG-9904</gml:identifier>
@@ -334,6 +334,15 @@
 		</gml:CoordinateSystemAxis>
 	</gml:dictionaryEntry>
 
+	<gml:dictionaryEntry>
+		<gml:CoordinateSystemAxis gml:id="EPSG-9905" uom="urn:x-epsg:v6.17:uom:metre">
+			<gml:identifier codeSpace="EPSG">EPSG-9905</gml:identifier>
+			<gml:name>Gravity-related Depth</gml:name>
+			<gml:axisAbbrev>Depth</gml:axisAbbrev>
+			<gml:axisDirection codeSpace="EPSG">down</gml:axisDirection>
+		</gml:CoordinateSystemAxis>
+	</gml:dictionaryEntry>
+	
 	<gml:dictionaryEntry>
 		<gml:CoordinateSystemAxis gml:id="EPSG-9926" uom="urn:x-epsg:v6.17:uom:degree">
 			<gml:identifier codeSpace="EPSG">EPSG-9926</gml:identifier>
