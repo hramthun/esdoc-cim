@@ -56,8 +56,9 @@
 			<gridSouthPole><gml:Point gml:id="sp"><gml:pos>70.0 -100.0</gml:pos></gml:Point></gridSouthPole>
 			<!-- TODO: Insert valid file URI -->
 			<coordFileURI>file://my/grids/orca2_tgrid_coords.nc</coordFileURI>
-			<!-- TODO: Following coord list is incomplete -->
-			<zcoords>5.0216 15.0785 25.1605</zcoords>
+			<zcoords>4.9999 15.0003 25.0018 35.0054 45.0133 55.0295 65.0618 75.1255 85.250495.4943 105.9699
+			116.8962 128.6979 142.1952 158.9606 181.9628 216.6479 272.4767 364.3030 511.5348 732.2009 1033.2173
+			1405.6975 1830.8850 2289.7679 2768.2423 3257.4789 3752.4422 4250.4012 4749.9133 5250.2266</zcoords>
 		</gridTile>
 		<gridTile id="ugrid" isUniform="false" isRegular="false">
 			<shortName>U-Grid</shortName>
@@ -88,7 +89,7 @@
 			<longName>ORCA2 W-Grid</longName>
 			<description>The W-grid defines the grid locations of W-component vector quantities.
 			Note that W-grid locations share the same horizontal coordinates as T-grid locations
-			but are one-half grid cell offset in the vertical direction.</description>
+			but are offset one-half grid cell in the vertical direction.</description>
 			<geometryType>sphere</geometryType>
 			<discretizationType>logically_rectangular</discretizationType>
 			<horizontalCRS xlink:href="cim_crs_dict.xml#nemo-crs1"/>
@@ -96,8 +97,9 @@
 			<gridSouthPole xlink:href="#sp"/>
 			<!-- TODO: Insert valid file URI -->
 			<coordFileURI>file://my/grids/orca2_tgrid_coords.nc</coordFileURI>
-			<!-- TODO: Following coord list is incomplete -->
-			<zcoords>0.0</zcoords>
+			<zcoords>0.0000 10.0000 20.0008 30.0032 40.0086 50.0200 60.0429 70.0883 80.177690.3521 100.6928
+			111.3567 122.6488 135.1597 150.0268 169.4160 197.3678 241.1259 312.7447 429.7234 611.8891 872.8738
+			1211.5880 1612.9757 2057.1314 2527.2169 3011.8994 3504.4551 4001.1590 4500.0215 5000.0000</zcoords>
 		</gridTile>
 		<gridTile id="fgrid" isUniform="false" isRegular="false">
 			<shortName>F-Grid</shortName>
