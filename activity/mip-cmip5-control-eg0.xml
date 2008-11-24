@@ -58,19 +58,19 @@
                             <!-- It alos needs a lot more thinking -->
                             <DataComponent>Gas A</DataComponent>
                         </BoundaryCondition>
+                        <BoundaryCondition>
+                            <id>bc2</id>
+                            <!-- This is fuzzy, depends on data package -->
+                            <!-- It alos needs a lot more thinking -->
+                            <DataComponent>Gas B</DataComponent>
+                        </BoundaryCondition>
+                        <BoundaryCondition>
+                            <id>bc3</id>
+                            <!-- This is fuzzy, depends on data package -->
+                            <!-- It alos needs a lot more thinking -->
+                            <DataComponent>Short Lived Reactive Species C</DataComponent>
+                        </BoundaryCondition>
                     </consistsOf>
-                    <BoundaryCondition>
-                        <id>bc2</id>
-                        <!-- This is fuzzy, depends on data package -->
-                        <!-- It alos needs a lot more thinking -->
-                        <DataComponent>Gas B</DataComponent>
-                    </BoundaryCondition>
-                    <BoundaryCondition>
-                        <id>bc3</id>
-                        <!-- This is fuzzy, depends on data package -->
-                        <!-- It alos needs a lot more thinking -->
-                        <DataComponent>Short Lived Reactive Species C</DataComponent>
-                    </BoundaryCondition>
                 </NumericalRequirement>
                 <SpatioTemporalConstraint>
                     <id>stc1</id>
@@ -85,6 +85,14 @@
                     <outputPeriod>Entire Run</outputPeriod>
                 </SpatioTemporalConstraint>
             </consistsOf>
+            <requires>
+                <simulation>
+                    <name>UM Control Run for CMIP5</name>
+                    <simulationComposite>
+                        <uri>http://badc.blah/SimulationComposite-abcde</uri>
+                    </simulationComposite>
+                </simulation>
+            </requires>
         </NumericalExperiment>
     </experiments>
 </MIP>
