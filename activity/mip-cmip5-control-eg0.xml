@@ -86,9 +86,9 @@
                 </SpatioTemporalConstraint>
             </consistsOf>
             <requires>
-                <simulation>
-                    <name>UM Control Run for CMIP5</name>
+                <simulation>               
                     <simulationComposite>
+                        <name>UM Control Run for CMIP5</name>
                         <uri>http://badc.blah/SimulationComposite-abcde</uri>
                     </simulationComposite>
                 </simulation>
