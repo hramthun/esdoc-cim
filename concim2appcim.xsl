@@ -160,7 +160,7 @@
   <xsl:template name="complexTypeTemplate">
     <xsl:param name="namespace"/>
     <xsl:param name="id"/>
-    
+
     <xs:complexType>
       <xsl:attribute name="name">
         <xsl:value-of select="concat($namespace,':',@name)"/>
@@ -199,11 +199,16 @@
         </xsl:for-each>
 
         <!-- check there are any associations which have this class as an endpoint -->
-        <xsl:apply-templates select="//UML:Association/UML:Association.connection/UML:AssociationEnd[1][@type=$id]" mode="association">
-          <xsl:with-param name="class" select="."/>
-        </xsl:apply-templates>          
+        <xsl:variable name="class" select="."/>
+        <xsl:apply-templates
+          select="//UML:Association//UML:AssociationEnd[1][@type=$id]/ancestor::UML:Association" mode="association">
+          <xsl:sort case-order="lower-first" select="descendant::UML:AssociationEnd[1]/@name"/>
+          <xsl:sort case-order="lower-first" select="descendant::UML:AssociationEnd[2]/@name"/>
+          <xsl:with-param name="class" select="$class"/>
+        </xsl:apply-templates>
 
-      </xs:sequence> <!-- ends the section of a complexType where local elements are listed, we can now proceed to local attributes -->
+      </xs:sequence>
+      <!-- ends the section of a complexType where local elements are listed, we can now proceed to local attributes -->
 
       <!-- check if any attributes should be attributes  -->
       <!-- (should be the inverse of the 1st for-each loop) -->
@@ -232,6 +237,16 @@
     </xs:complexType>
   </xsl:template>
 
+  <!-- process associations -->
+  <xsl:template match="UML:Association" mode="association">
+    <xsl:param name="class"/>
+    <xsl:element name="association">
+      <xsl:attribute name="parent">
+        <xsl:value-of select="$class"/>
+      </xsl:attribute>
+    </xsl:element>
+  </xsl:template>
+  
   <!-- every package is a new schema -->
   <!-- TODO: use the document() command to output schemas to separate files -->
   <xsl:template match="UML:Package">
