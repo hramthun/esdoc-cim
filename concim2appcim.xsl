@@ -159,6 +159,8 @@
   <!-- all classes (that aren't codelists or enumerations) are complexTypes -->
   <xsl:template name="complexTypeTemplate">
     <xsl:param name="namespace"/>
+    <xsl:param name="id"/>
+    
     <xs:complexType>
       <xsl:attribute name="name">
         <xsl:value-of select="concat($namespace,':',@name)"/>
@@ -196,12 +198,12 @@
           </xsl:if>
         </xsl:for-each>
 
-        <!-- check if any associations are elements -->
-        <xsl:for-each select="descendant::UML:Association">
-          <!-- I AM HERE -->
-        </xsl:for-each>
+        <!-- check there are any associations which have this class as an endpoint -->
+        <xsl:apply-templates select="//UML:Association/UML:Association.connection/UML:AssociationEnd[1][@type=$id]" mode="association">
+          <xsl:with-param name="class" select="."/>
+        </xsl:apply-templates>          
 
-      </xs:sequence>
+      </xs:sequence> <!-- ends the section of a complexType where local elements are listed, we can now proceed to local attributes -->
 
       <!-- check if any attributes should be attributes  -->
       <!-- (should be the inverse of the 1st for-each loop) -->
@@ -265,6 +267,7 @@
 
         <xsl:call-template name="complexTypeTemplate">
           <xsl:with-param name="namespace" select="$classNamespace"/>
+          <xsl:with-param name="id" select="$classID"/>
         </xsl:call-template>
 
       </xsl:otherwise>
