@@ -15,11 +15,7 @@
     <!-- apply templates to the UML:Model -->
     <!-- and ignore  UML:Diagram, etc. -->
     <xsl:apply-templates select="XMI.content/UML:Model"/>
-  </xsl:template>
-  <!-- not sure why I had to explicitly ingore these two tags; shouldn't the above take care of that? -->
-  <xsl:template match="XMI.difference"/>
-  <xsl:template match="XMI.extensions"/>
-  
+  </xsl:template> 
 
   <!-- uh-oh, XMI at a different version -->
   <xsl:template match="XMI">
@@ -54,7 +50,7 @@
   </xsl:variable>
 
   <!-- global parameter (passed in from controlling program) -->
-  <xsl:param name="xmi_files"/>
+  <xsl:param name="xmi_files"/> <!-- the set of XMI files to work with -->
 
   <!-- convert UML named types to XML named types -->
   <xsl:template name="typeTemplate">
@@ -377,6 +373,9 @@
     <xsl:for-each select="descendant::UML:AssociationEnd">
       <xsl:if
         test="(following-sibling::UML:AssociationEnd/@type=$class/attribute::xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/attribute::xmi.id)">
+        <!-- bear in mind that sometimes this matches things from other packages -->
+        <!-- when dealing w/ a single XMI file, this shows up in XMI.Extensions/EAStub and there's no other reference -->
+        <!-- this makes for bad XML; I should deal with a set of XMI files -->
         <xsl:element name="xs:element">
           <xsl:attribute name="name">
             <xsl:choose>
