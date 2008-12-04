@@ -1,21 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<?xml version="1.0" encoding="UTF-8"?>      
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:UML="omg.org/UML1.3"
-  exclude-result-prefixes="UML">
-
+  exclude-result-prefixes="UML" >
+  
   <!-- output an XML file -->
-  <xsl:output method="xml" indent="yes"/>
+  <xsl:output method="xml" indent="yes" />
 
-  <!-- ignore free text -->
+  <!-- ignore free text and whitespace-->
   <xsl:template match="text()"/>
-
+  <xsl:strip-space elements="*"/>
+ 
   <!-- EA outputs XMI v1.1; so this XSL is tailored to that -->
   <!-- strange things might happen at other versions -->
   <xsl:template match="XMI[@xmi.version='1.1']">
     <!-- apply templates to the UML:Model -->
     <!-- and ignore  UML:Diagram, etc. -->
     <xsl:apply-templates select="XMI.content/UML:Model"/>
-  </xsl:template> 
+  </xsl:template>
 
   <!-- uh-oh, XMI at a different version -->
   <xsl:template match="XMI">
@@ -26,18 +27,21 @@
   <xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="class">
     <xsl:call-template name="commentTemplate"/>
   </xsl:template>
-  <xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="attribute">
+  <!--<xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="attribute">
     <xsl:call-template name="commentTemplate"/>
-  </xsl:template>
+  </xsl:template>-->
   <xsl:template match="UML:Attribute//UML:TaggedValue[@tag='description']" mode="attribute">
     <xsl:call-template name="commentTemplate"/>
   </xsl:template>
   <xsl:template name="commentTemplate">
-    <xs:annotation>
-      <xs:documentation>
-        <xsl:value-of select="@value"/>
-      </xs:documentation>
-    </xs:annotation>
+    <xsl:if test="string-length(normalize-space(@value))>1">
+      <xsl:element name="xs:annotation">
+        <xsl:element name="xs:documentation">
+          <!-- documentation might have embedded entities; don't escape these -->
+          <xsl:value-of select="@value"  disable-output-escaping="yes"/>
+        </xsl:element>
+      </xsl:element>
+    </xsl:if>
   </xsl:template>
 
   <!-- some useful global variables (for strings) -->
@@ -50,7 +54,9 @@
   </xsl:variable>
 
   <!-- global parameter (passed in from controlling program) -->
-  <xsl:param name="xmi_files"/> <!-- the set of XMI files to work with -->
+  <!-- the set of XMI files to work with -->
+  <xsl:param name="xmi_files"/>
+  
 
   <!-- convert UML named types to XML named types -->
   <xsl:template name="typeTemplate">
@@ -99,7 +105,10 @@
     <xsl:param name="stereotype"/>
     <xsl:param name="namespace"/>
 
-    <xs:attribute name="{@name}">
+    <xsl:element name="xs:attribute">
+      <xsl:attribute name="name">
+        <xsl:value-of select="@name"/>
+      </xsl:attribute>
       <xsl:attribute name="use">
         <xsl:choose>
           <xsl:when test="$min=0">
@@ -110,15 +119,13 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
-
       <xsl:call-template name="typeTemplate">
         <xsl:with-param name="type" select="$type"/>
       </xsl:call-template>
-
       <xsl:apply-templates mode="attribute"/>
-    </xs:attribute>
+    </xsl:element>
   </xsl:template>
-
+  
   <!-- create a (local) XML element -->
   <xsl:template name="elementTemplate">
     <xsl:param name="min"/>
@@ -129,8 +136,6 @@
 
     <xsl:element name="xs:element">
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name)"/>-->
         <xsl:value-of select="@name"/>
       </xsl:attribute>
       <xsl:attribute name="minOccurs">
@@ -151,7 +156,6 @@
         <xsl:with-param name="type" select="$type"/>
       </xsl:call-template>
 
-
       <xsl:apply-templates mode="attribute"/>
     </xsl:element>
   </xsl:template>
@@ -163,17 +167,11 @@
     <!-- document x is just a global element of type complexType x -->
     <xs:element>
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of
-          select="concat($namespace,':',concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2)))"
-        />-->
         <xsl:value-of
           select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
 
       </xsl:attribute>
       <xsl:attribute name="type">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name)"/>-->
         <xsl:value-of select="@name"/>
       </xsl:attribute>
       <xsl:apply-templates mode="class"/>
@@ -185,8 +183,6 @@
     <xsl:param name="namespace"/>
     <xs:simpleType>
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name)"/>-->
         <xsl:value-of select="@name"/>
       </xsl:attribute>
 
@@ -196,26 +192,21 @@
       <xs:union>
         <xsl:attribute name="memberTypes">
           <xsl:text>xs:string </xsl:text>
-          <!-- NOT DEALING W/ NAMESPACES -->
-          <!--<xsl:value-of select="concat($namespace,':',@name,'CodeList')"/>-->
           <xsl:value-of select="concat(@name,'CodeList')"/>
         </xsl:attribute>
       </xs:union>
     </xs:simpleType>
     <xs:simpleType>
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name,'CodeList')"/>-->
         <xsl:value-of select="concat(@name,'CodeList')"/>
       </xsl:attribute>
-
 
       <!-- ...and an enumeration -->
       <xs:restriction base="xs:string">
         <xsl:for-each select="descendant::UML:Attribute">
           <xsl:sort case-order="lower-first" select="@name"/>
           <xs:enumeration value="{@name}">
-            <xsl:apply-templates mode="attribute"/>
+             <xsl:apply-templates mode="attribute"/>
           </xs:enumeration>
         </xsl:for-each>
       </xs:restriction>
@@ -228,8 +219,6 @@
     <xsl:param name="namespace"/>
     <xs:simpleType>
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name)"/>-->
         <xsl:value-of select="@name"/>
       </xsl:attribute>
 
@@ -254,8 +243,6 @@
 
     <xs:complexType>
       <xsl:attribute name="name">
-        <!-- NOT DEALING W/ NAMESPACES -->
-        <!--<xsl:value-of select="concat($namespace,':',@name)"/>-->
         <xsl:value-of select="@name"/>
       </xsl:attribute>
 
@@ -443,6 +430,15 @@
   <!-- every package is a new schema -->
   <!-- TODO: use the document() command to output schemas to separate files -->
   <xsl:template match="UML:Package">
+    
+    <!-- I AM HERE -->
+    <!-- I CAN JUST PASS IT cim.xmi -->
+    <!-- THIS HAS NESTED SCHEMAS -->
+    <!-- DON'T NEED PARAMETERS -->
+    <!-- I DO NEED XSL:RESULT-DOCUMENT -->
+    <!-- WHICH IS A PROPERTY OF XSL2.0 -->
+    <!-- SO I NEED TO UPGRADE THE ENGINE -->
+    
     <!-- NOT DEALING W/ NAMESPACES -->
     <!--<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
       targetNamespace="http://metaforclimate.eu/cim/{@name}">-->
