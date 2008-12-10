@@ -1,491 +1,632 @@
-<?xml version="1.0" encoding="UTF-8"?>      
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:UML="omg.org/UML1.3"
-  exclude-result-prefixes="UML" >
-  
-  <!-- output an XML file -->
-  <xsl:output method="xml" indent="yes" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- only using XSLT 2.0 for the <result-document> element -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:UML="omg.org/UML1.3"
+    exclude-result-prefixes="UML">
 
-  <!-- ignore free text and whitespace-->
-  <xsl:template match="text()"/>
-  <xsl:strip-space elements="*"/>
- 
-  <!-- EA outputs XMI v1.1; so this XSL is tailored to that -->
-  <!-- strange things might happen at other versions -->
-  <xsl:template match="XMI[@xmi.version='1.1']">
-    <!-- apply templates to the UML:Model -->
-    <!-- and ignore  UML:Diagram, etc. -->
-    <xsl:apply-templates select="XMI.content/UML:Model"/>
-  </xsl:template>
+    <!-- ************ -->
+    <!-- header stuff -->
+    <!-- ************ -->
 
-  <!-- uh-oh, XMI at a different version -->
-  <xsl:template match="XMI">
-    <xsl:message terminate="yes">unsupported XMI version</xsl:message>
-  </xsl:template>
+    <!-- output an XML file -->
+    <xsl:output method="xml" indent="yes"/>
 
-  <!-- copy appropriate documentation over -->
-  <xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="class">
-    <xsl:call-template name="commentTemplate"/>
-  </xsl:template>
-  <!--<xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="attribute">
-    <xsl:call-template name="commentTemplate"/>
-  </xsl:template>-->
-  <xsl:template match="UML:Attribute//UML:TaggedValue[@tag='description']" mode="attribute">
-    <xsl:call-template name="commentTemplate"/>
-  </xsl:template>
-  <xsl:template name="commentTemplate">
-    <xsl:if test="string-length(normalize-space(@value))>1">
-      <xsl:element name="xs:annotation">
-        <xsl:element name="xs:documentation">
-          <!-- documentation might have embedded entities; don't escape these -->
-          <xsl:value-of select="@value"  disable-output-escaping="yes"/>
-        </xsl:element>
-      </xsl:element>
-    </xsl:if>
-  </xsl:template>
+    <!-- ignore free text and whitespace-->
+    <xsl:template match="text()"/>
+    <xsl:strip-space elements="*"/>
 
-  <!-- some useful global variables (for strings) -->
-  <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
-  <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
-  <xsl:variable name="built-inTypes">Character CharacterString Integer Real Boolean URI</xsl:variable>
-  <xsl:variable name="newline">
-    <xsl:text>      
-    </xsl:text>
-  </xsl:variable>
+    <!-- some useful global variables  -->
+    <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
+    <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
+    <xsl:variable name="newline">
+        <xsl:text>       
+</xsl:text>
+    </xsl:variable>
+    <!-- set to 0 turn off printing -->
+    <xsl:variable name="debug" select="0"/>
 
-  <!-- global parameter (passed in from controlling program) -->
-  <!-- the set of XMI files to work with -->
-  <xsl:param name="xmi_files"/>
-  
+    <!-- ********************* -->
+    <!-- "top-level" templates -->
+    <!-- ********************* -->
 
-  <!-- convert UML named types to XML named types -->
-  <xsl:template name="typeTemplate">
-    <xsl:param name="type"/>
-    <xsl:if test="$type">
-      <xsl:choose>
-        <xsl:when test="translate($type,$upperCase,$lowerCase)='characterstring'">
-          <xsl:attribute name="type">
-            <xsl:text>xs:string</xsl:text>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:when test="translate($type,$upperCase,$lowerCase)='integer'">
-          <xsl:attribute name="type">
-            <xsl:text>xs:integer</xsl:text>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:when test="translate($type,$upperCase,$lowerCase)='real'">
-          <xsl:attribute name="type">
-            <xsl:text>xs:double</xsl:text>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:when test="translate($type,$upperCase,$lowerCase)='boolean'">
-          <xsl:attribute name="type">
-            <xsl:text>xs:boolean</xsl:text>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:when test="translate($type,$upperCase,$lowerCase)='uri'">
-          <xsl:attribute name="type">
-            <xsl:text>xs:anyURI</xsl:text>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:attribute name="type">
-            <xsl:value-of select="$type"/>
-          </xsl:attribute>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:if>
-  </xsl:template>
+    <!-- EA outputs XMI v1.1; so this XSL is tailored to that -->
+    <!-- strange things might happen at other versions -->
+    <xsl:template match="XMI[@xmi.version='1.1']">
+        <!-- apply templates to the UML:Model -->
+        <!-- and ignore  UML:Diagram, etc. -->
+        <xsl:apply-templates select="XMI.content/UML:Model"/>
+    </xsl:template>
 
-  <!-- create an XML attribute -->
-  <xsl:template name="attributeTemplate">
-    <xsl:param name="min"/>
-    <xsl:param name="max"/>
-    <xsl:param name="type"/>
-    <xsl:param name="stereotype"/>
-    <xsl:param name="namespace"/>
+    <!-- uh-oh, XMI at a different version -->
+    <xsl:template match="XMI">
+        <xsl:message terminate="yes">
+            <xsl:text>unsupported XMI version: </xsl:text>
+            <xsl:value-of select="@xmi.version"/>
+        </xsl:message>
+    </xsl:template>
 
-    <xsl:element name="xs:attribute">
-      <xsl:attribute name="name">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-      <xsl:attribute name="use">
-        <xsl:choose>
-          <xsl:when test="$min=0">
-            <xsl:text>optional</xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:text>required</xsl:text>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:attribute>
-      <xsl:call-template name="typeTemplate">
-        <xsl:with-param name="type" select="$type"/>
-      </xsl:call-template>
-      <xsl:apply-templates mode="attribute"/>
-    </xsl:element>
-  </xsl:template>
-  
-  <!-- create a (local) XML element -->
-  <xsl:template name="elementTemplate">
-    <xsl:param name="min"/>
-    <xsl:param name="max"/>
-    <xsl:param name="type"/>
-    <xsl:param name="stereotype"/>
-    <xsl:param name="namespace"/>
+    <!-- every package is its own schema file -->
+    <!-- each package includes all other schemas -->
+    <xsl:template match="UML:Package">
+        <xsl:variable name="packageName" select="@name"/>
+        <xsl:variable name="fileName" select="concat($packageName,'.xsd')"/>
 
-    <xsl:element name="xs:element">
-      <xsl:attribute name="name">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-      <xsl:attribute name="minOccurs">
-        <xsl:value-of select="$min"/>
-      </xsl:attribute>
-      <xsl:attribute name="maxOccurs">
-        <xsl:choose>
-          <xsl:when test="string($max)='*'">
-            <xsl:text>unbounded</xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$max"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:attribute>
-
-      <xsl:call-template name="typeTemplate">
-        <xsl:with-param name="type" select="$type"/>
-      </xsl:call-template>
-
-      <xsl:apply-templates mode="attribute"/>
-    </xsl:element>
-  </xsl:template>
-
-  <!-- create a (global) XML element -->
-  <!-- handles the <<document>> stereotype -->
-  <xsl:template name="documentTemplate">
-    <xsl:param name="namespace"/>
-    <!-- document x is just a global element of type complexType x -->
-    <xs:element>
-      <xsl:attribute name="name">
-        <xsl:value-of
-          select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
-
-      </xsl:attribute>
-      <xsl:attribute name="type">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-      <xsl:apply-templates mode="class"/>
-    </xs:element>
-  </xsl:template>
-
-  <!-- how to process codelists -->
-  <xsl:template name="codelistTemplate">
-    <xsl:param name="namespace"/>
-    <xs:simpleType>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-
-      <xsl:apply-templates mode="class"/>
-
-      <!-- a codelist is a union of xs:string... -->
-      <xs:union>
-        <xsl:attribute name="memberTypes">
-          <xsl:text>xs:string </xsl:text>
-          <xsl:value-of select="concat(@name,'CodeList')"/>
-        </xsl:attribute>
-      </xs:union>
-    </xs:simpleType>
-    <xs:simpleType>
-      <xsl:attribute name="name">
-        <xsl:value-of select="concat(@name,'CodeList')"/>
-      </xsl:attribute>
-
-      <!-- ...and an enumeration -->
-      <xs:restriction base="xs:string">
-        <xsl:for-each select="descendant::UML:Attribute">
-          <xsl:sort case-order="lower-first" select="@name"/>
-          <xs:enumeration value="{@name}">
-             <xsl:apply-templates mode="attribute"/>
-          </xs:enumeration>
-        </xsl:for-each>
-      </xs:restriction>
-
-    </xs:simpleType>
-  </xsl:template>
-
-  <!-- how to process enumerations -->
-  <xsl:template name="enumerationTemplate">
-    <xsl:param name="namespace"/>
-    <xs:simpleType>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-
-      <xsl:apply-templates mode="class"/>
-
-      <xs:restriction base="xs:string">
-        <xsl:for-each select="descendant::UML:Attribute">
-          <xsl:sort case-order="lower-first" select="@name"/>
-          <xs:enumeration value="{@name}">
-            <xsl:apply-templates mode="attribute"/>
-          </xs:enumeration>
-        </xsl:for-each>
-      </xs:restriction>
-    </xs:simpleType>
-  </xsl:template>
-
-  <!-- create an XML complexType -->
-  <!-- all classes (that aren't codelists or enumerations) are complexTypes -->
-  <xsl:template name="complexTypeTemplate">
-    <xsl:param name="namespace"/>
-    <xsl:param name="id"/>
-
-    <xs:complexType>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@name"/>
-      </xsl:attribute>
-
-      <xsl:apply-templates mode="class"/>
-
-      <!-- check if there are any generalisations that use this class -->
-      <xsl:variable name="generalisation" select="//UML:Generalization[@subtype=$id]"/>
-      <xsl:if test="$generalisation">
-        <xsl:variable name="generalClass"
-          select="//UML:Class[@xmi.id=$generalisation/attribute::supertype]"/>
-        <!-- have to do this as text b/c I don't close the tags until much later -->
-        <xsl:text disable-output-escaping="yes">
-          &lt;xs:complexContent&gt;
-            &lt;xs:extension base="</xsl:text>
-        <xsl:value-of select="$generalClass/attribute::name"/>
-        <xsl:text disable-output-escaping="yes">"&gt;
-        </xsl:text>
-      </xsl:if>
-
-      <xs:sequence>
-        <!-- check if any attributes should be elements -->
-        <xsl:for-each select="descendant::UML:Attribute">
-          <xsl:sort case-order="lower-first" select="@name"/>
-          <xsl:variable name="attMin" select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
-          <xsl:variable name="attMax" select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
-          <xsl:variable name="attType" select="descendant::UML:TaggedValue[@tag='type']/@value"/>
-          <xsl:variable name="attStereotype"
-            select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
-
-          <!-- A UML attribute is an XML element, unless it is of type x-->
-          <!-- where x is an enumeration, codelist, or (certain) built-in type. -->
-          <!-- Otherwise it is an XML attribute, -->
-          <!-- unless it has an upperBound > 1 -->
-
-          <!-- this convoluted test makes sure that... -->
-          <!-- there the upperBound is greater than one -->
-          <!-- or it is not an explicit enumeration or codlist or boolean -->
-          <!-- or it is not a type which is itself an explicit enumeration or codelist -->
-          <xsl:if
-            test="$attMax!=1 or 
-            ( not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attType,$upperCase,$lowerCase)='enumeration')
-            and (
-            not(
-            translate(//UML:Class[@name=$attType]//UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' 
-            or 
-            translate(//UML:Class[@name=$attType]//UML:Stereotype/@name,$upperCase,$lowerCase)='codelist') )
-            )">
-            <xsl:call-template name="elementTemplate">
-              <xsl:with-param name="min" select="$attMin"/>
-              <xsl:with-param name="max" select="$attMax"/>
-              <xsl:with-param name="type" select="$attType"/>
-              <xsl:with-param name="stereotype" select="$attStereotype"/>
-              <xsl:with-param name="namespace" select="$namespace"/>
-            </xsl:call-template>
-          </xsl:if>
-        </xsl:for-each>
-
-        <!-- check there are any associations which have this class as an endpoint -->
-        <xsl:variable name="class" select="."/>
-        <xsl:apply-templates
-          select="//UML:Association//UML:AssociationEnd[@type=$id]/ancestor::UML:Association"
-          mode="association">
-          <xsl:sort case-order="lower-first" select="descendant::UML:AssociationEnd[1]/@name"/>
-          <xsl:sort case-order="lower-first" select="descendant::UML:AssociationEnd[2]/@name"/>
-          <xsl:with-param name="class" select="$class"/>
-        </xsl:apply-templates>
-
-      </xs:sequence>
-      <!-- ends the section of a complexType where local elements are listed, we can now proceed to local attributes -->
-
-      <!-- check if any attributes should be attributes  -->
-      <!-- (should be the inverse of the 1st for-each loop) -->
-      <xsl:for-each select="descendant::UML:Attribute">
-        <xsl:sort case-order="lower-first" select="@name"/>
-        <xsl:variable name="attMin" select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
-        <xsl:variable name="attMax" select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
-        <xsl:variable name="attType" select="descendant::UML:TaggedValue[@tag='type']/@value"/>
-        <xsl:variable name="attStereotype"
-          select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
-
-        <!-- this convoluted test is the inverse of that above -->
-        <xsl:if
-          test="$attMax=1 and 
-          ( ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attType,$upperCase,$lowerCase)='enumeration')
-          or (translate(//UML:Class[@name=$attType]//UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]//UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
-          )
-          ">
-          <xsl:call-template name="attributeTemplate">
-            <xsl:with-param name="min" select="$attMin"/>
-            <xsl:with-param name="max" select="$attMax"/>
-            <xsl:with-param name="type" select="$attType"/>
-            <xsl:with-param name="stereotype" select="$attStereotype"/>
-            <xsl:with-param name="namespace" select="$namespace"/>
-          </xsl:call-template>
+        <xsl:if test="$debug">
+            <xsl:message>
+                <xsl:value-of select="$newline"/>
+            </xsl:message>
+            <xsl:message>
+                <xsl:text>processing package: </xsl:text>
+                <xsl:value-of select="$packageName"/>
+            </xsl:message>
         </xsl:if>
-      </xsl:for-each>
 
-      <!-- don't forget to close any tags from the generalisation -->
-      <xsl:if test="$generalisation">
-        <xsl:text disable-output-escaping="yes">  
-            &lt;/xs:extension&gt;
-          &lt;/xs:complexContent&gt;
-        </xsl:text>
-      </xsl:if>
-    </xs:complexType>
-  </xsl:template>
-
-  <!-- process associations -->
-  <xsl:template match="UML:Association" mode="association">
-    <xsl:param name="class"/>
-
-    <!-- I am matching the associationEnd that is _not_ the current class -->
-    <!-- b/c UML associations are "backwards" -->
-
-    <xsl:for-each select="descendant::UML:AssociationEnd">
-      <xsl:if
-        test="(following-sibling::UML:AssociationEnd/@type=$class/attribute::xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/attribute::xmi.id)">
-        <!-- bear in mind that sometimes this matches things from other packages -->
-        <!-- when dealing w/ a single XMI file, this shows up in XMI.Extensions/EAStub and there's no other reference -->
-        <!-- this makes for bad XML; I should deal with a set of XMI files -->
-        <xsl:element name="xs:element">
-          <xsl:attribute name="name">
-            <xsl:choose>
-              <xsl:when test="@name">
-                <xsl:value-of select="@name"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <!-- this code ensures a class name is camelCase -->
-                <xsl:variable name="endType" select="@type"/>
-                <xsl:variable name="name" select="//UML:Class[@xmi.id=$endType]/@name"/>
+        <xsl:result-document href="{$fileName}">
+            <!-- add some useful comments about the file -->
+            <xsl:comment>
+                <xsl:value-of select="concat(' ',$fileName,' ')"/>
+            </xsl:comment>
+            <xsl:value-of select="$newline"/>
+            <xsl:comment>
                 <xsl:value-of
-                  select="concat(translate(substring($name,1,1),$upperCase,$lowerCase),substring($name,2))"
+                    select="concat(' generated: ',format-date(current-date(),'[D] [MNn] [Y]'),' ')"
                 />
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <!-- work out the max/min of this associationEnd -->
-          <xsl:choose>
-            <xsl:when test="@multiplicity='*'">
-              <xsl:attribute name="minOccurs">1</xsl:attribute>
-              <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+            </xsl:comment>
+            <xsl:value-of select="$newline"/>
+            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xsl:for-each select="//UML:Package[@name!=$packageName]">
+                    <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
+                </xsl:for-each>
+                <xsl:apply-templates/>
+            </xs:schema>
+        </xsl:result-document>
+    </xsl:template>
+
+    <!-- every UML class (within a package) is either a complexType or a simpleType -->
+    <!-- <<document>> stereotypes are also global elements -->
+    <xsl:template match="UML:Package//UML:Class">
+
+        <xsl:variable name="classStereotype"
+            select="translate(./UML:ModelElement.taggedValue/UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+
+        <xsl:if test="$debug">
+            <xsl:message>
+                <xsl:text>processing class: </xsl:text>
+                <xsl:value-of select="@name"/>
+            </xsl:message>
+        </xsl:if>
+
+        <xsl:choose>
+            <xsl:when test="$classStereotype='enumeration'">
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>it's an enumeration </xsl:text>
+                    </xsl:message>
+                </xsl:if>
+                <xsl:call-template name="enumerationTemplate"/>
             </xsl:when>
-            <xsl:when test="@multiplicity='0'">
-              <xsl:attribute name="minOccurs">0</xsl:attribute>
-              <xsl:attribute name="maxOccurs">0</xsl:attribute>
+            <xsl:when test="$classStereotype='codelist'">
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>it's a codelist </xsl:text>
+                    </xsl:message>
+                </xsl:if>
+                <xsl:call-template name="codelistTemplate"/>
             </xsl:when>
-            <xsl:when test="@multiplicity='0..*'">
-              <xsl:attribute name="minOccurs">0</xsl:attribute>
-              <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-            </xsl:when>
-            <xsl:when test="@multiplicity='0..1'">
-              <xsl:attribute name="minOccurs">0</xsl:attribute>
-              <xsl:attribute name="maxOccurs">1</xsl:attribute>
-            </xsl:when>
-            <xsl:when test="@multiplicity='1'">
-              <xsl:attribute name="minOccurs">1</xsl:attribute>
-              <xsl:attribute name="maxOccurs">1</xsl:attribute>
-            </xsl:when>
-            <xsl:when test="@multiplicity='1..'">
-              <xsl:attribute name="minOccurs">1</xsl:attribute>
-              <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-            </xsl:when>
-            <xsl:when test="@multiplicity='1..*'">
-              <xsl:attribute name="minOccurs">1</xsl:attribute>
-              <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-            </xsl:when>
+
+            <!-- if it's not a simpleType (codelist or enumeration) -->
+            <!-- then it must be a complexType -->
             <xsl:otherwise>
-              <!-- multiplicity is not specified; assume 1..1 -->
-              <xsl:attribute name="minOccurs">1</xsl:attribute>
-              <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>it's a complexType </xsl:text>
+                    </xsl:message>
+                </xsl:if>
+
+                <xsl:call-template name="complexTypeTemplate"/>
             </xsl:otherwise>
-          </xsl:choose>
+        </xsl:choose>
+        <xsl:if test="$classStereotype='document'">
+            <xsl:if test="$debug">
+                <xsl:message>
+                    <xsl:text>it's a document too </xsl:text>
+                </xsl:message>
+            </xsl:if>
 
-          <!-- work out the type of element -->
-          <xsl:attribute name="type">
-            <xsl:variable name="type" select="@type"/>
-            <xsl:value-of select="//UML:Class[@xmi.id=$type]/@name"/>
-          </xsl:attribute>
+            <xsl:call-template name="documentTemplate"/>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- ***************** -->
+    <!-- named templates -->
+    <!-- ***************** -->
+
+    <!-- enumerations (simpleType) -->
+    <xsl:template name="enumerationTemplate">
+        <xs:simpleType name="{@name}">
+            <xsl:apply-templates mode="UMLclass"/>
+            <xs:restriction base="xs:string">
+                <xsl:for-each select="descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name"/>
+                    <xs:enumeration value="{@name}">
+                        <xsl:apply-templates mode="UMLattribute"/>
+                    </xs:enumeration>
+                </xsl:for-each>
+            </xs:restriction>
+        </xs:simpleType>
+    </xsl:template>
+
+    <!-- codelists (simpleType) -->
+    <xsl:template name="codelistTemplate">
+
+        <xs:simpleType name="{@name}">
+            <xsl:apply-templates mode="UMLclass"/>
+            <!-- a codelist is a union of xs:string... -->
+            <xs:union>
+                <xsl:attribute name="memberTypes">
+                    <xsl:value-of select="concat('xs:string ',@name,'Enumeration')"/>
+                </xsl:attribute>
+            </xs:union>
+        </xs:simpleType>
+
+        <xs:simpleType>
+            <xsl:attribute name="name">
+                <xsl:value-of select="concat(@name,'Enumeration')"/>
+            </xsl:attribute>
+            <!-- ...and an enumeration -->
+            <xs:restriction base="xs:string">
+                <xsl:for-each select="descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name"/>
+                    <xs:enumeration value="{@name}">
+                        <xsl:apply-templates mode="UMLattribute"/>
+                    </xs:enumeration>
+                </xsl:for-each>
+            </xs:restriction>
+        </xs:simpleType>
+
+    </xsl:template>
+
+    <!-- global elements (documents) -->
+    <xsl:template name="documentTemplate">
+        <xsl:variable name="documentName"
+            select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
+
+        <!-- <<document>> x is just a global element of type complexType x -->
+        <xs:element>
+            <xsl:attribute name="name">
+                <xsl:value-of select="$documentName"/>
+            </xsl:attribute>
+            <xsl:attribute name="type">
+                <xsl:value-of select="@name"/>
+            </xsl:attribute>
+            <xsl:apply-templates mode="UMLclass"/>
+        </xs:element>
+    </xsl:template>
+
+    <!-- local elements -->
+    <xsl:template name="elementTemplate">
+        <xsl:param name="min"/>
+        <xsl:param name="max"/>
+        <xsl:param name="type"/>
+        <xsl:param name="stereotype"/>
+
+        <xsl:element name="xs:element">
+            <xsl:attribute name="name">
+                <xsl:value-of select="@name"/>
+            </xsl:attribute>
+            <xsl:attribute name="minOccurs">
+                <xsl:value-of select="$min"/>
+            </xsl:attribute>
+            <xsl:attribute name="maxOccurs">
+                <xsl:choose>
+                    <xsl:when test="string($max)='*'">
+                        <xsl:text>unbounded</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$max"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+
+            <xsl:call-template name="typeTemplate">
+                <xsl:with-param name="type" select="$type"/>
+            </xsl:call-template>
+
+            <xsl:apply-templates mode="UMLattribute"/>
         </xsl:element>
-      </xsl:if>
-    </xsl:for-each>
 
-  </xsl:template>
+    </xsl:template>
 
-  <!-- every package is a new schema -->
-  <!-- TODO: use the document() command to output schemas to separate files -->
-  <xsl:template match="UML:Package">
-    
-    <!-- I AM HERE -->
-    <!-- I CAN JUST PASS IT cim.xmi -->
-    <!-- THIS HAS NESTED SCHEMAS -->
-    <!-- DON'T NEED PARAMETERS -->
-    <!-- I DO NEED XSL:RESULT-DOCUMENT -->
-    <!-- WHICH IS A PROPERTY OF XSL2.0 -->
-    <!-- SO I NEED TO UPGRADE THE ENGINE -->
-    
-    <!-- NOT DEALING W/ NAMESPACES -->
-    <!--<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-      targetNamespace="http://metaforclimate.eu/cim/{@name}">-->
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xsl:apply-templates/>
-    </xs:schema>
-  </xsl:template>
+    <!-- local attributes -->
+    <xsl:template name="attributeTemplate">
+        <xsl:param name="min"/>
+        <xsl:param name="max"/>
+        <xsl:param name="type"/>
+        <xsl:param name="stereotype"/>
 
-  <!-- every UML class within a package is either a complexType or a simpleType -->
-  <!-- <<document>> stereotypes are also global elements -->
-  <xsl:template match="UML:Package//UML:Class">
+        <xsl:element name="xs:attribute">
+            <xsl:attribute name="name">
+                <xsl:value-of select="@name"/>
+            </xsl:attribute>
+            <xsl:attribute name="use">
+                <xsl:choose>
+                    <xsl:when test="$min=0">
+                        <xsl:text>optional</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>required</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:call-template name="typeTemplate">
+                <xsl:with-param name="type" select="$type"/>
+            </xsl:call-template>
+            <xsl:apply-templates mode="UMLattribute"/>
+        </xsl:element>
 
-    <xsl:variable name="packageID" select="descendant::UML:TaggedValue[@tag='package']/@value"/>
-    <xsl:variable name="classID" select="@xmi.id"/>
+    </xsl:template>
 
-    <xsl:variable name="classStereotype"
-      select="translate(./UML:ModelElement.taggedValue/UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
-    <xsl:variable name="classNamespace" select="//UML:Package[@xmi.id=$packageID]/@name"/>
+    <!-- complexTypes -->
+    <xsl:template name="complexTypeTemplate">
+        <xsl:variable name="class" select="."/>
 
-    <xsl:choose>
-      <xsl:when test="$classStereotype='enumeration'">
-        <xsl:call-template name="enumerationTemplate">
-          <xsl:with-param name="namespace" select="$classNamespace"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="$classStereotype='codelist'">
-        <xsl:call-template name="codelistTemplate">
-          <xsl:with-param name="namespace" select="$classNamespace"/>
-        </xsl:call-template>
-      </xsl:when>
+        <!-- all classes (that aren't codelists or enumerations) are complexTypes -->
+        <xs:complexType name="{@name}">
+            <xsl:apply-templates mode="UMLclass"/>
 
-      <!-- if it's not a simpleType (codelist or enumeration) -->
-      <!-- then it must be a complexType -->
-      <xsl:otherwise>
+            <!-- first check if this is a specialisation of another class -->
+            <xsl:variable name="generalisation"
+                select="//UML:Generalization[@subtype=$class/@xmi.id]"/>
+            <xsl:if test="$generalisation">
 
-        <xsl:call-template name="complexTypeTemplate">
-          <xsl:with-param name="namespace" select="$classNamespace"/>
-          <xsl:with-param name="id" select="$classID"/>
-        </xsl:call-template>
+                <xsl:variable name="generalClass"
+                    select="//UML:Class[@xmi.id=$generalisation/attribute::supertype]"/>
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:value-of select="$class/@name"/>
+                        <xsl:text> is a specialisation of </xsl:text>
+                        <xsl:value-of select="$generalClass/@name"/>
+                    </xsl:message>
+                </xsl:if>
+                <!-- have to do this as text b/c I don't close the tags until much later -->
+                <xsl:text disable-output-escaping="yes">
+                    &lt;xs:complexContent&gt;
+                    &lt;xs:extension base="</xsl:text>
+                <xsl:value-of select="$generalClass/attribute::name"/>
+                <xsl:text disable-output-escaping="yes">"&gt;
+                </xsl:text>
+            </xsl:if>
 
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="$classStereotype='document'">
-      <xsl:call-template name="documentTemplate">
-        <xsl:with-param name="namespace" select="$classNamespace"/>
-      </xsl:call-template>
-    </xsl:if>
-  </xsl:template>
+            <!-- all elements must preceed any attributes, and must be grouped w/in xs:sequence -->
+            <xs:sequence>
+
+                <!-- next chack if there are any associations which have this class as an endpoint -->
+                <xsl:apply-templates
+                    select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
+                    mode="UMLclass">
+                    <xsl:sort case-order="lower-first"
+                        select="descendant::UML:AssociationEnd[1]/@name"/>
+                    <xsl:sort case-order="lower-first"
+                        select="descendant::UML:AssociationEnd[2]/@name"/>
+                    <xsl:with-param name="class" select="$class"/>
+                </xsl:apply-templates>
+
+                <!-- next check if any of the (UML) attributes should be (XML) elements -->
+                <xsl:for-each select="descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name"/>
+
+                    <!-- A UML attribute is an XML element, unless it is of type x-->
+                    <!-- where x is an enumeration, codelist, or (certain) built-in type. -->
+                    <!-- Otherwise it is an XML attribute, -->
+                    <!-- unless it has an upperBound > 1 -->
+
+                    <xsl:variable name="attMin"
+                        select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                    <xsl:variable name="attMax"
+                        select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                    <xsl:variable name="attType"
+                        select="descendant::UML:TaggedValue[@tag='type']/@value"/>
+                    <xsl:variable name="attStereotype"
+                        select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+
+                    <xsl:if test="$debug">
+                        <xsl:message>
+                            <xsl:text>processing attribute: </xsl:text>
+                            <xsl:value-of select="@name"/>
+                        </xsl:message>
+                        <xsl:message>
+                            <xsl:text>min: </xsl:text>
+                            <xsl:value-of select="$attMin"/>
+                        </xsl:message>
+                        <xsl:message>
+                            <xsl:text>max: </xsl:text>
+                            <xsl:value-of select="$attMax"/>
+                        </xsl:message>
+                        <xsl:message>
+                            <xsl:text>type: </xsl:text>
+                            <xsl:value-of select="$attType"/>
+                        </xsl:message>
+                        <xsl:message>
+                            <xsl:text>stereotype: </xsl:text>
+                            <xsl:value-of select="$attStereotype"/>
+                        </xsl:message>
+                        <xsl:message>
+                            <xsl:text>stereotype of type class: </xsl:text>
+                            <xsl:copy-of
+                                select="//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name"
+                            />
+                        </xsl:message>
+                    </xsl:if>
+                    <!-- if the upperBound is greater than one -->
+                    <!-- or it is not an explicit enumeration or codelist or boolean -->
+                    <!-- or it is not a type which is itself an explicit enumeration or codelist -->
+                    <!-- (have to test $attMax as a string, b/c it might equal "*") -->
+                    <xsl:choose>
+
+                        <xsl:when
+                            test="string($attMax)!='1' or 
+                            ( 
+                            (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
+                            and
+                            (not (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist'))
+                            )">
+
+                            <xsl:if test="$debug">
+                                <xsl:message>
+                                    <xsl:text>it's an element </xsl:text>
+                                </xsl:message>
+                            </xsl:if>
+                            <!-- then it must be an XML element -->
+                            <xsl:call-template name="elementTemplate">
+                                <xsl:with-param name="min" select="$attMin"/>
+                                <xsl:with-param name="max" select="$attMax"/>
+                                <xsl:with-param name="type" select="$attType"/>
+                                <xsl:with-param name="stereotype" select="$attStereotype"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:if test="$debug">
+                                <xsl:message>
+                                    <xsl:text>it's an attribute (deal w/ it later) </xsl:text>
+                                </xsl:message>
+                            </xsl:if>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:for-each>
+
+            </xs:sequence>
+            <!-- that's if for the elements, now we loop again and process any attributes -->
+
+            <xsl:for-each select="descendant::UML:Attribute">
+                <xsl:sort case-order="lower-first" select="@name"/>
+
+                <xsl:variable name="attMin"
+                    select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                <xsl:variable name="attMax"
+                    select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                <xsl:variable name="attType"
+                    select="descendant::UML:TaggedValue[@tag='type']/@value"/>
+                <xsl:variable name="attStereotype"
+                    select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>processing attribute: </xsl:text>
+                        <xsl:value-of select="@name"/>
+                    </xsl:message>
+                    <xsl:message>
+                        <xsl:text>min: </xsl:text>
+                        <xsl:value-of select="$attMin"/>
+                    </xsl:message>
+                    <xsl:message>
+                        <xsl:text>max: </xsl:text>
+                        <xsl:value-of select="$attMax"/>
+                    </xsl:message>
+                    <xsl:message>
+                        <xsl:text>type: </xsl:text>
+                        <xsl:value-of select="$attType"/>
+                    </xsl:message>
+                    <xsl:message>
+                        <xsl:text>stereotype: </xsl:text>
+                        <xsl:value-of select="$attStereotype"/>
+                    </xsl:message>
+                    <xsl:message>
+                        <xsl:text>stereotype of type class: </xsl:text>
+                        <xsl:copy-of
+                            select="//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name"
+                        />
+                    </xsl:message>
+                </xsl:if>
+
+                <!-- this should be the inverse of the above test -->
+                <xsl:choose>
+
+                    <xsl:when
+                        test="string($attMax)='1' and 
+                        ( 
+                        ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
+                        or
+                        (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
+                        )">
+
+                        <xsl:if test="$debug">
+                            <xsl:message>
+                                <xsl:text>it's an attribute </xsl:text>
+                            </xsl:message>
+                        </xsl:if>
+
+                        <xsl:call-template name="attributeTemplate">
+                            <xsl:with-param name="min" select="$attMin"/>
+                            <xsl:with-param name="max" select="$attMax"/>
+                            <xsl:with-param name="type" select="$attType"/>
+                            <xsl:with-param name="stereotype" select="$attStereotype"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:if test="$debug">
+                            <xsl:message>
+                                <xsl:text>it's an element (already dealt w/ it) </xsl:text>
+                            </xsl:message>
+                        </xsl:if>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+
+
+            <!-- don't forget to close any tags from a generalisation -->
+            <xsl:if test="$generalisation">
+                <xsl:text disable-output-escaping="yes">  
+                    &lt;/xs:extension&gt;
+                    &lt;/xs:complexContent&gt;
+                </xsl:text>
+            </xsl:if>
+
+        </xs:complexType>
+
+    </xsl:template>
+
+    <!-- ****************** -->
+    <!-- "helper" templates -->
+    <!-- ****************** -->
+
+    <!-- most of these templates use the "mode" attribute -->
+    <!-- to prevent them from matching in unwanted situations -->
+
+    <!-- copy appropriate documentation over -->
+    <xsl:template match="UML:Class//UML:TaggedValue[@tag='documentation']" mode="UMLclass">
+        <xsl:call-template name="commentTemplate"/>
+    </xsl:template>
+    <xsl:template match="UML:Attribute//UML:TaggedValue[@tag='description']" mode="UMLattribute">
+        <xsl:call-template name="commentTemplate"/>
+    </xsl:template>
+    <xsl:template name="commentTemplate">
+        <xsl:if test="string-length(normalize-space(@value))>1">
+            <xsl:element name="xs:annotation">
+                <xsl:element name="xs:documentation">
+                    <!-- documentation might have embedded entities; don't escape these -->
+                    <xsl:value-of select="@value" disable-output-escaping="yes"/>
+                </xsl:element>
+            </xsl:element>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- an association from one (UML) class to another -->
+    <xsl:template match="UML:Association" mode="UMLclass">
+        <xsl:param name="class"/>
+
+        <!-- I am matching the associationEnd that is _not_ the current class -->
+        <!-- b/c UML associations are "backwards" -->
+
+        <xsl:for-each select="descendant::UML:AssociationEnd">
+
+            <xsl:if
+                test="(following-sibling::UML:AssociationEnd/@type=$class/@xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/@xmi.id)">
+                <xsl:variable name="endType" select="@type"/>                
+                <xsl:element name="xs:element">
+
+                    <!-- work out the name of the element -->
+                    <xsl:attribute name="name">
+                        <xsl:choose>
+                            <!-- if the associationEnd has a role, use that as the name -->
+                            <xsl:when test="@name">
+                                <xsl:value-of select="@name"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <!-- otherwise, use a camelCase version of the class name -->
+                                <xsl:variable name="name"
+                                    select="//UML:Class[@xmi.id=$endType]/@name"/>
+                                <xsl:value-of
+                                    select="concat(translate(substring($name,1,1),$upperCase,$lowerCase),substring($name,2))"
+                                />
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+
+                    <!-- work out the type of the element -->
+                    <xsl:attribute name="type">
+                        <xsl:value-of select="//UML:Class[@xmi.id=$endType]/@name"/>
+                    </xsl:attribute>
+
+                    <!-- work out the max/min of the element -->
+                    <xsl:choose>
+                        <xsl:when test="@multiplicity='*'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">0</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0..*'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0..1'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1..'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1..*'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- multiplicity is not specified; assume 1..1 -->
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
+                </xsl:element>
+            </xsl:if>
+        </xsl:for-each>
+
+    </xsl:template>
+
+    <!-- convert UML named types to XML named types -->
+    <xsl:template name="typeTemplate">
+        <xsl:param name="type"/>
+        <xsl:if test="$type">
+            <xsl:choose>
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='characterstring'">
+                    <xsl:attribute name="type">
+                        <xsl:text>xs:string</xsl:text>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='integer'">
+                    <xsl:attribute name="type">
+                        <xsl:text>xs:integer</xsl:text>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='real'">
+                    <xsl:attribute name="type">
+                        <xsl:text>xs:double</xsl:text>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='boolean'">
+                    <xsl:attribute name="type">
+                        <xsl:text>xs:boolean</xsl:text>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='uri'">
+                    <xsl:attribute name="type">
+                        <xsl:text>xs:anyURI</xsl:text>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="type">
+                        <xsl:value-of select="$type"/>
+                    </xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
 
 </xsl:stylesheet>
