@@ -191,7 +191,7 @@
         <xsl:variable name="documentName"
             select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
 
-        <!-- <<document>> x is just a global element of type complexType x -->
+<!--                
         <xs:element>
             <xsl:attribute name="name">
                 <xsl:value-of select="$documentName"/>
@@ -200,6 +200,38 @@
                 <xsl:value-of select="@name"/>
             </xsl:attribute>
             <xsl:apply-templates mode="UMLclass"/>
+        </xs:element>
+-->
+        <!-- TODO: SHOULD I APPLY DOCUMENT-SPECIFIC ATTRIBUTES TO THE COMPLEXTYPE INSTEAD? -->
+        
+        <!-- <<document>> x is just a global element of type complexType x -->
+        <xs:element name="{$documentName}">
+            <xsl:apply-templates mode="UMLclass"/>            
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="{@name}">
+                        <!-- add document-specific attributes here -->
+                        <xsl:for-each
+                            select="//UML:Class[@name='Document']/descendant::UML:Attribute">
+                            <xsl:sort case-order="lower-first" select="@name"/>
+                            <xsl:variable name="attMin"
+                                select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                            <xsl:variable name="attMax"
+                                select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                            <xsl:variable name="attType"
+                                select="descendant::UML:TaggedValue[@tag='type']/@value"/>
+                            <xsl:variable name="attStereotype"
+                                select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+                            <xsl:call-template name="attributeTemplate">
+                                <xsl:with-param name="min" select="$attMin"/>
+                                <xsl:with-param name="max" select="$attMax"/>
+                                <xsl:with-param name="type" select="$attType"/>
+                                <xsl:with-param name="stereotype" select="$attStereotype"/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
         </xs:element>
     </xsl:template>
 
@@ -521,7 +553,7 @@
 
             <xsl:if
                 test="(following-sibling::UML:AssociationEnd/@type=$class/@xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/@xmi.id)">
-                <xsl:variable name="endType" select="@type"/>                
+                <xsl:variable name="endType" select="@type"/>
                 <xsl:element name="xs:element">
 
                     <!-- work out the name of the element -->
