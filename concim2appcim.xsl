@@ -73,7 +73,8 @@
                 />
             </xsl:comment>
             <xsl:value-of select="$newline"/>
-            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
@@ -191,7 +192,7 @@
         <xsl:variable name="documentName"
             select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
 
-<!--                
+        <!--                
         <xs:element>
             <xsl:attribute name="name">
                 <xsl:value-of select="$documentName"/>
@@ -203,10 +204,10 @@
         </xs:element>
 -->
         <!-- TODO: SHOULD I APPLY DOCUMENT-SPECIFIC ATTRIBUTES TO THE COMPLEXTYPE INSTEAD? -->
-        
+
         <!-- <<document>> x is just a global element of type complexType x -->
         <xs:element name="{$documentName}">
-            <xsl:apply-templates mode="UMLclass"/>            
+            <xsl:apply-templates mode="UMLclass"/>
             <xs:complexType>
                 <xs:complexContent>
                     <xs:extension base="{@name}">
@@ -554,9 +555,12 @@
             <xsl:if
                 test="(following-sibling::UML:AssociationEnd/@type=$class/@xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/@xmi.id)">
                 <xsl:variable name="endType" select="@type"/>
+                <xsl:variable name="endClass" select="//UML:Class[@xmi.id=$endType]"/>
+
                 <xsl:element name="xs:element">
 
-                    <!-- work out the name of the element -->
+
+                    <!-- work out its name -->
                     <xsl:attribute name="name">
                         <xsl:choose>
                             <!-- if the associationEnd has a role, use that as the name -->
@@ -574,12 +578,7 @@
                         </xsl:choose>
                     </xsl:attribute>
 
-                    <!-- work out the type of the element -->
-                    <xsl:attribute name="type">
-                        <xsl:value-of select="//UML:Class[@xmi.id=$endType]/@name"/>
-                    </xsl:attribute>
-
-                    <!-- work out the max/min of the element -->
+                    <!-- and the max/min  -->
                     <xsl:choose>
                         <xsl:when test="@multiplicity='*'">
                             <xsl:attribute name="minOccurs">1</xsl:attribute>
@@ -616,7 +615,29 @@
                         </xsl:otherwise>
                     </xsl:choose>
 
+                    <!-- and its type -->
+                    <xsl:choose>
+                        <!-- as long as the endClass is not a <<document>> -->
+                        <xsl:when
+                            test="translate($endClass/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)!='document'">
+                            <!-- then use its native type -->
+                            <!-- (specify the endClass inline) -->
+                            <xsl:attribute name="type">
+                                <xsl:value-of select="$endClass/@name"/>
+                            </xsl:attribute>
+                        </xsl:when>
+                        <!-- otherwise, use XLinks -->
+                        <!-- (specify the endClass by reference) -->
+                        <xsl:otherwise>
+                            <xs:complexType>
+                                <xs:attribute xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    name="xlink:href" type="xs:anyURI" use="required"/>
+                            </xs:complexType>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
                 </xsl:element>
+
             </xsl:if>
         </xsl:for-each>
 

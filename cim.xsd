@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 12 December 2008 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- generated: 15 December 2008 -->       
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
    <xs:include schemaLocation="activity.xsd"/>
    <xs:include schemaLocation="data.xsd"/>
    <xs:include schemaLocation="grids.xsd"/>
