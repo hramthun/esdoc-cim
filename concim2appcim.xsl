@@ -628,8 +628,11 @@
                         </xsl:when>
                         <!-- otherwise, use XLinks -->
                         <!-- (specify the endClass by reference) -->
-                        <xsl:otherwise>
-                            <xs:complexType>
+                        <xsl:otherwise>                            
+                            <xsl:attribute name="nillable">
+                                <xsl:text>true</xsl:text>
+                            </xsl:attribute>
+                            <xs:complexType> 
                                 <xs:attribute xmlns:xlink="http://www.w3.org/1999/xlink"
                                     name="xlink:href" type="xs:anyURI" use="required"/>
                             </xs:complexType>
