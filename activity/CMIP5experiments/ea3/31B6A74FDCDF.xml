@@ -255,16 +255,16 @@
 								<UML:TaggedValue tag="virtualInheritance" value="0"/>
 							</UML:ModelElement.taggedValue>
 						</UML:Generalization>
-						<UML:Class name="4.4::GregoryClimateFeedbacks" xmi.id="EAID_08B841AA_E77F_4f47_9A33_A6B79C201F9C" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.3::GregoryAbrupt4XCO2" xmi.id="EAID_08B841AA_E77F_4f47_9A33_A6B79C201F9C" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Diagnose &quot;slow&quot; climate rsystem responses to an instantaneous quadrupling of [CO2] in a coupled model.&#xA;* Begin simulation in January&#xA;* Initialise from 1.1::PreIndustrialControl&#xA;* [CO2] to quadruple instantaneously &#xA;* All earth system components to respond&#xA;* Dynamic Vegetation may respond"/>
+								<UML:TaggedValue tag="documentation" value="Diagnose &quot;slow&quot; climate rsystem responses to an instantaneous quadrupling of [CO2] in a coupled model. [CO2] is held fixed at 4X.&#xA;* Begin simulation in January&#xA;* Initialise from 3.1::Control&#xA;* [CO2] to quadruple instantaneously &#xA;* All earth system components to respond&#xA;* Dynamic Vegetation may respond"/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 10:47:12"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:36:14"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:28:18"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -339,7 +339,7 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="45"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.4::GregoryClimateFeedbacks"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.3::GregoryAbrupt4XCO2"/>
 								<UML:TaggedValue tag="ea_targetName" value="3.1::Control"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
@@ -376,8 +376,8 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="46"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.5::GregoryClimateForcingEnsemble"/>
-								<UML:TaggedValue tag="ea_targetName" value="4.4::GregoryClimateFeedbacks"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.4::GregoryAbrupt4XCO2Ensemble"/>
+								<UML:TaggedValue tag="ea_targetName" value="6.3::GregoryAbrupt4XCO2"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="50"/>
@@ -450,16 +450,16 @@
 								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
-						<UML:Class name="4.3c::HansenCO2GreenHouseForcing" xmi.id="EAID_0A318423_3260_49b8_99B8_E2FAAF211F66" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.5::HansenAerosol2000" xmi.id="EAID_0A318423_3260_49b8_99B8_E2FAAF211F66" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Hansen-style experiment to isolate the model's &quot;fast&quot; response to CO2's greenhouse effect alone.&#xA;* similar to 4.3b::HansenClimateForcing&#xA;* But carbon cycle sees 1X[CO2]"/>
+								<UML:TaggedValue tag="documentation" value="Hansen-style experiment to isolate the model's &quot;fast&quot; response to sulfate aerosols (ca. 2000).&#xA;* similar to 6.2a::Hansen1XCO2&#xA;* aerosols consistent with conditions in year 2000 of historical run 3.2::20C"/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 10:35:33"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:24:46"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:35:28"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -486,8 +486,8 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="44"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.3c::HansenCO2GreenHouseForcing"/>
-								<UML:TaggedValue tag="ea_targetName" value="4.3b::HansenClimateForcing"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.5::HansenAerosol2000"/>
+								<UML:TaggedValue tag="ea_targetName" value="6.2b::Hansen4XCO2"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="48"/>
@@ -611,7 +611,7 @@
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="37"/>
 								<UML:TaggedValue tag="ea_sourceName" value="C4MIPCarbonClimateFeedbacks"/>
-								<UML:TaggedValue tag="ea_targetName" value="4.1::1%to4XC02"/>
+								<UML:TaggedValue tag="ea_targetName" value="6.1::1%/yrC02"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="42"/>
@@ -1482,16 +1482,16 @@
 								<UML:TaggedValue tag="virtualInheritance" value="0"/>
 							</UML:ModelElement.taggedValue>
 						</UML:Generalization>
-						<UML:Class name="4.3a::HansenControl" xmi.id="EAID_482892EF_F669_48b7_85B6_DB119495FD3F" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.2a::Hansen1XCO2" xmi.id="EAID_482892EF_F669_48b7_85B6_DB119495FD3F" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Control for Hansen-style experiment 4.3b::HansenClimateForcing&#xA;* Prescribed&#xA;   - CO2&#xA;   - Sea Surface Temperature&#xA;   - Sea Ice&#xA;   - Land Cover&#xA;   - CO2 partial pressure dissolved in ocean?&#xA;* Consistent with 1.1::PreIndustrialControl Climatology"/>
+								<UML:TaggedValue tag="documentation" value="Control for Hansen-style experiment 6.2b::Hansen4XCO2 and 6.4::GregoryAbrupt4XCO2Ensemble&#xA;&#xA;* AMIP -style experiment with prescribed&#xA;   - CO2&#xA;   - Sea Surface Temperature&#xA;   - Sea Ice&#xA;   - Land Cover&#xA;   - CO2 partial pressure dissolved in ocean?&#xA;* Consistent with the climatology of 3.1::Control"/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 10:25:30"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:37:30"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:36:43"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -1518,7 +1518,7 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="42"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.3a::HansenControl"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.2a::Hansen1XCO2"/>
 								<UML:TaggedValue tag="ea_targetName" value="HansenExperiment"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
@@ -1556,8 +1556,8 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="43"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.3b::HansenClimateForcing"/>
-								<UML:TaggedValue tag="ea_targetName" value="4.3a::HansenControl"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.2b::Hansen4XCO2"/>
+								<UML:TaggedValue tag="ea_targetName" value="6.2a::Hansen1XCO2"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
 								<UML:TaggedValue tag="ea_sourceID" value="47"/>
@@ -1752,16 +1752,16 @@
 								<UML:TaggedValue tag="virtualInheritance" value="0"/>
 							</UML:ModelElement.taggedValue>
 						</UML:Generalization>
-						<UML:Class name="4.1::1%to4XC02" xmi.id="EAID_65A304F4_178F_42ec_A1FA_98215CAFA686" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.1::1%/yrC02" xmi.id="EAID_65A304F4_178F_42ec_A1FA_98215CAFA686" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Evaluate model response without complications of aerosols, land-use change etc.&#xA;* Initialise form 1.1::PreIndustrialControl&#xA;* [CO2] to quadruple after 139 years&#xA;* All earth system components to respond&#xA;* Dynamic Vegetation may respond"/>
+								<UML:TaggedValue tag="documentation" value="Idealized 1%/yr run to 4XCO2&#xA;Evaluate model response without complications of aerosols, land-use change etc.&#xA;* Initialise form 3.1::Control&#xA;* [CO2] to quadruple after 139 years&#xA;* All earth system components free to respond&#xA;* Dynamic Vegetation may respond"/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 09:59:47"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:33:04"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:18:27"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -1835,7 +1835,7 @@
 								<UML:TaggedValue tag="headStyle" value="0"/>
 								<UML:TaggedValue tag="lineStyle" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="36"/>
-								<UML:TaggedValue tag="ea_sourceName" value="4.1::1%to4XC02"/>
+								<UML:TaggedValue tag="ea_sourceName" value="6.1::1%/yrC02"/>
 								<UML:TaggedValue tag="ea_targetName" value="3.1::Control"/>
 								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
 								<UML:TaggedValue tag="ea_targetType" value="Class"/>
@@ -3880,16 +3880,16 @@
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=1;FontColor=32768;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 							</UML:ModelElement.taggedValue>
 						</UML:Comment>
-						<UML:Class name="4.3b::HansenClimateForcing" xmi.id="EAID_CD140A72_B3E6_4d76_8436_67437ACF0E2F" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.2b::Hansen4XCO2" xmi.id="EAID_CD140A72_B3E6_4d76_8436_67437ACF0E2F" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Hansen-style experiment ot diagnose &quot;fast&quot; climate system responses.&#xA;* Similar to 4.3::HansenControl&#xA;* But [CO2] is quadrupled"/>
+								<UML:TaggedValue tag="documentation" value="Hansen-style experiment ot diagnose &quot;fast&quot; climate system responses.&#xA;* Similar to 6.2a::HansenBaseline&#xA;* But [CO2] is quadrupled"/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 10:31:21"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:37:30"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:25:00"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -4309,16 +4309,16 @@
 								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
-						<UML:Class name="4.5::GregoryClimateForcingEnsemble" xmi.id="EAID_FFDEAC3D_ACAA_49d9_A6D3_A5A9E02D2FF5" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+						<UML:Class name="6.4::GregoryAbrupt4XCO2Ensemble" xmi.id="EAID_FFDEAC3D_ACAA_49d9_A6D3_A5A9E02D2FF5" visibility="public" namespace="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="Gregory-method to estimate the &quot;fast&quot; climate response with a 12 member ensemble in which [CO2] is instantaneously quadrupled.&#xA;*  11 member ensemble of 4.4::GregoryClimateFeedbacks&#xA;*  [CO2] Quadrupled instantaneously&#xA;*  each ensemble member is initialised in a different month from 1.1::PreIndustrialcontrol&#xA;* The first 5 years of 4.4::GregoryClimateFeedbacks is member 12."/>
+								<UML:TaggedValue tag="documentation" value="Gregory-method to estimate the &quot;fast&quot; climate response with a 12 member ensemble in which [CO2] is instantaneously quadrupled.&#xA;*  11 member ensemble of 4.4::GregoryClimateFeedbacks&#xA;*  [CO2] Quadrupled instantaneously&#xA;*  each ensemble member is initialised in a different month from 3.1::Control&#xA;* The first 5 years of 6.3::GregoryAbrupt4XCO2 is member 12."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 								<UML:TaggedValue tag="date_created" value="2008-12-03 10:53:59"/>
-								<UML:TaggedValue tag="date_modified" value="2008-12-16 14:41:17"/>
+								<UML:TaggedValue tag="date_modified" value="2008-12-17 12:30:12"/>
 								<UML:TaggedValue tag="gentype" value="Java"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="CMIP5experiments"/>
@@ -4391,7 +4391,7 @@
 				<UML:TaggedValue tag="version" value="1.0"/>
 				<UML:TaggedValue tag="author" value="clp73"/>
 				<UML:TaggedValue tag="created_date" value="2008-12-02 12:20:29"/>
-				<UML:TaggedValue tag="modified_date" value="2008-12-16 17:34:39"/>
+				<UML:TaggedValue tag="modified_date" value="2008-12-17 12:30:33"/>
 				<UML:TaggedValue tag="package" value="EAPK_EDEF1C09_80F3_408e_9292_31B6A74FDCDF"/>
 				<UML:TaggedValue tag="type" value="Logical"/>
 				<UML:TaggedValue tag="swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
@@ -4415,7 +4415,7 @@
 				<UML:DiagramElement geometry="Left=558;Top=6;Right=758;Bottom=76;" subject="EAID_FFDEAC3D_ACAA_49d9_A6D3_A5A9E02D2FF5" seqno="12" style="DUID=E62A3B26;NSL=0;"/>
 				<UML:DiagramElement geometry="Left=311;Top=5;Right=518;Bottom=82;" subject="EAID_0A318423_3260_49b8_99B8_E2FAAF211F66" seqno="13" style="DUID=2480DB21;NSL=0;"/>
 				<UML:DiagramElement geometry="Left=109;Top=7;Right=255;Bottom=77;" subject="EAID_CD140A72_B3E6_4d76_8436_67437ACF0E2F" seqno="14" style="DUID=7FF650BC;NSL=0;"/>
-				<UML:DiagramElement geometry="Left=76;Top=97;Right=206;Bottom=167;" subject="EAID_482892EF_F669_48b7_85B6_DB119495FD3F" seqno="15" style="DUID=B304BDB4;NSL=0;"/>
+				<UML:DiagramElement geometry="Left=76;Top=95;Right=206;Bottom=165;" subject="EAID_482892EF_F669_48b7_85B6_DB119495FD3F" seqno="15" style="DUID=B304BDB4;NSL=0;"/>
 				<UML:DiagramElement geometry="Left=586;Top=187;Right=743;Bottom=257;" subject="EAID_08B841AA_E77F_4f47_9A33_A6B79C201F9C" seqno="16" style="DUID=71730F95;NSL=0;"/>
 				<UML:DiagramElement geometry="Left=192;Top=181;Right=343;Bottom=251;" subject="EAID_F2D555EE_9166_4acf_96A9_072F97D9FDD8" seqno="17" style="DUID=8D93B337;NSL=0;"/>
 				<UML:DiagramElement geometry="Left=587;Top=93;Right=688;Bottom=163;" subject="EAID_90FE92B7_D4CB_4538_8ED7_DA690EE1E78B" seqno="18" style="DUID=8503BED3;NSL=0;"/>
