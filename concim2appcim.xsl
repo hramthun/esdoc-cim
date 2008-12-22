@@ -73,8 +73,18 @@
                 />
             </xsl:comment>
             <xsl:value-of select="$newline"/>
-            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
+            <xs:schema 
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
+                xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"                
+                elementFormDefault="qualified"
+                attributeFormDefault="unqualified"
+                >
+                <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+
+
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
@@ -187,23 +197,24 @@
 
     </xsl:template>
 
+    <!-- <<reference>> elements use XLinks -->
+    <xsl:template name="referenceTemplate">
+        <!--
+        not sure about making it nillable
+        <xsl:attribute name="nillable">
+            <xsl:text>true</xsl:text>
+        </xsl:attribute>
+        -->
+        <xs:complexType>
+            <xs:attribute xmlns:xlink="http://www.w3.org/1999/xlink" name="xlink:href"
+                type="xs:anyURI" use="required"/>
+        </xs:complexType>
+    </xsl:template>
+
     <!-- global elements (documents) -->
     <xsl:template name="documentTemplate">
         <xsl:variable name="documentName"
             select="concat(translate(substring(@name,1,1),$upperCase,$lowerCase),substring(@name,2))"/>
-
-        <!--                
-        <xs:element>
-            <xsl:attribute name="name">
-                <xsl:value-of select="$documentName"/>
-            </xsl:attribute>
-            <xsl:attribute name="type">
-                <xsl:value-of select="@name"/>
-            </xsl:attribute>
-            <xsl:apply-templates mode="UMLclass"/>
-        </xs:element>
--->
-        <!-- TODO: SHOULD I APPLY DOCUMENT-SPECIFIC ATTRIBUTES TO THE COMPLEXTYPE INSTEAD? -->
 
         <!-- <<document>> x is just a global element of type complexType x -->
         <xs:element name="{$documentName}">
@@ -211,6 +222,35 @@
             <xs:complexType>
                 <xs:complexContent>
                     <xs:extension base="{@name}">
+                        <!-- add document-specific elements here -->
+                        <xs:sequence>
+                            <xsl:for-each
+                                select="//UML:Class[@name='Document']/descendant::UML:Attribute">
+                                <xsl:sort case-order="lower-first" select="@name"/>
+                                <xsl:variable name="attMin"
+                                    select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                                <xsl:variable name="attMax"
+                                    select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                                <xsl:variable name="attType"
+                                    select="descendant::UML:TaggedValue[@tag='type']/@value"/>
+                                <xsl:variable name="attStereotype"
+                                    select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+                                <xsl:if
+                                    test="string($attMax)!='1' or 
+                                    ( 
+                                    (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
+                                    and
+                                    (not (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist'))
+                                    )">
+                                    <xsl:call-template name="elementTemplate">
+                                        <xsl:with-param name="min" select="$attMin"/>
+                                        <xsl:with-param name="max" select="$attMax"/>
+                                        <xsl:with-param name="type" select="$attType"/>
+                                        <xsl:with-param name="stereotype" select="$attStereotype"/>
+                                    </xsl:call-template>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </xs:sequence>
                         <!-- add document-specific attributes here -->
                         <xsl:for-each
                             select="//UML:Class[@name='Document']/descendant::UML:Attribute">
@@ -223,12 +263,20 @@
                                 select="descendant::UML:TaggedValue[@tag='type']/@value"/>
                             <xsl:variable name="attStereotype"
                                 select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
-                            <xsl:call-template name="attributeTemplate">
-                                <xsl:with-param name="min" select="$attMin"/>
-                                <xsl:with-param name="max" select="$attMax"/>
-                                <xsl:with-param name="type" select="$attType"/>
-                                <xsl:with-param name="stereotype" select="$attStereotype"/>
-                            </xsl:call-template>
+                            <xsl:if
+                                test="string($attMax)='1' and 
+                                ( 
+                                ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
+                                or
+                                (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
+                                )">
+                                <xsl:call-template name="attributeTemplate">
+                                    <xsl:with-param name="min" select="$attMin"/>
+                                    <xsl:with-param name="max" select="$attMax"/>
+                                    <xsl:with-param name="type" select="$attType"/>
+                                    <xsl:with-param name="stereotype" select="$attStereotype"/>
+                                </xsl:call-template>
+                            </xsl:if>
                         </xsl:for-each>
                     </xs:extension>
                 </xs:complexContent>
@@ -261,9 +309,17 @@
                 </xsl:choose>
             </xsl:attribute>
 
-            <xsl:call-template name="typeTemplate">
-                <xsl:with-param name="type" select="$type"/>
-            </xsl:call-template>
+            <xsl:choose>
+                <!-- the UML attribute might be an explicit <<reference>> -->
+                <xsl:when test="$stereotype='reference'">
+                    <xsl:call-template name="referenceTemplate"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="typeTemplate">
+                        <xsl:with-param name="type" select="$type"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
 
             <xsl:apply-templates mode="UMLattribute"/>
         </xsl:element>
@@ -399,7 +455,7 @@
                         <xsl:when
                             test="string($attMax)!='1' or 
                             ( 
-                            (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
+                            (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
                             and
                             (not (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist'))
                             )">
@@ -477,7 +533,7 @@
                     <xsl:when
                         test="string($attMax)='1' and 
                         ( 
-                        ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
+                        ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
                         or
                         (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
                         )">
@@ -616,26 +672,29 @@
                     </xsl:choose>
 
                     <!-- and its type -->
+
                     <xsl:choose>
-                        <!-- as long as the endClass is not a <<document>> -->
+                        <!-- if the endClass is a <<document>> -->
+                        <!-- or if the association is an explicit <<reference>> -->
+                        <!-- and the association is not an explicit <<inline>> -->
                         <xsl:when
-                            test="translate($endClass/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)!='document'">
-                            <!-- then use its native type -->
-                            <!-- (specify the endClass inline) -->
+                            test="
+                            (translate($endClass/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='document')
+                            or
+                            ( (translate(./descendant::UML:TaggedValue[@tag='destStereotype']/@value,$upperCase,$lowerCase)='reference') or (translate(./descendant::UML:TaggedValue[@tag='sourceStereotype']/@value,$upperCase,$lowerCase)='reference') )
+                            and not
+                            ( (translate(./descendant::UML:TaggedValue[@tag='destStereotype']/@value,$upperCase,$lowerCase)='inline') or (translate(./descendant::UML:TaggedValue[@tag='sourceStereotype']/@value,$upperCase,$lowerCase)='inline') )                            
+                            ">
+                            <!-- then use XLinks -->
+                            <!-- (specify the class as a reference) -->
+                            <xsl:call-template name="referenceTemplate"/>
+                        </xsl:when>
+                        <!--  otherwise use its native type -->
+                        <!-- (specify the class inline) -->
+                        <xsl:otherwise>
                             <xsl:attribute name="type">
                                 <xsl:value-of select="$endClass/@name"/>
                             </xsl:attribute>
-                        </xsl:when>
-                        <!-- otherwise, use XLinks -->
-                        <!-- (specify the endClass by reference) -->
-                        <xsl:otherwise>                            
-                            <xsl:attribute name="nillable">
-                                <xsl:text>true</xsl:text>
-                            </xsl:attribute>
-                            <xs:complexType> 
-                                <xs:attribute xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    name="xlink:href" type="xs:anyURI" use="required"/>
-                            </xs:complexType>
                         </xsl:otherwise>
                     </xsl:choose>
 
@@ -651,7 +710,11 @@
         <xsl:param name="type"/>
         <xsl:if test="$type">
             <xsl:choose>
-                <xsl:when test="translate($type,$upperCase,$lowerCase)='characterstring'">
+                <xsl:when test="translate($type,$upperCase,$lowerCase)='characterstring' or
+                    translate($type,$upperCase,$lowerCase)='string' or
+                    translate($type,$upperCase,$lowerCase)='char'">
+                    <!-- some external packages use String & Char for types -->
+                    <!-- bad, bad external packages -->
                     <xsl:attribute name="type">
                         <xsl:text>xs:string</xsl:text>
                     </xsl:attribute>
