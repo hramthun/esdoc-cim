@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 18 December 2008 -->       
+<!-- generated: 7 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
-           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
-   <xs:import namespace="http://www.opengis.net/gml/3.2"
-              schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
+<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.w3.org/1999/xlink"
+              schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="activity.xsd"/>
    <xs:include schemaLocation="data.xsd"/>
    <xs:include schemaLocation="grids.xsd"/>

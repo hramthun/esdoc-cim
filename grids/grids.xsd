@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 10 December 2008 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- generated: 7 January 2009 -->       
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
+<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.w3.org/1999/xlink"
+              schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="cim.xsd"/>
    <xs:include schemaLocation="activity.xsd"/>
    <xs:include schemaLocation="data.xsd"/>
@@ -13,8 +20,7 @@
          <xs:documentation>This class is used to record details pertaining to any map projection parameters associated with the grid. At present it just reflects the minimal properties encoded into Ian's initial GridSpec schema. We should consider using GML CRS classes instead.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="name" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="CustomGridGeometry">
@@ -22,14 +28,14 @@
          <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
       </xs:annotation>
                     <xs:complexContent>
-                    <xs:extension base="gml:AbstractGeometry">
+                    <xs:extension base="gml:AbstractGeometryType">
                 <xs:sequence>
-         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Any instance of a GML geometry object should have a gml:id attribute.</xs:documentation>
             </xs:annotation>
@@ -43,17 +49,16 @@
          <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridSpec" type="GridSpec" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="gridSpec" type="GridSpec" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="gridMosaic" type="GridMosaic" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="gridMosaic" type="GridMosaic" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="description" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="gridSpec" minOccurs="1" maxOccurs="unbounded" type="GridSpec"/>
+         <xs:element name="gridSpec" minOccurs="1" maxOccurs="unbounded" type="GridSpec"/>
+         <xs:element name="gridMosaic" minOccurs="1" maxOccurs="unbounded" type="GridMosaic"/>
+         <xs:element name="gridTile" minOccurs="1" maxOccurs="unbounded" type="GridTile"/>
+         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>A free-text description of a grid mosaic.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="mosaicID" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="mosaicID" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records.</xs:documentation>
             </xs:annotation>
@@ -75,8 +80,7 @@
          <xs:documentation>This class may be used to encode the parameters needed to define a simple grid, i.e. a grid based on repeating square or rectangular grid cells. This data type may need an additional attribute to state if the coordinates define a grid mesh (i.e. a complete partitioning of a 2D or 3D space), or just the locations of grid nodes (i.e. no information concerning the partitioning of space into grid cells). We might call this attribute 'topology' and enumerate it.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="dimOrder" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="dimOrder" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is "yx" ("zyx" for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.</xs:documentation>
             </xs:annotation>
@@ -143,7 +147,7 @@
                     <xs:complexContent>
                     <xs:extension base="GridCell">
                 <xs:sequence>
-         <xs:element name="edges" type="Edge" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="edges" minOccurs="1" maxOccurs="1" type="Edge"/>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
@@ -161,14 +165,14 @@
          <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
       </xs:annotation>
                     <xs:complexContent>
-                    <xs:extension base="gml:AbstractGeometry">
+                    <xs:extension base="gml:AbstractGeometryType">
                 <xs:sequence>
-         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Any instance of a GML geometry object should have a gml:id attribute.</xs:documentation>
             </xs:annotation>
@@ -193,11 +197,7 @@
       <xs:annotation>
          <xs:documentation>This class is used to record horizontal coordinate system properties associated with the grid. We should consider using GML CRS classes instead.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="gml:ProjectedCRS" type="gml:ProjectedCRS" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="ellipsoidalCS" type="gml:EllipsoidalCS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="ContactGeometry">
       <xs:annotation>
@@ -211,45 +211,36 @@
       <xs:annotation>
          <xs:documentation>This class is used to encode the properties and coordinates of a coordinate system axis. Consider using GML classes instead.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gml:ProjectedCRS" type="gml:ProjectedCRS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="GeophysicalDataset">
       <xs:sequence>
-         <xs:element name="dataObject" type="DataObject" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="geometryModel" type="gml:GeometryProperty" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="geometryModel" minOccurs="1" maxOccurs="1" type="gml:GeometryProperty"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="Identification">
       <xs:sequence>
-         <xs:element name="description" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
          <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-         <xs:element name="name" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="gml:EllipsoidalCS">
       <xs:annotation>
          <xs:documentation>This class is used to encode the properties and coordinates of a coordinate system axis. Consider using GML classes instead.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gml:GeodeticCRS" type="gml:GeodeticCRS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="gml:ProjectedCRS">
       <xs:annotation>
          <xs:documentation>This class is used to record horizontal coordinate system properties associated with the grid. We should consider using GML CRS classes instead.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="baseCRS" type="gml:GeodeticCRS" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="cartesianCS" type="gml:CartesianCS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
-   <xs:complexType name="gml:AbstractGeometry">
+   <xs:complexType name="gml:AbstractGeometryType">
       <xs:sequence>
-         <xs:element name="gml:GeometryProperty" type="gml:GeometryProperty" minOccurs="1"
-                     maxOccurs="unbounded"/>
+         <xs:element name="gml:GeometryProperty" minOccurs="1" maxOccurs="unbounded"
+                     type="gml:GeometryProperty"/>
       </xs:sequence>
    </xs:complexType>
    <xs:simpleType name="GeometryTypeEnum">
@@ -261,10 +252,10 @@
    </xs:simpleType>
    <xs:complexType name="gml:GeometryProperty">
       <xs:sequence>
-         <xs:element name="gml:AbstractGeometry" type="gml:AbstractGeometry" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="geophysicalDataset" type="GeophysicalDataset" minOccurs="1"
-                     maxOccurs="unbounded"/>
+         <xs:element name="gml:AbstractGeometryType" minOccurs="1" maxOccurs="1"
+                     type="gml:AbstractGeometryType"/>
+         <xs:element name="geophysicalDataset" minOccurs="1" maxOccurs="unbounded"
+                     type="GeophysicalDataset"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="GridCellRef">
@@ -272,12 +263,11 @@
          <xs:documentation>This data type is used to encode a reference to a grid cell defined as part of some other grid tile, which itself may be part of the same or an entirely separate grid mosaic.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="cellID" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="cellID" minOccurs="1" maxOccurs="1" type="xs:string"/>
          <xs:element name="fractionalArea" minOccurs="1" maxOccurs="1" type="Number"/>
-         <xs:element name="idPath" minOccurs="0" maxOccurs="1" type="String"/>
-         <xs:element name="mosaicID" minOccurs="1" maxOccurs="unbounded" type="String"/>
-         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="idPath" minOccurs="0" maxOccurs="1" type="xs:string"/>
+         <xs:element name="mosaicID" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="Edge">
@@ -285,8 +275,7 @@
          <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. I think (check with Balaji)!</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="vertexRef" type="gml:Point" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="unstructuredCell" type="UnstructuredCell" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="vertexRef" minOccurs="1" maxOccurs="1" type="gml:Point"/>
          <xs:element name="arrivalAngle" minOccurs="1" maxOccurs="1" type="Number"/>
          <xs:element name="departureAngle" minOccurs="1" maxOccurs="1" type="Number"/>
          <xs:element name="length" minOccurs="1" maxOccurs="1" type="Number"/>
@@ -303,9 +292,7 @@
       <xs:annotation>
          <xs:documentation>This class is used to encode the properties and coordinates of a coordinate system axis. Consider using GML classes instead.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gml:VerticalCRS" type="gml:VerticalCRS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:simpleType name="VerticalCSEnum">
       <xs:restriction base="xs:string">
@@ -334,19 +321,13 @@
       </xs:restriction>
    </xs:simpleType>
    <xs:complexType name="gml:Point">
-      <xs:sequence>
-         <xs:element name="edge" type="Edge" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="gridCell" type="GridCell" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="gml:VerticalCRS">
       <xs:annotation>
          <xs:documentation>This class is used to record vertical coordinate system properties associated with the grid. We should consider using GML CRS classes.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="verticalCS" type="gml:VerticalCS" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:simpleType name="GridNodePositionEnum">
       <xs:restriction base="xs:string">
@@ -367,9 +348,9 @@
          <xs:documentation>This data type is used to encode a reference to a grid tile defined as part of some other grid mosaic, which may itself be part of the same hierarchy of grid mosaics or else part of an entirely separate mosaic (possibly even in a separate physical realisation, e.g. XML file or database table).</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="idPath" minOccurs="0" maxOccurs="1" type="String"/>
-         <xs:element name="mosaicID" minOccurs="1" maxOccurs="unbounded" type="String"/>
-         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="idPath" minOccurs="0" maxOccurs="1" type="xs:string"/>
+         <xs:element name="mosaicID" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
+         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
    </xs:complexType>
    <xs:simpleType name="DiscretizationEnum">
@@ -386,16 +367,16 @@
          <xs:documentation>This is a container class for GridSpec objects. An ESM_GridSpec object can contain one or more esmModelGrid objects, and one or more esmExchangeGrid objects. These objects may be serialised to one or possibly several files according to taste. Since GridSpec is sub-typed from GML's AbstractGeometryType it can, and should, be identified using the gml:id attribute.</xs:documentation>
       </xs:annotation>
                     <xs:complexContent>
-                    <xs:extension base="gml:AbstractGeometry">
+                    <xs:extension base="gml:AbstractGeometryType">
                 <xs:sequence>
-         <xs:element name="esmExchangeGrid" type="GridMosaic" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="esmModelGrid" type="GridMosaic" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="esmExchangeGrid" minOccurs="1" maxOccurs="unbounded" type="GridMosaic"/>
+         <xs:element name="esmModelGrid" minOccurs="1" maxOccurs="unbounded" type="GridMosaic"/>
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Any instance of a GML geometry object should have a gml:id attribute.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Indicates the version of the GFDL GridSpec standard to which a grid specification instance conforms.</xs:documentation>
             </xs:annotation>
@@ -421,7 +402,7 @@
          <xs:documentation>In GML, the DomainSet type may be used to define the geometry for a coverage (i.e. grid) object. DomainSet is an abstract type: there are several familiar concrete types that could be used to define simple grid geometries, e.g. Grid, RectifiedGrid. This would save us having to define these types afresh within the CIM.</xs:documentation>
       </xs:annotation>
                     <xs:complexContent>
-                    <xs:extension base="gml:AbstractGeometry">
+                    <xs:extension base="gml:AbstractGeometryType">
                 <xs:sequence/>  
                     </xs:extension>
                     </xs:complexContent>
@@ -449,20 +430,15 @@
 A GridTile object is associated with a geodetic or projected CRS via the horizontalCRS association role, and with a vertical CRS via the verticalCRS association role.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="horizontalCRS" type="gml:GeodeticCRS" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="horizontalCRS" type="gml:ProjectedCRS" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="verticalCRS" type="gml:VerticalCRS" minOccurs="0" maxOccurs="1"/>
-         <xs:element name="cellArray" type="GridCell" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="cellRefArray" type="GridCellRef" minOccurs="1" maxOccurs="unbounded"/>
-         <xs:element name="gridMosaic" type="GridMosaic" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="mapProjection" type="MapProjection" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="simpleGridGeom" type="SimpleGridGeometry" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="coordFileURI" minOccurs="0" maxOccurs="1" type="String">
+         <xs:element name="verticalCRS" minOccurs="0" maxOccurs="1" type="gml:VerticalCRS"/>
+         <xs:element name="cellArray" minOccurs="1" maxOccurs="unbounded" type="GridCell"/>
+         <xs:element name="cellRefArray" minOccurs="1" maxOccurs="unbounded" type="GridCellRef"/>
+         <xs:element name="coordFileURI" minOccurs="0" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Optional attribute for specifying the URI of a file containing grid coordinates.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="description" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>A free-text description of a grid tile.</xs:documentation>
             </xs:annotation>
@@ -478,7 +454,7 @@ A GridTile object is associated with a geodetic or projected CRS via the horizon
             </xs:annotation>
          </xs:element>
          <xs:element name="newThingie" minOccurs="1" maxOccurs="1" type="Thingie"/>
-         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="tileID" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental.</xs:documentation>
             </xs:annotation>
@@ -532,14 +508,13 @@ A GridTile object is associated with a geodetic or projected CRS via the horizon
          <xs:documentation>This class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. The vertexArray association role models this requirement.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridTile" type="GridTile" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="vertexArray" type="gml:Point" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="vertexArray" minOccurs="1" maxOccurs="1" type="gml:Point"/>
          <xs:element name="area" minOccurs="0" maxOccurs="1" type="Number">
             <xs:annotation>
                <xs:documentation>Optionally specifies the area of a 2D grid cell (or the footprint of a 3D grid cell).</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="cellID" minOccurs="1" maxOccurs="1" type="String">
+         <xs:element name="cellID" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Specifies an identifer that uniquely identifies a cell within its parent grid tile.</xs:documentation>
             </xs:annotation>
@@ -564,8 +539,8 @@ A GridTile object is associated with a geodetic or projected CRS via the horizon
                     <xs:extension base="ContactGeometry">
                 <xs:sequence>
          <xs:element name="geoAnchorPoint" minOccurs="1" maxOccurs="1" type="gml:Point"/>
-         <xs:element name="indexAnchorPoints" minOccurs="1" maxOccurs="1" type="String"/>
-         <xs:element name="orientation" minOccurs="1" maxOccurs="1" type="String"/>
+         <xs:element name="indexAnchorPoints" minOccurs="1" maxOccurs="1" type="xs:string"/>
+         <xs:element name="orientation" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
       <xs:attribute name="isAligned" use="required" type="xs:boolean"/>
       <xs:attribute name="refinementType" use="required" type="RefinementTypeEnum"/>  

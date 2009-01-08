@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 10 December 2008 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- generated: 7 January 2009 -->       
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
+<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.w3.org/1999/xlink"
+              schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="cim.xsd"/>
    <xs:include schemaLocation="data.xsd"/>
    <xs:include schemaLocation="grids.xsd"/>
@@ -13,11 +20,9 @@
    </xs:simpleType>
    <xs:complexType name="Activity">
       <xs:sequence>
-         <xs:element name="observationStation" type="ObservationStation" minOccurs="1" maxOccurs="1"/>
          <xs:element name="Rationale" minOccurs="1" maxOccurs="1" type="MI_Objective"/>
       </xs:sequence>
    </xs:complexType>
-   <xs:element name="activity" type="Activity"/>
    <xs:complexType name="SimulationRun">
       <xs:annotation>
          <xs:documentation>A SimulationRun is, as the name implies, one single model run.  
@@ -27,21 +32,44 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                     <xs:complexContent>
                     <xs:extension base="Simulation">
                 <xs:sequence>
-         <xs:element name="modelComponent" type="ModelComponent" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="software" minOccurs="1" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
+         </xs:element>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
+   <xs:element name="simulationRun">
+      <xs:annotation>
+         <xs:documentation>A SimulationRun is, as the name implies, one single model run.  
+A SimulationRun is a Simulation.
+There is a one to one association between SimulationRun and SoftwarePackage::ModelComponent. </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="SimulationRun">
+               <xs:sequence>
+                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
+               </xs:sequence>
+               <xs:attribute name="id" use="required" type="xs:anyURI">
+                  <xs:annotation>
+                     <xs:documentation>a unique URI identifying this document</xs:documentation>
+                  </xs:annotation>
+               </xs:attribute>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
    <xs:complexType name="ConfiguredModelComponent">
       <xs:annotation>
          <xs:documentation>Configured model component examples: Atmosphere, Ocean, Biosphere, Cryosphere and Chemistry.  A configured model component can be made up of many subcomponents.  Example:  an atmosphere component contains advection, convection and radiation etc components. </xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="configuredModelComponent" type="ConfiguredModelComponent" minOccurs="1"
-                     maxOccurs="unbounded"/>
-         <xs:element name="configuredModelComponent" type="ConfiguredModelComponent" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="configuredModel" type="ConfiguredModel" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="configuredModelComponent" minOccurs="1" maxOccurs="unbounded"
+                     type="ConfiguredModelComponent"/>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="Job">
@@ -51,8 +79,7 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                     <xs:complexContent>
                     <xs:extension base="Activity">
                 <xs:sequence>
-         <xs:element name="project" type="Project" minOccurs="0" maxOccurs="unbounded"/>
-         <xs:element name="project" type="Project" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="project" minOccurs="0" maxOccurs="unbounded" type="Project"/>
          <xs:element name="experiments" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
       </xs:sequence>  
                     </xs:extension>
@@ -62,7 +89,7 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                     <xs:complexContent>
                     <xs:extension base="Activity">
                 <xs:sequence>
-         <xs:element name="inSupportOf" type="Experiment" minOccurs="1" maxOccurs="unbounded"/>
+         <xs:element name="inSupportOf" minOccurs="1" maxOccurs="unbounded" type="Experiment"/>
          <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       </xs:sequence>  
                     </xs:extension>
@@ -82,13 +109,8 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
          <xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="numericalExperiment" type="NumericalExperiment" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="numericalRequirement" type="NumericalRequirement" minOccurs="0"
-                     maxOccurs="unbounded"/>
-         <xs:element name="numericalRequirement" type="NumericalRequirement" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="conformance" type="Conformance" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
+                     type="NumericalRequirement"/>
          <xs:element name="Description" minOccurs="0" maxOccurs="1" type="Description"/>
          <xs:element name="id" minOccurs="1" maxOccurs="1" type="UniqueIdentifier"/>
       </xs:sequence>
@@ -104,23 +126,17 @@ For example, for a double CO2 boundary condition, a model component might read a
 
 So, the conformance links a requirement URI either to a dataset URI or a component URI.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="numericalRequirement" type="NumericalRequirement" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="simulation" type="Simulation" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="dataProperty" type="DataProperty" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="dataObject" type="DataObject" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="componentURI" minOccurs="0" maxOccurs="1" type="xs:anyURI">
-            <xs:annotation>
-               <xs:documentation>If used, this points to the document describing a configured model component.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="datasetURI" minOccurs="0" maxOccurs="1" type="xs:anyURI">
-            <xs:annotation>
-               <xs:documentation>Now we have a type that we can use to point to datasets</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
+      <xs:sequence/>
+      <xs:attribute name="componentURI" use="optional" type="xs:anyURI">
+         <xs:annotation>
+            <xs:documentation>If used, this points to the document describing a configured model component.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="datasetURI" use="optional" type="xs:anyURI">
+         <xs:annotation>
+            <xs:documentation>Now we have a type that we can use to point to datasets</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
    </xs:complexType>
    <xs:complexType name="NumericalActivity">
       <xs:annotation>
@@ -129,9 +145,9 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
                     <xs:complexContent>
                     <xs:extension base="Activity">
                 <xs:sequence>
-         <xs:element name="inSupportOf" type="Experiment" minOccurs="1" maxOccurs="unbounded"/>
+         <xs:element name="inSupportOf" minOccurs="1" maxOccurs="unbounded" type="Experiment"/>
          <xs:element name="description" minOccurs="0" maxOccurs="1" type="Description"/>
-         <xs:element name="name" minOccurs="0" maxOccurs="1" type="string"/>
+         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
@@ -143,7 +159,7 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
                     <xs:complexContent>
                     <xs:extension base="Simulation">
                 <xs:sequence>
-         <xs:element name="Exploits" type="DataCollection" minOccurs="1" maxOccurs="unbounded"/>
+         <xs:element name="Exploits" minOccurs="1" maxOccurs="unbounded" type="DataCollection"/>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
@@ -155,9 +171,7 @@ For example, one might require a numerical experiment where specific chemical re
       </xs:annotation>
                     <xs:complexContent>
                     <xs:extension base="Conformance">
-                <xs:sequence>
-         <xs:element name="boundaryCondition" type="BoundaryCondition" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>  
+                <xs:sequence/>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
@@ -171,13 +185,13 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     <xs:complexContent>
                     <xs:extension base="Simulation">
                 <xs:sequence>
-         <xs:element name="simulation" type="Simulation" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="simulation" minOccurs="0" maxOccurs="unbounded" type="Simulation"/>
          <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
             <xs:annotation>
                <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="rank" minOccurs="1" maxOccurs="1" type="int">
+         <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer">
             <xs:annotation>
                <xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
             </xs:annotation>
@@ -192,10 +206,31 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
+   <xs:element name="simulationComposite">
+      <xs:annotation>
+         <xs:documentation>A SimulationComposite is an aggregation of Simulaitons.
+With the aggreation connector between Simulation and SimulationComposite(SC) the SC can be made up of both SimulationRuns and SCs.
+
+The SimulationComposite is the new name for the concept of SimulationCollection: A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations and the SimulationComposite attributes need to be able to capture this.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="SimulationComposite">
+               <xs:sequence>
+                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
+               </xs:sequence>
+               <xs:attribute name="id" use="required" type="xs:anyURI">
+                  <xs:annotation>
+                     <xs:documentation>a unique URI identifying this document</xs:documentation>
+                  </xs:annotation>
+               </xs:attribute>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
    <xs:complexType name="ObservationStation">
       <xs:sequence>
-         <xs:element name="activity" type="Activity" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="dataCollection" type="DataCollection" minOccurs="1" maxOccurs="1"/>
          <xs:element name="fixity" minOccurs="1" maxOccurs="1" type="stationary|moving"/>
       </xs:sequence>
    </xs:complexType>
@@ -205,10 +240,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       </xs:annotation>
                     <xs:complexContent>
                     <xs:extension base="NumericalRequirement">
-                <xs:sequence>
-         <xs:element name="physicalModification" type="PhysicalModification" minOccurs="1"
-                     maxOccurs="1"/>
-      </xs:sequence>  
+                <xs:sequence/>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
@@ -241,9 +273,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     <xs:complexContent>
                     <xs:extension base="Experiment">
                 <xs:sequence>
-         <xs:element name="numericalRequirement" type="NumericalRequirement" minOccurs="1"
-                     maxOccurs="unbounded"/>
-         <xs:element name="inSupportOf" type="Experiment" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="numericalRequirement" minOccurs="1" maxOccurs="unbounded"
+                     type="NumericalRequirement"/>
+         <xs:element name="inSupportOf" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
          <xs:element name="CalendarType" minOccurs="1" maxOccurs="1" type="Calendar">
             <xs:annotation>
                <xs:documentation>Is the numerical experiment representative of real time, a 360 day year or a perpetual period?</xs:documentation>
@@ -268,13 +300,37 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     <xs:complexContent>
                     <xs:extension base="NumericalActivity">
                 <xs:sequence>
-         <xs:element name="processorComponent" type="ProcessorComponent" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="software" minOccurs="1" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
+         </xs:element>
          <xs:element name="inputs" minOccurs="0" maxOccurs="unbounded" type="Dataset"/>
          <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="Dataset"/>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
+   <xs:element name="dataProcessing">
+      <xs:annotation>
+         <xs:documentation>A diagnostic is some kind of data processing, It can refer to the processing of observation data or post processing of data from a simulation. </xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="DataProcessing">
+               <xs:sequence>
+                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
+               </xs:sequence>
+               <xs:attribute name="id" use="required" type="xs:anyURI">
+                  <xs:annotation>
+                     <xs:documentation>a unique URI identifying this document</xs:documentation>
+                  </xs:annotation>
+               </xs:attribute>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
    <xs:complexType name="TimeAverage">
                     <xs:complexContent>
                     <xs:extension base="Dataset">
@@ -294,10 +350,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          <xs:documentation>A configured model is a model with all of it's options set.
 A simulation must use a configured model unless it is associated with a  runCollection with more than one simulation.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="configuredModelComponent" type="ConfiguredModelComponent" minOccurs="1"
-                     maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="Daily-360">
                     <xs:complexContent>
@@ -313,12 +366,11 @@ A simulation must use a configured model unless it is associated with a  runColl
                     <xs:complexContent>
                     <xs:extension base="NumericalActivity">
                 <xs:sequence>
-         <xs:element name="conformance" type="Conformance" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="simulationComposite" type="SimulationComposite" minOccurs="1"
-                     maxOccurs="1"/>
-         <xs:element name="ensemble" type="Ensemble" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="runCollection" type="RunCollection" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="output" type="Output" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="simulationComposite" minOccurs="1" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
+         </xs:element>
          <xs:element name="ancillaryDataset" minOccurs="0" maxOccurs="unbounded" type="xs:anyURI">
             <xs:annotation>
                <xs:documentation>this is the label for a uri to all the ancillary files for this simulation
@@ -331,13 +383,13 @@ NB it doesn't stop one form having uris to conformance that point into the datas
             </xs:annotation>
          </xs:element>
          <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-         <xs:element name="initialCondition" minOccurs="1" maxOccurs="1" type="xs:anyURI"/>
          <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
          <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded" type="xs:anyURI"/>
          <xs:element name="platform" minOccurs="1" maxOccurs="1" type="ComputingEnvironment"/>
          <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
          <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
-      </xs:sequence>  
+      </xs:sequence>
+      <xs:attribute name="initialCondition" use="required" type="xs:anyURI"/>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
@@ -348,8 +400,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                     <xs:complexContent>
                     <xs:extension base="Project">
                 <xs:sequence>
-         <xs:element name="observationStation" type="ObservationStation" minOccurs="1" maxOccurs="1"/>
-         <xs:element name="InSupportOf" type="Assimilation" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="InSupportOf" minOccurs="0" maxOccurs="unbounded" type="Assimilation"/>
          <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="DateRange"/>
       </xs:sequence>  
                     </xs:extension>
@@ -369,13 +420,33 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                     <xs:complexContent>
                     <xs:extension base="NumericalActivity">
                 <xs:sequence>
-         <xs:element name="simulation" type="Simulation" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="simulation" minOccurs="1" maxOccurs="1" type="Simulation"/>
          <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="EnsembleStatistic"/>
          <xs:element name="type" minOccurs="1" maxOccurs="unbounded" type="ensembleTypes"/>
       </xs:sequence>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
+   <xs:element name="ensemble">
+      <xs:annotation>
+         <xs:documentation>An ensemble is made up of two or more simulations which are to be compared against each other to create ensemble statistics. Ensemble members can differ in terms of initial conditions, physical parameterisation and the model used.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="Ensemble">
+               <xs:sequence>
+                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
+               </xs:sequence>
+               <xs:attribute name="id" use="required" type="xs:anyURI">
+                  <xs:annotation>
+                     <xs:documentation>a unique URI identifying this document</xs:documentation>
+                  </xs:annotation>
+               </xs:attribute>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
    <xs:simpleType name="FrequencyType">
       <xs:restriction base="xs:string"/>
    </xs:simpleType>
@@ -400,9 +471,9 @@ It is a place for the scientific description of the reason why an experiment was
                     <xs:complexContent>
                     <xs:extension base="Activity">
                 <xs:sequence>
-         <xs:element name="generated" type="MeasurementCampaign" minOccurs="0" maxOccurs="unbounded"/>
-         <xs:element name="generated" type="NumericalExperiment" minOccurs="0" maxOccurs="unbounded"/>
-         <xs:element name="requires" type="NumericalActivity" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="generated" minOccurs="0" maxOccurs="unbounded" type="MeasurementCampaign"/>
+         <xs:element name="generated" minOccurs="0" maxOccurs="unbounded" type="NumericalExperiment"/>
+         <xs:element name="requires" minOccurs="0" maxOccurs="unbounded" type="NumericalActivity"/>
          <xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DateRange"/>
          <xs:element name="Why" minOccurs="1" maxOccurs="unbounded" type="Description"/>
       </xs:sequence>  
@@ -426,9 +497,7 @@ It is a place for the scientific description of the reason why an experiment was
    <xs:complexType name="RunCollection">
                     <xs:complexContent>
                     <xs:extension base="NumericalActivity">
-                <xs:sequence>
-         <xs:element name="simulation" type="Simulation" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>  
+                <xs:sequence/>  
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
@@ -436,9 +505,7 @@ It is a place for the scientific description of the reason why an experiment was
       <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="Output">
-      <xs:sequence>
-         <xs:element name="simulation" type="Simulation" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
+      <xs:sequence/>
    </xs:complexType>
    <xs:complexType name="MIP">
       <xs:annotation>
