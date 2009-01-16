@@ -73,22 +73,26 @@
                 />
             </xsl:comment>
             <xsl:value-of select="$newline"/>
+            
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
             <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
+                xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">
                 <xsl:value-of select="$newline"/>
                 <xsl:comment>
                     <xsl:text> these relative paths should really be URLs, but accessing them online cripples performance </xsl:text>
                 </xsl:comment>
-                <xsl:value-of select="$newline"/>
+                <xsl:value-of select="$newline"/>                
                 <xs:import namespace="http://www.opengis.net/gml/3.2"
-                    schemaLocation="gml/3.2.1/gml.xsd"/>
+                schemaLocation="gml/3.2.1/gml.xsd"/>
+                <xs:import namespace="http://www.isotc211.org/2005/gmd"
+                    schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
                 <xs:import namespace="http://www.w3.org/1999/xlink"
                     schemaLocation="xlink/1.0.0/xlinks.xsd"/>
-
                 <!-- HERE ENDETH THE HACK -->
+                
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
@@ -141,15 +145,16 @@
                 <xsl:call-template name="complexTypeTemplate"/>
             </xsl:otherwise>
         </xsl:choose>
+        
         <xsl:if test="$classStereotype='document'">
             <xsl:if test="$debug">
                 <xsl:message>
                     <xsl:text>it's a document too </xsl:text>
                 </xsl:message>
             </xsl:if>
-
             <xsl:call-template name="documentTemplate"/>
         </xsl:if>
+        
     </xsl:template>
 
     <!-- ***************** -->
@@ -564,7 +569,6 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
-
 
             <!-- don't forget to close any tags from a generalisation -->
             <xsl:if test="$generalisation">
