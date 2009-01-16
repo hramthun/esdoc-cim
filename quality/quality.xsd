@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 7 January 2009 -->       
+<!-- generated: 16 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
 <!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.isotc211.org/2005/gmd"
+              schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
    <xs:import namespace="http://www.w3.org/1999/xlink"
               schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="cim.xsd"/>
@@ -23,9 +26,6 @@
          <xs:enumeration value="resolved"/>
       </xs:restriction>
    </xs:simpleType>
-   <xs:complexType name="DateTime">
-      <xs:sequence/>
-   </xs:complexType>
    <xs:complexType name="LI_Linage">
       <xs:annotation>
          <xs:documentation>describes the processing steps applied to the data within the quality scope</xs:documentation>
@@ -76,9 +76,6 @@
          <xs:enumeration value="software"/>
       </xs:restriction>
    </xs:simpleType>
-   <xs:complexType name="CI_Citation">
-      <xs:sequence/>
-   </xs:complexType>
    <xs:simpleType name="CI_DateTypeCode">
       <xs:annotation>
          <xs:documentation>These are the date types defined in the ISO19115 standard - we may need to add additional terms</xs:documentation>
@@ -89,9 +86,6 @@
          <xs:enumeration value="revision"/>
       </xs:restriction>
    </xs:simpleType>
-   <xs:complexType name="CIM">
-      <xs:sequence/>
-   </xs:complexType>
    <xs:complexType name="CIM_FeatureType">
       <xs:sequence/>
    </xs:complexType>
@@ -116,7 +110,8 @@ These five entities represent elements of data quality and can be further subcla
                <xs:documentation>description of the evaluation method</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="evaluationProcedure" minOccurs="0" maxOccurs="1" type="CI_Citation">
+         <xs:element name="evaluationProcedure" minOccurs="0" maxOccurs="1"
+                     type="gmd:CI_Citation_PropertyType">
             <xs:annotation>
                <xs:documentation>reference to the evaluation procedure</xs:documentation>
             </xs:annotation>
@@ -160,7 +155,8 @@ These five entities represent elements of data quality and can be further subcla
                <xs:documentation>explanation of the meaning of confirmance for this result</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="specification" minOccurs="1" maxOccurs="1" type="CI_Citation">
+         <xs:element name="specification" minOccurs="1" maxOccurs="1"
+                     type="gmd:CI_Citation_PropertyType">
             <xs:annotation>
                <xs:documentation>citation of product specification or user requirement against which data is evaluated</xs:documentation>
             </xs:annotation>
@@ -333,13 +329,14 @@ These five entities represent elements of data quality and can be further subcla
                <xs:documentation>summary description of quality issue</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="issueIdentifiedBy" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty">
+         <xs:element name="issueIdentifiedBy" minOccurs="1" maxOccurs="1"
+                     type="gmd:CI_ResponsibleParty_PropertyType">
             <xs:annotation>
                <xs:documentation>person/organisation responsible for identifying this quality issue</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="issueResponsibilityOf" minOccurs="0" maxOccurs="1"
-                     type="CI_ResponsibleParty">
+                     type="gmd:CI_ResponsibleParty_PropertyType">
             <xs:annotation>
                <xs:documentation>person/organisation allocated the responsibuility for addressing this issue</xs:documentation>
             </xs:annotation>
@@ -373,7 +370,8 @@ These five entities represent elements of data quality and can be further subcla
                <xs:documentation>description of resolution of quality issues - including external references if required</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="resolvedBy" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty">
+         <xs:element name="resolvedBy" minOccurs="1" maxOccurs="1"
+                     type="gmd:CI_ResponsibleParty_PropertyType">
             <xs:annotation>
                <xs:documentation>person/organisation responsible for resolution, or the person/organisation who should be contacted with any queries about the resolution of this quality issue</xs:documentation>
             </xs:annotation>
@@ -419,9 +417,9 @@ These five entities represent elements of data quality and can be further subcla
    </xs:simpleType>
    <xs:complexType name="DQ_Quality">
       <xs:sequence>
-         <xs:element name="dQ_Element" minOccurs="0" maxOccurs="unbounded" type="DQ_Element"/>
          <xs:element name="cIM_QualityIssue" minOccurs="0" maxOccurs="unbounded"
                      type="CIM_QualityIssue"/>
+         <xs:element name="report" minOccurs="0" maxOccurs="unbounded" type="DQ_Element"/>
          <xs:element name="scope" minOccurs="1" maxOccurs="1" type="DQ_Scope">
             <xs:annotation>
                <xs:documentation>the specific data to which the quality information applies</xs:documentation>

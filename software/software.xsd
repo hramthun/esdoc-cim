@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 7 January 2009 -->       
+<!-- generated: 16 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
 <!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.isotc211.org/2005/gmd"
+              schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
    <xs:import namespace="http://www.w3.org/1999/xlink"
               schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="cim.xsd"/>
@@ -15,24 +18,6 @@
    <xs:include schemaLocation="grids.xsd"/>
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
-   <xs:complexType name="PropertyGroup">
-      <xs:sequence>
-         <xs:element name="group" minOccurs="0" maxOccurs="unbounded" type="PropertyGroup"/>
-         <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
-            <xs:complexType>
-               <xs:attribute ref="xlink:href" use="required"/>
-            </xs:complexType>
-         </xs:element>
-         <xs:element name="property" minOccurs="1" maxOccurs="unbounded" type="ModelProperty"/>
-         <xs:element name="component" minOccurs="1" maxOccurs="1">
-            <xs:complexType>
-               <xs:attribute ref="xlink:href" use="required"/>
-            </xs:complexType>
-         </xs:element>
-         <xs:element name="id" minOccurs="0" maxOccurs="1" type="UniqueIdentifier"/>
-      </xs:sequence>
-      <xs:attribute name="name" use="optional" type="CodeList"/>
-   </xs:complexType>
    <xs:simpleType name="TransformerLocalTransformationType">
       <xs:restriction base="xs:string"/>
    </xs:simpleType>
@@ -70,29 +55,12 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="ModelProperty">
-      <xs:annotation>
-         <xs:documentation>(Was previously called ScientificProperty).  A ModelProperty is a parameter which is modeled by a component.  These properties may be coupled via a connection.  They may also be related to one other.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element name="dataProperty" minOccurs="0" maxOccurs="1" type="DataProperty"/>
-         <xs:element name="group" minOccurs="1" maxOccurs="1">
-            <xs:complexType>
-               <xs:attribute ref="xlink:href" use="required"/>
-            </xs:complexType>
-         </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="UniqueIdentifier"/>
-         <xs:element name="value" minOccurs="0" maxOccurs="1"/>
-      </xs:sequence>
-      <xs:attribute name="name" use="required" type="CodeList"/>
-      <xs:attribute name="type" use="required" type="PropertyType"/>
-   </xs:complexType>
    <xs:complexType name="DataProperty">
       <xs:annotation>
          <xs:documentation>This is used as an association class to link ModelProperties with information specific to the data package (Content, Extent, etc.).  A ModelProperty has a DataProperty when it is derived from a data file.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="modelProperty" minOccurs="1" maxOccurs="1">
+         <xs:element name="componentProperty" minOccurs="1" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
@@ -186,14 +154,15 @@
    <xs:complexType name="SoftwareComponent">
       <xs:sequence>
          <xs:element name="composition" minOccurs="0" maxOccurs="unbounded" type="Composition"/>
+         <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
          <xs:element name="child" minOccurs="0" maxOccurs="unbounded" type="SoftwareComponent"/>
          <xs:element name="parent" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="DeploymentProperties"/>
-         <xs:element name="scientificProperties" minOccurs="0" maxOccurs="1" type="PropertyGroup"/>
+         <xs:element name="scientificProperties" minOccurs="0" maxOccurs="1"
+                     type="ComponentPropertyGroup"/>
          <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
       <xs:attribute name="embedded" use="required" type="xs:boolean">
@@ -207,15 +176,14 @@
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
-   <xs:complexType name="DeploymentProperties">
+   <xs:complexType name="Deployment">
       <xs:sequence>
          <xs:element name="component" minOccurs="1" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="compiler" minOccurs="1" maxOccurs="1" type="Compiler"/>
-         <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
+         <xs:element name="environment" minOccurs="1" maxOccurs="1" type="ComputingEnvironment"/>
          <xs:element name="parallelisation" minOccurs="1" maxOccurs="1" type="Parallelisation"/>
       </xs:sequence>
    </xs:complexType>
@@ -227,9 +195,6 @@
          <xs:enumeration value="minimum"/>
       </xs:restriction>
    </xs:simpleType>
-   <xs:complexType name="ParallelisationType">
-      <xs:sequence/>
-   </xs:complexType>
    <xs:complexType name="Machine">
       <xs:annotation>
          <xs:documentation>Information about the machine a component is deployed on.  Forms part of a component's TechnicalProperties.</xs:documentation>
@@ -272,8 +237,10 @@
          <xs:complexContent>
             <xs:extension base="ProcessorComponent">
                <xs:sequence>
+                  <xs:element name="author" minOccurs="1" maxOccurs="1"
+                              type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
-                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
                </xs:sequence>
                <xs:attribute name="id" use="required" type="xs:anyURI">
                   <xs:annotation>
@@ -341,8 +308,10 @@
          <xs:complexContent>
             <xs:extension base="ModelComponent">
                <xs:sequence>
+                  <xs:element name="author" minOccurs="1" maxOccurs="1"
+                              type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
-                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
                </xs:sequence>
                <xs:attribute name="id" use="required" type="xs:anyURI">
                   <xs:annotation>
@@ -368,8 +337,10 @@
          <xs:complexContent>
             <xs:extension base="FileComponent">
                <xs:sequence>
+                  <xs:element name="author" minOccurs="1" maxOccurs="1"
+                              type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
-                  <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty"/>
                </xs:sequence>
                <xs:attribute name="id" use="required" type="xs:anyURI">
                   <xs:annotation>
@@ -412,6 +383,38 @@
    <xs:complexType name="Parallelisation">
       <xs:sequence/>
    </xs:complexType>
+   <xs:complexType name="ComputingEnvironment">
+      <xs:annotation>
+         <xs:documentation>Gives information about the compiler referenced by the TechnicalProperties of a ModelComponent.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
+         <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="computingEnvironment">
+      <xs:annotation>
+         <xs:documentation>Gives information about the compiler referenced by the TechnicalProperties of a ModelComponent.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="ComputingEnvironment">
+               <xs:sequence>
+                  <xs:element name="author" minOccurs="1" maxOccurs="1"
+                              type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
+                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality"/>
+               </xs:sequence>
+               <xs:attribute name="id" use="required" type="xs:anyURI">
+                  <xs:annotation>
+                     <xs:documentation>a unique URI identifying this document</xs:documentation>
+                  </xs:annotation>
+               </xs:attribute>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
    <xs:simpleType name="TransformerAlgebraicCombinationType">
       <xs:restriction base="xs:string"/>
    </xs:simpleType>
@@ -423,13 +426,36 @@
       </xs:sequence>
       <xs:attribute name="units" use="required" type="TimingUnits"/>
    </xs:complexType>
-   <xs:simpleType name="PropertyType">
+   <xs:complexType name="ComponentProperty">
+                    <xs:complexContent>
+                    <xs:extension base="Property">
+                <xs:sequence>
+         <xs:element name="dataProperty" minOccurs="0" maxOccurs="1" type="DataProperty"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="ComponentPropertyType"/>  
+                    </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+   <xs:complexType name="ComponentPropertyGroup">
+                    <xs:complexContent>
+                    <xs:extension base="PropertyGroup">
+                <xs:sequence>
+         <xs:element name="component" minOccurs="1" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>  
+                    </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+   <xs:simpleType name="ComponentPropertyType">
       <xs:annotation>
-         <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+         <xs:documentation>controlled vocabulary for component properties</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string PropertyTypeEnumeration"/>
+      <xs:union memberTypes="xs:string ComponentPropertyTypeEnumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="PropertyTypeEnumeration">
+   <xs:simpleType name="ComponentPropertyTypeEnumeration">
       <xs:restriction base="xs:string"/>
    </xs:simpleType>
 </xs:schema>

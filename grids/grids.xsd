@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 7 January 2009 -->       
+<!-- generated: 16 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
 <!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
+   <xs:import namespace="http://www.isotc211.org/2005/gmd"
+              schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
    <xs:import namespace="http://www.w3.org/1999/xlink"
               schemaLocation="xlink/1.0.0/xlinks.xsd"/>
    <xs:include schemaLocation="cim.xsd"/>
@@ -44,6 +47,15 @@
                     </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
+   <xs:simpleType name="GridPropertyType">
+      <xs:annotation>
+         <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+      </xs:annotation>
+      <xs:union memberTypes="xs:string GridPropertyTypeEnumeration"/>
+   </xs:simpleType>
+   <xs:simpleType name="GridPropertyTypeEnumeration">
+      <xs:restriction base="xs:string"/>
+   </xs:simpleType>
    <xs:complexType name="GridMosaic">
       <xs:annotation>
          <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true.</xs:documentation>
@@ -237,6 +249,14 @@
       </xs:annotation>
       <xs:sequence/>
    </xs:complexType>
+   <xs:complexType name="GridProperty">
+                    <xs:complexContent>
+                    <xs:extension base="Property">
+                <xs:sequence/>
+      <xs:attribute name="name" use="required" type="GridPropertyType"/>  
+                    </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
    <xs:complexType name="gml:AbstractGeometryType">
       <xs:sequence>
          <xs:element name="gml:GeometryProperty" minOccurs="1" maxOccurs="unbounded"
