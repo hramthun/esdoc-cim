@@ -73,7 +73,7 @@
                 />
             </xsl:comment>
             <xsl:value-of select="$newline"/>
-            
+
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
             <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -84,15 +84,15 @@
                 <xsl:comment>
                     <xsl:text> these relative paths should really be URLs, but accessing them online cripples performance </xsl:text>
                 </xsl:comment>
-                <xsl:value-of select="$newline"/>                
+                <xsl:value-of select="$newline"/>
                 <xs:import namespace="http://www.opengis.net/gml/3.2"
-                schemaLocation="gml/3.2.1/gml.xsd"/>
+                    schemaLocation="gml/3.2.1/gml.xsd"/>
                 <xs:import namespace="http://www.isotc211.org/2005/gmd"
                     schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
                 <xs:import namespace="http://www.w3.org/1999/xlink"
                     schemaLocation="xlink/1.0.0/xlinks.xsd"/>
                 <!-- HERE ENDETH THE HACK -->
-                
+
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
@@ -145,7 +145,7 @@
                 <xsl:call-template name="complexTypeTemplate"/>
             </xsl:otherwise>
         </xsl:choose>
-        
+
         <xsl:if test="$classStereotype='document'">
             <xsl:if test="$debug">
                 <xsl:message>
@@ -154,7 +154,7 @@
             </xsl:if>
             <xsl:call-template name="documentTemplate"/>
         </xsl:if>
-        
+
     </xsl:template>
 
     <!-- ***************** -->
@@ -247,7 +247,7 @@
                                 <xsl:if
                                     test="string($attMax)!='1' or 
                                     ( 
-                                    (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
+                                    (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attStereotype,$upperCase,$lowerCase)='attribute' or translate($attStereotype,$upperCase,$lowerCase)='att'))
                                     and
                                     (not (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist'))
                                     )">
@@ -275,7 +275,7 @@
                             <xsl:if
                                 test="string($attMax)='1' and 
                                 ( 
-                                ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
+                                ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attStereotype,$upperCase,$lowerCase)='attribute' or translate($attStereotype,$upperCase,$lowerCase)='att')
                                 or
                                 (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
                                 )">
@@ -373,126 +373,179 @@
             <xsl:apply-templates mode="UMLclass"/>
 
             <!-- first check if this is a specialisation of another class -->
-            <xsl:variable name="generalisation"
+            <xsl:variable name="internalGeneralisation"
                 select="//UML:Generalization[@subtype=$class/@xmi.id]"/>
-            <xsl:if test="$generalisation">
+            <xsl:variable name="externalGeneralisation"
+                select="./UML:ModelElement.taggedValue/UML:TaggedValue[@tag='genlinks'][1]"/>
+            <xsl:variable name="isSimpleGeneralisation"
+                select="starts-with($externalGeneralisation/attribute::value,'Parent=xs:')"/>
 
-                <xsl:variable name="generalClass"
-                    select="//UML:Class[@xmi.id=$generalisation/attribute::supertype]"/>
-                <xsl:if test="$debug">
-                    <xsl:message>
-                        <xsl:value-of select="$class/@name"/>
-                        <xsl:text> is a specialisation of </xsl:text>
-                        <xsl:value-of select="$generalClass/@name"/>
-                    </xsl:message>
-                </xsl:if>
-                <!-- have to do this as text b/c I don't close the tags until much later -->
-                <xsl:text disable-output-escaping="yes">
-                    &lt;xs:complexContent&gt;
-                    &lt;xs:extension base="</xsl:text>
-                <xsl:value-of select="$generalClass/attribute::name"/>
-                <xsl:text disable-output-escaping="yes">"&gt;
-                </xsl:text>
-            </xsl:if>
+            <xsl:choose>
+                <!-- it might be a specialisation of some other class in the domain model -->
+                <xsl:when test="$internalGeneralisation">
 
-            <!-- all elements must preceed any attributes, and must be grouped w/in xs:sequence -->
-            <xs:sequence>
-
-                <!-- next chack if there are any associations which have this class as an endpoint -->
-                <xsl:apply-templates
-                    select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
-                    mode="UMLclass">
-                    <xsl:sort case-order="lower-first"
-                        select="descendant::UML:AssociationEnd[1]/@name"/>
-                    <xsl:sort case-order="lower-first"
-                        select="descendant::UML:AssociationEnd[2]/@name"/>
-                    <xsl:with-param name="class" select="$class"/>
-                </xsl:apply-templates>
-
-                <!-- next check if any of the (UML) attributes should be (XML) elements -->
-                <xsl:for-each select="descendant::UML:Attribute">
-                    <xsl:sort case-order="lower-first" select="@name"/>
-
-                    <!-- A UML attribute is an XML element, unless it is of type x-->
-                    <!-- where x is an enumeration, codelist, or (certain) built-in type. -->
-                    <!-- Otherwise it is an XML attribute, -->
-                    <!-- unless it has an upperBound > 1 -->
-
-                    <xsl:variable name="attMin"
-                        select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
-                    <xsl:variable name="attMax"
-                        select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
-                    <xsl:variable name="attType"
-                        select="descendant::UML:TaggedValue[@tag='type']/@value"/>
-                    <xsl:variable name="attStereotype"
-                        select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+                    <xsl:variable name="generalClass"
+                        select="//UML:Class[@xmi.id=$internalGeneralisation/attribute::supertype]"/>
 
                     <xsl:if test="$debug">
                         <xsl:message>
-                            <xsl:text>processing attribute: </xsl:text>
-                            <xsl:value-of select="@name"/>
-                        </xsl:message>
-                        <xsl:message>
-                            <xsl:text>min: </xsl:text>
-                            <xsl:value-of select="$attMin"/>
-                        </xsl:message>
-                        <xsl:message>
-                            <xsl:text>max: </xsl:text>
-                            <xsl:value-of select="$attMax"/>
-                        </xsl:message>
-                        <xsl:message>
-                            <xsl:text>type: </xsl:text>
-                            <xsl:value-of select="$attType"/>
-                        </xsl:message>
-                        <xsl:message>
-                            <xsl:text>stereotype: </xsl:text>
-                            <xsl:value-of select="$attStereotype"/>
-                        </xsl:message>
-                        <xsl:message>
-                            <xsl:text>stereotype of type class: </xsl:text>
-                            <xsl:copy-of
-                                select="//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name"
-                            />
+                            <xsl:value-of select="$class/@name"/>
+                            <xsl:text> is a specialisation of </xsl:text>
+                            <xsl:value-of select="$generalClass/@name"/>
                         </xsl:message>
                     </xsl:if>
-                    <!-- if the upperBound is greater than one -->
-                    <!-- or it is not an explicit enumeration or codelist or boolean -->
-                    <!-- or it is not a type which is itself an explicit enumeration or codelist -->
-                    <!-- (have to test $attMax as a string, b/c it might equal "*") -->
-                    <xsl:choose>
 
-                        <xsl:when
-                            test="string($attMax)!='1' or 
+                    <!-- have to do this as text b/c I don't close the tags until much later -->
+                    <xsl:text disable-output-escaping="yes">
+                        &lt;xs:complexContent&gt;
+                        &lt;xs:extension base="</xsl:text>
+                    <xsl:value-of select="$generalClass/attribute::name"/>
+                    <xsl:text disable-output-escaping="yes">"&gt;
+                    </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- or it might be a specialisation of some class outside of your domain model -->
+                    <xsl:if test="$externalGeneralisation">
+                        <xsl:variable name="generalClass"
+                            select="substring-before(substring-after($externalGeneralisation/attribute::value,'Parent='),';')"/>
+
+                        <xsl:if test="$debug">
+                            <xsl:message>
+                                <xsl:value-of select="$class/@name"/>
+                                <xsl:text> is a specialisation of </xsl:text>
+                                <xsl:value-of select="$generalClass"/>
+                            </xsl:message>
+                        </xsl:if>
+                        <!-- have to do this as text b/c I don't close the tags until much later -->
+                        <xsl:choose>
+                            <!-- and that other class might be a simpleType -->
+                            <xsl:when test="$isSimpleGeneralisation">
+                                <xsl:text disable-output-escaping="yes">
+                                    &lt;xs:simpleContent&gt;
+                                    &lt;xs:extension base="</xsl:text>
+                                <xsl:value-of select="$generalClass"/>
+                                <xsl:text disable-output-escaping="yes">"&gt;
+                                </xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text disable-output-escaping="yes">
+                                    &lt;xs:complexContent&gt;
+                                    &lt;xs:extension base="</xsl:text>
+                                <xsl:value-of select="$generalClass"/>
+                                <xsl:text disable-output-escaping="yes">"&gt;
+                                </xsl:text>
+
+                            </xsl:otherwise>
+                        </xsl:choose>
+
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <!-- all elements must preceed any attributes, and must be grouped w/in xs:sequence -->
+            <!-- note that simpleTypes cannot have elements -->
+            <xsl:if test="not($isSimpleGeneralisation)">
+                <xs:sequence>
+
+
+                    <!-- next chack if there are any associations which have this class as an endpoint -->
+                    <xsl:apply-templates
+                        select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
+                        mode="UMLclass">
+                        <xsl:sort case-order="lower-first"
+                            select="descendant::UML:AssociationEnd[1]/@name"/>
+                        <xsl:sort case-order="lower-first"
+                            select="descendant::UML:AssociationEnd[2]/@name"/>
+                        <xsl:with-param name="class" select="$class"/>
+                    </xsl:apply-templates>
+
+                    <!-- next check if any of the (UML) attributes should be (XML) elements -->
+                    <xsl:for-each select="descendant::UML:Attribute">
+                        <xsl:sort case-order="lower-first" select="@name"/>
+
+                        <!-- A UML attribute is an XML element, unless it is of type x-->
+                        <!-- where x is an enumeration, codelist, or (certain) built-in type. -->
+                        <!-- or an explicit <<attribute>> stereotype -->
+                        <!-- Otherwise it is an XML attribute, -->
+                        <!-- unless it has an upperBound > 1 -->
+
+                        <xsl:variable name="attMin"
+                            select="descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                        <xsl:variable name="attMax"
+                            select="descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                        <xsl:variable name="attType"
+                            select="descendant::UML:TaggedValue[@tag='type']/@value"/>
+                        <xsl:variable name="attStereotype"
+                            select="translate(descendant::UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
+
+                        <xsl:if test="$debug">
+                            <xsl:message>
+                                <xsl:text>processing attribute: </xsl:text>
+                                <xsl:value-of select="@name"/>
+                            </xsl:message>
+                            <xsl:message>
+                                <xsl:text>min: </xsl:text>
+                                <xsl:value-of select="$attMin"/>
+                            </xsl:message>
+                            <xsl:message>
+                                <xsl:text>max: </xsl:text>
+                                <xsl:value-of select="$attMax"/>
+                            </xsl:message>
+                            <xsl:message>
+                                <xsl:text>type: </xsl:text>
+                                <xsl:value-of select="$attType"/>
+                            </xsl:message>
+                            <xsl:message>
+                                <xsl:text>stereotype: </xsl:text>
+                                <xsl:value-of select="$attStereotype"/>
+                            </xsl:message>
+                            <xsl:message>
+                                <xsl:text>stereotype of type class: </xsl:text>
+                                <xsl:copy-of
+                                    select="//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name"
+                                />
+                            </xsl:message>
+                        </xsl:if>
+                        <!-- if the upperBound is greater than one -->
+                        <!-- or it is not an explicit enumeration or codelist or boolean -->
+                        <!-- or it is not a type which is itself an explicit enumeration or codelist -->
+                        <!-- or it is not an <<attribute>> stereotype -->
+                        <!-- (have to test $attMax as a string, b/c it might equal "*") -->
+                        <xsl:choose>
+
+                            <xsl:when
+                                test="string($attMax)!='1' or 
                             ( 
-                            (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist'))
+                            (not($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attStereotype,$upperCase,$lowerCase)='attribute' or translate($attStereotype,$upperCase,$lowerCase)='att'))
                             and
                             (not (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist'))
                             )">
 
-                            <xsl:if test="$debug">
-                                <xsl:message>
-                                    <xsl:text>it's an element </xsl:text>
-                                </xsl:message>
-                            </xsl:if>
-                            <!-- then it must be an XML element -->
-                            <xsl:call-template name="elementTemplate">
-                                <xsl:with-param name="min" select="$attMin"/>
-                                <xsl:with-param name="max" select="$attMax"/>
-                                <xsl:with-param name="type" select="$attType"/>
-                                <xsl:with-param name="stereotype" select="$attStereotype"/>
-                            </xsl:call-template>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:if test="$debug">
-                                <xsl:message>
-                                    <xsl:text>it's an attribute (deal w/ it later) </xsl:text>
-                                </xsl:message>
-                            </xsl:if>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:for-each>
+                                <xsl:if test="$debug">
+                                    <xsl:message>
+                                        <xsl:text>it's an element </xsl:text>
+                                    </xsl:message>
+                                </xsl:if>
+                                <!-- then it must be an XML element -->
+                                <xsl:call-template name="elementTemplate">
+                                    <xsl:with-param name="min" select="$attMin"/>
+                                    <xsl:with-param name="max" select="$attMax"/>
+                                    <xsl:with-param name="type" select="$attType"/>
+                                    <xsl:with-param name="stereotype" select="$attStereotype"/>
+                                </xsl:call-template>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:if test="$debug">
+                                    <xsl:message>
+                                        <xsl:text>it's an attribute (deal w/ it later) </xsl:text>
+                                    </xsl:message>
+                                </xsl:if>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:for-each>
 
-            </xs:sequence>
+                </xs:sequence>
+            </xsl:if>
             <!-- that's if for the elements, now we loop again and process any attributes -->
 
             <xsl:for-each select="descendant::UML:Attribute">
@@ -542,7 +595,7 @@
                     <xsl:when
                         test="string($attMax)='1' and 
                         ( 
-                        ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist')
+                        ($attStereotype='enumeration' or $attStereotype='codelist' or $attType='Boolean' or $attType='URI' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attStereotype,$upperCase,$lowerCase)='attribute' or translate($attStereotype,$upperCase,$lowerCase)='att')
                         or
                         (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
                         )">
@@ -571,11 +624,24 @@
             </xsl:for-each>
 
             <!-- don't forget to close any tags from a generalisation -->
-            <xsl:if test="$generalisation">
-                <xsl:text disable-output-escaping="yes">  
-                    &lt;/xs:extension&gt;
-                    &lt;/xs:complexContent&gt;
-                </xsl:text>
+            <xsl:if test="$internalGeneralisation or $externalGeneralisation">
+                <xsl:choose>
+                    <xsl:when test="$isSimpleGeneralisation">
+                        <xsl:text disable-output-escaping="yes">  
+                            &lt;/xs:extension&gt;
+                            &lt;/xs:simpleContent&gt;
+                        </xsl:text>
+
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text disable-output-escaping="yes">  
+                            &lt;/xs:extension&gt;
+                            &lt;/xs:complexContent&gt;
+                        </xsl:text>
+
+                    </xsl:otherwise>
+                </xsl:choose>
+
             </xsl:if>
 
         </xs:complexType>
@@ -735,13 +801,16 @@
                         <xsl:text>xs:string</xsl:text>
                     </xsl:attribute>
                 </xsl:when>
-                <xsl:when test="translate($type,$upperCase,$lowerCase)='integer' or
+                <xsl:when
+                    test="translate($type,$upperCase,$lowerCase)='integer' or
                     translate($type,$upperCase,$lowerCase)='int'">
                     <xsl:attribute name="type">
                         <xsl:text>xs:integer</xsl:text>
                     </xsl:attribute>
                 </xsl:when>
-                <xsl:when test="translate($type,$upperCase,$lowerCase)='real'">
+                <xsl:when
+                    test="translate($type,$upperCase,$lowerCase)='real' or
+                    translate($type,$upperCase,$lowerCase)='double'">
                     <xsl:attribute name="type">
                         <xsl:text>xs:double</xsl:text>
                     </xsl:attribute>
