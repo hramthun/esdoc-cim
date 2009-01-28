@@ -2,14 +2,14 @@
 <!-- Definition of the ORCA1 model grid. -->
 <!-- This grid specification may be referenced from a remote CIM object using the syntax: -->
 <!-- <geometryModel xlink:href="orca1-gridspec.xml#orca1-gridspec"/> -->
-<ESM_GridSpec version="0.6" gml:id="orca1-gridspec" 
+<GridSpec version="0.7" gml:id="orca1-gridspec" 
 	xmlns="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gml="http://www.opengis.net/gml/3.2"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
 	dc:creator="Phil Bentley"
-	dc:date="2008-11-12">
+	dc:date="2009-01-28">
 	<esmModelGrid id="orca1-grid" isLeaf="true" gridType="regular_lat_lon">
 		<shortName>ORCA1 Grid</shortName>
 		<longName>ORCA1 1-Degree Tripolar Grid</longName>
@@ -119,4 +119,4 @@
 			<coordFileURI>file://my/grids/orca1_fgrid_coords.nc</coordFileURI>
 		</gridTile>
 	</esmModelGrid>
-</ESM_GridSpec>
+</GridSpec>
