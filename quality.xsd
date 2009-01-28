@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 16 January 2009 -->       
+<!-- generated: 26 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -147,9 +147,9 @@ These five entities represent elements of data quality and can be further subcla
       <xs:annotation>
          <xs:documentation>information about the outcome of evaluating the obtained value (or set of values) against a specified acceptable conformance quality level</xs:documentation>
       </xs:annotation>
-                    <xs:complexContent>
-                    <xs:extension base="DQ_Result">
-                <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DQ_Result">
+                    <xs:sequence>
          <xs:element name="explanation" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>explanation of the meaning of confirmance for this result</xs:documentation>
@@ -167,9 +167,9 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>indication of the conformance result where 0 = fail and 1 = pass</xs:documentation>
          </xs:annotation>
       </xs:attribute>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:complexType name="CIM_Description">
       <xs:sequence>
          <xs:element name="issueDescription" minOccurs="1" maxOccurs="1" type="CIM_Description"/>
@@ -382,9 +382,9 @@ These five entities represent elements of data quality and can be further subcla
       <xs:annotation>
          <xs:documentation>the values or information about the value(s) (or set of values) obtained from applying a data quality measure</xs:documentation>
       </xs:annotation>
-                    <xs:complexContent>
-                    <xs:extension base="DQ_Result">
-                <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DQ_Result">
+                    <xs:sequence>
          <xs:element name="errorStatistic" minOccurs="0" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>statistical method used to determine the value</xs:documentation>
@@ -406,9 +406,9 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>value unit for reporting a data quality result</xs:documentation>
          </xs:annotation>
       </xs:attribute>  
-                    </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:simpleType name="MF_Description">
       <xs:annotation>
          <xs:documentation>A standard METAFOR class to handle descriptions which would be used across the entire CIM.  It should include both free text and description by reference (xlink).</xs:documentation>

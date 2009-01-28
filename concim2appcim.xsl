@@ -714,15 +714,13 @@
                         <!-- and the max/min  -->
                         <xsl:choose>
                             <xsl:when test="@multiplicity='*'">
-                                <xsl:attribute name="minOccurs">1</xsl:attribute>
+                                <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>
-                            <!--
+                            </xsl:when>                            
                             <xsl:when test="@multiplicity='0'">
                                 <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">0</xsl:attribute>
-                            </xsl:when>
-                            -->
+                            </xsl:when>                            
                             <xsl:when test="@multiplicity='0..*'">
                                 <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
