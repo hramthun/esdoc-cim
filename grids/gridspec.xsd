@@ -91,10 +91,7 @@
 			<xs:element name="referenceList" type="ReferenceListType" minOccurs="0"/>
 			<xs:choice>
 				<xs:element ref="gridMosaic" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:sequence>
-					<xs:element ref="gridTile" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element ref="contactRegions" minOccurs="0"/>
-				</xs:sequence>
+				<xs:element ref="gridTile" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attributeGroup ref="IdAttrGroup"/>
@@ -142,8 +139,8 @@
 			<xs:element name="gridSouthPole" type="gml:PointPropertyType" minOccurs="0"/>
 		   <xs:choice>
 		        <xs:element name="simpleGridGeom" type="SimpleGridGeometryType"/>
-		        <xs:element name="cellArray" type="CellArrayType"/>
-		        <xs:element name="cellRefArray" type="CellRefArrayType"/>
+		        <xs:element name="cellArray" type="GridCellArrayType"/>
+		        <xs:element name="cellRefArray" type="GridCellRefArrayType"/>
 		        <xs:element name="coordFileURI" type="xs:anyURI"/>
 		   </xs:choice>
 			<xs:element name="zcoords" type="CoordListType" minOccurs="0"/>
@@ -271,7 +268,7 @@
 	</xs:complexType>
 	
 	<!-- CellArrayType -->
-	<xs:complexType name="CellArrayType">
+	<xs:complexType name="GridCellArrayType">
 		<xs:annotation><xs:documentation>
 			This object type may be used to specify an array of grid cell elements. Any element that
 			belongs to the gridCell substitution group may be substituted here.
@@ -282,7 +279,7 @@
 	</xs:complexType>
 
    <!-- CellRefArrayType -->
-   <xs:complexType name="CellRefArrayType">
+   <xs:complexType name="GridCellRefArrayType">
       <xs:annotation><xs:documentation>
          This object type may be used to specify an array of grid cell reference elements.
       </xs:documentation></xs:annotation>
@@ -312,9 +309,9 @@
 		<xs:sequence>
 			<xs:element name="vertex1" type="gml:PointPropertyType"/>
 			<xs:element name="vertex2" type="gml:PointPropertyType"/>
-			<xs:element name="departureAngle" type="gml:MeasureType"/>
-			<xs:element name="arrivalAngle" type="gml:MeasureType"/>
-			<xs:element name="length" type="gml:MeasureType"/>
+			<xs:element name="length" type="gml:MeasureType" minOccurs="0"/>
+			<xs:element name="departureAngle" type="gml:MeasureType" minOccurs="0"/>
+			<xs:element name="arrivalAngle" type="gml:MeasureType" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="arcType" type="ArcTypeEnum" use="required"/>
 	</xs:complexType>
@@ -387,7 +384,7 @@
 		<xs:complexContent>
 			<xs:extension base="ContactGeometryType">
 				<xs:sequence>
-					<xs:element name="cellArray" type="CellArrayType"/>
+					<xs:element name="cellArray" type="GridCellArrayType"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -440,7 +437,7 @@
 	<!-- ReferenceListType -->
 	<xs:complexType name="ReferenceListType">
 		<xs:sequence>
-			<xs:element name="reference" type="xs:string" maxOccurs="unbounded"/>
+			<xs:element name="reference" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
