@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 26 January 2009 -->       
+<!-- generated: 30 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -18,6 +18,28 @@
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
+   <!-- this is the top-level element of the CIM -->       
+<!-- it can include any (single) <<document>> -->       
+<xs:element name="CIMRecord">
+      <xs:complexType>
+         <xs:choice>
+            <xs:element ref="simulationRun"/>
+            <xs:element ref="simulationComposite"/>
+            <xs:element ref="numericalExperiment"/>
+            <xs:element ref="dataProcessing"/>
+            <xs:element ref="ensemble"/>
+            <xs:element ref="dataset"/>
+            <xs:element ref="dataObject"/>
+            <xs:element ref="customGridGeometry"/>
+            <xs:element ref="customFeatureGeometry"/>
+            <xs:element ref="gridSpec"/>
+            <xs:element ref="processorComponent"/>
+            <xs:element ref="modelComponent"/>
+            <xs:element ref="fileComponent"/>
+            <xs:element ref="computingEnvironment"/>
+         </xs:choice>
+      </xs:complexType>
+   </xs:element>
    <xs:complexType name="CustomGridGeometry">
       <xs:annotation>
          <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
@@ -58,17 +80,17 @@
                         <xs:documentation>a record of changes to this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
+                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+                     <xs:annotation>
+                        <xs:documentation>a unique indentifier for this document</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
                         <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
-               <xs:attribute name="id" use="required" type="xs:anyURI">
-                  <xs:annotation>
-                     <xs:documentation>a unique URI identifying this document</xs:documentation>
-                  </xs:annotation>
-               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -204,17 +226,17 @@
                         <xs:documentation>a record of changes to this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
+                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+                     <xs:annotation>
+                        <xs:documentation>a unique indentifier for this document</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
                         <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
-               <xs:attribute name="id" use="required" type="xs:anyURI">
-                  <xs:annotation>
-                     <xs:documentation>a unique URI identifying this document</xs:documentation>
-                  </xs:annotation>
-               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -402,17 +424,17 @@
                         <xs:documentation>a record of changes to this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
+                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+                     <xs:annotation>
+                        <xs:documentation>a unique indentifier for this document</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
                         <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
-               <xs:attribute name="id" use="required" type="xs:anyURI">
-                  <xs:annotation>
-                     <xs:documentation>a unique URI identifying this document</xs:documentation>
-                  </xs:annotation>
-               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>

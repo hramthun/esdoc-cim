@@ -96,6 +96,29 @@
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
                     <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
                 </xsl:for-each>
+                <xsl:comment>
+                    <xsl:text> this is the top-level element of the CIM </xsl:text>
+                </xsl:comment>
+                <xsl:value-of select="$newline"/>
+                <xsl:comment>
+                    <xsl:text> it can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
+                </xsl:comment>
+                <xsl:value-of select="$newline"/>
+                <!-- this top-level element... -->
+                <xs:element name="CIMRecord">
+                    <xs:complexType>
+                        <xs:choice>
+                            <!-- can include a reference to any <<document>> -->
+                            <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                <xsl:variable name="className"
+                                    select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
+                                <xsl:variable name="documentName"
+                                    select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
+                                <xs:element ref="{$documentName}"/>
+                            </xsl:for-each>
+                        </xs:choice>
+                    </xs:complexType>
+                    </xs:element>
                 <xsl:apply-templates/>
             </xs:schema>
         </xsl:result-document>
@@ -716,11 +739,11 @@
                             <xsl:when test="@multiplicity='*'">
                                 <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>                            
+                            </xsl:when>
                             <xsl:when test="@multiplicity='0'">
                                 <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">0</xsl:attribute>
-                            </xsl:when>                            
+                            </xsl:when>
                             <xsl:when test="@multiplicity='0..*'">
                                 <xsl:attribute name="minOccurs">0</xsl:attribute>
                                 <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>

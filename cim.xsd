@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 26 January 2009 -->       
+<!-- generated: 30 January 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -18,4 +18,26 @@
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
+   <!-- this is the top-level element of the CIM -->       
+<!-- it can include any (single) <<document>> -->       
+<xs:element name="CIMRecord">
+      <xs:complexType>
+         <xs:choice>
+            <xs:element ref="simulationRun"/>
+            <xs:element ref="simulationComposite"/>
+            <xs:element ref="numericalExperiment"/>
+            <xs:element ref="dataProcessing"/>
+            <xs:element ref="ensemble"/>
+            <xs:element ref="dataset"/>
+            <xs:element ref="dataObject"/>
+            <xs:element ref="customGridGeometry"/>
+            <xs:element ref="customFeatureGeometry"/>
+            <xs:element ref="gridSpec"/>
+            <xs:element ref="processorComponent"/>
+            <xs:element ref="modelComponent"/>
+            <xs:element ref="fileComponent"/>
+            <xs:element ref="computingEnvironment"/>
+         </xs:choice>
+      </xs:complexType>
+   </xs:element>
 </xs:schema>
