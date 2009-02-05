@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252"?>
 <!DOCTYPE XMI SYSTEM "UML_EA.dtd">
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-01-29 12:35:08">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-02-05 12:23:32">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -67,38 +67,12 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={567ED5C6-38DE-4ac3-B7DF-D6AA509CFBB0}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={F65E8BFD-23C3-4b12-A950-ECDD2785B148}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=document;GUID={E6D96ACB-853B-4138-8BD2-B34802E7D8FE};@ENDSTEREO;$DES;$CLT={0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid0"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
-										<UML:TaggedValue tag="type" value="Identifier"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{7A1A3C2C-5035-4db5-84D7-E0DA87F8A03C}"/>
-										<UML:TaggedValue tag="ea_localid" value="2"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="geometrySpec" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
@@ -116,6 +90,32 @@
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{6D25AB8C-ADEF-40a0-A8A7-54598CF622AB}"/>
 										<UML:TaggedValue tag="ea_localid" value="3"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
+										<UML:TaggedValue tag="type" value="Identifier"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{7A1A3C2C-5035-4db5-84D7-E0DA87F8A03C}"/>
+										<UML:TaggedValue tag="ea_localid" value="2"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -149,13 +149,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Simple data type for encapsulating an array of grid cell definitions."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2009-01-22 15:58:08"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 16:12:05"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:53:19"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -198,14 +199,14 @@
 						</UML:Class>
 						<UML:Class name="GridMosaic" xmi.id="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true."/>
+								<UML:TaggedValue tag="documentation" value="The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 13:28:24"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-31 14:44:29"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:46:53"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -216,42 +217,16 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="4"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=0;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3B892FCA-14AC-4163-9007-EAB07AE7C3F9}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={18E90B49-E375-4a4f-A8EC-1801422E6E3B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid0"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records."/>
-										<UML:TaggedValue tag="type" value="Identifier"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{AE80E869-7CE8-4072-B0C2-B336B5292FB0}"/>
-										<UML:TaggedValue tag="ea_localid" value="4"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="description" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="A free-text description of a grid mosaic."/>
@@ -280,7 +255,7 @@
 										<UML:Classifier xmi.idref="EAID_A08B9B20_5819_4fd0_8733_93B01A9008C6"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the type of all the grid tiles contained in a grid mosaic. Value domain is as per the specified enumeration."/>
+										<UML:TaggedValue tag="description" value="Specifies the type of all the grid tiles contained in a grid mosaic. It is assumed that all of the tiles comprising a given grid mosaic are of the same type. The value domain is as per the specified enumeration list."/>
 										<UML:TaggedValue tag="type" value="GridTypeEnum"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -295,6 +270,32 @@
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{59C236DC-190E-41f9-93E8-5AD9650CFA67}"/>
 										<UML:TaggedValue tag="ea_localid" value="6"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records."/>
+										<UML:TaggedValue tag="type" value="Identifier"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{AE80E869-7CE8-4072-B0C2-B336B5292FB0}"/>
+										<UML:TaggedValue tag="ea_localid" value="4"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -332,6 +333,7 @@
 										<UML:Classifier xmi.idref="EAID_AB5D3079_DD1E_4da3_BE08_9221461CACEF"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Optional container element for specifying a list of references that describe the grid."/>
 										<UML:TaggedValue tag="type" value="ReferenceList"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -545,38 +547,12 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8A4E3833-966E-471b-BFFC-933196F01F95}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={1A7B70F2-54E2-4bb6-93E7-751B7921C6A0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={4E54F6D3-6714-450f-BA16-063339D897FB}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={B19BF9A2-AF5D-4e86-BA08-83F78BE3F813};@ENDSTEREO;$DES;$CLT={1A7B70F2-54E2-4bb6-93E7-751B7921C6A0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="numDims" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid3"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids."/>
-										<UML:TaggedValue tag="type" value="Integer"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{E3C8630C-7F08-48bd-B25E-2F4C079535AA}"/>
-										<UML:TaggedValue tag="ea_localid" value="8"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="dimOrder" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is &quot;yx&quot; (&quot;zyx&quot; for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions."/>
@@ -623,6 +599,32 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
+								<UML:Attribute name="numDims" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids."/>
+										<UML:TaggedValue tag="type" value="Integer"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{E3C8630C-7F08-48bd-B25E-2F4C079535AA}"/>
+										<UML:TaggedValue tag="ea_localid" value="8"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
 								<UML:Attribute name="xcoords" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
@@ -631,7 +633,7 @@
 										<UML:Classifier xmi.idref="EAID_CFC25640_B10B_43c4_ACEF_621F9E7C60C5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the X (or i) coordinate of each 'vertical' grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two X coordinates are required, i.e. those defining the edges of the first column."/>
+										<UML:TaggedValue tag="description" value="Specifies the X (or i) coordinate of each 'vertical' grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two X coordinates are required: the X coordinate of the initial grid node, plus the offset or spacing between successive grid nodes."/>
 										<UML:TaggedValue tag="type" value="CoordList"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -657,7 +659,7 @@
 										<UML:Classifier xmi.idref="EAID_CFC25640_B10B_43c4_ACEF_621F9E7C60C5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the Y (or j) coordinate of each 'horizontal' grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two Y coordinates are required, i.e. those defining the edges of the first row."/>
+										<UML:TaggedValue tag="description" value="Specifies the Y (or j) coordinate of each 'horizontal' grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two Y coordinates are required: the Y coordinate of the initial grid node, plus the offset or spacing between successive grid nodes."/>
 										<UML:TaggedValue tag="type" value="CoordList"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -683,7 +685,7 @@
 										<UML:Classifier xmi.idref="EAID_CFC25640_B10B_43c4_ACEF_621F9E7C60C5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="For 3D grids, specifies the distance (offset) between successive grid nodes in the Z direction."/>
+										<UML:TaggedValue tag="description" value="For 3D grids, specifies the Z coordinates of the grid."/>
 										<UML:TaggedValue tag="type" value="CoordList"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -795,13 +797,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The ArcType enumeration may be used to indicate the type of the curves (arcs) that connect the grid nodes in a grid tile. The 'complex' enumeration should be used when the arc type is not one of the other well-known types."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:05:50"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:06:11"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:56:42"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -946,38 +949,12 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CF6CD1EA-EAB2-4239-8CBD-4839C0888A31}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={37B76C39-92FE-44d1-B17E-55A7B0754C6B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={21E95930-A0B3-4365-8DFA-470CE73F5201}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=document;GUID={E6D96ACB-853B-4138-8BD2-B34802E7D8FE};@ENDSTEREO;$DES;$CLT={37B76C39-92FE-44d1-B17E-55A7B0754C6B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
-										<UML:TaggedValue tag="type" value="String"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{0F469EDD-BF16-45bb-AB84-06391B7E9255}"/>
-										<UML:TaggedValue tag="ea_localid" value="21"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="geometrySpec" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
@@ -995,6 +972,32 @@
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{2119B797-F736-413c-971A-22729208E21A}"/>
 										<UML:TaggedValue tag="ea_localid" value="22"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{0F469EDD-BF16-45bb-AB84-06391B7E9255}"/>
+										<UML:TaggedValue tag="ea_localid" value="21"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -1163,12 +1166,12 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={131AAFCA-EE22-4047-A620-3E4E268EE02A}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5AB018D6-C2E6-4058-8355-6086930AAECE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={31509D4F-6C68-42d4-9447-B1488E7F85D7}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={B19BF9A2-AF5D-4e86-BA08-83F78BE3F813};@ENDSTEREO;$DES;$CLT={5AB018D6-C2E6-4058-8355-6086930AAECE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="name" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+								<UML:Attribute name="description" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -1179,12 +1182,12 @@
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="position" value="2"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{F92D9C05-8361-4376-B533-5295BE43BEF5}"/>
-										<UML:TaggedValue tag="ea_localid" value="25"/>
+										<UML:TaggedValue tag="ea_guid" value="{A30D4E40-B5CA-485b-B711-CA7C3D29AD82}"/>
+										<UML:TaggedValue tag="ea_localid" value="27"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -1213,12 +1216,12 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
-								<UML:Attribute name="description" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+								<UML:Attribute name="name" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -1229,12 +1232,12 @@
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{A30D4E40-B5CA-485b-B711-CA7C3D29AD82}"/>
-										<UML:TaggedValue tag="ea_localid" value="27"/>
+										<UML:TaggedValue tag="ea_guid" value="{F92D9C05-8361-4376-B533-5295BE43BEF5}"/>
+										<UML:TaggedValue tag="ea_localid" value="25"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -1245,13 +1248,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Simple data type for encapsulating an array of grid cell edgel definitions."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2009-01-22 16:17:54"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 16:18:12"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:57:28"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -1297,13 +1301,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The GeometryType enumeration may be used to indicate the geometry used to approximate the figure of the Earth."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:08:29"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 12:41:42"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:52:37"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -1446,6 +1451,29 @@
 								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
+						<UML:Comment xmi.id="EAID_787D9B4F_D2F4_45a3_9DAD_632BE330D414" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="These classes may be used to specify the coordinates of grid nodes if required. But CIM documents are for recording climate metadata not low-level grid information."/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Note"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
+								<UML:TaggedValue tag="date_created" value="2009-02-03 12:25:33"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 12:28:30"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="grids"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="philip.bentley"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="70"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Comment>
 						<UML:Comment xmi.id="EAID_79ADFCFB_1A8E_4e6f_A2E2_B91FB890FA77" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25">
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="documentation" value="All the classes above and to the right of this note are data types."/>
@@ -1474,14 +1502,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="This data type is used to encode a reference to a grid cell defined as part of some other grid tile, which itself may be part of the same or an entirely separate grid mosaic."/>
+								<UML:TaggedValue tag="documentation" value="This data type is used to encode a reference to a grid cell defined as part of some other grid tile, which itself may be part of the same or an entirely separate grid mosaic.&#xA;&#xA;A GridCellRef object consists of a reference to a cell in a separately-defined grid tile, together with an optional fractional area that indicates the portion of the target cell 'occupied' by the referring cell. If this area is not specified, a default value of 1.0 is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell ID elements, or as a text string attribute (idPath) containing colon-separated ID values terminated with a number representing the fractional area (e.g. &quot;m1:m2:m3:t1:c1:0.5&quot;)."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 17:06:41"/>
-								<UML:TaggedValue tag="date_modified" value="2008-11-03 12:29:14"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:16:34"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -1498,64 +1526,15 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DB3F310A-ED7B-4abc-8C90-CE0FDD380E7A}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={7EB9E07D-0C23-4e0c-B2EF-103C28FF05FC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={50FF2E42-3B73-4555-868D-134BDFDE9B7A}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={B19BF9A2-AF5D-4e86-BA08-83F78BE3F813};@ENDSTEREO;$DES;$CLT={7EB9E07D-0C23-4e0c-B2EF-103C28FF05FC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="mosaicID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="String"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="*"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{7F54911A-9269-428a-85FE-CFEDCA287642}"/>
-										<UML:TaggedValue tag="ea_localid" value="31"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="tileID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="String"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="1"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{7E0C06F2-FB5B-40db-914A-7C7A2AE2B4D9}"/>
-										<UML:TaggedValue tag="ea_localid" value="32"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="cellID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid cell object"/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -1581,7 +1560,7 @@
 										<UML:Classifier xmi.idref="eaxmiid6"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual location of the fractional part is, presumably, not required. 0 &amp;lt; area &amp;lt;= 1."/>
+										<UML:TaggedValue tag="description" value="This property is used to indicate that a fractional area of the referenced grid cell is to be used in computations using that grid cell. The actual geometry of the fractional part is not defined. If this property is not specified a default value of 1 is assumed."/>
 										<UML:TaggedValue tag="type" value="double"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -1604,12 +1583,13 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.stereotype>
 										<UML:Stereotype name="attribute"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The idPath property may be used as a more compact alternative to specifying a grid cell reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, a tile ID, a cell ID, and, optionally, a number representing the fractional part."/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -1627,6 +1607,58 @@
 										<UML:TaggedValue tag="ea_localid" value="35"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={5FEC3A66-7ACA-4ee8-A7A7-50D716ED9EF2}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={A201455E-5BE7-4523-B1BD-41D0F23B3102}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="mosaicID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid mosaic object."/>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{7F54911A-9269-428a-85FE-CFEDCA287642}"/>
+										<UML:TaggedValue tag="ea_localid" value="31"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="tileID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid tile object"/>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{7E0C06F2-FB5B-40db-914A-7C7A2AE2B4D9}"/>
+										<UML:TaggedValue tag="ea_localid" value="32"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 							</UML:Classifier.feature>
@@ -1685,78 +1717,6 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
-								<UML:Attribute name="vertex1" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the position of the first (start) point of the edge."/>
-										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="1"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{84B5E404-7CB5-48b8-AFA8-0AC2322DEC29}"/>
-										<UML:TaggedValue tag="ea_localid" value="114"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="vertex2" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the position of the second (end) point of the edge."/>
-										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="2"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{5746A218-54E0-4faa-BA09-68CA3C0A8CAD}"/>
-										<UML:TaggedValue tag="ea_localid" value="115"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="length" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid7"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the length of the edge in the units defined using the 'uom' attribute that is attached to the GML MeasureType data type."/>
-										<UML:TaggedValue tag="type" value="gml:MeasureType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="3"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{AC0ECF45-F961-4d5a-A348-42D68B97AD3C}"/>
-										<UML:TaggedValue tag="ea_localid" value="39"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="arrivalAngle" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
@@ -1807,20 +1767,139 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
+								<UML:Attribute name="length" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid7"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the length of the edge in the units defined using the 'uom' attribute that is attached to the GML MeasureType data type."/>
+										<UML:TaggedValue tag="type" value="gml:MeasureType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="3"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{AC0ECF45-F961-4d5a-A348-42D68B97AD3C}"/>
+										<UML:TaggedValue tag="ea_localid" value="39"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="vertex1" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the position of the first (start) point of the edge."/>
+										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{84B5E404-7CB5-48b8-AFA8-0AC2322DEC29}"/>
+										<UML:TaggedValue tag="ea_localid" value="114"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="vertex2" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the position of the second (end) point of the edge."/>
+										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{5746A218-54E0-4faa-BA09-68CA3C0A8CAD}"/>
+										<UML:TaggedValue tag="ea_localid" value="115"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
+						<UML:Comment xmi.id="EAID_80F111E9_4DF2_415b_889A_A9FA196B8CC7" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The GridSpec element is a container for 0 or more model grids and 0 or more exchange grids"/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Note"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
+								<UML:TaggedValue tag="date_created" value="2009-02-03 11:46:53"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:49:25"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="grids"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="philip.bentley"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="65"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=0;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Comment>
+						<UML:Comment xmi.id="EAID_8CB013FD_99BE_4107_9566_CA860740C710" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="A grid mosaic contains 1 or more mosaics XOR 1 or more tiles"/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Note"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
+								<UML:TaggedValue tag="date_created" value="2009-02-03 12:36:50"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 12:40:15"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="grids"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="philip.bentley"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="71"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=0;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Comment>
 						<UML:Class name="VerticalCSEnum" xmi.id="EAID_9114F432_E132_4607_8AF5_3A9045470C11" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.stereotype>
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="TheVerticalCS enumeration is used to indicate the construction of the coordinate system used for vertical grid coordinates.&#xA;&#xA;Note: this enumeration is not required by the current version of the CIM. The verticalCRS property of a grid tile may be used to provide equivalent information."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:13:25"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:13:39"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:20:59"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -1891,13 +1970,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Simple data type for encapsulating an array of grid cell reference definitions."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2009-01-22 16:09:59"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 16:11:58"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:53:50"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -1943,13 +2023,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The GridType enumeration may be used to indicate the structural type of a grid mosaic or, equivalently, a model grid."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:03:16"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:03:33"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:47:35"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2188,13 +2269,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The HorizontalCS enumeration is used to indicate the construction of the coordinate system used for horizontal grid coordinates.&#xA;&#xA;Note: this enumeration is not required by the current version of the CIM. The horizontalCRS property of a grid tile may be used to provide equivalent information."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:12:15"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:12:21"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:21:21"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2313,13 +2395,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Simple data type for specifying a list of references."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2009-01-29 12:08:50"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-29 12:09:11"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:52:02"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2341,9 +2424,10 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="A free-text description of a reference / citation."/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -2365,13 +2449,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The GridNodePosition enumeration may be used to indicate the horizontal position of a grid node relative to its surrounding or containing grid cell. This enumeration may be extended at some point to include relative vertical position."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-10 09:52:59"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-10 10:02:00"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:51:33"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2661,7 +2746,7 @@
 										<UML:Classifier xmi.idref="EAID_78348E22_FF80_41b3_B903_1126B863C70A"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="The vertexArray attribute is used to specify the array of three or more vertices that define the perimeter of the grid cell. Each vertex member of the array may be specified either as a coordinate tuple or as a reference to a vertex defined remotely."/>
+										<UML:TaggedValue tag="description" value="The vertexArray attribute is used to specify an array of three or more vertices that define the perimeter of the grid cell. Each vertex member of the array may be specified either as a coordinate tuple or as a reference to a vertex defined remotely."/>
 										<UML:TaggedValue tag="type" value="VertexArray"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -2721,14 +2806,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="This data type is used to encode a reference to a grid tile defined as part of some other grid mosaic, which may itself be part of the same hierarchy of grid mosaics or else part of an entirely separate mosaic (possibly even in a separate physical realisation, e.g. XML file or database table)."/>
+								<UML:TaggedValue tag="documentation" value="This data type is used to encode a reference to a grid tile defined as part of some other grid mosaic, which may itself be part of the same hierarchy of grid mosaics or else part of an entirely separate mosaic (possibly even in a separate physical realisation, e.g. XML file or database table).&#xA;&#xA;A grid tile reference is a list of ID references from the top-level mosaic down to the grid tile itself. A tile reference can be specified either as a sequence of mosaic ID elements and a tile ID element, or as a text string attribute (idPath) containing colon-separated ID values (e.g. &quot;m1:m2:m3:t1&quot;)."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 16:58:04"/>
-								<UML:TaggedValue tag="date_modified" value="2008-11-03 12:27:45"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:08:23"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2744,14 +2829,46 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={61A0B96C-D068-4732-8F14-8CD875105A13}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={BFD9169E-2ED2-42de-A0B3-8779E9FAA442}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={96E7B6D7-D933-4802-ABEA-7FB42FD80952}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={B19BF9A2-AF5D-4e86-BA08-83F78BE3F813};@ENDSTEREO;$DES;$CLT={BFD9169E-2ED2-42de-A0B3-8779E9FAA442}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
+								<UML:Attribute name="idPath" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The idPath property may be used as a more compact alternative to specifying a grid tile reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, and a tile ID."/>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{68E6E5B1-71B7-4dd1-98CD-EEF6D4AFC78F}"/>
+										<UML:TaggedValue tag="ea_localid" value="66"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={27397406-A202-455a-8550-F9BC3FD0ECE0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={68E6E5B1-71B7-4dd1-98CD-EEF6D4AFC78F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
 								<UML:Attribute name="mosaicID" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid mosaic object."/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -2774,9 +2891,10 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid tile object."/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -2794,36 +2912,6 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
-								<UML:Attribute name="idPath" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.stereotype>
-										<UML:Stereotype name="attribute"/>
-									</UML:ModelElement.stereotype>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="String"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="stereotype" value="attribute"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="2"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{68E6E5B1-71B7-4dd1-98CD-EEF6D4AFC78F}"/>
-										<UML:TaggedValue tag="ea_localid" value="66"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={27397406-A202-455a-8550-F9BC3FD0ECE0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={68E6E5B1-71B7-4dd1-98CD-EEF6D4AFC78F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
 						<UML:Class name="DiscretizationEnum" xmi.id="EAID_C7C41452_0C00_4875_B79F_6AA4F770921C" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
@@ -2831,13 +2919,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The Discretization enumeration may be used to indicate the manner in which a grid tile is discretized. It is envisaged that the majority of model grids described by CIM metadata documents will be logically rectangular in construction."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 17:14:28"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-07 17:14:53"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:49:19"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -2883,7 +2972,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -2908,7 +2997,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -2933,7 +3022,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -2958,7 +3047,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -2985,14 +3074,14 @@
 								<UML:Stereotype name="document"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="This is a container class for GridSpec objects. An ESM_GridSpec object can contain one or more esmModelGrid objects, and one or more esmExchangeGrid objects. These objects may be serialised to one or possibly several files according to taste. Since GridSpec is sub-typed from GML's AbstractGeometryType it can, and should, be identified using the gml:id attribute."/>
+								<UML:TaggedValue tag="documentation" value="This is a container class for GridSpec objects. A GridSpec object can contain one or more esmModelGrid objects, and one or more esmExchangeGrid objects. These objects may be serialised to one or possibly several files according to taste. Since GridSpec is sub-typed from GML's AbstractGeometryType it can, and should, be identified using a gml:id attribute."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 13:13:06"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 17:41:55"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:46:53"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=gml:AbstractGeometryType;"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
@@ -3006,7 +3095,7 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="41"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=0;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={D0FD949B-C83C-4d78-AB09-2A2E85AE5696}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=document;GUID={E6D96ACB-853B-4138-8BD2-B34802E7D8FE};@ENDSTEREO;$DES;$CLT={CA93D22D-19CF-4238-A8F0-05CAB066F806}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={A7912F66-347E-4301-8538-38DA18362C09}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={CA93D22D-19CF-4238-A8F0-05CAB066F806}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
@@ -3015,7 +3104,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid0"/>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
@@ -3041,10 +3130,10 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Indicates the version of the GFDL GridSpec standard to which a grid specification instance conforms."/>
+										<UML:TaggedValue tag="description" value="Indicates the version of the GridSpec standard to which a grid specification instance conforms."/>
 										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -3069,14 +3158,14 @@
 								<UML:Stereotype name="DataType"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate and offset value need to be specified; however, the length attribute must still define the final 'as-built' size of the coordinate list."/>
+								<UML:TaggedValue tag="documentation" value="The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate value and the offset (spacing) value need to be specified; however, the length attribute must still define the final 'as-built' size of the coordinate list."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2009-01-22 17:25:02"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 17:32:54"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:54:45"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=xs:string;"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
@@ -3095,34 +3184,6 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={25A1BE08-86F6-44b5-A335-644EEB7658C2}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={CFC25640-B10B-43c4-ACEF-621F9E7C60C5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={47B81A2D-6E0E-42b2-BADC-834E834E6184}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=DataType;GUID={C10D5A09-08CA-4a1c-95CF-F4CBC07B13D4};@ENDSTEREO;$DES;$CLT={CFC25640-B10B-43c4-ACEF-621F9E7C60C5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="length" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid3"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.stereotype>
-										<UML:Stereotype name="attribute"/>
-									</UML:ModelElement.stereotype>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies the length of the coordinate array."/>
-										<UML:TaggedValue tag="type" value="Integer"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="stereotype" value="attribute"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{E7F5205A-9643-42e4-8BC5-B5B5108BB380}"/>
-										<UML:TaggedValue tag="ea_localid" value="117"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={4573CF96-C005-427f-943D-120B64B10730}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={E7F5205A-9643-42e4-8BC5-B5B5108BB380}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="hasConstantOffset" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
@@ -3146,6 +3207,34 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
+								<UML:Attribute name="length" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the length of the coordinate array. This should always be the final, as-built length of the array if the hasConstantOffset property is set to true and the compact notation (start coordinate plus offset) is used."/>
+										<UML:TaggedValue tag="type" value="Integer"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{E7F5205A-9643-42e4-8BC5-B5B5108BB380}"/>
+										<UML:TaggedValue tag="ea_localid" value="117"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={4573CF96-C005-427f-943D-120B64B10730}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={E7F5205A-9643-42e4-8BC5-B5B5108BB380}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
 							</UML:Classifier.feature>
 						</UML:Class>
 						<UML:Class name="ContactTypeEnum" xmi.id="EAID_CFDAF27B_07FC_40ca_81F5_E8FA2CF835B1" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
@@ -3153,13 +3242,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The ContactType enumeration is used to indicate the nature of the contact between two grid tiles. Use boundary if they touch, overlap if they overlap.&#xA;&#xA;Note: this enumeration is not required by the current version of the CIM."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:16:33"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:16:40"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:15:21"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -3230,13 +3320,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Note: this enumeration is not required by the current version of the CIM."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:09:40"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 11:09:46"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:16:48"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -3307,13 +3398,14 @@
 								<UML:Stereotype name="enumeration"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="The RefinementType enumeration is used to indicate the spatial relationship between two overlapping or adjacent grid tiles. The meaning of the various refinement values is described in section 2.8 of the GridSpec paper."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-09 11:06:58"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-09 12:41:50"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 10:39:27"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -3337,6 +3429,7 @@
 										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous."/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -3361,6 +3454,7 @@
 										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The refinement is integer when grid lines from the coarser grid are continuous on the finer grid, but not vice versa."/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -3385,6 +3479,7 @@
 										<UML:Classifier xmi.idref="eaxmiid4"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="The refinement is rational when the adjacent or overlapping grid tiles have grid line counts that are coprime (i.e. no common factor other than 1)."/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -3405,14 +3500,14 @@
 						</UML:Class>
 						<UML:Class name="GridTile" xmi.id="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="The GridTile class is used to model an individual grid tile contained within a grid mosaic. A GridTile consists of an array of grid cells which may be defined in one of three ways: 1) for simple grids, by use of the SimpleGridGeometry data type; 2) by defining an array of GridCell objects; and 3) by specifying an array of references to externally defined GridCell objects.&#xA;&#xA;A GridTile object is associated with a geodetic or projected CRS via the horizontalCRS association role, and with a vertical CRS via the verticalCRS association role."/>
+								<UML:TaggedValue tag="documentation" value="The GridTile class is used to model an individual grid tile contained within a grid mosaic. A GridTile consists of an array of grid cells which may be defined in one of four ways: 1) for simple grids, by use of the SimpleGridGeometry data type; 2) by defining an array of GridCell objects; 3) by specifying an array of references to externally defined GridCell objects; or 4) by specifying a URI to a remote data file containing the grid cell definitions.&#xA;&#xA;For all but the simplest grid tiles, it is envisaged that method 4 above will be the most frequently used option. However, it should be remembered that the CIM is primarily concerned with encoding climate model metadata. Specifying the coordinates of individual grid tiles and cells will most likely not be required as part of such metadata descriptions.&#xA;&#xA;A GridTile object is associated with a geodetic or projected CRS via the horizontalCRS property, and with a vertical CRS via the verticalCRS property."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 14:02:10"/>
-								<UML:TaggedValue tag="date_modified" value="2008-10-15 15:06:12"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-03 11:46:53"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -3423,11 +3518,57 @@
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="48"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
-								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=0;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0DB4DDBC-776C-4932-8B4E-BDD8BA64C055}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={EF21E721-0E27-4bbc-9A25-B8D1F876F3BC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+								<UML:Attribute name="cellArray" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_0B659634_3572_4dbf_BDA7_69D6148427E1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="This property may be used to specify an array of grid cell definitions which together define the coordinate geometry of a grid tile. Depending on context, any of the existing sub-types of GridCell may be used. Mixing types is, however, not currently permitted."/>
+										<UML:TaggedValue tag="type" value="GridCellArray"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="13"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{26C4E927-F3C0-4a04-8C5F-D81CF3262DD7}"/>
+										<UML:TaggedValue tag="ea_localid" value="106"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="cellRefArray" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_93EAFD79_4424_42dc_A90B_EAD265A38194"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="This property may be used to define the coordinate geometry of a grid tile by specifying an array of references to remotely defined grid cells. Depending on context, any of the existing sub-types of GridCell may be referenced."/>
+										<UML:TaggedValue tag="type" value="GridCellRefArray"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="14"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{BF69CEC5-218D-47f3-9B40-CAE96F35326B}"/>
+										<UML:TaggedValue tag="ea_localid" value="110"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="coordFileURI" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
@@ -3435,8 +3576,8 @@
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental."/>
-										<UML:TaggedValue tag="type" value="Identifier"/>
+										<UML:TaggedValue tag="description" value="This property may be used to specify the URI of a file containing grid coordinates that define the geometry of a a grid tile. It is envisaged that this will be the preferred mechanism for specifying the geometry of complex grids."/>
+										<UML:TaggedValue tag="type" value="String"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="length" value="0"/>
@@ -3444,12 +3585,12 @@
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="position" value="15"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{8CB50AAD-1BBA-4a70-819F-80B9F5B695AD}"/>
-										<UML:TaggedValue tag="ea_localid" value="82"/>
+										<UML:TaggedValue tag="ea_guid" value="{7C6D6B8E-1A92-44fe-B933-9C073C7EFF88}"/>
+										<UML:TaggedValue tag="ea_localid" value="93"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -3458,7 +3599,7 @@
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="A free-text description of a grid tile."/>
@@ -3513,7 +3654,7 @@
 										<UML:Classifier xmi.idref="EAID_71B77E42_3D90_49e0_B43D_CBBEBB371FEF"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Indicates the geometric axxproximation used to model the Earth, e.g. &quot;sphere&quot;."/>
+										<UML:TaggedValue tag="description" value="Indicates the geometric figure used to approximate the figure of the Earth, e.g. &quot;sphere&quot;."/>
 										<UML:TaggedValue tag="type" value="GeometryTypeEnum"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
@@ -3528,6 +3669,185 @@
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{9849E9B4-C532-4f13-8122-85D740C70FEA}"/>
 										<UML:TaggedValue tag="ea_localid" value="85"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="gridNorthPole" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="If required, defines the lat-long position of the 'north pole' used by the grid tile in the case of rotated/displaced pole grids."/>
+										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="8"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{2A2E176E-82BA-4c82-9713-23BA13D0A8BE}"/>
+										<UML:TaggedValue tag="ea_localid" value="86"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="gridSouthPole" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="If required, defines the lat-long position of the 'south pole' used by the grid tile in the case of rotated/displaced pole grids. (Author note: this property name is not suitable. A new name needs to be defined.)"/>
+										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="9"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{0C1EEF76-4675-427e-909D-68FF31FE331C}"/>
+										<UML:TaggedValue tag="ea_localid" value="120"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="horizontalCRS" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid8"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the horizontal coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external horizontal CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document."/>
+										<UML:TaggedValue tag="type" value="gml:CRSPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="10"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{965D86B9-1A37-4d7e-A9C2-12CA13C24782}"/>
+										<UML:TaggedValue tag="ea_localid" value="94"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental."/>
+										<UML:TaggedValue tag="type" value="Identifier"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{8CB50AAD-1BBA-4a70-819F-80B9F5B695AD}"/>
+										<UML:TaggedValue tag="ea_localid" value="82"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="isConformal" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="This property is used to indicate if the grid tile is conformal, i.e. angle-preserving. If so, angles measured on the grid are equal to the equivalent angles on the Earth."/>
+										<UML:TaggedValue tag="type" value="Boolean"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="6"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{73A2489A-9CBB-4c89-B704-5A5F35C2A69C}"/>
+										<UML:TaggedValue tag="ea_localid" value="88"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="isRegular" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="If true, indicates that the horizontal coordinates of the grid can be defined using 1D arrays (vectors). This means that grid node locations are defined by the cartesian product of the X/Lon and Y/Lat coordinate vectors. It also means that grid cells are logically rectangular (they may also be physically rectangular in the case of projected coordinates)."/>
+										<UML:TaggedValue tag="type" value="Boolean"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="5"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{BB7986E8-2A1A-4852-8DAE-EBB9AE09FCBD}"/>
+										<UML:TaggedValue tag="ea_localid" value="90"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="isTerrainFollowing" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Set to true if the vertical coordinate system is terrain-following even if, as is often the case, this only applies to the lower levels of the grid."/>
+										<UML:TaggedValue tag="type" value="Boolean"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="7"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{703801F6-31F8-4c99-82C4-25749645388F}"/>
+										<UML:TaggedValue tag="ea_localid" value="91"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -3557,181 +3877,26 @@
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
-								<UML:Attribute name="isRegular" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+								<UML:Attribute name="simpleGridGeom" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
 									</UML:Attribute.initialValue>
 									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid2"/>
+										<UML:Classifier xmi.idref="EAID_1A7B70F2_54E2_4bb6_93E7_751B7921C6A0"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="If true, indicates that the horizontal coordinates of the grid can be defined using 1D arrays (vectors). This means that grid node locations are defined by the cartesian product of the X and Y coordinate vectors. And that grid cells are logically rectangular (they may also be physically rectangular in the case of projected coordinates)."/>
-										<UML:TaggedValue tag="type" value="Boolean"/>
+										<UML:TaggedValue tag="description" value="This property may be used to define the coordinates of the nodes or cells making up a simple (i.e. uniform or regular) grid tile. More details are provided in the description of the SimpleGridGeometry data type."/>
+										<UML:TaggedValue tag="type" value="SimpleGridGeometry"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="5"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{BB7986E8-2A1A-4852-8DAE-EBB9AE09FCBD}"/>
-										<UML:TaggedValue tag="ea_localid" value="90"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="isConformal" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid2"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Check purpose of this attribute with Balaji. Presume it means that grid is angle-preserving."/>
-										<UML:TaggedValue tag="type" value="Boolean"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="6"/>
+										<UML:TaggedValue tag="position" value="12"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{73A2489A-9CBB-4c89-B704-5A5F35C2A69C}"/>
-										<UML:TaggedValue tag="ea_localid" value="88"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="isPoleCovered" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid2"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Set to true if the grid tile covers a pole (or both in some cases)."/>
-										<UML:TaggedValue tag="type" value="Boolean"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="7"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{49B41DEF-3129-47ca-9A81-37FA833BF719}"/>
-										<UML:TaggedValue tag="ea_localid" value="89"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="isTerrainFollowing" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid2"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Set to true if the vertical coordinate system is terrain-following (e.g. pressure levels?)"/>
-										<UML:TaggedValue tag="type" value="Boolean"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="8"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{703801F6-31F8-4c99-82C4-25749645388F}"/>
-										<UML:TaggedValue tag="ea_localid" value="91"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="gridNorthPole" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="If required, defines the lat-long position of the 'north pole' used by the grid tile in the case of rotated/displaced pole grids."/>
-										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="9"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{2A2E176E-82BA-4c82-9713-23BA13D0A8BE}"/>
-										<UML:TaggedValue tag="ea_localid" value="86"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="gridSouthPole" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="If required, defines the lat-long position of the 'south pole' used by the grid tile in the case of rotated/displaced pole grids."/>
-										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="10"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{0C1EEF76-4675-427e-909D-68FF31FE331C}"/>
-										<UML:TaggedValue tag="ea_localid" value="120"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="horizontalCRS" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid8"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="gml:CRSPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="11"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{965D86B9-1A37-4d7e-A9C2-12CA13C24782}"/>
-										<UML:TaggedValue tag="ea_localid" value="94"/>
+										<UML:TaggedValue tag="ea_guid" value="{CB9F83C9-9E88-40a2-A7C8-E46A142132DF}"/>
+										<UML:TaggedValue tag="ea_localid" value="105"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -3743,109 +3908,18 @@
 										<UML:Classifier xmi.idref="eaxmiid8"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies the vertical coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external vertical CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document."/>
 										<UML:TaggedValue tag="type" value="gml:CRSPropertyType"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="12"/>
+										<UML:TaggedValue tag="position" value="11"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{01FBFB13-D090-476b-97DB-159B47061563}"/>
 										<UML:TaggedValue tag="ea_localid" value="104"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="simpleGridGeom" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="EAID_1A7B70F2_54E2_4bb6_93E7_751B7921C6A0"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="SimpleGridGeometry"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="13"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{CB9F83C9-9E88-40a2-A7C8-E46A142132DF}"/>
-										<UML:TaggedValue tag="ea_localid" value="105"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="cellArray" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="EAID_0B659634_3572_4dbf_BDA7_69D6148427E1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="GridCellArray"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="14"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{26C4E927-F3C0-4a04-8C5F-D81CF3262DD7}"/>
-										<UML:TaggedValue tag="ea_localid" value="106"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="cellRefArray" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="EAID_93EAFD79_4424_42dc_A90B_EAD265A38194"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="type" value="GridCellRefArray"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="15"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{BF69CEC5-218D-47f3-9B40-CAE96F35326B}"/>
-										<UML:TaggedValue tag="ea_localid" value="110"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="coordFileURI" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid1"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Optional attribute for specifying the URI of a file containing grid coordinates."/>
-										<UML:TaggedValue tag="type" value="String"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="16"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{7C6D6B8E-1A92-44fe-B933-9C073C7EFF88}"/>
-										<UML:TaggedValue tag="ea_localid" value="93"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -3857,12 +3931,13 @@
 										<UML:Classifier xmi.idref="EAID_CFC25640_B10B_43c4_ACEF_621F9E7C60C5"/>
 									</UML:StructuralFeature.type>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="This optional property may be used to specify the vertical coordinates (e.g. heights or model levels) at which a grid tile is utilised or realised. In the case of simple grid tiles the equivalent zcoords property on the SimpleGridGeometry data type would be used instead. The current property is intended to be used when the horizontal grid coordinates are defined by one of the other methods."/>
 										<UML:TaggedValue tag="type" value="CoordList"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="17"/>
+										<UML:TaggedValue tag="position" value="16"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
 										<UML:TaggedValue tag="upperBound" value="1"/>
 										<UML:TaggedValue tag="duplicates" value="0"/>
@@ -3875,14 +3950,14 @@
 						</UML:Class>
 						<UML:Class name="GridCell" xmi.id="EAID_F793EB4A_2737_4a26_8495_7DEE650E92EB" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="true" isActive="false">
 							<UML:ModelElement.taggedValue>
-								<UML:TaggedValue tag="documentation" value="This class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. The vertexArray association role models this requirement."/>
+								<UML:TaggedValue tag="documentation" value="This abstract base class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. Vertices are either defined directly (e.g. in the case of a SimpleGridCell object), or indirectly by referencing a remote grid cell (in the case of an ExchangeGridCell object)."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
 								<UML:TaggedValue tag="ea_stype" value="Class"/>
 								<UML:TaggedValue tag="ea_ntype" value="0"/>
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 14:29:50"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-27 15:35:07"/>
+								<UML:TaggedValue tag="date_modified" value="2009-02-02 15:37:41"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
 								<UML:TaggedValue tag="package_name" value="grids"/>
@@ -3898,58 +3973,6 @@
 								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={977272BF-7678-4f77-82CE-A9563A3A8B66}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={F793EB4A-2737-4a26-8495-7DEE650E92EB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
-								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid0"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Specifies an identifer that uniquely identifies a cell within its parent grid tile."/>
-										<UML:TaggedValue tag="type" value="Identifier"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="0"/>
-										<UML:TaggedValue tag="lowerBound" value="1"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{F4DA6CDD-C884-4b1b-86C1-F7198AEED74A}"/>
-										<UML:TaggedValue tag="ea_localid" value="95"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
-								<UML:Attribute name="centroid" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
-									<UML:Attribute.initialValue>
-										<UML:Expression/>
-									</UML:Attribute.initialValue>
-									<UML:StructuralFeature.type>
-										<UML:Classifier xmi.idref="eaxmiid5"/>
-									</UML:StructuralFeature.type>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="description" value="Optionally specifies the location of the centroid of a grid cell."/>
-										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
-										<UML:TaggedValue tag="derived" value="0"/>
-										<UML:TaggedValue tag="containment" value="Not Specified"/>
-										<UML:TaggedValue tag="length" value="0"/>
-										<UML:TaggedValue tag="ordered" value="0"/>
-										<UML:TaggedValue tag="precision" value="0"/>
-										<UML:TaggedValue tag="scale" value="0"/>
-										<UML:TaggedValue tag="collection" value="false"/>
-										<UML:TaggedValue tag="position" value="1"/>
-										<UML:TaggedValue tag="lowerBound" value="0"/>
-										<UML:TaggedValue tag="upperBound" value="1"/>
-										<UML:TaggedValue tag="duplicates" value="0"/>
-										<UML:TaggedValue tag="ea_guid" value="{2C47C5AB-CAB6-4ef8-AB15-5CF4E0C663EA}"/>
-										<UML:TaggedValue tag="ea_localid" value="96"/>
-										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-									</UML:ModelElement.taggedValue>
-								</UML:Attribute>
 								<UML:Attribute name="area" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
 									<UML:Attribute.initialValue>
 										<UML:Expression/>
@@ -3973,6 +3996,58 @@
 										<UML:TaggedValue tag="duplicates" value="0"/>
 										<UML:TaggedValue tag="ea_guid" value="{2C849E31-39A2-423a-B794-D35BA71170A4}"/>
 										<UML:TaggedValue tag="ea_localid" value="97"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="centroid" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Optionally specifies the coordinate location of the centroid of a grid cell."/>
+										<UML:TaggedValue tag="type" value="gml:PointPropertyType"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{2C47C5AB-CAB6-4ef8-AB15-5CF4E0C663EA}"/>
+										<UML:TaggedValue tag="ea_localid" value="96"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Specifies an identifer that uniquely identifies a cell within its parent grid tile."/>
+										<UML:TaggedValue tag="type" value="Identifier"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{F4DA6CDD-C884-4b1b-86C1-F7198AEED74A}"/>
+										<UML:TaggedValue tag="ea_localid" value="95"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
@@ -4031,13 +4106,13 @@
 				</UML:Package>
 				<UML:DataType xmi.id="eaxmiid8" name="gml:CRSPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid4" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid1" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid0" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid2" name="Boolean" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid6" name="double" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid3" name="Integer" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid7" name="gml:MeasureType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid5" name="gml:PointPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid0" name="Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid1" name="Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 			</UML:Namespace.ownedElement>
 		</UML:Model>
 		<UML:Diagram name="Grids Package Diagram" xmi.id="EAID_3232C69D_F0D8_461a_9AE3_672138106AD9" diagramType="ClassDiagram" owner="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" toolName="Enterprise Architect 2.5">
@@ -4101,10 +4176,66 @@
 				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4D7240AA_0374_4aed_A462_CD2F5B65C38F" style="Mode=2;EOID=FEDC949E;SOID=50E3FBB7;Color=-1;LWidth=0;Hidden=0;"/>
 			</UML:Diagram.element>
 		</UML:Diagram>
+		<UML:Diagram name="GridSpec Classes" xmi.id="EAID_FB364C63_8EB7_45ff_AD57_DF6CBCB676E7" diagramType="ClassDiagram" owner="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" toolName="Enterprise Architect 2.5">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="version" value="1.0"/>
+				<UML:TaggedValue tag="author" value="philip.bentley"/>
+				<UML:TaggedValue tag="created_date" value="2009-02-03 11:22:32"/>
+				<UML:TaggedValue tag="modified_date" value="2009-02-03 12:40:23"/>
+				<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
+				<UML:TaggedValue tag="type" value="Logical"/>
+				<UML:TaggedValue tag="swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
+				<UML:TaggedValue tag="matrixitems" value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
+				<UML:TaggedValue tag="ea_localid" value="2"/>
+				<UML:TaggedValue tag="EAStyle" value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<UML:TaggedValue tag="styleex" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+			</UML:ModelElement.taggedValue>
+			<UML:Diagram.element>
+				<UML:DiagramElement geometry="Left=40;Top=220;Right=150;Bottom=299;" subject="EAID_8CB013FD_99BE_4107_9566_CA860740C710" seqno="1" style="DUID=2EFFEC4B;font=Arial;fontsz=90;bold=0;italic=0;ul=0;"/>
+				<UML:DiagramElement geometry="Left=40;Top=30;Right=180;Bottom=109;" subject="EAID_80F111E9_4DF2_415b_889A_A9FA196B8CC7" seqno="2" style="DUID=ABE8EFF1;font=Arial;fontsz=90;bold=0;italic=0;ul=0;"/>
+				<UML:DiagramElement geometry="Left=500;Top=30;Right=778;Bottom=323;" subject="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC" seqno="3" style="BCol=13434828;DUID=D8888701;NSL=0;RzO=1;font=Arial;fontsz=90;bold=0;italic=0;ul=0;"/>
+				<UML:DiagramElement geometry="Left=191;Top=200;Right=407;Bottom=313;" subject="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B" seqno="4" style="BCol=13434828;DUID=35BC6FCD;NSL=0;font=Arial;fontsz=90;bold=0;italic=0;ul=0;"/>
+				<UML:DiagramElement geometry="Left=225;Top=30;Right=373;Bottom=110;" subject="EAID_CA93D22D_19CF_4238_A8F0_05CAB066F806" seqno="5" style="NSL=0;BCol=13434828;DUID=56DDD284;font=Arial;fontsz=90;bold=0;italic=0;ul=0;"/>
+				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CA4B132A_C28F_4eab_9B8C_19B3D66E474F" style="Mode=3;EOID=35BC6FCD;SOID=2EFFEC4B;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=44;SY=-1;EX=44;EY=-1;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=93:CY=14:OX=109:OY=-4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C5685FDB_0DB7_4b25_9AFA_176B9420532D" style="Mode=3;EOID=56DDD284;SOID=35BC6FCD;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SCTR=1;SCME=1;SX=0;SY=0;EX=0;EY=0;EDGE=3;SCTR.LEFT=359;SCTR.TOP=-335;SCTR.RIGHT=438;SCTR.BOTTOM=-281;$LLB=;LLT=CX=77:CY=14:OX=91:OY=20:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=359:-313$359:-335$438:-335$438:-281$407:-281$;" subject="EAID_D7FDF644_2411_4fdf_827C_DB887A63AD55" style="Mode=3;EOID=35BC6FCD;SOID=35BC6FCD;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=-42;SY=1;EX=-42;EY=1;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=76:CY=14:OX=-6:OY=-3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DD47EE91_B1DF_4425_A78B_DEA906F36E8F" style="Mode=3;EOID=56DDD284;SOID=35BC6FCD;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="EDGE=4;SX=-138;SY=-52;EX=107;EY=28;$LLB=CX=17:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=44:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_82FE8404_B840_430c_9A6A_676D5462B9AE" style="Mode=3;EOID=35BC6FCD;SOID=D8888701;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CF2610CC_65D6_4d00_BF23_8D3D2C8AA38F" style="Mode=3;EOID=56DDD284;SOID=ABE8EFF1;Color=-1;LWidth=0;Hidden=0;"/>
+			</UML:Diagram.element>
+		</UML:Diagram>
+		<UML:Diagram name="Grid Cell Classes" xmi.id="EAID_AFFCAA98_0A69_4a60_8C3D_ED3D7A9684E3" diagramType="ClassDiagram" owner="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" toolName="Enterprise Architect 2.5">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="version" value="1.0"/>
+				<UML:TaggedValue tag="author" value="philip.bentley"/>
+				<UML:TaggedValue tag="created_date" value="2009-02-03 12:19:23"/>
+				<UML:TaggedValue tag="modified_date" value="2009-02-03 12:30:54"/>
+				<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
+				<UML:TaggedValue tag="type" value="Logical"/>
+				<UML:TaggedValue tag="swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
+				<UML:TaggedValue tag="matrixitems" value="locked=false;matrixactive=false;swimlanesactive=true;width=1;"/>
+				<UML:TaggedValue tag="ea_localid" value="4"/>
+				<UML:TaggedValue tag="EAStyle" value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<UML:TaggedValue tag="styleex" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+			</UML:ModelElement.taggedValue>
+			<UML:Diagram.element>
+				<UML:DiagramElement geometry="Left=540;Top=220;Right=690;Bottom=323;" subject="EAID_787D9B4F_D2F4_45a3_9DAD_632BE330D414" seqno="1" style="DUID=697D34A3;"/>
+				<UML:DiagramElement geometry="Left=510;Top=30;Right=701;Bottom=155;" subject="EAID_1A7B70F2_54E2_4bb6_93E7_751B7921C6A0" seqno="2" style="BCol=13434828;DUID=754C54AF;NSL=0;"/>
+				<UML:DiagramElement geometry="Left=320;Top=180;Right=480;Bottom=240;" subject="EAID_390B71FB_8106_4630_AC8F_BBEB265BFBBE" seqno="3" style="BCol=13434828;DUID=7E754F68;NSL=0;"/>
+				<UML:DiagramElement geometry="Left=190;Top=270;Right=334;Bottom=330;" subject="EAID_31A99190_0F49_4f8a_88BE_FDAD89B40C73" seqno="4" style="BCol=13434828;DUID=3C2D7011;NSL=0;"/>
+				<UML:DiagramElement geometry="Left=60;Top=180;Right=202;Bottom=240;" subject="EAID_BB4F527F_7C70_4b00_9D90_3E1267A75F70" seqno="5" style="BCol=13434828;DUID=AEB8AF35;NSL=0;"/>
+				<UML:DiagramElement geometry="Left=150;Top=30;Right=370;Bottom=121;" subject="EAID_F793EB4A_2737_4a26_8495_7DEE650E92EB" seqno="6" style="BCol=13434828;DUID=635A5FE9;NSL=0;"/>
+				<UML:DiagramElement geometry="SX=-2;SY=29;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CAEF9AFA_9F09_4ff5_BB3C_D219B638646E" style="Mode=3;EOID=635A5FE9;SOID=3C2D7011;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_A4397B7A_8F69_448b_94FC_1397DFEC4235" style="Mode=3;EOID=635A5FE9;SOID=AEB8AF35;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_4D7240AA_0374_4aed_A462_CD2F5B65C38F" style="Mode=3;EOID=635A5FE9;SOID=7E754F68;Color=-1;LWidth=0;Hidden=0;"/>
+			</UML:Diagram.element>
+		</UML:Diagram>
 	</XMI.content>
 	<XMI.difference/>
 	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EANoteLink xmi.id="EAID_CA4B132A_C28F_4eab_9B8C_19B3D66E474F" source="EAID_8CB013FD_99BE_4107_9566_CA860740C710" target="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B"/>
 		<EANoteLink xmi.id="EAID_A5518366_7A57_4796_B1ED_F5ADDC86E84F" source="EAID_38632134_DDA1_41ad_A113_2E3A438C3A81" target="EAID_37B76C39_92FE_44d1_B17E_55A7B0754C6B"/>
+		<EANoteLink xmi.id="EAID_CF2610CC_65D6_4d00_BF23_8D3D2C8AA38F" source="EAID_80F111E9_4DF2_415b_889A_A9FA196B8CC7" target="EAID_CA93D22D_19CF_4238_A8F0_05CAB066F806"/>
 		<EANoteLink xmi.id="EAID_33CD0775_E392_49c0_AC7C_960717F4A927" source="EAID_A1421805_26ED_479a_9842_FD93F707949F" target="EAID_CA93D22D_19CF_4238_A8F0_05CAB066F806"/>
 	</XMI.extensions>
 </XMI>

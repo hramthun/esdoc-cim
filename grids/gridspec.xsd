@@ -171,11 +171,11 @@
 	<!-- GridTileRefType -->
     <xs:complexType name="GridTileRefType">
 		<xs:annotation><xs:documentation>
-			A tile specification is a list of ID references from the top-level mosaic downwards to the
+			A grid tile reference is a list of ID references from the top-level mosaic down to the
 			grid tile itself. Tiles must be fully qualified like this so that they can be identified
-			uniquely (across mosaics). A tile reference can be specified either as a sequence of
-			elements or as a text string attribute (idPath) containing colon-delimited ID values (e.g.
-			"m1:m2:m3:t1")
+			uniquely (across mosaics). A grid tile reference can be specified either as a sequence of
+			mosaic ID elements and a tile ID element, or as a text string attribute (idPath) containing
+			colon-separated	ID values (e.g. "m1:m2:m3:t1").
 		</xs:documentation></xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
@@ -251,12 +251,12 @@
 	<!-- GridCellRefType -->
 	<xs:complexType name="GridCellRefType">
 		<xs:annotation><xs:documentation>
-			A CellRefType object consists of a reference to a cell in a separately-defined grid tile,
+			A GridCellRefType object consists of a reference to a cell in a separately-defined grid tile,
 			together with an optional fractional area that indicates the portion of the target cell
 			'occupied' by the referring cell. If this area is not specified, a default value of 1.0
-			is assumed. A cell reference can be specified either as a sequence of elements or as a
-			text string attribute (idPath) containing colon-delimited ID values terminated with a
-			number representing the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").
+			is assumed. A cell reference can be specified either as a sequence of mosaic, tile and cell
+			ID elements, or as a text string attribute (idPath) containing colon-separated ID values
+			terminated with a number representing the fractional area (e.g. "m1:m2:m3:t1:c1:0.5").
 		</xs:documentation></xs:annotation>
 		<xs:sequence minOccurs="0">
 			<xs:element name="mosaicID" type="IdType" maxOccurs="unbounded"/>
