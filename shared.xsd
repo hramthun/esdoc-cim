@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 30 January 2009 -->       
+<!-- generated: 3 February 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
-<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -18,28 +18,6 @@
    <xs:include schemaLocation="grids.xsd"/>
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
-   <!-- this is the top-level element of the CIM -->       
-<!-- it can include any (single) <<document>> -->       
-<xs:element name="CIMRecord">
-      <xs:complexType>
-         <xs:choice>
-            <xs:element ref="simulationRun"/>
-            <xs:element ref="simulationComposite"/>
-            <xs:element ref="numericalExperiment"/>
-            <xs:element ref="dataProcessing"/>
-            <xs:element ref="ensemble"/>
-            <xs:element ref="dataset"/>
-            <xs:element ref="dataObject"/>
-            <xs:element ref="customGridGeometry"/>
-            <xs:element ref="customFeatureGeometry"/>
-            <xs:element ref="gridSpec"/>
-            <xs:element ref="processorComponent"/>
-            <xs:element ref="modelComponent"/>
-            <xs:element ref="fileComponent"/>
-            <xs:element ref="computingEnvironment"/>
-         </xs:choice>
-      </xs:complexType>
-   </xs:element>
    <xs:complexType name="ClosedDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
@@ -69,26 +47,26 @@
       <xs:annotation>
          <xs:documentation>An enumeration of types of changes.</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string ChangePropertyTypeEnumeration"/>
+      <xs:union memberTypes="xs:string ChangePropertyType_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="ChangePropertyTypeEnumeration">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="decrement"/>
-         <xs:enumeration value="increment"/>
-         <xs:enumeration value="redistribution"/>
-         <xs:enumeration value="replacement"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="CodeList">
+            <xs:simpleType name="ChangePropertyType_Enumeration">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="decrement"/>
+      <xs:enumeration value="increment"/>
+      <xs:enumeration value="redistribution"/>
+      <xs:enumeration value="replacement"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:simpleType name="CodeList">
       <xs:annotation>
          <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string CodeListEnumeration"/>
+      <xs:union memberTypes="xs:string CodeList_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="CodeListEnumeration">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="OpenDateRange">
+            <xs:simpleType name="CodeList_Enumeration">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="OpenDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -123,16 +101,13 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="Identifier">
-      <xs:annotation>
-         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
-      </xs:annotation>
-                                    <xs:simpleContent>
-                                    <xs:extension base="xs:token">
-                                  
-                            </xs:extension>
-                            </xs:simpleContent>
-                        </xs:complexType>
+   <xs:simpleType name="Identifier">
+      <xs:restriction base="xs:token">
+         <xs:annotation>
+            <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
+         </xs:annotation>
+      </xs:restriction>
+   </xs:simpleType>
    <xs:complexType name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -252,9 +227,9 @@
       <xs:annotation>
          <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
       </xs:annotation>
-      <xs:union memberTypes="xs:string PropertyTypeEnumeration"/>
+      <xs:union memberTypes="xs:string PropertyType_Enumeration"/>
    </xs:simpleType>
-   <xs:simpleType name="PropertyTypeEnumeration">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-</xs:schema>
+            <xs:simpleType name="PropertyType_Enumeration">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        </xs:schema>
