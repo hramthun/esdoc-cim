@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 30 January 2009 -->       
+<!-- generated: 3 February 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
            xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
-<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -18,32 +18,10 @@
    <xs:include schemaLocation="quality.xsd"/>
    <xs:include schemaLocation="shared.xsd"/>
    <xs:include schemaLocation="software.xsd"/>
-   <!-- this is the top-level element of the CIM -->       
-<!-- it can include any (single) <<document>> -->       
-<xs:element name="CIMRecord">
-      <xs:complexType>
-         <xs:choice>
-            <xs:element ref="simulationRun"/>
-            <xs:element ref="simulationComposite"/>
-            <xs:element ref="numericalExperiment"/>
-            <xs:element ref="dataProcessing"/>
-            <xs:element ref="ensemble"/>
-            <xs:element ref="dataset"/>
-            <xs:element ref="dataObject"/>
-            <xs:element ref="customGridGeometry"/>
-            <xs:element ref="customFeatureGeometry"/>
-            <xs:element ref="gridSpec"/>
-            <xs:element ref="processorComponent"/>
-            <xs:element ref="modelComponent"/>
-            <xs:element ref="fileComponent"/>
-            <xs:element ref="computingEnvironment"/>
-         </xs:choice>
-      </xs:complexType>
-   </xs:element>
-   <xs:simpleType name="TemporalAveType">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="Activity">
+            <xs:simpleType name="TemporalAveType">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="Activity">
       <xs:sequence>
          <xs:element name="rationale" minOccurs="1" maxOccurs="1" type="xs:string"/>
       </xs:sequence>
@@ -141,13 +119,14 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
    <xs:complexType name="uses">
       <xs:sequence/>
    </xs:complexType>
-   <xs:simpleType name="ensembleTypes">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:simpleType name="Enumeration1">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="NumericalRequirement">
+            <xs:simpleType name="ensembleTypes">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        
+            <xs:simpleType name="Enumeration1">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="NumericalRequirement">
       <xs:annotation>
          <xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
       </xs:annotation>
@@ -169,20 +148,20 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
       </xs:annotation>
       <xs:sequence>
          <xs:element name="component" minOccurs="0" maxOccurs="1">
-            <xs:complexType>
-               <xs:attribute ref="xlink:href" use="required"/>
-            </xs:complexType>
             <xs:annotation>
                <xs:documentation>If used, this points to the document describing a configured model component.</xs:documentation>
             </xs:annotation>
-         </xs:element>
-         <xs:element name="dataset" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
+         </xs:element>
+         <xs:element name="dataset" minOccurs="0" maxOccurs="1">
             <xs:annotation>
                <xs:documentation>Now we have a type that we can use to point to datasets</xs:documentation>
             </xs:annotation>
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
@@ -385,13 +364,10 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:simpleType name="ResolutionType">
-      <xs:annotation>
-         <xs:documentation>Spatial Resolution!</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="DataProcessing">
+            <xs:simpleType name="ResolutionType">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="DataProcessing">
       <xs:annotation>
          <xs:documentation>A diagnostic is some kind of data processing, It can refer to the processing of observation data or post processing of data from a simulation. </xs:documentation>
       </xs:annotation>
@@ -566,16 +542,17 @@ NB it doesn't stop one form having uris to conformance that point into the datas
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:simpleType name="FixityType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="moving"/>
-         <xs:enumeration value="stationary"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="FrequencyType">
-      <xs:restriction base="xs:string"/>
-   </xs:simpleType>
-   <xs:complexType name="Dataset">
+            <xs:simpleType name="FixityType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="moving"/>
+      <xs:enumeration value="stationary"/>
+   </xs:restriction>
+            </xs:simpleType>
+        
+            <xs:simpleType name="FrequencyType">
+        <xs:restriction base="xs:string"/>
+            </xs:simpleType>
+        <xs:complexType name="Dataset">
       <xs:sequence/>
    </xs:complexType>
    <xs:element name="dataset">
@@ -660,12 +637,12 @@ It is a place for the scientific description of the reason why an experiment was
                         <xs:extension base="Project">
                     <xs:sequence>
          <xs:element name="numericalExperiment" minOccurs="1" maxOccurs="unbounded">
-            <xs:complexType>
-               <xs:attribute ref="xlink:href" use="required"/>
-            </xs:complexType>
             <xs:annotation>
                <xs:documentation>A NumericalExperiment to compare</xs:documentation>
             </xs:annotation>
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
          </xs:element>
       </xs:sequence>  
                             </xs:extension>
