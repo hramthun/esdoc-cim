@@ -8,7 +8,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified"
-	version="0.7">
+	version="0.8">
 
 <!-- ================= -->
 <!-- Import statements -->
@@ -136,12 +136,12 @@
 			<xs:element name="horizontalCRS" type="gml:CRSPropertyType" minOccurs="0"/>
 			<xs:element name="verticalCRS" type="gml:CRSPropertyType" minOccurs="0"/>
 			<xs:element name="gridNorthPole" type="gml:PointPropertyType" minOccurs="0"/>
-			<xs:element name="gridSouthPole" type="gml:PointPropertyType" minOccurs="0"/>
+			<xs:element name="coordinatePole" type="gml:PointPropertyType" minOccurs="0" maxOccurs="unbounded"/>
 		   <xs:choice>
 		        <xs:element name="simpleGridGeom" type="SimpleGridGeometryType"/>
 		        <xs:element name="cellArray" type="GridCellArrayType"/>
 		        <xs:element name="cellRefArray" type="GridCellRefArrayType"/>
-		        <xs:element name="coordFileURI" type="xs:anyURI"/>
+		        <xs:element name="coordFile" type="xs:anyURI"/>
 		   </xs:choice>
 			<xs:element name="zcoords" type="CoordListType" minOccurs="0"/>
 		</xs:sequence>
@@ -159,13 +159,7 @@
 			</xs:documentation></xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="isConformal" type="xs:boolean"/>
-		<xs:attribute name="isPoleCovered" type="xs:boolean">
-			<xs:annotation><xs:documentation>
-				Set to true if at least one geographic pole is covered by the grid tile. This information
-				is used by the OASIS4 coupler.
-			</xs:documentation></xs:annotation>
-		</xs:attribute>
-	   <xs:attribute name="isTerrainFollowing" type="xs:boolean"/>
+		<xs:attribute name="isTerrainFollowing" type="xs:boolean"/>
 	</xs:complexType>
 
 	<!-- GridTileRefType -->

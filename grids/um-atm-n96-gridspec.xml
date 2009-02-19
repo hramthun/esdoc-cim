@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GridSpec version="0.7" gml:id="um-atm-n96-gridspec" 
+<GridSpec version="0.8" gml:id="um-atm-n96-gridspec" 
 	xmlns="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec"
 	xmlns:gml="http://www.opengis.net/gml/3.2"
 	xmlns:dc="http://purl.org/dc/elements/1.1"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	dc:creator="Phil Bentley"
-	dc:date="2009-01-28">
+	dc:date="2009-02-19">
 	<!-- Definition of the UM atmosphere N96 grid as used, for example, by HadGEM1. -->
 	<!-- This grid specification may be referenced from a remote CIM object using the syntax: -->
 	<!-- <geometryModel xlink:href="um-atm-n96-gridspec.xml#um-atm-n96-grid"/> -->
