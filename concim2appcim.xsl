@@ -16,6 +16,7 @@
     <xsl:strip-space elements="*"/>
 
     <!-- some useful global variables  -->
+    <xsl:variable name="version">0.2</xsl:variable>
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
     <xsl:variable name="newline">
@@ -75,11 +76,15 @@
             <xsl:value-of select="$newline"/>
 
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
-            <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+            <!--  not sure why I can't use XPath for "xmlns" attribute -->
+            <xs:schema                               
+                xmlns="http://www.metaforclimate.eu/cim/0.2"                
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xlink="http://w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-                xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">
+                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}">
+
                 <xsl:value-of select="$newline"/>
                 <xsl:comment>
                     <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
@@ -122,7 +127,9 @@
                 </xsl:if>
                 <!-- carry on with the parsing... -->
                 <xsl:apply-templates/>
+
             </xs:schema>
+
         </xsl:result-document>
     </xsl:template>
 
