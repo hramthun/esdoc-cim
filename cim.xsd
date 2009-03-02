@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
 <!-- generated: 2 March 2009 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
-           xmlns:gml="http://www.opengis.net/gml/3.2"
+<xs:schema xmlns:xlink="http://w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns="http://www.metaforclimate.eu/cim/0.2"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
+           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
