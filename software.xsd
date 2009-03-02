@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 3 February 2009 -->       
+<!-- generated: 2 March 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -168,8 +168,9 @@
       <xs:sequence>
          <xs:element name="composition" minOccurs="0" maxOccurs="unbounded" type="Composition"/>
          <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
-         <xs:element name="child" minOccurs="0" maxOccurs="unbounded" type="SoftwareComponent"/>
-         <xs:element name="parent" minOccurs="0" maxOccurs="1">
+         <xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded"
+                     type="SoftwareComponent"/>
+         <xs:element name="parentComponent" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
@@ -269,15 +270,15 @@
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -354,7 +355,8 @@
                <xs:documentation>HERE IS A COMMENT</xs:documentation>
             </xs:annotation>
          </xs:element>
-      </xs:sequence>  
+      </xs:sequence>
+      <xs:attribute name="family" use="required" type="ModelFamilyType"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -372,15 +374,15 @@
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -392,7 +394,22 @@
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:complexType name="FileComponent">
+   <xs:simpleType name="ModelFamilyType">
+      <xs:annotation>
+         <xs:documentation>controlled vocabulary for component properties</xs:documentation>
+      </xs:annotation>
+      <xs:union memberTypes="xs:string ModelFamilyType_Enumeration"/>
+   </xs:simpleType>
+            <xs:simpleType name="ModelFamilyType_Enumeration">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="GCM"/>
+      <xs:enumeration value="SCM"/>
+      <xs:enumeration value="shallow-water"/>
+      <xs:enumeration value="single-layer"/>
+      <xs:enumeration value="slab"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="FileComponent">
       <xs:annotation>
          <xs:documentation>A component whose only purpose is to allow a file to be "coupled" to other components. FileComponents may represent IO code that parses a file, or they may represent the actual file itself.   For instance, if an atmosphere component reads SST from a file, it may be useful for that file to be modeled as a separate component within the CIM. Or it may just be confusing.  This depends on whether we treat file IO different from model IO.</xs:documentation>
       </xs:annotation>
@@ -427,15 +444,15 @@
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -467,9 +484,15 @@
    </xs:simpleType>
             <xs:simpleType name="ComponentType_Enumeration">
         <xs:restriction base="xs:string">
+      <xs:enumeration value="advection"/>
       <xs:enumeration value="atmosphere"/>
+      <xs:enumeration value="atmospheric-chemistry"/>
+      <xs:enumeration value="land-ice"/>
+      <xs:enumeration value="land-surface"/>
       <xs:enumeration value="ocean"/>
-      <xs:enumeration value="radiation"/>
+      <xs:enumeration value="ocean-biogeochemistry"/>
+      <xs:enumeration value="river-routing"/>
+      <xs:enumeration value="sea-ice"/>
       <xs:enumeration value="transformer"/>
    </xs:restriction>
             </xs:simpleType>
@@ -500,15 +523,15 @@
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -567,6 +590,8 @@
       <xs:union memberTypes="xs:string ComponentPropertyType_Enumeration"/>
    </xs:simpleType>
             <xs:simpleType name="ComponentPropertyType_Enumeration">
-        <xs:restriction base="xs:string"/>
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="advectionType"/>
+   </xs:restriction>
             </xs:simpleType>
         </xs:schema>

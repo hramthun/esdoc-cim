@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 3 February 2009 -->       
+<!-- generated: 2 March 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -60,15 +60,15 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -133,7 +133,6 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
       <xs:sequence>
          <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
                      type="NumericalRequirement"/>
-         <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
          <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
          <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
       </xs:sequence>
@@ -198,9 +197,7 @@ For example, one might require a numerical experiment where specific chemical re
       </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Conformance">
-                    <xs:sequence>
-         <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change"/>
-      </xs:sequence>  
+                    <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -256,15 +253,15 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -344,15 +341,15 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -399,15 +396,15 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -522,15 +519,15 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -566,15 +563,15 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>

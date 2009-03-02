@@ -141,6 +141,11 @@
         </xsl:if>
 
         <xsl:choose>
+            <xsl:when test="$classStereotype='unused'">
+                <xsl:call-template name="unusedTemplate">
+                    <xsl:with-param name="className" select="@name"/>
+                </xsl:call-template>
+            </xsl:when>
             <xsl:when test="$classStereotype='enumeration'">
                 <xsl:if test="$debug">
                     <xsl:message>
@@ -163,7 +168,7 @@
                     <xsl:message>
                         <xsl:text> it's a simpleType</xsl:text>
                     </xsl:message>
-                </xsl:if>                
+                </xsl:if>
                 <xsl:call-template name="simpleTypeTemplate"/>
             </xsl:when>
 
@@ -193,6 +198,16 @@
     <!-- ***************** -->
     <!-- named templates -->
     <!-- ***************** -->
+
+    <!-- unused classes -->
+    <xsl:template name="unusedTemplate">
+        <xsl:param name="className"/>
+        <xsl:comment>
+            <xsl:value-of select="$className"/>
+            <xsl:text> is not used </xsl:text>
+        </xsl:comment>
+        <xsl:value-of select="$newline"/>
+    </xsl:template>
 
     <!-- enumerations (simpleType) -->
     <xsl:template name="enumerationTemplate">
@@ -311,42 +326,53 @@
         <xsl:param name="type"/>
         <xsl:param name="stereotype"/>
 
-        <xsl:element name="xs:element">
-            <xsl:attribute name="name">
-                <xsl:value-of select="@name"/>
-            </xsl:attribute>
-            <xsl:attribute name="minOccurs">
-                <xsl:value-of select="$min"/>
-            </xsl:attribute>
-            <xsl:attribute name="maxOccurs">
-                <xsl:choose>
-                    <xsl:when test="string($max)='*'">
-                        <xsl:text>unbounded</xsl:text>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$max"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
+        <xsl:choose>
+            <xsl:when test="$stereotype='unused'">
+                <xsl:call-template name="unusedTemplate">
+                    <xsl:with-param name="className" select="@name"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
 
-            <xsl:choose>
-                <!-- the UML attribute might be an explicit <<reference>> -->
-                <xsl:when test="$stereotype='reference'">
-                    <!-- annotations have to come _before_ complexContent -->
-                    <xsl:apply-templates mode="UMLattribute"/>
-                    <xsl:call-template name="referenceTemplate"/>
-                </xsl:when>
-                <!-- otherwise, use its specified type -->
-                <xsl:otherwise>
-                    <xsl:call-template name="typeTemplate">
-                        <xsl:with-param name="type" select="$type"/>
-                    </xsl:call-template>
-                    <!-- but they can come _after_ normal elements -->
-                    <xsl:apply-templates mode="UMLattribute"/>
-                </xsl:otherwise>
-            </xsl:choose>
+                <xsl:element name="xs:element">
+                    <xsl:attribute name="name">
+                        <xsl:value-of select="@name"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="minOccurs">
+                        <xsl:value-of select="$min"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="maxOccurs">
+                        <xsl:choose>
+                            <xsl:when test="string($max)='*'">
+                                <xsl:text>unbounded</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="$max"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
 
-        </xsl:element>
+                    <xsl:choose>
+                        <!-- the UML attribute might be an explicit <<reference>> -->
+                        <xsl:when test="$stereotype='reference'">
+                            <!-- annotations have to come _before_ complexContent -->
+                            <xsl:apply-templates mode="UMLattribute"/>
+                            <xsl:call-template name="referenceTemplate"/>
+                        </xsl:when>
+                        <!-- otherwise, use its specified type -->
+                        <xsl:otherwise>
+                            <xsl:call-template name="typeTemplate">
+                                <xsl:with-param name="type" select="$type"/>
+                            </xsl:call-template>
+                            <!-- but they can come _after_ normal elements -->
+                            <xsl:apply-templates mode="UMLattribute"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
+                </xsl:element>
+
+            </xsl:otherwise>
+        </xsl:choose>
 
     </xsl:template>
 
@@ -357,26 +383,35 @@
         <xsl:param name="type"/>
         <xsl:param name="stereotype"/>
 
-        <xsl:element name="xs:attribute">
-            <xsl:attribute name="name">
-                <xsl:value-of select="@name"/>
-            </xsl:attribute>
-            <xsl:attribute name="use">
-                <xsl:choose>
-                    <xsl:when test="$min=0">
-                        <xsl:text>optional</xsl:text>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:text>required</xsl:text>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
-            <xsl:call-template name="typeTemplate">
-                <xsl:with-param name="type" select="$type"/>
-            </xsl:call-template>
-            <xsl:apply-templates mode="UMLattribute"/>
-        </xsl:element>
+        <xsl:choose>
+            <xsl:when test="$stereotype='unused'">
+                <xsl:call-template name="unusedTemplate">
+                    <xsl:with-param name="className" select="@name"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
 
+                <xsl:element name="xs:attribute">
+                    <xsl:attribute name="name">
+                        <xsl:value-of select="@name"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="use">
+                        <xsl:choose>
+                            <xsl:when test="$min=0">
+                                <xsl:text>optional</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>required</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:call-template name="typeTemplate">
+                        <xsl:with-param name="type" select="$type"/>
+                    </xsl:call-template>
+                    <xsl:apply-templates mode="UMLattribute"/>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- simpleTypes -->
@@ -391,10 +426,10 @@
             <xsl:message terminate="yes">
                 <xsl:value-of select="@name"/>
                 <xsl:text> cannot be a simpleType because it is based on: </xsl:text>
-                <xsl:value-of select="$generalClass"/>                
+                <xsl:value-of select="$generalClass"/>
             </xsl:message>
         </xsl:if>
-        
+
         <xs:simpleType name="{@name}">
             <xs:restriction base="{$generalClass}">
                 <xsl:apply-templates mode="UMLclass"/>

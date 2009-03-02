@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 February 2009 -->       
+<!-- generated: 2 March 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -36,11 +36,14 @@
             </xs:complexType>
          </xs:element>
          <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
-         <xs:element name="value" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       </xs:sequence>
       <xs:attribute name="type" use="required" type="PropertyType"/>
    </xs:complexType>
    <xs:complexType name="Calendar">
+      <xs:sequence/>
+   </xs:complexType>
+   <xs:complexType name="DataStream">
       <xs:sequence/>
    </xs:complexType>
    <xs:simpleType name="ChangePropertyType">
@@ -53,6 +56,7 @@
         <xs:restriction base="xs:string">
       <xs:enumeration value="decrement"/>
       <xs:enumeration value="increment"/>
+      <xs:enumeration value="new"/>
       <xs:enumeration value="redistribution"/>
       <xs:enumeration value="replacement"/>
    </xs:restriction>
@@ -84,15 +88,15 @@
                <xs:documentation>The contact for this document</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-            <xs:annotation>
-               <xs:documentation>a record of changes to this document.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
             <xs:annotation>
                <xs:documentation>a unique indentifier for this document</xs:documentation>
             </xs:annotation>
+         </xs:element>
+         <xs:element name="parent" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+               <xs:attribute ref="xlink:href" use="required"/>
+            </xs:complexType>
          </xs:element>
          <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
             <xs:annotation>
@@ -108,6 +112,9 @@
          </xs:annotation>
       </xs:restriction>
    </xs:simpleType>
+   <xs:complexType name="PropertyValue">
+      <xs:sequence/>
+   </xs:complexType>
    <xs:complexType name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -137,55 +144,12 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="Change">
-      <xs:annotation>
-         <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath).</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"/>
-         <xs:element name="changeAuthor" minOccurs="1" maxOccurs="1"
-                     type="gmd:CI_ResponsibleParty_PropertyType">
-            <xs:annotation>
-               <xs:documentation>The person that made the change.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="changeDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
-            <xs:annotation>
-               <xs:documentation>The date the change was implemented.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-      <xs:attribute name="changeTarget" use="required" type="xs:anyURI">
-         <xs:annotation>
-            <xs:documentation>The CIM element being changed</xs:documentation>
-         </xs:annotation>
-      </xs:attribute>
-   </xs:complexType>
-   <xs:complexType name="DateRange">
+   <!--Change is not used -->       
+<xs:complexType name="DateRange">
       <xs:sequence/>
    </xs:complexType>
-   <xs:complexType name="ChangeProperty">
-      <xs:annotation>
-         <xs:documentation>A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.</xs:documentation>
-      </xs:annotation>
-                        <xs:complexContent>
-                        <xs:extension base="Property">
-                    <xs:sequence>
-         <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-      <xs:attribute name="name" use="optional" type="ChangePropertyType">
-         <xs:annotation>
-            <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
-         </xs:annotation>
-      </xs:attribute>  
-                            </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-   <xs:complexType name="PropertyGroup">
+   <!--ChangeProperty is not used -->       
+<xs:complexType name="PropertyGroup">
       <xs:annotation>
          <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
       </xs:annotation>

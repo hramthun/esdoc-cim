@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 3 February 2009 -->       
+<!-- generated: 2 March 2009 -->       
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
@@ -68,12 +68,12 @@
          <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
          <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
          <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
-         <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="parent" minOccurs="0" maxOccurs="1">
+         <xs:element name="parentObject" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
@@ -105,15 +105,15 @@
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
-                     <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
                         <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
