@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 26 January 2009 -->       
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xlink="http://www.w3.org/1999/xlink"
+<!-- generated: 3 March 2009 -->       
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns="http://www.metaforclimate.eu/cim/0.2"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:gmd="http://www.isotc211.org/2005/gmd"
-           xmlns:gridspec="http://www.gfdl.noaa.gov/gridspec">       
-<!-- these relative paths should really be URLs, but accessing them online cripples performance -->       
+           targetNamespace="http://www.metaforclimate.eu/cim/0.2">       
+<!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
    <xs:import namespace="http://www.isotc211.org/2005/gmd"
               schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
@@ -68,12 +69,12 @@
          <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
          <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
          <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
-         <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="parent" minOccurs="0" maxOccurs="1">
+         <xs:element name="parentObject" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
@@ -99,16 +100,22 @@
          <xs:complexContent>
             <xs:extension base="DataObject">
                <xs:sequence>
-                  <xs:element name="author" minOccurs="1" maxOccurs="1"
+                  <xs:element name="author" minOccurs="0" maxOccurs="1"
                               type="gmd:CI_ResponsibleParty_PropertyType">
                      <xs:annotation>
                         <xs:documentation>The contact for this document</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="change" minOccurs="0" maxOccurs="unbounded" type="Change">
+                  <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                      <xs:annotation>
-                        <xs:documentation>a record of changes to this document.</xs:documentation>
+                        <xs:documentation>a unique indentifier for this document</xs:documentation>
                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
+                     <xs:complexType>
+                        <xs:attribute ref="xlink:href" use="required"/>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                      <xs:annotation>
@@ -116,11 +123,6 @@
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
-               <xs:attribute name="id" use="required" type="xs:anyURI">
-                  <xs:annotation>
-                     <xs:documentation>a unique URI identifying this document</xs:documentation>
-                  </xs:annotation>
-               </xs:attribute>
             </xs:extension>
          </xs:complexContent>
       </xs:complexType>
@@ -153,25 +155,26 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:simpleType name="AccessType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="CD-ROM"/>
-         <xs:enumeration value="DiskDB"/>
-         <xs:enumeration value="DVD"/>
-         <xs:enumeration value="Microfiche"/>
-         <xs:enumeration value="OnlineFileFTP"/>
-         <xs:enumeration value="OnlineFileHTTP"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="ConstraintType">
-      <xs:restriction base="xs:string">
-         <xs:enumeration value="dataAccessConstraint"/>
-         <xs:enumeration value="dataUseConstraint"/>
-         <xs:enumeration value="metadataAccessConstraint"/>
-         <xs:enumeration value="metadataUseConstraint"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:complexType name="DataExtent">
+            <xs:simpleType name="AccessType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="CD-ROM"/>
+      <xs:enumeration value="DiskDB"/>
+      <xs:enumeration value="DVD"/>
+      <xs:enumeration value="Microfiche"/>
+      <xs:enumeration value="OnlineFileFTP"/>
+      <xs:enumeration value="OnlineFileHTTP"/>
+   </xs:restriction>
+            </xs:simpleType>
+        
+            <xs:simpleType name="ConstraintType">
+        <xs:restriction base="xs:string">
+      <xs:enumeration value="dataAccessConstraint"/>
+      <xs:enumeration value="dataUseConstraint"/>
+      <xs:enumeration value="metadataAccessConstraint"/>
+      <xs:enumeration value="metadataUseConstraint"/>
+   </xs:restriction>
+            </xs:simpleType>
+        <xs:complexType name="DataExtent">
       <xs:sequence>
          <xs:element name="geographicalExtent" minOccurs="1" maxOccurs="1"/>
          <xs:element name="temporalExtent" minOccurs="1" maxOccurs="1"/>

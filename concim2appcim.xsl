@@ -80,7 +80,7 @@
             <xs:schema                               
                 xmlns="http://www.metaforclimate.eu/cim/0.2"                
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:xlink="http://w3.org/1999/xlink"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}">
