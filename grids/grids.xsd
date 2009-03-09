@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 3 March 2009 -->       
+<!-- generated: 9 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -25,56 +25,20 @@
       </xs:annotation>
                                 <xs:complexContent>
                                 <xs:extension base="gml:AbstractGeometryType">
-                            <xs:sequence>
-         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-               <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>  
+                            <xs:sequence/>
+      <xs:attribute name="geometrySpec" use="required" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="id" use="optional" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-   <xs:element name="customGridGeometry">
-      <xs:annotation>
-         <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-         <xs:complexContent>
-            <xs:extension base="CustomGridGeometry">
-               <xs:sequence>
-                  <xs:element name="author" minOccurs="0" maxOccurs="1"
-                              type="gmd:CI_ResponsibleParty_PropertyType">
-                     <xs:annotation>
-                        <xs:documentation>The contact for this document</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
-                     <xs:annotation>
-                        <xs:documentation>a unique indentifier for this document</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                     <xs:complexType>
-                        <xs:attribute ref="xlink:href" use="required"/>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
-                     <xs:annotation>
-                        <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:extension>
-         </xs:complexContent>
-      </xs:complexType>
-   </xs:element>
    <xs:complexType name="GridCellArray">
       <xs:annotation>
          <xs:documentation>Simple data type for encapsulating an array of grid cell definitions.</xs:documentation>
@@ -88,16 +52,11 @@
          <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="gridMosaic" minOccurs="1" maxOccurs="unbounded" type="GridMosaic"/>
-         <xs:element name="gridTile" minOccurs="1" maxOccurs="unbounded" type="GridTile"/>
+         <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+         <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
          <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>A free-text description of a grid mosaic.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-               <xs:documentation>Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records within a given modelling activity (such as CMIP5).</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="referenceList" minOccurs="0" maxOccurs="1" type="ReferenceList">
@@ -116,6 +75,11 @@
             <xs:documentation>Specifies the type of all the grid tiles contained in a grid mosaic. It is assumed that all of the tiles comprising a given grid mosaic are of the same type. The value domain is as per the specified enumeration list.</xs:documentation>
          </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="id" use="required" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records within a given modelling activity (such as CMIP5).</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="isLeaf" use="required" type="xs:boolean">
          <xs:annotation>
             <xs:documentation>Indicates whether or not a grid mosaic is a leaf mosaic, that is, it only contains child grid tiles not further mosaics.</xs:documentation>
@@ -127,16 +91,6 @@
          <xs:documentation>This class may be used to encode the parameters needed to define a simple grid, i.e. a grid based on repeating square or rectangular grid cells.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="dimOrder" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is "yx" ("zyx" for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="numDims" minOccurs="1" maxOccurs="1" type="xs:integer">
-            <xs:annotation>
-               <xs:documentation>Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="xcoords" minOccurs="1" maxOccurs="1" type="CoordList">
             <xs:annotation>
                <xs:documentation>Specifies the X (or i) coordinate of each 'vertical' grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two X coordinates are required: the X coordinate of the initial grid node, plus the offset or spacing between successive grid nodes.</xs:documentation>
@@ -153,9 +107,19 @@
             </xs:annotation>
          </xs:element>
       </xs:sequence>
+      <xs:attribute name="dimOrder" use="optional" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is "yx" ("zyx" for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="isMesh" use="optional" type="xs:boolean">
          <xs:annotation>
             <xs:documentation>Set to True if the grid geometry defines a grid mesh that fully partitions a 2D or 3D space. Set to false (the default) if the grid geometry simply defines the locations of grid nodes, making no statement about the shape or extent of surrounding grid cells.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="numDims" use="required" type="xs:integer">
+         <xs:annotation>
+            <xs:documentation>Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.</xs:documentation>
          </xs:annotation>
       </xs:attribute>
    </xs:complexType>
@@ -189,56 +153,20 @@
       </xs:annotation>
                                 <xs:complexContent>
                                 <xs:extension base="gml:AbstractGeometryType">
-                            <xs:sequence>
-         <xs:element name="geometrySpec" minOccurs="1" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="id" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>  
+                            <xs:sequence/>
+      <xs:attribute name="geometrySpec" use="required" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="id" use="optional" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-   <xs:element name="customFeatureGeometry">
-      <xs:annotation>
-         <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-         <xs:complexContent>
-            <xs:extension base="CustomFeatureGeometry">
-               <xs:sequence>
-                  <xs:element name="author" minOccurs="0" maxOccurs="1"
-                              type="gmd:CI_ResponsibleParty_PropertyType">
-                     <xs:annotation>
-                        <xs:documentation>The contact for this document</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-                  <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
-                     <xs:annotation>
-                        <xs:documentation>a unique indentifier for this document</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                     <xs:complexType>
-                        <xs:attribute ref="xlink:href" use="required"/>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
-                     <xs:annotation>
-                        <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:extension>
-         </xs:complexContent>
-      </xs:complexType>
-   </xs:element>
    <xs:complexType name="ExchangeGridCell">
       <xs:annotation>
          <xs:documentation>Intended usage is for defining cells in exchange grids. Such cells reference 'parent' grid cells in the two grids partaking in an exchange. The association isn't really a parent-child one, but the name seems to have stuck.</xs:documentation>
@@ -456,17 +384,17 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                             <xs:sequence>
          <xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
          <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-         <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-               <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>Indicates the version of the GridSpec standard to which a grid specification instance conforms.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>  
+      </xs:sequence>
+      <xs:attribute name="id" use="optional" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version" use="required" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Indicates the version of the GridSpec standard to which a grid specification instance conforms.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -609,21 +537,6 @@ If required, two or more coordinate pole definitions may be distinguished by set
                <xs:documentation>Specifies the horizontal coordinate reference system used in the definition of the grid tile coordinates. This property should normally be an xlink reference to an external horizontal CRS definition (e.g. in a separate CRS dictionary). If required, however, the property may be defined in situ within a CIM document.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-               <xs:documentation>Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="nx" minOccurs="1" maxOccurs="1" type="xs:integer">
-            <xs:annotation>
-               <xs:documentation>Specifies the length of the X, or longitude, dimension of the grid tile.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="ny" minOccurs="1" maxOccurs="1" type="xs:integer">
-            <xs:annotation>
-               <xs:documentation>Specifies the length of the Y, or latitude, dimension of the grid tile.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="resolution" minOccurs="0" maxOccurs="1" type="xs:string">
             <xs:annotation>
                <xs:documentation>Provides an indication of the approximate spatial sampling size of the grid tile, i.e. the size of the underlying grid cells. (Note: the maximum spatial resolution of the grid is twice the sampling size (e.g. 2 km for a 1 km x 1 km grid pitch).</xs:documentation>
@@ -655,6 +568,11 @@ If required, two or more coordinate pole definitions may be distinguished by set
             <xs:documentation>Indicates the geometric figure used to approximate the figure of the Earth, e.g. "sphere".</xs:documentation>
          </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="id" use="required" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="isConformal" use="optional" type="xs:boolean">
          <xs:annotation>
             <xs:documentation>This property is used to indicate if the grid tile is conformal, i.e. angle-preserving. If so, angles measured on the grid are equal to the equivalent angles on the Earth.</xs:documentation>
@@ -675,6 +593,16 @@ If required, two or more coordinate pole definitions may be distinguished by set
             <xs:documentation>If true, indicates that horizontal coordinates have fixed offsets in the X and Y directions. If the offset is the same in both directions then the grids are logically square, otherwise they are logically rectangular. The offsets can be specified by two scalar values (or three values in the case of 3D grids).</xs:documentation>
          </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="nx" use="required" type="xs:integer">
+         <xs:annotation>
+            <xs:documentation>Specifies the length of the X, or longitude, dimension of the grid tile.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ny" use="required" type="xs:integer">
+         <xs:annotation>
+            <xs:documentation>Specifies the length of the Y, or latitude, dimension of the grid tile.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
    </xs:complexType>
    <xs:complexType name="GridCell">
       <xs:annotation>
@@ -691,16 +619,16 @@ If required, two or more coordinate pole definitions may be distinguished by set
                <xs:documentation>Optionally specifies the coordinate location of the centroid of a grid cell.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
-            <xs:annotation>
-               <xs:documentation>Specifies an identifer that uniquely identifies a cell within its parent grid tile.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="volume" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
             <xs:annotation>
                <xs:documentation>Optionally specifies the volume of a 3D grid cell.The units used must be specified via the 'uom' attribute associated with GML's MeasureType class.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
+      <xs:attribute name="id" use="required" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>Specifies an identifer that uniquely identifies a cell within its parent grid tile.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
    </xs:complexType>
 </xs:schema>
