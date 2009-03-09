@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 3 March 2009 -->       
+<!-- generated: 9 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -30,13 +30,10 @@
             <xs:element ref="ensemble"/>
             <xs:element ref="dataset"/>
             <xs:element ref="dataObject"/>
-            <xs:element ref="customGridGeometry"/>
-            <xs:element ref="customFeatureGeometry"/>
             <xs:element ref="gridSpec"/>
             <xs:element ref="processorComponent"/>
             <xs:element ref="modelComponent"/>
-            <xs:element ref="fileComponent"/>
-            <xs:element ref="computingEnvironment"/>
+            <xs:element ref="deployment"/>
          </xs:choice>
       </xs:complexType>
    </xs:element>
