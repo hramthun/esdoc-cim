@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 3 March 2009 -->       
+<!-- generated: 9 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -148,9 +148,9 @@ For example, for a double CO2 boundary condition, a model component might read a
 So, the conformance links a requirement URI either to a dataset URI or a component URI.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
-         <xs:element name="dataStream" minOccurs="0" maxOccurs="1">
+         <xs:element name="source" minOccurs="1" maxOccurs="unbounded">
             <xs:annotation>
-               <xs:documentation>Points to the DataStream used to conform to a particular Requirement.   This may be part of an activity::simulation or a software::component.</xs:documentation>
+               <xs:documentation>Points to the DataSource used to conform to a particular Requirement.   This may be part of an activity::simulation or a software::component.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
@@ -457,10 +457,10 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                <xs:documentation>Added at the request of Allyn Treshansky</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
          <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
          <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
          <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded" type="xs:anyURI"/>
-         <xs:element name="platform" minOccurs="1" maxOccurs="1" type="ComputingEnvironment"/>
          <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
          <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
       </xs:sequence>
