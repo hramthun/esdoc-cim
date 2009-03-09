@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 March 2009 -->       
+<!-- generated: 9 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -44,7 +44,7 @@
    <xs:complexType name="Calendar">
       <xs:sequence/>
    </xs:complexType>
-   <xs:complexType name="DataStream">
+   <xs:complexType name="DataSource">
       <xs:sequence/>
    </xs:complexType>
    <xs:simpleType name="ChangePropertyType">
@@ -124,28 +124,6 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-   <xs:complexType name="Identity">
-      <xs:annotation>
-         <xs:documentation>An identity describes an object that can be referred to; it has an id, a name, and a description.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A recognisable name for this object (to be used in conjunction with or in place of a standardName).</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="shortName" minOccurs="0" maxOccurs="1" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>The "local name" of this object.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="standardName" minOccurs="0" maxOccurs="unbounded" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>A name from a controlled vocabulary.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-   </xs:complexType>
    <!--Change is not used -->       
 <xs:complexType name="DateRange">
       <xs:sequence/>
@@ -156,24 +134,24 @@
          <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
+         <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="Property"/>
          <xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded" type="PropertyGroup"/>
          <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
             <xs:complexType>
                <xs:attribute ref="xlink:href" use="required"/>
             </xs:complexType>
          </xs:element>
-         <xs:element name="property" minOccurs="1" maxOccurs="unbounded" type="Property"/>
          <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
             <xs:annotation>
                <xs:documentation>A unique id for this group of properties.</xs:documentation>
             </xs:annotation>
          </xs:element>
+         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>The name of this group of properties.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
       </xs:sequence>
-      <xs:attribute name="name" use="optional" type="CodeList">
-         <xs:annotation>
-            <xs:documentation>The name of this group of properties.</xs:documentation>
-         </xs:annotation>
-      </xs:attribute>
    </xs:complexType>
    <xs:complexType name="PerpetualPeriod">
                         <xs:complexContent>

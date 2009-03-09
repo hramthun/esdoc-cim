@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 3 March 2009 -->       
+<!-- generated: 9 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -64,7 +64,9 @@
       <xs:attribute name="accessType" use="required" type="AccessType"/>
    </xs:complexType>
    <xs:complexType name="DataObject">
-      <xs:sequence>
+                        <xs:complexContent>
+                        <xs:extension base="DataSource">
+                    <xs:sequence>
          <xs:element name="cIM_Constraint" minOccurs="0" maxOccurs="unbounded" type="CIM_Constraint"/>
          <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
          <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
@@ -93,8 +95,10 @@
          <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
                      type="gmd:CI_ResponsibleParty_PropertyType"/>
          <xs:element name="status" minOccurs="1" maxOccurs="1"/>
-      </xs:sequence>
-   </xs:complexType>
+      </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
    <xs:element name="dataObject">
       <xs:complexType>
          <xs:complexContent>
