@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1252"?>
 <!DOCTYPE XMI SYSTEM "UML_EA.dtd">
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-03-02 10:44:06">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-03-09 10:18:29">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -38,9 +38,6 @@
 					</UML:ModelElement.taggedValue>
 					<UML:Namespace.ownedElement>
 						<UML:Class name="CustomGridGeometry" xmi.id="EAID_0798EA12_64F0_4f68_9DB9_1C2B80C7A74A" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
-							<UML:ModelElement.stereotype>
-								<UML:Stereotype name="document"/>
-							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="documentation" value="This class may be used to provide a custom, i.e. local and non-standard, description of the grid geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
@@ -49,7 +46,7 @@
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 13:42:01"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 17:42:08"/>
+								<UML:TaggedValue tag="date_modified" value="2009-03-09 10:16:40"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=gml:AbstractGeometryType;"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
@@ -59,12 +56,11 @@
 								<UML:TaggedValue tag="complexity" value="1"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=gml:AbstractGeometryType;"/>
 								<UML:TaggedValue tag="status" value="Proposed"/>
-								<UML:TaggedValue tag="stereotype" value="document"/>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="3"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={567ED5C6-38DE-4ac3-B7DF-D6AA509CFBB0}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={F65E8BFD-23C3-4b12-A950-ECDD2785B148}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=document;GUID={E6D96ACB-853B-4138-8BD2-B34802E7D8FE};@ENDSTEREO;$DES;$CLT={0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={567ED5C6-38DE-4ac3-B7DF-D6AA509CFBB0}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={0798EA12-64F0-4f68-9DB9-1C2B80C7A74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -74,6 +70,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
 										<UML:TaggedValue tag="type" value="Identifier"/>
@@ -83,6 +82,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
@@ -91,6 +91,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{7A1A3C2C-5035-4db5-84D7-E0DA87F8A03C}"/>
 										<UML:TaggedValue tag="ea_localid" value="2"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={82D8A1BE-A1C5-4052-AEAB-C119A724A041}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={7A1A3C2C-5035-4db5-84D7-E0DA87F8A03C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="geometrySpec" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -100,6 +101,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -109,6 +113,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="1"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -117,6 +122,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{6D25AB8C-ADEF-40a0-A8A7-54598CF622AB}"/>
 										<UML:TaggedValue tag="ea_localid" value="3"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={759EE41A-BCC2-440b-B9F1-4EA035B9AEA9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={6D25AB8C-ADEF-40a0-A8A7-54598CF622AB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 							</UML:Classifier.feature>
@@ -228,6 +234,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies a globally unique identifier for a grid mosaic instance. By globally we mean across all GridSpec instances/records within a given modelling activity (such as CMIP5)."/>
 										<UML:TaggedValue tag="type" value="Identifier"/>
@@ -237,6 +246,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -245,6 +255,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{AE80E869-7CE8-4072-B0C2-B336B5292FB0}"/>
 										<UML:TaggedValue tag="ea_localid" value="4"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F9A4EC9C-6606-4ab4-A1C7-8EE887541768}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={AE80E869-7CE8-4072-B0C2-B336B5292FB0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="description" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -437,11 +448,11 @@
 								<UML:TaggedValue tag="$ea_src_xref_property" value="$XREFPROP=$XID={A832E72C-50E7-4002-A5A4-9590B33BC0E9}$XID;$NAM=CustomProperties$NAM;$TYP=connectorSrcEnd property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D7FDF644-2411-4fdf-827C-DB887A63AD55}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 								<UML:TaggedValue tag="$ea_dst_xref_property" value="$XREFPROP=$XID={670E3784-98D4-4264-B50D-D281EAFFC5CB}$XID;$NAM=CustomProperties$NAM;$TYP=connectorDestEnd property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={D7FDF644-2411-4fdf-827C-DB887A63AD55}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 								<UML:TaggedValue tag="virtualInheritance" value="0"/>
-								<UML:TaggedValue tag="lb" value="1..*"/>
+								<UML:TaggedValue tag="lb" value="*"/>
 								<UML:TaggedValue tag="lt" value="+gridMosaic"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Association.connection>
-								<UML:AssociationEnd visibility="public" multiplicity="1..*" name="gridMosaic" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B">
+								<UML:AssociationEnd visibility="public" multiplicity="*" name="gridMosaic" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B">
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="containment" value="Unspecified"/>
 										<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
@@ -521,11 +532,11 @@
 								<UML:TaggedValue tag="$ea_src_xref_property" value="$XREFPROP=$XID={F118D134-7081-41b1-94F4-8DED133CD268}$XID;$NAM=CustomProperties$NAM;$TYP=connectorSrcEnd property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={82FE8404-B840-430c-9A6A-676D5462B9AE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 								<UML:TaggedValue tag="$ea_dst_xref_property" value="$XREFPROP=$XID={E504E051-C566-42db-BA9D-7205CB888AE8}$XID;$NAM=CustomProperties$NAM;$TYP=connectorDestEnd property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isDerivedUnion@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isDerived@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=default@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isReadOnly@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=false@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=isComposite@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;@PROP=@NAME=aggregation@ENDNAME;@TYPE=AggregationKind@ENDTYPE;@VALU=none@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={82FE8404-B840-430c-9A6A-676D5462B9AE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 								<UML:TaggedValue tag="virtualInheritance" value="0"/>
-								<UML:TaggedValue tag="lb" value="1..*"/>
+								<UML:TaggedValue tag="lb" value="*"/>
 								<UML:TaggedValue tag="lt" value="+gridTile"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Association.connection>
-								<UML:AssociationEnd visibility="public" multiplicity="1..*" name="gridTile" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC">
+								<UML:AssociationEnd visibility="public" multiplicity="*" name="gridTile" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC">
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="containment" value="Unspecified"/>
 										<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
@@ -577,6 +588,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid3"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids."/>
 										<UML:TaggedValue tag="type" value="Integer"/>
@@ -586,6 +600,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -594,6 +609,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{E3C8630C-7F08-48bd-B25E-2F4C079535AA}"/>
 										<UML:TaggedValue tag="ea_localid" value="8"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F54280CB-AACC-4f3b-B4FB-68A5C541EC5D}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={E3C8630C-7F08-48bd-B25E-2F4C079535AA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="dimOrder" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -603,6 +619,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is &quot;yx&quot; (&quot;zyx&quot; for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions."/>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -612,6 +631,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="1"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
@@ -620,6 +640,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{9A018C00-2F11-4658-892A-FA7D320D4BE2}"/>
 										<UML:TaggedValue tag="ea_localid" value="9"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C0E04126-6CA4-4531-849D-726279658EC5}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={9A018C00-2F11-4658-892A-FA7D320D4BE2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="isMesh" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -629,6 +650,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid2"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Set to True if the grid geometry defines a grid mesh that fully partitions a 2D or 3D space. Set to false (the default) if the grid geometry simply defines the locations of grid nodes, making no statement about the shape or extent of surrounding grid cells."/>
 										<UML:TaggedValue tag="type" value="Boolean"/>
@@ -638,6 +662,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="2"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
@@ -646,6 +671,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{38CAC4A1-93AE-419f-A433-E06DEE61AA05}"/>
 										<UML:TaggedValue tag="ea_localid" value="16"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={6CD8C4DA-DD58-450c-8829-98D188118DA0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={38CAC4A1-93AE-419f-A433-E06DEE61AA05}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="xcoords" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -943,9 +969,6 @@
 							</UML:Classifier.feature>
 						</UML:Class>
 						<UML:Class name="CustomFeatureGeometry" xmi.id="EAID_37B76C39_92FE_44d1_B17E_55A7B0754C6B" visibility="public" namespace="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
-							<UML:ModelElement.stereotype>
-								<UML:Stereotype name="document"/>
-							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="documentation" value="This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated."/>
 								<UML:TaggedValue tag="isSpecification" value="false"/>
@@ -954,7 +977,7 @@
 								<UML:TaggedValue tag="version" value="1.0"/>
 								<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 								<UML:TaggedValue tag="date_created" value="2008-10-07 13:50:04"/>
-								<UML:TaggedValue tag="date_modified" value="2009-01-22 17:42:20"/>
+								<UML:TaggedValue tag="date_modified" value="2009-03-09 10:16:51"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=gml:AbstractGeometryType;"/>
 								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
 								<UML:TaggedValue tag="tagged" value="0"/>
@@ -964,12 +987,11 @@
 								<UML:TaggedValue tag="complexity" value="1"/>
 								<UML:TaggedValue tag="genlinks" value="Parent=gml:AbstractGeometryType;"/>
 								<UML:TaggedValue tag="status" value="Proposed"/>
-								<UML:TaggedValue tag="stereotype" value="document"/>
 								<UML:TaggedValue tag="tpos" value="0"/>
 								<UML:TaggedValue tag="ea_localid" value="13"/>
 								<UML:TaggedValue tag="ea_eleType" value="element"/>
 								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CF6CD1EA-EAB2-4239-8CBD-4839C0888A31}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={37B76C39-92FE-44d1-B17E-55A7B0754C6B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={21E95930-A0B3-4365-8DFA-470CE73F5201}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=document;GUID={E6D96ACB-853B-4138-8BD2-B34802E7D8FE};@ENDSTEREO;$DES;$CLT={37B76C39-92FE-44d1-B17E-55A7B0754C6B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CF6CD1EA-EAB2-4239-8CBD-4839C0888A31}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={37B76C39-92FE-44d1-B17E-55A7B0754C6B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 							</UML:ModelElement.taggedValue>
 							<UML:Classifier.feature>
 								<UML:Attribute name="id" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -979,6 +1001,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -988,6 +1013,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
@@ -996,6 +1022,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{0F469EDD-BF16-45bb-AB84-06391B7E9255}"/>
 										<UML:TaggedValue tag="ea_localid" value="21"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C479FF2F-3078-40b1-B16D-D6ECF413446E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={0F469EDD-BF16-45bb-AB84-06391B7E9255}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="geometrySpec" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -1005,6 +1032,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -1014,6 +1044,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="1"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -1022,6 +1053,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{2119B797-F736-413c-971A-22729208E21A}"/>
 										<UML:TaggedValue tag="ea_localid" value="22"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C7C0F626-2967-4cb2-B5C0-4BB2C227CD6B}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={2119B797-F736-413c-971A-22729208E21A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 							</UML:Classifier.feature>
@@ -3129,6 +3161,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="The optional id attribute may be used to specify a CIM-specific identifier. Note, however, that this would be in addition to the mandatory gml:id attribute which is required for all GML-style geometry objects. The two attributes may of course be the same, though that would represent redundant usage."/>
 										<UML:TaggedValue tag="type" value="Identifier"/>
@@ -3138,6 +3173,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="0"/>
@@ -3146,6 +3182,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{60FE6408-FF62-4120-82E2-13596C401342}"/>
 										<UML:TaggedValue tag="ea_localid" value="72"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={1FC553F1-C9A6-4af2-BCA9-DC7159CD0D30}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={60FE6408-FF62-4120-82E2-13596C401342}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="version" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -3155,6 +3192,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid1"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Indicates the version of the GridSpec standard to which a grid specification instance conforms."/>
 										<UML:TaggedValue tag="type" value="String"/>
@@ -3164,6 +3204,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="1"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -3172,6 +3213,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{D07DA596-2CEF-4543-9311-A59929617124}"/>
 										<UML:TaggedValue tag="ea_localid" value="73"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={498C68D1-F5E7-48b5-8C9A-51B091B773E0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={D07DA596-2CEF-4543-9311-A59929617124}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 							</UML:Classifier.feature>
@@ -3242,12 +3284,16 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid2"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Set to true if coordinates in the built array have constant offset."/>
 										<UML:TaggedValue tag="type" value="Boolean"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="1"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -3256,6 +3302,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{2E5C38ED-DD77-42f2-9673-AC12755F567E}"/>
 										<UML:TaggedValue tag="ea_localid" value="118"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={B0E3EB65-140C-4f95-A64C-EB04AA142A67}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={2E5C38ED-DD77-42f2-9673-AC12755F567E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 							</UML:Classifier.feature>
@@ -3552,6 +3599,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies an identifer for a grid tile that is unique within its parent grid mosaic. It is not required for this identifier to be unique either across all mosaics in a GridSpec or across all GridSpecs, though if that were the case it would not be detrimental."/>
 										<UML:TaggedValue tag="type" value="Identifier"/>
@@ -3561,6 +3611,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -3569,6 +3620,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{8CB50AAD-1BBA-4a70-819F-80B9F5B695AD}"/>
 										<UML:TaggedValue tag="ea_localid" value="82"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={229D9827-E5EC-433c-9B04-7F9EAAC0318C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={8CB50AAD-1BBA-4a70-819F-80B9F5B695AD}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="description" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -3760,12 +3812,16 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid3"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies the length of the X, or longitude, dimension of the grid tile."/>
 										<UML:TaggedValue tag="type" value="Integer"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="8"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -3774,6 +3830,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{5080891C-4ABC-4542-A2D6-AF1A2DEDB2D8}"/>
 										<UML:TaggedValue tag="ea_localid" value="126"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={795BBCF6-4EF4-4a79-B7FD-E0D51EF1CA59}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={5080891C-4ABC-4542-A2D6-AF1A2DEDB2D8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="ny" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -3783,12 +3840,16 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid3"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies the length of the Y, or latitude, dimension of the grid tile."/>
 										<UML:TaggedValue tag="type" value="Integer"/>
 										<UML:TaggedValue tag="derived" value="0"/>
 										<UML:TaggedValue tag="containment" value="Not Specified"/>
 										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="9"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -3797,6 +3858,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{A68A1703-6D6B-4a03-9F4A-EE57096B748D}"/>
 										<UML:TaggedValue tag="ea_localid" value="127"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={83E75D24-2D6C-4f6f-85D6-A774D23DE84F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={A68A1703-6D6B-4a03-9F4A-EE57096B748D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="resolution" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -4095,6 +4157,9 @@
 									<UML:StructuralFeature.type>
 										<UML:Classifier xmi.idref="eaxmiid0"/>
 									</UML:StructuralFeature.type>
+									<UML:ModelElement.stereotype>
+										<UML:Stereotype name="attribute"/>
+									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
 										<UML:TaggedValue tag="description" value="Specifies an identifer that uniquely identifies a cell within its parent grid tile."/>
 										<UML:TaggedValue tag="type" value="Identifier"/>
@@ -4104,6 +4169,7 @@
 										<UML:TaggedValue tag="ordered" value="0"/>
 										<UML:TaggedValue tag="precision" value="0"/>
 										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="stereotype" value="attribute"/>
 										<UML:TaggedValue tag="collection" value="false"/>
 										<UML:TaggedValue tag="position" value="0"/>
 										<UML:TaggedValue tag="lowerBound" value="1"/>
@@ -4112,6 +4178,7 @@
 										<UML:TaggedValue tag="ea_guid" value="{F4DA6CDD-C884-4b1b-86C1-F7198AEED74A}"/>
 										<UML:TaggedValue tag="ea_localid" value="95"/>
 										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={20BC3AEC-50B4-41f7-A6A3-D73956D45377}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=attribute;GUID={54B39ACE-6FE3-49c7-8390-F9BA4B7113DD};@ENDSTEREO;$DES;$CLT={F4DA6CDD-C884-4b1b-86C1-F7198AEED74A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Attribute>
 								<UML:Attribute name="centroid" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
@@ -4235,7 +4302,7 @@
 				<UML:TaggedValue tag="version" value="1.0"/>
 				<UML:TaggedValue tag="author" value="philip.bentley"/>
 				<UML:TaggedValue tag="created_date" value="2006-01-11 00:00:00"/>
-				<UML:TaggedValue tag="modified_date" value="2009-03-02 10:38:49"/>
+				<UML:TaggedValue tag="modified_date" value="2009-03-09 10:18:19"/>
 				<UML:TaggedValue tag="package" value="EAPK_905766D8_2245_41fd_9FB8_B3E0E3EF9E25"/>
 				<UML:TaggedValue tag="type" value="Logical"/>
 				<UML:TaggedValue tag="swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
@@ -4257,10 +4324,10 @@
 				<UML:DiagramElement geometry="Left=1240;Top=571;Right=1380;Bottom=651;" subject="EAID_0B659634_3572_4dbf_BDA7_69D6148427E1" seqno="10" style="DUID=9F37ACA8;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=960;Top=325;Right=1158;Bottom=405;" subject="EAID_78348E22_FF80_41b3_B903_1126B863C70A" seqno="11" style="DUID=B8DB9705;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=40;Top=150;Right=170;Bottom=273;" subject="EAID_38632134_DDA1_41ad_A113_2E3A438C3A81" seqno="12" style="DUID=C1976C29;BCol=14745599;"/>
-				<UML:DiagramElement geometry="Left=510;Top=360;Right=569;Bottom=388;" subject="EAID_5129E298_921D_4c01_A6E4_5F04E0DAF098" seqno="13" style="DUID=2CCDE1E2;BCol=14745599;"/>
+				<UML:DiagramElement geometry="Left=510;Top=370;Right=569;Bottom=398;" subject="EAID_5129E298_921D_4c01_A6E4_5F04E0DAF098" seqno="13" style="DUID=2CCDE1E2;BCol=14745599;"/>
 				<UML:DiagramElement geometry="Left=40;Top=930;Right=185;Bottom=1105;" subject="EAID_BA3CA14E_B2DD_4724_9E0A_150119B803DB" seqno="14" style="DUID=38155B13;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=1240;Top=30;Right=1461;Bottom=157;" subject="EAID_7EF8EAD4_70CC_461e_8A5A_DB30EFE3C9AE" seqno="15" style="DUID=477899A9;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=960;Top=30;Right=1151;Bottom=155;" subject="EAID_1A7B70F2_54E2_4bb6_93E7_751B7921C6A0" seqno="16" style="DUID=4A537C68;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=960;Top=30;Right=1151;Bottom=171;" subject="EAID_1A7B70F2_54E2_4bb6_93E7_751B7921C6A0" seqno="16" style="DUID=4A537C68;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=1058;Top=1033;Right=1181;Bottom=1112;" subject="EAID_CFDAF27B_07FC_40ca_81F5_E8FA2CF835B1" seqno="17" style="DUID=76352CFD;BCol=13434828;LCol=-1;"/>
 				<UML:DiagramElement geometry="Left=1393;Top=1034;Right=1523;Bottom=1113;" subject="EAID_9114F432_E132_4607_8AF5_3A9045470C11" seqno="18" style="DUID=5D4148CF;BCol=13434828;LCol=-1;"/>
 				<UML:DiagramElement geometry="Left=1393;Top=901;Right=1523;Bottom=1006;" subject="EAID_A29C5C26_F82C_4165_BD3E_822A1AC1ADC4" seqno="19" style="DUID=BFEBD690;BCol=13434828;LCol=-1;"/>
@@ -4274,16 +4341,16 @@
 				<UML:DiagramElement geometry="Left=960;Top=189;Right=1153;Bottom=291;" subject="EAID_BFD9169E_2ED2_42de_A0B3_8779E9FAA442" seqno="27" style="DUID=FFE03962;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=590;Top=930;Right=750;Bottom=990;" subject="EAID_390B71FB_8106_4630_AC8F_BBEB265BFBBE" seqno="28" style="DUID=50E3FBB7;BCol=13434828;"/>
 				<UML:DiagramElement geometry="Left=470;Top=1040;Right=614;Bottom=1100;" subject="EAID_31A99190_0F49_4f8a_88BE_FDAD89B40C73" seqno="29" style="DUID=0E485D59;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=432;Top=790;Right=652;Bottom=881;" subject="EAID_F793EB4A_2737_4a26_8495_7DEE650E92EB" seqno="30" style="DUID=FEDC949E;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=410;Top=430;Right=672;Bottom=739;" subject="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC" seqno="31" style="DUID=2A7FB4D2;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=40;Top=30;Right=189;Bottom=110;" subject="EAID_37B76C39_92FE_44d1_B17E_55A7B0754C6B" seqno="32" style="DUID=521301DA;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=250;Top=30;Right=390;Bottom=110;" subject="EAID_0798EA12_64F0_4f68_9DB9_1C2B80C7A74A" seqno="33" style="DUID=BAF1A07C;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=438;Top=210;Right=644;Bottom=324;" subject="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B" seqno="34" style="DUID=9DD5CBD1;BCol=13434828;"/>
-				<UML:DiagramElement geometry="Left=460;Top=30;Right=609;Bottom=110;" subject="EAID_CA93D22D_19CF_4238_A8F0_05CAB066F806" seqno="35" style="DUID=BDBBFCDC;NSL=0;BCol=13434828;"/>
-				<UML:DiagramElement geometry="SX=35;SY=6;EX=34;EY=-39;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=93:CY=14:OX=112:OY=-13:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C5685FDB_0DB7_4b25_9AFA_176B9420532D" style="Mode=2;EOID=BDBBFCDC;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
-				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;SCME=1;SCTR=1;EDGE=3;SCTR.LEFT=603;SCTR.TOP=-338;SCTR.RIGHT=682;SCTR.BOTTOM=-251;$LLB=;LLT=CX=77:CY=14:OX=89:OY=35:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=603:-324$603:-338$682:-338$682:-251$644:-251$;" subject="EAID_D7FDF644_2411_4fdf_827C_DB887A63AD55" style="Mode=2;EOID=9DD5CBD1;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
-				<UML:DiagramElement geometry="SX=-33;SY=-5;EX=-33;EY=-5;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=76:CY=14:OX=-10:OY=-14:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DD47EE91_B1DF_4425_A78B_DEA906F36E8F" style="Mode=2;EOID=BDBBFCDC;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
-				<UML:DiagramElement geometry="SX=-69;SY=-1;EX=-37;EY=-39;EDGE=1;$LLB=CX=17:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=44:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_82FE8404_B840_430c_9A6A_676D5462B9AE" style="Mode=2;EOID=9DD5CBD1;SOID=2A7FB4D2;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="Left=432;Top=790;Right=652;Bottom=895;" subject="EAID_F793EB4A_2737_4a26_8495_7DEE650E92EB" seqno="30" style="DUID=FEDC949E;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=410;Top=430;Right=672;Bottom=756;" subject="EAID_EF21E721_0E27_4bbc_9A25_B8D1F876F3BC" seqno="31" style="DUID=2A7FB4D2;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=40;Top=30;Right=189;Bottom=122;" subject="EAID_37B76C39_92FE_44d1_B17E_55A7B0754C6B" seqno="32" style="DUID=521301DA;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=250;Top=30;Right=390;Bottom=122;" subject="EAID_0798EA12_64F0_4f68_9DB9_1C2B80C7A74A" seqno="33" style="DUID=BAF1A07C;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=438;Top=210;Right=644;Bottom=341;" subject="EAID_18E90B49_E375_4a4f_A8EC_1801422E6E3B" seqno="34" style="DUID=9DD5CBD1;BCol=13434828;"/>
+				<UML:DiagramElement geometry="Left=460;Top=30;Right=609;Bottom=122;" subject="EAID_CA93D22D_19CF_4238_A8F0_05CAB066F806" seqno="35" style="DUID=BDBBFCDC;NSL=0;BCol=13434828;"/>
+				<UML:DiagramElement geometry="SX=35;SY=6;EX=34;EY=-39;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=93:CY=14:OX=111:OY=-3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C5685FDB_0DB7_4b25_9AFA_176B9420532D" style="Mode=2;EOID=BDBBFCDC;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;SCME=1;SCTR=1;EDGE=3;SCTR.LEFT=603;SCTR.TOP=-373;SCTR.RIGHT=686;SCTR.BOTTOM=-308;$LLB=;LLT=CX=65:CY=14:OX=84:OY=34:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=603:-341$603:-373$686:-373$686:-308$644:-308$;" subject="EAID_D7FDF644_2411_4fdf_827C_DB887A63AD55" style="Mode=2;EOID=9DD5CBD1;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=-33;SY=-5;EX=-33;EY=-5;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=76:CY=14:OX=-9:OY=-3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_DD47EE91_B1DF_4425_A78B_DEA906F36E8F" style="Mode=2;EOID=BDBBFCDC;SOID=9DD5CBD1;Color=-1;LWidth=0;Hidden=0;"/>
+				<UML:DiagramElement geometry="SX=-69;SY=-1;EX=-37;EY=-39;EDGE=1;$LLB=CX=5:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LLT=CX=44:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_82FE8404_B840_430c_9A6A_676D5462B9AE" style="Mode=2;EOID=9DD5CBD1;SOID=2A7FB4D2;Color=-1;LWidth=0;Hidden=0;"/>
 				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CAEF9AFA_9F09_4ff5_BB3C_D219B638646E" style="Mode=2;EOID=FEDC949E;SOID=0E485D59;Color=-1;LWidth=0;Hidden=0;"/>
 				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_A4397B7A_8F69_448b_94FC_1397DFEC4235" style="Mode=2;EOID=FEDC949E;SOID=4A33CD0D;Color=-1;LWidth=0;Hidden=0;"/>
 				<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_33CD0775_E392_49c0_AC7C_960717F4A927" style="Mode=3;EOID=BDBBFCDC;SOID=3D0963EF;Color=-1;LWidth=0;Hidden=0;"/>
