@@ -83,7 +83,9 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
-                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}">
+                targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
+                elementFormDefault="qualified" attributeFormDefault="unqualified"
+                >
 
                 <xsl:value-of select="$newline"/>
                 <xsl:comment>
