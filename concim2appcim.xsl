@@ -77,15 +77,13 @@
 
             <!-- HERE IS A HACK; INCLUDING EXTERNAL NAMESPACES BY HAND -->
             <!--  not sure why I can't use XPath for "xmlns" attribute -->
-            <xs:schema                               
-                xmlns="http://www.metaforclimate.eu/cim/0.2"                
+            <xs:schema xmlns="http://www.metaforclimate.eu/cim/0.2"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 targetNamespace="{concat('http://www.metaforclimate.eu/cim/',$version)}"
-                elementFormDefault="qualified" attributeFormDefault="unqualified"
-                >
+                elementFormDefault="qualified" attributeFormDefault="unqualified">
 
                 <xsl:value-of select="$newline"/>
                 <xsl:comment>
@@ -115,15 +113,23 @@
                     <xsl:value-of select="$newline"/>
                     <xs:element name="CIMRecord">
                         <xs:complexType>
-                            <xs:choice>
-                                <xsl:for-each select="//UML:Stereotype[@name='document']">
-                                    <xsl:variable name="className"
-                                        select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
-                                    <xsl:variable name="documentName"
-                                        select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
-                                    <xs:element ref="{$documentName}"/>
-                                </xsl:for-each>
-                            </xs:choice>
+                            <xs:sequence>
+                                <xs:element name="id" minOccurs="1" maxOccurs="1"
+                                    type="Identifier">
+                                    <xs:annotation>
+                                        <xs:documentation>a unique indentifier for this document</xs:documentation>
+                                    </xs:annotation>
+                                </xs:element>
+                                <xs:choice>
+                                    <xsl:for-each select="//UML:Stereotype[@name='document']">
+                                        <xsl:variable name="className"
+                                            select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
+                                        <xsl:variable name="documentName"
+                                            select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"/>
+                                        <xs:element ref="{$documentName}"/>
+                                    </xsl:for-each>
+                                </xs:choice>
+                            </xs:sequence>
                         </xs:complexType>
                     </xs:element>
                 </xsl:if>
