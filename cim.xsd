@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 12 March 2009 -->       
+<!-- generated: 16 March 2009 -->       
 <xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xmlns="http://www.metaforclimate.eu/cim/0.2"
@@ -24,18 +24,26 @@
    <!-- a CIMRecord can include any (single) <<document>> -->       
 <xs:element name="CIMRecord">
       <xs:complexType>
-         <xs:choice>
-            <xs:element ref="simulationRun"/>
-            <xs:element ref="simulationComposite"/>
-            <xs:element ref="numericalExperiment"/>
-            <xs:element ref="dataProcessing"/>
-            <xs:element ref="ensemble"/>
-            <xs:element ref="dataset"/>
-            <xs:element ref="dataObject"/>
-            <xs:element ref="gridSpec"/>
-            <xs:element ref="processorComponent"/>
-            <xs:element ref="modelComponent"/>
-         </xs:choice>
+         <xs:sequence>
+            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+               <xs:annotation>
+                  <xs:documentation>a unique indentifier for this
+                                            document</xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:choice>
+               <xs:element ref="simulationRun"/>
+               <xs:element ref="simulationComposite"/>
+               <xs:element ref="numericalExperiment"/>
+               <xs:element ref="dataProcessing"/>
+               <xs:element ref="ensemble"/>
+               <xs:element ref="dataset"/>
+               <xs:element ref="dataObject"/>
+               <xs:element ref="gridSpec"/>
+               <xs:element ref="processorComponent"/>
+               <xs:element ref="modelComponent"/>
+            </xs:choice>
+         </xs:sequence>
       </xs:complexType>
    </xs:element>
 </xs:schema>
