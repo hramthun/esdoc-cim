@@ -99,7 +99,10 @@
                 <!-- HERE ENDETH THE HACK -->
 
                 <xsl:for-each select="//UML:Package[@name!=$packageName]">
-                    <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
+                    <xsl:if test="./ancestor::UML:Package">
+                        <!-- include every package that is _not_ the "parent" package -->
+                        <xs:include schemaLocation="{concat(@name,'.xsd')}"/>
+                    </xsl:if>
                 </xsl:for-each>
 
                 <!-- if this is the top-level package (ie: the root of the domain model) -->
