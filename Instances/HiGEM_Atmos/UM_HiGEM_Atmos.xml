@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Gerard Devine (NCAS) -->
+<modelComponent type="atmosphere" embedded="true" xmlns="http://www.metaforclimate.eu/cim/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.metaforclimate.eu/cim/1.1 ..\XSDs\software.xsd">
+	<composition>
+		<coupling complete="false" type="argument-passing">
+			<description>Initialisation File</description>
+			<lag units="seconds" xsi:type="Timing">
+				<rate>0</rate>
+			</lag>
+			<rate units="seconds" xsi:type="Timing">
+				<rate>0</rate>
+			</rate>
+			<!-- source needs to point to the initialisation file "xdhwda.dax2b10" in the data section. I assume some xlink/xpointer will be used at this point.-->
+			<source xlink:href="Data/Initialisation_File"/>
+			<!--  I assume this should be a link back to the Model component itself. xlink/xpointer? -->
+			<target xlink:href="UM_Atmos.xml"/>
+		</coupling>
+		<coupling complete="false" type="argument-passing">
+			<description>Snow Depth ancillary (Values should be extracted from Activity)</description>
+			<lag units="seconds">
+				<rate>0</rate>
+			</lag>
+			<rate units="days">
+				<rate>0</rate>
+			</rate>
+			<source xlink:href="Data/SnowDepth_Ancillary_File"/>
+			<target xlink:href="UM_Atmos.xml"/>
+		</coupling>
+		<coupling complete="false" type="argument-passing">
+			<description>Ozone ancillary file (Values should be extracted from Activity)</description>
+			<lag units="seconds" xsi:type="Timing">
+				<rate>0</rate>
+			</lag>
+			<rate units="days" xsi:type="Timing">
+				<rate>30</rate>
+			</rate>
+			<source xlink:href="Data/Ozone_Ancillary_File"/>
+			<target xlink:href="UM_Atmos.xml"/>
+		</coupling>
+		<coupling complete="false" type="argument-passing">
+			<description>Soil Properties Ancillary file</description>
+			<lag units="seconds" xsi:type="Timing">
+				<rate>0</rate>
+			</lag>
+			<rate units="days" xsi:type="Timing">
+				<rate>0</rate>
+			</rate>
+			<source xlink:href="Data/Ozone_Ancillary_File"/>
+			<target xlink:href="UM_Atmos.xml"/>
+		</coupling>
+		<description>From Data Files</description>
+	</composition>
+	<childComponent embedded="true">
+		<description>Convection Scheme</description>
+		<name>4A</name>
+		<numericalProperties/>
+		<scientificProperties/>
+	</childComponent>
+	<childComponent embedded="true">
+		<description>Radiation Scheme</description>
+		<name>General 2-stream radiation code</name>
+		<numericalProperties/>
+		<scientificProperties/>
+	</childComponent>
+	<childComponent embedded="true">
+		<description>(3C) - Improved mixed phase precipitation scheme</description>
+		<name>Large scale precipitation</name>
+		<numericalProperties/>
+		<scientificProperties/>
+	</childComponent>
+	<description>Atmosphere component of the Met Office Unified Model(UM) - documentation can be found at http://ncas-cms.nerc.ac.uk/content/view/60/86</description>
+	<name>UM_Atmos</name>
+	<numericalProperties>
+	</numericalProperties>
+	<scientificProperties>
+		<scientificProperty type="prognostic">
+			<description> Describing the 3D temperature of the model atmosphere</description>
+			<name>Atmospheric Temperature</name>
+			<grid xlink:href="Xlink to grid structure"/>
+		</scientificProperty>
+	</scientificProperties>
+	<timing units="minutes" xsi:type="Timing">
+		<end>2142-11-01T00:00:00Z</end>
+		<rate>20</rate>
+		<start>2132-11-01T00:00:00Z</start>
+	</timing>
+	<creationDate>2009-04-01T13:47:00</creationDate>
+	<documentID/>
+</modelComponent>
