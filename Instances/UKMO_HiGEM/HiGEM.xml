@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Gerard Devine (NCAS) -->
+<modelComponent type="#NEEDS_CHANGE# to include 'coupled', 'earth system', 'hurricane' - #TO_AGREE_ON#" embedded="false" xmlns="http://www.metaforclimate.eu/cim/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.metaforclimate.eu/cim/1.1 Z:\CIM\XSDs\software.xsd">
+	<composition>
+		<coupling complete="false" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<connection type="argument-passing" xsi:type="Connection">
+				<coupling xlink:href=""></coupling>
+				<lag units="">
+					<rate></rate>
+				</lag>
+				<rate units="">
+					<rate></rate>
+				</rate>
+				<source xlink:href=""></source>
+				<target xlink:href=""></target>
+			</connection>
+			<description>Atmosphere to Ocean Coupling</description>
+			<lag units="days">
+				<rate> 0 <!-- #Not sure this should be referred to as 'rate' here# -->
+				</rate>
+			</lag>
+			<rate units="hours">
+				<rate>24</rate>
+			</rate>
+			<source xlink:href=""> <!-- Xlink to HiGEM.HiGEM_Atmos -->
+			</source>
+			<target xlink:href=""> <!-- Xlink to HiGEM.HiGEM_Ocean -->
+			</target>
+		</coupling>		
+		<description> <!-- #Not sure what description is supposed to describe here# --> </description>
+	</composition>
+	<childComponent embedded="true">
+		<description>Atmosphere component of the UM HiGEM</description>
+		<name>HiGEM_Atmos</name>
+		<numericalProperties><!--#Needs_to_be_removed# --></numericalProperties>
+		<scientificProperties><!--#Needs_to_be_removed# --></scientificProperties>
+	</childComponent>
+	<childComponent embedded="true">
+		<description>Ocean component of the UM HiGEM</description>
+		<name>HiGEM_Ocean</name>
+		<numericalProperties><!--#Needs_to_be_removed# --></numericalProperties>
+		<scientificProperties><!--#Needs_to_be_removed# --></scientificProperties>
+	</childComponent>
+	<description>
+		<!-- #TO_ADD# 'Webpage' = http://www.higem.nerc.ac.uk #TO_ADD# 'Reference/Citation' = Shaffrey et al. 2008 -->
+	</description>
+	<name>
+		HiGEM + <!-- "To_agree_on"= what is coupled/Realm?-->	
+	</name>
+	<numericalProperties>
+		 <!-- In this document (i.e. parent HiGEM) there are no numericalProperties --> 
+	</numericalProperties> 
+	<scientificProperties> 
+		<!-- In this document (i.e. parent HiGEM) there are no scientificProperties --> 
+	</scientificProperties>
+	<timing units="hours">
+		<!-- Does timing mean anything here or should it be removed? -->
+		<end>2000-01-01T00:00:00Z</end>
+		<rate>0</rate>
+	</timing>
+	<creationDate>
+		2000-01-01T00:00:00Z	
+	</creationDate>
+	<documentID>  
+		HiGEM_id 
+	</documentID>
+</modelComponent>
