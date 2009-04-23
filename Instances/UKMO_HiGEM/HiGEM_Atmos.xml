@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2009 (http://www.altova.com) by Gerard Devine (NCAS) -->
-<modelComponent type="atmosphere" embedded="true" xmlns="http://www.metaforclimate.eu/cim/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.metaforclimate.eu/cim/1.1 ..\XSDs\software.xsd">
+<modelComponent type="atmosphere" embedded="true" xmlns="http://www.metaforclimate.eu/cim/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.metaforclimate.eu/cim/1.1 Z:\CIM\XSDs\software.xsd">
 	<composition>
 		<coupling complete="false" type="argument-passing">
 			<description>Initialisation File</description>
@@ -52,7 +52,8 @@
 	</composition>
 	<childComponent embedded="true">
 		<description>Convection Scheme</description>
-		<name>4A</name>
+		<name>AtmosConvection</name>
+		<!-- No need for numericalProperties and scientificProperties here-->
 		<numericalProperties/>
 		<scientificProperties/>
 	</childComponent>
@@ -68,22 +69,58 @@
 		<numericalProperties/>
 		<scientificProperties/>
 	</childComponent>
-	<description>Atmosphere component of the Met Office Unified Model(UM) - documentation can be found at http://ncas-cms.nerc.ac.uk/content/view/60/86</description>
-	<name>UM_Atmos</name>
+	<description>
+		Atmosphere component of  HiGEM (vn 1.2)
+	</description>
+	<name>
+		UM_Atmos
+	</name>
 	<numericalProperties>
+		<!-- I'm unclear here as to what 'type' and 'represented' actually mean? -->
+		<numericalProperty type="characteristic" represented="true">
+			<name>AtmosAdvection</name>
+			<value>Semi-Langrangian</value>
+		</numericalProperty>
+		<numericalProperty type="characteristic" represented="true">
+			<name>AtmosHorizontalDiffusion</name>
+			<!-- TO BE COMPLETED -->
+		</numericalProperty>
+		<numericalProperty type="characteristic" represented="true">
+			<name>AtmosVerticalDiffusion</name>
+			<!-- TO BE COMPLETED -->
+		</numericalProperty>
 	</numericalProperties>
 	<scientificProperties>
 		<scientificProperty type="prognostic">
-			<description> Describing the 3D temperature of the model atmosphere</description>
-			<name>Atmospheric Temperature</name>
+			<name>Temperature</name>
+			<description>3D temperature of the model atmosphere</description>
 			<grid xlink:href="Xlink to grid structure"/>
+		</scientificProperty>
+		<scientificProperty type="prognostic">
+			<name>U-velocity</name>
+			<grid xlink:href="Xlink to grid structure"/>
+			<description>3D U wind</description>
+		</scientificProperty>
+		<scientificProperty type="prognostic">
+			<name>V-velocity</name>
+			<grid xlink:href="Xlink to grid structure"/>
+			<description>3D U wind</description>
+		</scientificProperty>
+		<scientificProperty type="prognostic">
+			<name>U-velocity</name>
+			<grid xlink:href="Xlink to grid structure"/>
+			<description>3D U wind</description>
 		</scientificProperty>
 	</scientificProperties>
 	<timing units="minutes" xsi:type="Timing">
-		<end>2142-11-01T00:00:00Z</end>
+		<!-- this is the atmospheric model timestep -->
 		<rate>20</rate>
-		<start>2132-11-01T00:00:00Z</start>
 	</timing>
-	<creationDate>2009-04-01T13:47:00</creationDate>
-	<documentID/>
+	<creationDate>
+		<!-- Not sure which date creationDate actually refers to -->
+		2009-04-01T13:47:00
+	</creationDate>
+	<documentID>
+		<!-- To be decided how this is managed -->
+	</documentID>
 </modelComponent>
