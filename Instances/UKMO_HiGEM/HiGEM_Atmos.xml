@@ -61,6 +61,7 @@
 		<numericalProperty type="characteristic" represented="true">
 			<name>AtmosAdvection</name>
 			<value>Semi-Langrangian</value>
+			<description>Davies et al., 2005; </description>
 		</numericalProperty>
 		<numericalProperty type="characteristic" represented="true">
 			<name>Tracer Transport</name>
@@ -101,6 +102,11 @@
 		<scientificProperty type="prognostic">
 			<name>W-velocity</name>
 			<description>3D vertical wind field</description>
+			<grid xlink:href="Xlink to grid structure"/>
+		</scientificProperty>
+		<scientificProperty type="prognostic">
+			<name>Q</name>
+			<description>3D moisture field</description>
 			<grid xlink:href="Xlink to grid structure"/>
 		</scientificProperty>
 	</scientificProperties>

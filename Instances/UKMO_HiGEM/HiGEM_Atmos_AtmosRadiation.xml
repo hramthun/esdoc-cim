@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Gerry (Caversham) -->
+<modelComponent type="atmosphere" embedded="true" xmlns="http://www.metaforclimate.eu/cim/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.metaforclimate.eu/cim/1.1 ..\..\..\..\XSDs\software.xsd">
+	<childComponent embedded="true" xsi:type="ModelComponent" type="atmosphere">
+		<description>Short wave spectrum of radiation scheme - General 2-stream radiation code</description>
+		<name>Shortwave</name>
+		<numericalProperties>
+			<numericalProperty type="characteristic" represented="true" xsi:type="NumericalProperty">
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Number of bands/channels represented in the shortwave radiation scheme </description>
+					<name>NumberOfChannels</name>
+					<!-- <value>6</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Albedo of snow-free sea-ice</description>
+					<name>AlbSnowFreeSeaIce</name>
+					<!-- <value>0.61</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Albedo of melting deep snow on sea-ice</description>
+					<name>AlbMeltingDeepSnow</name>
+					<!-- <value>0.65</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Albedo of cold deep snow on sea-ice</description>
+					<name>AlbColdDeepSnow</name>
+					<!-- <value>0.8</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Temperature Range over which deep snow albedo varies</description>
+					<name>TempRangeDeepSnowAlb</name>
+					<!-- <value>2.0</value> -->
+				</componentProperty>
+				<description>Sea ice albedo coefficients</description>
+				<name>SeaIceAlbedo</name>
+			</numericalProperty>
+			<numericalProperty type="method" represented="true" xsi:type="NumericalProperty">
+				<!-- this is a boolean type question, i.e. is a process included? Yes/No.....how to put this in the XML? -->
+				<description>Is the equation of time represented in the astronomy?</description>
+				<name>EqTimeRepresented</name>
+			</numericalProperty>
+			<numericalProperty type="method" represented="true" xsi:type="NumericalProperty">
+				<componentProperty xsi:type="ComponentProperty">
+					<description>type of equation in in 2-stream SW</description>
+					<name>EquationOption</name>
+					<!-- <value> PIFM80 </value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Treatment of overlapping for gaseous absorption</description>
+					<name>OverlappingScheme</name>
+					<!-- <value> Equivalent extinction </value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Mass mixing ratio of Ozone used by SW absorption</description>
+					<name>Abs_MMR_Oxygen</name>
+					<!-- <value>0.2314</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Is a climatological aerosol distribution included</description>
+					<name>ClimAerosolIncluded</name>
+				</componentProperty>
+				<description>Properties of general 2-stream SW radiation</description>
+				<name>Gen2StreamSW</name>
+			</numericalProperty>
+			<numericalProperty type="characteristic" represented="true" xsi:type="NumericalProperty">
+				<componentProperty xsi:type="ComponentProperty">
+					<name>CloudRepresentation_scheme</name>
+					<!-- <value>Segregated mixed-phase clouds </value>-->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<name>OverlappingClouds_scheme</name>
+					<!-- <value>MRO & Vertically coherent convective cloud </value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Type number for water droplet in stratiform clouds</description>
+					<name>TypeNumberWaterDropletStrat</name>
+					<!-- <value>5</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Type number for water droplet in convective clouds</description>
+					<name>TypeNumberWaterDropletConv</name>
+					<!-- <value>5</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Type number for ice crystals in stratiform clouds</description>
+					<name>TypeNumberIceCrysStrat</name>
+					<!-- <value>8</value> -->
+				</componentProperty>
+				<componentProperty xsi:type="ComponentProperty">
+					<description>Type number for ice crystals in convective clouds</description>
+					<name>TypeNumberIceCrysConv</name>
+					<!-- <value>8</value> -->
+				</componentProperty>
+				<description> Cloud properties used in SW radiation scheme </description>
+				<name>CloudInteraction</name>
+			</numericalProperty>
+		</numericalProperties>
+		<scientificProperties/>
+		<timing units="hours" xsi:type="Timing">
+			<rate>3</rate>
+		</timing>
+	</childComponent>
+	<description>Radiation scheme (Edwards and Slingo, 1996) in HiGEM</description>
+	<name>AtmosRadiation</name>
+	<numericalProperties xsi:type="NumericalProperties">
+		<numericalProperty type="method" represented="true" xsi:type="NumericalProperty">
+			<citation>
+				<!-- want to add Edwards and Slingo, 1996 here in correct format -->
+			</citation>
+			<name/>
+		</numericalProperty>
+	</numericalProperties>
+	<scientificProperties/>
+	<timing units="hours" xsi:type="Timing">
+		<rate>3</rate>
+	</timing>
+	<creationDate>
+		<!-- Not sure which date creationDate actually refers to -->
+		2009-04-01T13:47:00
+	</creationDate>
+	<documentID/>
+</modelComponent>
