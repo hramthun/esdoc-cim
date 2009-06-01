@@ -17,7 +17,7 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
-    <xsl:param name="sort-attributes">true</xsl:param>
+    <xsl:param name="sort-attributes">false</xsl:param>
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
     <xsl:variable name="newline">
