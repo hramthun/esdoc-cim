@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 23 March 2009 -->       
+<!-- generated: 1 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -168,8 +168,8 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
                         <xs:extension base="Activity">
                     <xs:sequence>
       <xs:element name="experiment" minOccurs="1" maxOccurs="unbounded" type="Experiment"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -208,25 +208,25 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:extension base="Simulation">
                     <xs:sequence>
       <xs:element name="child" minOccurs="0" maxOccurs="unbounded" type="Simulation"/>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="rank" minOccurs="1" maxOccurs="1" type="xs:integer">
          <xs:annotation>
             <xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite.  </xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
-      </xs:element>
-      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite.  </xs:documentation>
-         </xs:annotation>
       </xs:element>
    </xs:sequence>  
                             </xs:extension>
@@ -459,10 +459,10 @@ NB it doesn't stop one form having uris to conformance that point into the datas
             <xs:documentation>Added at the request of Allyn Treshansky</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
       <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
       <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded" type="xs:anyURI"/>
+      <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
       <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
       <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
    </xs:sequence>
@@ -541,8 +541,8 @@ NB it doesn't stop one form having uris to conformance that point into the datas
 </xs:element>
             <xs:simpleType name="FixityType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="moving"/>
    <xs:enumeration value="stationary"/>
+   <xs:enumeration value="moving"/>
 </xs:restriction>
             </xs:simpleType>
         

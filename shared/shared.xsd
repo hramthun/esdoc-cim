@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 23 March 2009 -->       
+<!-- generated: 1 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -60,9 +60,9 @@
 </xs:simpleType>
             <xs:simpleType name="ChangePropertyType_Enumeration">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="new"/>
    <xs:enumeration value="decrement"/>
    <xs:enumeration value="increment"/>
-   <xs:enumeration value="new"/>
    <xs:enumeration value="redistribution"/>
    <xs:enumeration value="replacement"/>
 </xs:restriction>

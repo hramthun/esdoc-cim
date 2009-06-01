@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 23 March 2009 -->       
+<!-- generated: 1 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -28,9 +28,9 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="fileSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -43,8 +43,8 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataStorage">
    <xs:sequence>
-      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DbStorage">
@@ -53,8 +53,8 @@
                     <xs:sequence>
       <xs:element name="dbAccessString" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="dbName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="dbTable" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="owner" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dbTable" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -74,8 +74,6 @@
                     <xs:sequence>
       <xs:element name="cIM_Constraint" minOccurs="0" maxOccurs="unbounded" type="CIM_Constraint"/>
       <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
-      <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
-      <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
       <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
@@ -86,20 +84,22 @@
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="abstract" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
+      <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
+      <xs:element name="fileIdentifier" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="language" minOccurs="1" maxOccurs="1"/>
       <xs:element name="characterSet" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="levelName" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="dateStamp" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="keyword" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="metaforVersion" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="dataURI" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="abstract" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="status" minOccurs="1" maxOccurs="1"/>
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_Citation_PropertyType"/>
-      <xs:element name="dataURI" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="dateStamp" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="fileIdentifier" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="keyword" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="language" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="levelName" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="metaforVersion" minOccurs="1" maxOccurs="1"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
-      <xs:element name="status" minOccurs="1" maxOccurs="1"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -141,6 +141,16 @@
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>ISOattributeDesc, CF?</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="unit" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>ISOdimension</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="aggregation" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>sum, min, mean, max, ...</xs:documentation>
@@ -152,16 +162,6 @@
             <xs:documentation>daily, hourly, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>ISOattributeDesc, CF?</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="unit" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>ISOdimension</xs:documentation>
-         </xs:annotation>
-      </xs:element>
    </xs:sequence>
 </xs:complexType>
             <xs:simpleType name="AccessType">
@@ -170,17 +170,17 @@
    <xs:enumeration value="DiskDB"/>
    <xs:enumeration value="DVD"/>
    <xs:enumeration value="Microfiche"/>
-   <xs:enumeration value="OnlineFileFTP"/>
    <xs:enumeration value="OnlineFileHTTP"/>
+   <xs:enumeration value="OnlineFileFTP"/>
 </xs:restriction>
             </xs:simpleType>
         
             <xs:simpleType name="ConstraintType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="dataAccessConstraint"/>
-   <xs:enumeration value="dataUseConstraint"/>
    <xs:enumeration value="metadataAccessConstraint"/>
    <xs:enumeration value="metadataUseConstraint"/>
+   <xs:enumeration value="dataAccessConstraint"/>
+   <xs:enumeration value="dataUseConstraint"/>
 </xs:restriction>
             </xs:simpleType>
         <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataExtent">
@@ -194,10 +194,10 @@
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
-      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="protocol" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="host" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="path" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="protocol" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="fileName" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>

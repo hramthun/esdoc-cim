@@ -25,7 +25,7 @@
 </xsl:text>
     </xsl:variable>
     <!-- set to 1 turn on printing -->
-    <xsl:variable name="debug" select="0"/>
+    <xsl:variable name="debug" select="1"/>
 
     <!-- ********************* -->
     <!-- "top-level" templates -->
@@ -203,7 +203,7 @@
             </xsl:message>
         </xsl:if>
 
-        <xsl:choose>
+        <xsl:choose> 
             <xsl:when test="$classStereotype='unused'">
                 <xsl:call-template name="unusedTemplate">
                     <xsl:with-param name="className" select="@name"/>
