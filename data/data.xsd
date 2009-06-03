@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 1 June 2009 -->       
+<!-- generated: 3 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -100,6 +100,14 @@
                   type="gmd:CI_Citation_PropertyType"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
+      <xs:element name="component" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>A reference to the model that generated (or otherwise used) this data object.</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
