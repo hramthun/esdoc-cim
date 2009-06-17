@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 3 June 2009 -->       
+<!-- generated: 16 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -83,6 +83,12 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -266,6 +272,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -355,6 +367,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -411,6 +429,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -465,6 +489,16 @@ NB it doesn't stop one form having uris to conformance that point into the datas
       <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
       <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
       <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
+      <xs:element name="previousSimulation" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="followingSimulation" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>
    <xs:attribute name="initialCondition" use="required" type="xs:anyURI"/>  
                             </xs:extension>
@@ -535,6 +569,12 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -580,6 +620,12 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>

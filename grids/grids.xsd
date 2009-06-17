@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 3 June 2009 -->       
+<!-- generated: 16 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -446,6 +446,12 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>

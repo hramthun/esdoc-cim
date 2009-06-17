@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 3 June 2009 -->       
+<!-- generated: 16 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -177,6 +177,8 @@
             <xs:documentation>A free-text description of the component.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="componentProperties" minOccurs="1" maxOccurs="1"
+                  type="ComponentProperties"/>
       <xs:element name="numericalProperties" minOccurs="1" maxOccurs="1"
                   type="NumericalProperties"/>
       <xs:element name="scientificProperties" minOccurs="1" maxOccurs="1"
@@ -222,7 +224,13 @@
    <xs:enumeration value="years"/>
 </xs:restriction>
             </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperties">
+   <xs:sequence>
+      <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
+                  type="ComponentProperty"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
    <xs:annotation>
       <xs:documentation>Describes the machine that software was run on.</xs:documentation>
    </xs:annotation>
@@ -298,6 +306,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -404,6 +418,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -549,6 +569,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>

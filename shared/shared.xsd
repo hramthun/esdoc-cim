@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 June 2009 -->       
+<!-- generated: 16 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -111,6 +111,12 @@
          </xs:annotation>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="relationship" use="optional" type="RelationshipType">
+      <xs:annotation>
+         <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
    <xs:restriction base="xs:token">
@@ -134,7 +140,21 @@
    <xs:sequence/>
 </xs:complexType>
 <!--ChangeProperty is not used -->       
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType">
+   <xs:annotation>
+      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+   </xs:annotation>
+   <xs:union memberTypes="xs:string UnitType_Enumeration"/>
+</xs:simpleType>
+            <xs:simpleType name="UnitType_Enumeration">
+        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="meter"/>
+   <xs:enumeration value="hectopascal"/>
+   <xs:enumeration value="pascal"/>
+   <xs:enumeration value="sigma"/>
+</xs:restriction>
+            </xs:simpleType>
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup">
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
@@ -158,7 +178,20 @@
       </xs:element>
    </xs:sequence>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RelationshipType">
+   <xs:annotation>
+      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+   </xs:annotation>
+   <xs:union memberTypes="xs:string RelationshipType_Enumeration"/>
+</xs:simpleType>
+            <xs:simpleType name="RelationshipType_Enumeration">
+        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="derivedVersion"/>
+   <xs:enumeration value="variantOf"/>
+   <xs:enumeration value="similarTo"/>
+</xs:restriction>
+            </xs:simpleType>
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
                     <xs:sequence/>  
