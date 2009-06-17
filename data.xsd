@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 3 June 2009 -->       
+<!-- generated: 16 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -35,17 +35,46 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_Constraint">
+            <xs:simpleType name="DataFormatType">
+        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="complete">
+      <xs:annotation>
+         <xs:documentation>This DataObject is complete.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+   <xs:enumeration value="metadataOnly">
+      <xs:annotation>
+         <xs:documentation>This DataObject is incomplete - it is described in metadata but the actual data has not yet been linked to it.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+   <xs:enumeration value="continuouslySupplemented">
+      <xs:annotation>
+         <xs:documentation>This DataObject's actual data is continuously updated.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+</xs:restriction>
+            </xs:simpleType>
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestriction">
    <xs:sequence>
-      <xs:element name="constraint" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="restriction" minOccurs="1" maxOccurs="1"
+                  type="gmd:MD_RestrictionCode_PropertyType"/>
    </xs:sequence>
-   <xs:attribute name="type" use="required" type="ConstraintType"/>
+   <xs:attribute name="restrictionScope" use="required" type="DataRestrictionScopeType">
+      <xs:annotation>
+         <xs:documentation>The thing (data or metadata, access or use) that this restriction is applied to.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataStorage">
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
       <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
+      <xs:annotation>
+         <xs:documentation>Points to the actual location of the data (used to be dataURI, a feature of DataObject).</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DbStorage">
                         <xs:complexContent>
@@ -59,20 +88,40 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
+            <xs:simpleType name="DataStatusType">
+        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="complete">
+      <xs:annotation>
+         <xs:documentation>This DataObject is complete.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+   <xs:enumeration value="metadataOnly">
+      <xs:annotation>
+         <xs:documentation>This DataObject is incomplete - it is described in metadata but the actual data has not yet been linked to it.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+   <xs:enumeration value="continuouslySupplemented">
+      <xs:annotation>
+         <xs:documentation>This DataObject's actual data is continuously updated.</xs:documentation>
+      </xs:annotation>
+   </xs:enumeration>
+</xs:restriction>
+            </xs:simpleType>
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="distributionFormat" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
    </xs:sequence>
-   <xs:attribute name="accessType" use="required" type="AccessType"/>
+   <xs:attribute name="distributionFormat" use="required" type="DataFormatType"/>
+   <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataObject">
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="cIM_Constraint" minOccurs="0" maxOccurs="unbounded" type="CIM_Constraint"/>
+      <xs:element name="dataRestriction" minOccurs="0" maxOccurs="unbounded"
+                  type="DataRestriction"/>
       <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
       <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
@@ -84,31 +133,21 @@
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
+      <xs:element name="dataCitation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
       <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
       <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
-      <xs:element name="fileIdentifier" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="language" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="characterSet" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="levelName" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="dateStamp" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="keyword" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="metaforVersion" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="dataURI" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="abstract" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="status" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded"
-                  type="gmd:CI_Citation_PropertyType"/>
-      <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType"/>
-      <xs:element name="component" minOccurs="0" maxOccurs="1">
+      <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>A reference to the model that generated (or otherwise used) this data object.</xs:documentation>
+            <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
          </xs:annotation>
-         <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
-         </xs:complexType>
       </xs:element>
-   </xs:sequence>  
+      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="status" use="required" type="DataStatusType"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -140,10 +179,25 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
+            <xs:attribute name="relationship" use="optional" type="RelationshipType">
+               <xs:annotation>
+                  <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataCitation">
+   <xs:annotation>
+      <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="abstract" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="citation" minOccurs="1" maxOccurs="1" type="gmd:CI_Citation_PropertyType"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataContent">
    <xs:annotation>
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
@@ -152,11 +206,6 @@
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>ISOattributeDesc, CF?</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="unit" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>ISOdimension</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="aggregation" minOccurs="1" maxOccurs="1" type="xs:string">
@@ -171,8 +220,13 @@
          </xs:annotation>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="unit" use="required" type="UnitType">
+      <xs:annotation>
+         <xs:documentation>ISOdimension</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
-            <xs:simpleType name="AccessType">
+            <xs:simpleType name="DataAccessType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="CD-ROM"/>
    <xs:enumeration value="DiskDB"/>
@@ -183,7 +237,7 @@
 </xs:restriction>
             </xs:simpleType>
         
-            <xs:simpleType name="ConstraintType">
+            <xs:simpleType name="DataRestrictionScopeType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="metadataAccessConstraint"/>
    <xs:enumeration value="metadataUseConstraint"/>
@@ -192,12 +246,12 @@
 </xs:restriction>
             </xs:simpleType>
         <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataExtent">
-   <xs:sequence>
-      <xs:element name="geographicalExtent" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="temporalExtent" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="verticalExtent" minOccurs="1" maxOccurs="1"/>
-   </xs:sequence>
-</xs:complexType>
+                                <xs:complexContent>
+                                <xs:extension base="gmd:EX_Extent_PropertyType">
+                            <xs:sequence/>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IpStorage">
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
