@@ -25,7 +25,7 @@
 </xsl:text>
     </xsl:variable>
     <!-- set to 1 turn on printing -->
-    <xsl:variable name="debug" select="1"/>
+    <xsl:variable name="debug" select="0"/>
 
     <!-- ********************* -->
     <!-- "top-level" templates -->
@@ -164,7 +164,7 @@
                                         document</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:choice>
+                            <xs:choice minOccurs="1" maxOccurs="1">
                                 <xsl:for-each select="//UML:Stereotype[@name='document']">
                                     <xsl:variable name="className"
                                         select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"/>
