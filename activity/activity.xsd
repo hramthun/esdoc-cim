@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 16 June 2009 -->       
+<!-- generated: 20 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -46,6 +46,8 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
+      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -129,7 +131,7 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="uses">
    <xs:sequence/>
 </xs:complexType>
-            <xs:simpleType name="ensembleTypes">
+            <xs:simpleType name="EnsembleType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
             </xs:simpleType>
         
@@ -160,6 +162,11 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
          <xs:annotation>
             <xs:documentation>Points to the DataSource used to conform to a particular Requirement.   This may be part of an activity::simulation or a software::component.</xs:documentation>
          </xs:annotation>
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="requirement" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
@@ -446,6 +453,16 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Forcing">
+   <xs:sequence>
+      <xs:element name="dataset" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="frequency" use="required" type="FrequencyType"/>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RestartDumps">
                         <xs:complexContent>
                         <xs:extension base="Dataset">
@@ -467,12 +484,13 @@ A simulation must use a configured model unless it is associated with a  runColl
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
+      <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
       <xs:element name="simulationComposite" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="ancillaryDataset" minOccurs="0" maxOccurs="unbounded" type="xs:anyURI">
+      <xs:element name="ancillaryForcing" minOccurs="0" maxOccurs="unbounded" type="Forcing">
          <xs:annotation>
             <xs:documentation>this is the label for a uri to all the ancillary files for this simulation
 NB it doesn't stop one form having uris to conformance that point into the dataset.</xs:documentation>
@@ -484,8 +502,17 @@ NB it doesn't stop one form having uris to conformance that point into the datas
          </xs:annotation>
       </xs:element>
       <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
+      <xs:element name="initialCondition" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
-      <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded" type="xs:anyURI"/>
+      <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:attribute ref="xlink:href" use="required"/>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="deployment" minOccurs="1" maxOccurs="1" type="Deployment"/>
       <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
       <xs:element name="spinup" minOccurs="0" maxOccurs="1" type="ClosedDateRange"/>
@@ -494,13 +521,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="followingSimulation" minOccurs="0" maxOccurs="1">
-         <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
-         </xs:complexType>
-      </xs:element>
-   </xs:sequence>
-   <xs:attribute name="initialCondition" use="required" type="xs:anyURI"/>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -533,7 +554,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                     <xs:sequence>
       <xs:element name="simulation" minOccurs="1" maxOccurs="1" type="Simulation"/>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="EnsembleStatistic"/>
-      <xs:element name="type" minOccurs="1" maxOccurs="unbounded" type="ensembleTypes"/>
+      <xs:element name="ensembleType" minOccurs="1" maxOccurs="unbounded" type="EnsembleType"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 16 June 2009 -->       
+<!-- generated: 20 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -205,8 +205,7 @@
    <xs:enumeration value="coefficient"/>
 </xs:restriction>
             </xs:simpleType>
-        <!--NumericalProperty is not used -->       
-
+        
             <xs:simpleType name="ScientificPropertyType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="prognostic"/>
@@ -428,7 +427,6 @@
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-<!--ScientificProperty is not used -->       
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperty">
    <xs:annotation>
       <xs:documentation>A property being impacted by a component.  This includes things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  </xs:documentation>
