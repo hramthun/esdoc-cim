@@ -25,7 +25,7 @@
 </xsl:text>
     </xsl:variable>
     <!-- set to 1 turn on printing -->
-    <xsl:variable name="debug" select="0"/>
+    <xsl:variable name="debug" select="1"/>
 
     <!-- ********************* -->
     <!-- "top-level" templates -->
@@ -55,9 +55,9 @@
                         <xsl:text> invalid sorting order specified </xsl:text>
                     </xsl:message>
                 </xsl:otherwise>
-            </xsl:choose>                       
+            </xsl:choose>
         </xsl:if>
-        
+
         <!-- apply templates to the UML:Model -->
         <!-- and ignore  UML:Diagram, etc. -->
         <xsl:apply-templates select="XMI.content/UML:Model"/>
@@ -203,7 +203,7 @@
             </xsl:message>
         </xsl:if>
 
-        <xsl:choose> 
+        <xsl:choose>
             <xsl:when test="$classStereotype='unused'">
                 <xsl:call-template name="unusedTemplate">
                     <xsl:with-param name="className" select="@name"/>
@@ -225,7 +225,19 @@
                 </xsl:if>
                 <xsl:call-template name="codelistTemplate"/>
             </xsl:when>
+            <!--
+            don't need to do anything special for _global_ <<abstract>> classes
+            <xsl:when test="$classStereotype='abstract'">
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>it's abstract </xsl:text>
+                    </xsl:message>
+                </xsl:if>
+                <xsl:call-template name="abstractTemplate"/>
+            </xsl:when>
+            -->
             <!-- simpleTypes are used in order to force UML classes to be used as XML attributes -->
+            <!-- This mixes a bit of implementation-specific logic into the UML; but I can live with that -->
             <xsl:when test="$classStereotype='attribute'">
                 <xsl:if test="$debug">
                     <xsl:message>
@@ -292,10 +304,10 @@
         </xsl:text>
 
         <xs:restriction base="xs:string">
-            
+
             <xsl:for-each select="descendant::UML:Attribute">
                 <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
-                
+
                 <!-- <xsl:sort case-order="lower-first" select="@name"/>-->
                 <xs:enumeration value="{@name}">
                     <xsl:apply-templates mode="UMLattribute"/>
@@ -341,6 +353,147 @@
         </xs:complexType>
     </xsl:template>
 
+    <!-- abstract classes -->
+    <xsl:template name="abstractTemplate">
+
+        <!-- the abstract class being used -->
+        <xsl:param name="class"/>
+        <xsl:param name="attribute"/>
+        <xsl:param name="association"/>
+
+        <!-- is the class being used as a UML association -->
+        <!-- (or is it being used as a UML attribute) -->
+        <xsl:param name="isAssociation"/>
+
+        <xsl:comment>
+            <xsl:text> this is an abstract class </xsl:text>
+        </xsl:comment>
+
+        <xsl:element name="xs:element">
+
+            <xsl:choose>
+                <xsl:when test="$isAssociation">
+                    <xsl:variable name="roleName" select="$association/@name"/>
+                    <xsl:variable name="className" select="$class/@name"/>
+
+                    <!-- work out the name -->
+                    <xsl:attribute name="name">
+                        <xsl:choose>
+                            <xsl:when test="$roleName">
+                                <xsl:value-of select="$roleName"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of
+                                    select="concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))"
+                                />
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+
+                    <!-- work out the max/min -->
+                    <xsl:choose>
+                        <xsl:when test="@multiplicity='*'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">0</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0..*'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='0..1'">
+                            <xsl:attribute name="minOccurs">0</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1..'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:when test="@multiplicity='1..*'">
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- multiplicity is not specified; assume 1..1 -->
+                            <xsl:attribute name="minOccurs">1</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
+                </xsl:when>
+
+
+                <xsl:when test="not($isAssociation)">
+                    <xsl:variable name="attributeName" select="$attribute/@name"/>
+                    <xsl:variable name="className" select="$class/@name"/>
+
+                    <!-- work out the name -->
+                    <!-- this isn't very hard with an attribute; it _has_ to have an explicit name -->
+                    <xsl:attribute name="name" select="$attributeName"/>
+
+                    <!-- work out the max/min -->
+                    <xsl:variable name="attMin"
+                        select="$attribute/descendant::UML:TaggedValue[@tag='lowerBound']/@value"/>
+                    <xsl:variable name="attMax"
+                        select="$attribute/descendant::UML:TaggedValue[@tag='upperBound']/@value"/>
+                    <xsl:attribute name="minOccurs" select="$attMin"/>
+                    <xsl:attribute name="maxOccurs">
+                        <xsl:choose>
+                            <xsl:when test="string($attMax)='*'">
+                                <xsl:text>unbounded</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="$attMax"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+
+            <xs:complexType>
+                <xs:choice minOccurs="1" maxOccurs="1">
+                    <!-- present a choice of each specialisation of the abstract class -->
+                    <xsl:for-each select="//UML:Generalization[@supertype=$class/@xmi.id]">
+
+
+                        <xsl:variable name="specialisedID" select="@subtype"/>
+                        <xsl:variable name="specialisedClass"
+                            select="//UML:Class[@xmi.id=$specialisedID]"/>
+                        <!-- so long as the specialised class is not <<unused>> -->
+                        <xsl:variable name="ea_xref_property">
+                            <xsl:text>$ea_xref_property</xsl:text>
+                        </xsl:variable>
+                        <xsl:if
+                            test="not(contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=unused'))">
+                            <xsl:element name="xs:element">
+                                <xsl:variable name="specialisedClassName"
+                                    select="$specialisedClass/@name"/>
+                                <xsl:attribute name="name">
+                                    <xsl:value-of
+                                        select="concat(translate(substring($specialisedClassName,1,1),$upperCase,$lowerCase),substring($specialisedClassName,2))"
+                                    />
+                                </xsl:attribute>
+                                <xsl:attribute name="type">
+                                    <xsl:value-of select="$specialisedClassName"/>
+                                </xsl:attribute>
+
+                            </xsl:element>
+                        </xsl:if>
+                    </xsl:for-each>
+                </xs:choice>
+            </xs:complexType>
+
+        </xsl:element>
+
+    </xsl:template>
+
     <!-- global elements (documents) -->
     <xsl:template name="documentTemplate">
 
@@ -357,7 +510,8 @@
                         <xs:sequence>
                             <xsl:for-each
                                 select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                                <xsl:sort case-order="lower-first"
+                                    select="@name[$sort-attributes='true']"/>
 
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
@@ -370,7 +524,8 @@
                         <!-- add document-specific attributes here -->
                         <xsl:for-each
                             select="//UML:Class[@name='Document']/descendant::UML:Attribute">
-                            <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                            <xsl:sort case-order="lower-first"
+                                select="@name[$sort-attributes='true']"/>
 
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
@@ -396,6 +551,17 @@
             <xsl:when test="$stereotype='unused'">
                 <xsl:call-template name="unusedTemplate">
                     <xsl:with-param name="className" select="@name"/>
+                </xsl:call-template>
+            </xsl:when>
+            <!-- if the datatype is abstract, then -->
+            <xsl:when
+                test="//UML:Class[@name=$type]/descendant::UML:TaggedValue[@tag='stereotype']/@value='abstract'">
+                <!-- I am assuming that this abstract class will have been defined globally elsewhere -->
+                <!-- this is just for local abstract classes -->
+                <xsl:call-template name="abstractTemplate">
+                    <xsl:with-param name="class" select="//UML:Class[@name=$type]"/>
+                    <xsl:with-param name="attribute" select="."/>
+                    <xsl:with-param name="isAssociation" select="false()"/>
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
@@ -508,9 +674,11 @@
     <!-- complexTypes -->
     <xsl:template name="complexTypeTemplate">
         <xsl:variable name="class" select="."/>
+        <xsl:variable name="stereotype"
+            select="translate(./UML:ModelElement.taggedValue/UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
 
         <!-- all classes (that aren't codelists or enumerations) are complexTypes -->
-        <xs:complexType name="{@name}">
+        <xs:complexType name="{@name}" abstract="{$stereotype='abstract'}">
             <xsl:apply-templates mode="UMLclass"/>
 
             <!-- first check if this is a specialisation of another class -->
@@ -689,98 +857,113 @@
                 test="(following-sibling::UML:AssociationEnd/@type=$class/@xmi.id) or (preceding-sibling::UML:AssociationEnd/@type=$class/@xmi.id)">
                 <xsl:variable name="endType" select="@type"/>
                 <xsl:variable name="endClass" select="//UML:Class[@xmi.id=$endType]"/>
-
+                <xsl:variable name="endStereotype"
+                    select="translate($endClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
                 <!-- don't bother recording the element if it has a min & max of 0 -->
                 <xsl:if test="@multiplicity!='0'">
 
-                    <xsl:element name="xs:element">
+                    <xsl:choose>
+                        <!-- if the association is to an abstract class -->
+                        <!-- be sure to replace the element with a choice of specialisations -->
+                        <xsl:when test="$endStereotype='abstract'">
+                            <xsl:call-template name="abstractTemplate">
+                                <xsl:with-param name="class" select="$endClass"/>
+                                <xsl:with-param name="association" select="."/>
+                                <xsl:with-param name="isAssociation" select="true()"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <!-- otherwise, just proceed as normal -->
+                        <xsl:otherwise>
 
-                        <!-- work out its name -->
-                        <xsl:attribute name="name">
-                            <xsl:choose>
-                                <!-- if the associationEnd has a role, use that as the name -->
-                                <xsl:when test="@name">
-                                    <xsl:value-of select="@name"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <!-- otherwise, use a camelCase version of the class name -->
-                                    <xsl:variable name="name"
-                                        select="//UML:Class[@xmi.id=$endType]/@name"/>
-                                    <xsl:value-of
-                                        select="concat(translate(substring($name,1,1),$upperCase,$lowerCase),substring($name,2))"
-                                    />
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:attribute>
+                            <xsl:element name="xs:element">
 
-                        <!-- and the max/min  -->
-                        <xsl:choose>
-                            <xsl:when test="@multiplicity='*'">
-                                <xsl:attribute name="minOccurs">0</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='0'">
-                                <xsl:attribute name="minOccurs">0</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">0</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='0..*'">
-                                <xsl:attribute name="minOccurs">0</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='0..1'">
-                                <xsl:attribute name="minOccurs">0</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">1</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='1'">
-                                <xsl:attribute name="minOccurs">1</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">1</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='1..'">
-                                <xsl:attribute name="minOccurs">1</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>
-                            <xsl:when test="@multiplicity='1..*'">
-                                <xsl:attribute name="minOccurs">1</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <!-- multiplicity is not specified; assume 1..1 -->
-                                <xsl:attribute name="minOccurs">1</xsl:attribute>
-                                <xsl:attribute name="maxOccurs">1</xsl:attribute>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                                <!-- work out its max/min  -->
+                                <xsl:choose>
+                                    <xsl:when test="@multiplicity='*'">
+                                        <xsl:attribute name="minOccurs">0</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='0'">
+                                        <xsl:attribute name="minOccurs">0</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">0</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='0..*'">
+                                        <xsl:attribute name="minOccurs">0</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='0..1'">
+                                        <xsl:attribute name="minOccurs">0</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='1'">
+                                        <xsl:attribute name="minOccurs">1</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='1..'">
+                                        <xsl:attribute name="minOccurs">1</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:when test="@multiplicity='1..*'">
+                                        <xsl:attribute name="minOccurs">1</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- multiplicity is not specified; assume 1..1 -->
+                                        <xsl:attribute name="minOccurs">1</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">1</xsl:attribute>
+                                    </xsl:otherwise>
+                                </xsl:choose>
 
-                        <!-- and its type -->
+                                <!-- work out its name -->
+                                <xsl:attribute name="name">
+                                    <xsl:choose>
+                                        <!-- if the associationEnd has a role, use that as the name -->
+                                        <xsl:when test="@name">
+                                            <xsl:value-of select="@name"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <!-- otherwise, use a camelCase version of the class name -->
+                                            <xsl:variable name="name"
+                                                select="//UML:Class[@xmi.id=$endType]/@name"/>
+                                            <xsl:value-of
+                                                select="concat(translate(substring($name,1,1),$upperCase,$lowerCase),substring($name,2))"
+                                            />
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
 
-                        <xsl:choose>
-                            <!-- if the endClass is a <<document>> -->
-                            <!-- or if the association is an explicit <<reference>> -->
-                            <!-- and the association is not an explicit <<inline>> -->
-                            <xsl:when
-                                test="
+
+                                <!-- and its type -->
+
+                                <xsl:choose>
+                                    <!-- if the endClass is a <<document>> -->
+                                    <!-- or if the association is an explicit <<reference>> -->
+                                    <!-- and the association is not an explicit <<inline>> -->
+                                    <xsl:when
+                                        test="
                             (translate($endClass/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='document')
                             or
                             ( (translate(./descendant::UML:TaggedValue[@tag='destStereotype']/@value,$upperCase,$lowerCase)='reference') or (translate(./descendant::UML:TaggedValue[@tag='sourceStereotype']/@value,$upperCase,$lowerCase)='reference') )
                             and not
                             ( (translate(./descendant::UML:TaggedValue[@tag='destStereotype']/@value,$upperCase,$lowerCase)='inline') or (translate(./descendant::UML:TaggedValue[@tag='sourceStereotype']/@value,$upperCase,$lowerCase)='inline') )                            
                             ">
-                                <!-- then use XLinks -->
-                                <!-- (specify the class as a reference) -->
-                                <xsl:call-template name="referenceTemplate"/>
-                            </xsl:when>
-                            <!--  otherwise use its native type -->
-                            <!-- (specify the class inline) -->
-                            <xsl:otherwise>
-                                <xsl:attribute name="type">
-                                    <xsl:value-of select="$endClass/@name"/>
-                                </xsl:attribute>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                                        <!-- then use XLinks -->
+                                        <!-- (specify the class as a reference) -->
+                                        <xsl:call-template name="referenceTemplate"/>
+                                    </xsl:when>
+                                    <!--  otherwise use its native type -->
+                                    <!-- (specify the class inline) -->
+                                    <xsl:otherwise>
+                                        <xsl:attribute name="type">
+                                            <xsl:value-of select="$endClass/@name"/>
+                                        </xsl:attribute>
+                                    </xsl:otherwise>
+                                </xsl:choose>
 
-                    </xsl:element>
-
+                            </xsl:element>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:if>
-
             </xsl:if>
         </xsl:for-each>
 
@@ -928,6 +1111,5 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-
 
 </xsl:stylesheet>
