@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 20 June 2009 -->       
+<!-- generated: 23 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -31,14 +31,13 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Property">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Property" abstract="true">
    <xs:annotation>
       <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
    </xs:annotation>
-   <xs:sequence>
-      <xs:element name="group" minOccurs="0" maxOccurs="1">
+   <xs:sequence><!-- this is an abstract class --><xs:element name="group" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
@@ -46,10 +45,10 @@
    </xs:sequence>
    <xs:attribute name="type" use="required" type="PropertyType"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar" abstract="true">
    <xs:sequence/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource" abstract="true">
    <xs:sequence/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType">
@@ -83,7 +82,7 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
    <xs:annotation>
       <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class.  Note that all documents can have quality and change information associated with them.</xs:documentation>
    </xs:annotation>
@@ -100,9 +99,9 @@
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="parent" minOccurs="0" maxOccurs="1">
+      <!-- this is an abstract class --><xs:element name="parent" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
@@ -125,9 +124,13 @@
       </xs:annotation>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue">
-   <xs:sequence/>
-</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue" mixed="true">
+                                <xs:simpleContent>
+                                <xs:extension base="xs:anySimpleType">
+                              
+                            </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
@@ -137,7 +140,10 @@
                         </xs:complexType>
 <!--Change is not used -->       
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange">
-   <xs:sequence/>
+   <xs:sequence>
+      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+   </xs:sequence>
 </xs:complexType>
 <!--ChangeProperty is not used -->       
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType">
@@ -154,16 +160,23 @@
    <xs:enumeration value="sigma"/>
 </xs:restriction>
             </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup">
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
-   <xs:sequence>
-      <xs:element name="property" minOccurs="0" maxOccurs="unbounded" type="Property"/>
-      <xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded" type="PropertyGroup"/>
-      <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
+   <xs:sequence><!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
+         </xs:complexType>
+      </xs:element>
+      <!-- this is an abstract class --><xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
+         </xs:complexType>
+      </xs:element>
+      <!-- this is an abstract class --><xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">

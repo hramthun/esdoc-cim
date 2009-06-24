@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 20 June 2009 -->       
+<!-- generated: 23 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -37,21 +37,10 @@
                         </xs:complexType>
             <xs:simpleType name="DataFormatType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="complete">
-      <xs:annotation>
-         <xs:documentation>This DataObject is complete.</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
-   <xs:enumeration value="metadataOnly">
-      <xs:annotation>
-         <xs:documentation>This DataObject is incomplete - it is described in metadata but the actual data has not yet been linked to it.</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
-   <xs:enumeration value="continuouslySupplemented">
-      <xs:annotation>
-         <xs:documentation>This DataObject's actual data is continuously updated.</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
+   <xs:enumeration value="NetCDF"/>
+   <xs:enumeration value="NetCDF_CF"/>
+   <xs:enumeration value="WMO_GRIB1"/>
+   <xs:enumeration value="WMO_GRIB2"/>
 </xs:restriction>
             </xs:simpleType>
         <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestriction">
@@ -65,11 +54,11 @@
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataStorage">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataStorage" abstract="true">
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="dataFormat" use="required" type="DataFormatType"/>
    <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
       <xs:annotation>
          <xs:documentation>Points to the actual location of the data (used to be dataURI, a feature of DataObject).</xs:documentation>
@@ -120,22 +109,31 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="dataRestriction" minOccurs="0" maxOccurs="unbounded"
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dataRestriction"
                   type="DataRestriction"/>
-      <xs:element name="dataDistribution" minOccurs="1" maxOccurs="1" type="DataDistribution"/>
-      <xs:element name="childObject" minOccurs="0" maxOccurs="unbounded">
+      <!-- this is an abstract class --><xs:element name="dataStorage" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="localFileStorage" type="LocalFileStorage"/>
+               <xs:element name="dbStorage" type="DbStorage"/>
+               <xs:element name="ipStorage" type="IpStorage"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="dataDistribution" type="DataDistribution"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="childObject">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="parentObject" minOccurs="0" maxOccurs="1">
+      <xs:element minOccurs="0" maxOccurs="1" name="parentObject">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="dataCitation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
-      <xs:element name="dataContent" minOccurs="1" maxOccurs="1" type="DataContent"/>
-      <xs:element name="dataExtent" minOccurs="1" maxOccurs="1" type="DataExtent"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dataCitation" type="DataCitation"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="dataContent" type="DataContent"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="dataExtent" type="DataExtent"/>
       <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
@@ -168,9 +166,9 @@
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
+               <!-- this is an abstract class --><xs:element name="parent" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
+                     <xs:choice minOccurs="1" maxOccurs="1"/>
                   </xs:complexType>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">

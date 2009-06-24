@@ -24,8 +24,7 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange"
-                abstract="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -76,7 +75,7 @@
             <xs:simpleType name="CodeList_Enumeration">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
             </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange" abstract="false">
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -125,14 +124,14 @@
       </xs:annotation>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue" abstract="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyValue" mixed="true">
                                 <xs:simpleContent>
                                 <xs:extension base="xs:anySimpleType">
                               
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360" abstract="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
                     <xs:sequence/>  
@@ -140,8 +139,11 @@
                             </xs:complexContent>
                         </xs:complexType>
 <!--Change is not used -->       
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="false">
-   <xs:sequence/>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange">
+   <xs:sequence>
+      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+   </xs:sequence>
 </xs:complexType>
 <!--ChangeProperty is not used -->       
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType">
@@ -202,15 +204,14 @@
    <xs:enumeration value="similarTo"/>
 </xs:restriction>
             </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod"
-                abstract="false">
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RealCalendar" abstract="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RealCalendar">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
                     <xs:sequence/>  

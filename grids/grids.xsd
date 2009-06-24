@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 20 June 2009 -->       
+<!-- generated: 23 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -58,8 +58,8 @@
       <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="gridMosaic" type="GridMosaic"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="gridTile" type="GridTile"/>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
@@ -399,8 +399,8 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                                 <xs:complexContent>
                                 <xs:extension base="gml:AbstractGeometryType">
                             <xs:sequence>
-      <xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
-      <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="esmExchangeGrid" type="GridMosaic"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="esmModelGrid" type="GridMosaic"/>
    </xs:sequence>
    <xs:attribute name="id" use="optional" type="Identifier">
       <xs:annotation>
@@ -435,9 +435,9 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
+               <!-- this is an abstract class --><xs:element name="parent" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
-                     <xs:attribute ref="xlink:href" use="required"/>
+                     <xs:choice minOccurs="1" maxOccurs="1"/>
                   </xs:complexType>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">

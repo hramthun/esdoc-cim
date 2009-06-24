@@ -676,9 +676,28 @@
         <xsl:variable name="class" select="."/>
         <xsl:variable name="stereotype"
             select="translate(./UML:ModelElement.taggedValue/UML:TaggedValue[@tag='stereotype']/@value,$upperCase,$lowerCase)"/>
-
         <!-- all classes (that aren't codelists or enumerations) are complexTypes -->
-        <xs:complexType name="{@name}" abstract="{$stereotype='abstract'}">
+        <xsl:element name="xs:complexType">
+            <xsl:attribute name="name" select="@name"/>
+            <xsl:if test="$stereotype='abstract'">
+                <xsl:attribute name="abstract">true</xsl:attribute>
+            </xsl:if>
+            
+            <!-- if a class has no associations or attributes -->
+            <!-- nor do any generalisations nor specialisations of it -->
+            <!-- then mixed=true -->            
+            <xsl:variable name="nAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nAttributes" select="count(descendant::UML:Attribute)"/>
+            <xsl:variable name="generalisedClass" select="//UML:Class[@xmi.id=//UML:Generalization[@subtype=$class/@xmi.id]/@supertype]"/>
+            <xsl:variable name="specialisedClass" select="//UML:Class[@xmi.id=//UML:Generalization[@supertype=$class/@xmi.id]/@subtype]"/>
+            <xsl:variable name="nGeneralisedAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$generalisedClass/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nSpecialisedAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$specialisedClass/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nGeneralisedAttributes" select="count($generalisedClass/descendant::UML:Attribute)"/>
+            <xsl:variable name="nSpecialisedAttributes" select="count($specialisedClass/descendant::UML:Attribute)"/>            
+            <xsl:if test="($nAssociations+$nAttributes+$nGeneralisedAssociations+$nGeneralisedAttributes+$nSpecialisedAssociations+$nSpecialisedAttributes)=0">
+                <xsl:attribute name="mixed">true</xsl:attribute>
+            </xsl:if>
+            
             <xsl:apply-templates mode="UMLclass"/>
 
             <!-- first check if this is a specialisation of another class -->
@@ -815,7 +834,8 @@
 
             </xsl:if>
 
-        </xs:complexType>
+        </xsl:element>
+
 
     </xsl:template>
 
