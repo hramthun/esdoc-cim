@@ -46,7 +46,9 @@
    <xs:attribute name="type" use="required" type="PropertyType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar" abstract="true">
-   <xs:sequence/>
+   <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="range" type="DateRange"/>
+   </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource" abstract="true">
    <xs:sequence/>
@@ -141,8 +143,8 @@
 <!--Change is not used -->       
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange">
    <xs:sequence>
-      <xs:element name="startDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="endDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
    </xs:sequence>
 </xs:complexType>
 <!--ChangeProperty is not used -->       

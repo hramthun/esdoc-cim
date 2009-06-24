@@ -685,7 +685,8 @@
             
             <!-- if a class has no associations or attributes -->
             <!-- nor do any generalisations nor specialisations of it -->
-            <!-- then mixed=true -->            
+            <!-- then mixed=true (because I don't know what the heck you intend to do with it) -->
+            <!-- BEWARE: HERE BE BRITTLE LOGIC -->
             <xsl:variable name="nAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association)"/>
             <xsl:variable name="nAttributes" select="count(descendant::UML:Attribute)"/>
             <xsl:variable name="generalisedClass" select="//UML:Class[@xmi.id=//UML:Generalization[@subtype=$class/@xmi.id]/@supertype]"/>
@@ -697,7 +698,7 @@
             <xsl:if test="($nAssociations+$nAttributes+$nGeneralisedAssociations+$nGeneralisedAttributes+$nSpecialisedAssociations+$nSpecialisedAttributes)=0">
                 <xsl:attribute name="mixed">true</xsl:attribute>
             </xsl:if>
-            
+
             <xsl:apply-templates mode="UMLclass"/>
 
             <!-- first check if this is a specialisation of another class -->
