@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 23 June 2009 -->       
+<!-- generated: 24 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -544,6 +544,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>

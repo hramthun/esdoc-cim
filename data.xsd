@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 23 June 2009 -->       
+<!-- generated: 24 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -109,9 +109,8 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="dataRestriction"
-                  type="DataRestriction"/>
-      <!-- this is an abstract class --><xs:element name="dataStorage" minOccurs="0" maxOccurs="1">
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="restriction" type="DataRestriction"/>
+      <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="localFileStorage" type="LocalFileStorage"/>
@@ -120,7 +119,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="1" maxOccurs="1" name="dataDistribution" type="DataDistribution"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="distribution" type="DataDistribution"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="childObject">
          <xs:complexType>
             <xs:attribute ref="xlink:href" use="required"/>
@@ -131,9 +130,8 @@
             <xs:attribute ref="xlink:href" use="required"/>
          </xs:complexType>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="dataCitation" type="DataCitation"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="dataContent" type="DataContent"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="dataExtent" type="DataExtent"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="citation" type="DataCitation"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="content" type="DataContent"/>
       <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
@@ -144,6 +142,7 @@
             <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="objectProperty" minOccurs="0" maxOccurs="1" type="DataProperty"/>
    </xs:sequence>
    <xs:attribute name="status" use="required" type="DataStatusType"/>  
                             </xs:extension>
@@ -201,6 +200,7 @@
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="extent" type="DataExtent"/>
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>ISOattributeDesc, CF?</xs:documentation>
@@ -234,7 +234,13 @@
    <xs:enumeration value="OnlineFileFTP"/>
 </xs:restriction>
             </xs:simpleType>
-        
+        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProperty">
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="value" minOccurs="1" maxOccurs="1" type="PropertyValue"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+</xs:complexType>
             <xs:simpleType name="DataRestrictionScopeType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="metadataAccessConstraint"/>
