@@ -101,9 +101,14 @@
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <!-- this is an abstract class --><xs:element name="parent" minOccurs="0" maxOccurs="1">
+      <xs:element name="parent" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
@@ -140,6 +145,29 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Genealogy" abstract="true">
+   <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="1" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
+   <xs:sequence><!--type is not used -->       
+<xs:element name="parent" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+</xs:complexType>
 <!--Change is not used -->       
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange">
    <xs:sequence>

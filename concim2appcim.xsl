@@ -571,7 +571,7 @@
             </xsl:when>
             <!-- if the datatype is abstract, then -->
             <xsl:when
-                test="//UML:Class[@name=$type]/descendant::UML:TaggedValue[@tag='stereotype']/@value='abstract'">
+                test="//UML:Class[@name=$type]/descendant::UML:TaggedValue[@tag='stereotype']/@value='abstract' and $stereotype!='reference'">
                 <!-- I am assuming that this abstract class will have been defined globally elsewhere -->
                 <!-- this is just for local abstract classes -->
                 <xsl:call-template name="abstractTemplate">
