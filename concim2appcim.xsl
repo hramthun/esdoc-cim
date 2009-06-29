@@ -430,6 +430,12 @@
                             <xsl:attribute name="minOccurs">1</xsl:attribute>
                             <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
                         </xsl:when>
+                        <!-- THIS IS A TEMPORARY FIX JUST TO SUPPORT ENSEMBLES -->
+                        <xsl:when test="@multiplicity='2..*'">
+                            <xsl:attribute name="minOccurs">2</xsl:attribute>
+                            <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                        </xsl:when>
+                        <!-- END TEMPORARY FIX -->
                         <xsl:otherwise>
                             <!-- multiplicity is not specified; assume 1..1 -->
                             <xsl:attribute name="minOccurs">1</xsl:attribute>
@@ -946,6 +952,12 @@
                                         <xsl:attribute name="minOccurs">1</xsl:attribute>
                                         <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
                                     </xsl:when>
+                                    <!-- THIS IS A TEMPORARY FIX JUST TO DEAL WITH ENSEMBLES -->
+                                    <xsl:when test="@multiplicity='2..*'">
+                                        <xsl:attribute name="minOccurs">2</xsl:attribute>
+                                        <xsl:attribute name="maxOccurs">unbounded</xsl:attribute>
+                                    </xsl:when>
+                                    <!-- END TEMPORARY FIX -->
                                     <xsl:otherwise>
                                         <!-- multiplicity is not specified; assume 1..1 -->
                                         <xsl:attribute name="minOccurs">1</xsl:attribute>

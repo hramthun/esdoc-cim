@@ -621,7 +621,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
-                    <xs:sequence><!-- this is an abstract class --><xs:element name="simulation" minOccurs="1" maxOccurs="1">
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="simulation" minOccurs="2" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="simulationRun" type="SimulationRun"/>
