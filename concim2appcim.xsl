@@ -341,15 +341,25 @@
 
     <!-- <<reference>> elements use XLinks -->
     <xsl:template name="referenceTemplate">
-        <!--
-        not sure about making it nillable
-        <xsl:attribute name="nillable">
-            <xsl:text>true</xsl:text>
-        </xsl:attribute>
-        -->
         <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
-            <!-- <xs:attributeGroup ref="xlink:simpleLink"/> -->
+            <xs:sequence>
+                <xsl:for-each select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                    <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                    <xsl:call-template name="element-attributeTemplate">
+                        <xsl:with-param name="element" select="true()"/>
+                        <xsl:with-param name="attribute" select="false()"/>
+                    </xsl:call-template>
+                </xsl:for-each>
+            </xs:sequence>
+            <xsl:for-each select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                <xsl:call-template name="element-attributeTemplate">
+                    <xsl:with-param name="element" select="false()"/>
+                    <xsl:with-param name="attribute" select="true()"/>
+                </xsl:call-template>
+            </xsl:for-each>
+            <!-- and one hard-coded attribute for all references -->
+            <xs:attribute ref="xlink:href" use="optional"/>
         </xs:complexType>
     </xsl:template>
 
@@ -682,20 +692,28 @@
             <xsl:if test="$stereotype='abstract'">
                 <xsl:attribute name="abstract">true</xsl:attribute>
             </xsl:if>
-            
+
             <!-- if a class has no associations or attributes -->
             <!-- nor do any generalisations nor specialisations of it -->
             <!-- then mixed=true (because I don't know what the heck you intend to do with it) -->
             <!-- BEWARE: HERE BE BRITTLE LOGIC -->
-            <xsl:variable name="nAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nAssociations"
+                select="count(//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association)"/>
             <xsl:variable name="nAttributes" select="count(descendant::UML:Attribute)"/>
-            <xsl:variable name="generalisedClass" select="//UML:Class[@xmi.id=//UML:Generalization[@subtype=$class/@xmi.id]/@supertype]"/>
-            <xsl:variable name="specialisedClass" select="//UML:Class[@xmi.id=//UML:Generalization[@supertype=$class/@xmi.id]/@subtype]"/>
-            <xsl:variable name="nGeneralisedAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$generalisedClass/@xmi.id]/ancestor::UML:Association)"/>
-            <xsl:variable name="nSpecialisedAssociations" select="count(//UML:Association//UML:AssociationEnd[@type=$specialisedClass/@xmi.id]/ancestor::UML:Association)"/>
-            <xsl:variable name="nGeneralisedAttributes" select="count($generalisedClass/descendant::UML:Attribute)"/>
-            <xsl:variable name="nSpecialisedAttributes" select="count($specialisedClass/descendant::UML:Attribute)"/>            
-            <xsl:if test="($nAssociations+$nAttributes+$nGeneralisedAssociations+$nGeneralisedAttributes+$nSpecialisedAssociations+$nSpecialisedAttributes)=0">
+            <xsl:variable name="generalisedClass"
+                select="//UML:Class[@xmi.id=//UML:Generalization[@subtype=$class/@xmi.id]/@supertype]"/>
+            <xsl:variable name="specialisedClass"
+                select="//UML:Class[@xmi.id=//UML:Generalization[@supertype=$class/@xmi.id]/@subtype]"/>
+            <xsl:variable name="nGeneralisedAssociations"
+                select="count(//UML:Association//UML:AssociationEnd[@type=$generalisedClass/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nSpecialisedAssociations"
+                select="count(//UML:Association//UML:AssociationEnd[@type=$specialisedClass/@xmi.id]/ancestor::UML:Association)"/>
+            <xsl:variable name="nGeneralisedAttributes"
+                select="count($generalisedClass/descendant::UML:Attribute)"/>
+            <xsl:variable name="nSpecialisedAttributes"
+                select="count($specialisedClass/descendant::UML:Attribute)"/>
+            <xsl:if
+                test="($nAssociations+$nAttributes+$nGeneralisedAssociations+$nGeneralisedAttributes+$nSpecialisedAssociations+$nSpecialisedAttributes)=0">
                 <xsl:attribute name="mixed">true</xsl:attribute>
             </xsl:if>
 

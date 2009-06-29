@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 24 June 2009 -->       
+<!-- generated: 28 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -122,12 +122,22 @@
       <xs:element minOccurs="1" maxOccurs="1" name="distribution" type="DataDistribution"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="childObject">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="parentObject">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="citation" type="DataCitation"/>

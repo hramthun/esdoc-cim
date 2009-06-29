@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 23 June 2009 -->       
+<!-- generated: 28 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -192,6 +192,16 @@
          </xs:annotation>
       </xs:element>
    </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Reference" abstract="true">
+   <xs:annotation>
+      <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  </xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+   <xs:attribute name="version" use="optional" type="xs:integer"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RelationshipType">
    <xs:annotation>

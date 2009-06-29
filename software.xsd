@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 23 June 2009 -->       
+<!-- generated: 28 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -107,7 +107,12 @@
    <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="coupling">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="rate" minOccurs="1" maxOccurs="1" type="Timing">
@@ -137,7 +142,12 @@
             <xs:documentation>The target property being connected.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -177,7 +187,12 @@
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="deployment">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string">
@@ -201,7 +216,12 @@
             <xs:documentation>A reference to the grid that is used by this component.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -270,7 +290,12 @@
                     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="activity">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -382,7 +407,12 @@
                     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="activity">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="timing" minOccurs="1" maxOccurs="1" type="Timing">
@@ -456,7 +486,12 @@
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       <xs:element name="grid" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 24 June 2009 -->       
+<!-- generated: 28 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,7 +43,12 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="model">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
@@ -110,7 +115,12 @@ There is a one to one association between SimulationRun and SoftwarePackage::Mod
                     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="parent">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="experiment" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
@@ -167,9 +177,15 @@ So, the conformance links a requirement URI either to a dataset URI or a compone
       </xs:element>
       <xs:element name="requirement" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalActivity"
@@ -343,7 +359,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:element minOccurs="1" maxOccurs="unbounded" name="numericalRequirement"
                   type="NumericalRequirement"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="experiment" type="Experiment"/>
-      <!-- this is an abstract class --><xs:element name="CalendarType" minOccurs="1" maxOccurs="1">
+      <!-- this is an abstract class --><xs:element name="calendarType" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="daily-360" type="Daily-360"/>
@@ -411,7 +427,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="processor">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="inputs" minOccurs="0" maxOccurs="unbounded" type="Dataset"/>
@@ -472,7 +493,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
    <xs:sequence>
       <xs:element name="dataset" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -502,12 +528,22 @@ A simulation must use a configured model unless it is associated with a  runColl
       <xs:element minOccurs="0" maxOccurs="unbounded" name="conformance" type="Conformance"/>
       <xs:element minOccurs="1" maxOccurs="1" name="simulationComposite">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="deployment">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="ancillaryForcing" minOccurs="0" maxOccurs="unbounded" type="Forcing">
@@ -524,13 +560,23 @@ NB it doesn't stop one form having uris to conformance that point into the datas
       <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       <xs:element name="initialCondition" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded" type="TimeAverage"/>
       <xs:element name="outputDataset" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="restart" minOccurs="0" maxOccurs="unbounded" type="RestartDumps"/>
@@ -676,7 +722,12 @@ It is a place for the scientific description of the reason why an experiment was
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="numericalExperiment">
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
       <xs:element name="Duration" minOccurs="0" maxOccurs="1" type="DateRange"/>
@@ -707,7 +758,12 @@ It is a place for the scientific description of the reason why an experiment was
             <xs:documentation>A NumericalExperiment to compare</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:attribute ref="xlink:href" use="required"/>
+            <xs:sequence>
+               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="optional" type="xs:integer"/>
+            <xs:attribute ref="xlink:href" use="optional"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>  
