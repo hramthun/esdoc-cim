@@ -285,7 +285,7 @@
     </xsl:template>
 
     <!-- enumerations (simpleType) -->
-    <xsl:template name="enumerationTemplate">
+    <xsl:template name="enumerationTemplate.bak">
         <xsl:param name="local" select="false()"/>
 
         <xsl:text disable-output-escaping="yes">
@@ -321,9 +321,68 @@
 
     </xsl:template>
 
-    <!-- codelists (simpleType) -->
+<!-- I AM HERE -->
+<!-- ASSUME CODELISTS ARE CLOSED UNLESS THEY ARE SPECIFIED OPEN -->
     <xsl:template name="codelistTemplate">
+        <xsl:variable name="id" select="@xmi.id"/>
+        <xsl:variable name="open" select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+        
+        <xs:complexType name="{@name}" mixed="{$open}">
+            <xsl:apply-templates mode="UMLclass"/>
+            <xs:attribute name="type" type="{concat(@name,'_Enumeration')}" use="required"/>
+        </xs:complexType>
+        <xsl:call-template name="enumerationTemplate">
+            <xsl:with-param name="open" select="$open"/>
+            <xsl:with-param name="codelist" select="true()"/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template name="enumerationTemplate">
+        <!-- is this enumeration part of a codelist? -->
+        <xsl:param name="codelist" select="false()"/>
+        <!-- if so, is it "open" or "closed?" -->
+        <xsl:param name="open" select="false()"/>
+        
+        <xsl:text disable-output-escaping="yes">
+            &lt;xs:simpleType name="</xsl:text>
+        <xsl:choose>
+            <!-- this might be part of a codelist -->
+            <xsl:when test="$codelist">
+                <xsl:value-of select="concat(@name,'_Enumeration')"/>
+            </xsl:when>
+            <!-- or it might be a standard enumeration -->
+            <xsl:otherwise>
+                <xsl:value-of select="@name"/>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:text disable-output-escaping="yes">"&gt;
+        </xsl:text>
+        
+        <xs:restriction base="xs:string">
+            
+            <xsl:for-each select="descendant::UML:Attribute">
+                <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
+                
+                
+                <xs:enumeration value="{@name}">
+                    <xsl:apply-templates mode="UMLattribute"/>
+                </xs:enumeration>
+            </xsl:for-each>
+            <xsl:if test="$open">
+                <xs:enumeration value="other"/>
+            </xsl:if>
+        </xs:restriction>
+        
+        <xsl:text disable-output-escaping="yes">
+            &lt;/xs:simpleType&gt;
+        </xsl:text>
+        
+    </xsl:template>
+    
 
+    <!-- codelists (simpleType) -->
+    <xsl:template name="codelistTemplate.bak">
+        
         <xs:simpleType name="{@name}">
             <xsl:apply-templates mode="UMLclass"/>
             <!-- a codelist is a union of xs:string... -->
@@ -334,7 +393,7 @@
             </xs:union>
         </xs:simpleType>
         <!-- ...and an enumeration -->
-        <xsl:call-template name="enumerationTemplate">
+        <xsl:call-template name="enumerationTemplate.bak">
             <xsl:with-param name="local" select="true()"/>
         </xsl:call-template>
     </xsl:template>
@@ -1112,9 +1171,9 @@
             select="string($attMax)='1' 
             and
             (
-            ($attStereotype='enumeration' or $attStereotype='codelist' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
+            ($attStereotype='enumeration' or $attStereotype='Xcodelist' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
             or
-            (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
+            (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='xcodelist')
             )"/>
 
         <xsl:choose>

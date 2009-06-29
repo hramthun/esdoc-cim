@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-06-29 07:47:24">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-06-29 12:30:47">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -20979,7 +20979,7 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={91DE0021-442A-4bc5-BD94-A30332E73189}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=CodeList;GUID={19D0F1FF-99D3-4f33-93AD-61C215C64BE5};@ENDSTEREO;$DES;$CLT={F8270964-4527-421b-98D4-2D99919015BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={5ADC2E1D-AD50-4e4f-BA33-C0C834A75098}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={F8270964-4527-421b-98D4-2D99919015BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="method" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="numerical" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -21008,7 +21008,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DB287DDC-DFEF-4e9c-9893-3F77439EFA41}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={5B06F97A-13A6-441b-808D-54FBDF9C8524};@ENDSTEREO;$DES;$CLT={23A3129A-0343-4e51-9FBF-83297E05DAC7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="characteristic" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="scientific" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -21035,32 +21035,6 @@
 												<UML:TaggedValue tag="ea_localid" value="3521"/>
 												<UML:TaggedValue tag="styleex" value="volatile=0;IsLiteral=0;"/>
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={D5D35508-4945-4796-A2BE-9E9D9BA04439}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={5B06F97A-13A6-441b-808D-54FBDF9C8524};@ENDSTEREO;$DES;$CLT={10AFC5B0-197B-42ac-B233-A435E7094EB8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-											</UML:ModelElement.taggedValue>
-										</UML:Attribute>
-										<UML:Attribute name="coefficient" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
-											<UML:Attribute.initialValue>
-												<UML:Expression/>
-											</UML:Attribute.initialValue>
-											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid4"/>
-											</UML:StructuralFeature.type>
-											<UML:ModelElement.stereotype>
-												<UML:Stereotype name="enum"/>
-											</UML:ModelElement.stereotype>
-											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="derived" value="0"/>
-												<UML:TaggedValue tag="containment" value="Not Specified"/>
-												<UML:TaggedValue tag="ordered" value="0"/>
-												<UML:TaggedValue tag="stereotype" value="enum"/>
-												<UML:TaggedValue tag="collection" value="false"/>
-												<UML:TaggedValue tag="position" value="2"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
-												<UML:TaggedValue tag="upperBound" value="1"/>
-												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{6A709700-B6DF-477a-A66C-C802642DF8CF}"/>
-												<UML:TaggedValue tag="ea_localid" value="3522"/>
-												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={B9E71847-78F8-49cd-BDB9-B5475442210C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={5B06F97A-13A6-441b-808D-54FBDF9C8524};@ENDSTEREO;$DES;$CLT={6A709700-B6DF-477a-A66C-C802642DF8CF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
 									</UML:Classifier.feature>
@@ -21737,6 +21711,9 @@
 				<UML:DiagramElement geometry="SX=-111;SY=17;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_2179A8ED_698C_420b_BDDC_2A7F1CCAE9C4" style="Mode=3;EOID=40152813;SOID=8AD6FE28;Color=-1;LWidth=0;Hidden=0;"/>
 			</UML:Diagram.element>
 		</UML:Diagram>
+		<UML:TaggedValue tag="open" xmi.id="EAID_EAE7257C_F1B0_4145_A57F_606BEDF6A728" value="true" modelElement="EAID_A7018688_1D25_4531_B63E_513015FFA404"/>
+		<UML:TaggedValue tag="open" xmi.id="EAID_73049659_8C00_4c84_A6E5_96D36601A6B1" value="true" modelElement="EAID_F8270964_4527_421b_98D4_2D99919015BA"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_AAC11988_2851_4243_9854_AE9884B6C40E" value="http://www.bodc.org/cim/componentPropertyType" modelElement="EAID_F8270964_4527_421b_98D4_2D99919015BA"/>
 		<UML:Diagram name="Software" xmi.id="EAID_4A4B531B_AE19_48dd_9A23_DACDE2D60915" diagramType="ClassDiagram" owner="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" toolName="Enterprise Architect 2.5">
 			<UML:ModelElement.taggedValue>
 				<UML:TaggedValue tag="version" value="1.0"/>
