@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 28 June 2009 -->       
+<!-- generated: 29 June 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -65,14 +65,7 @@
       <xs:element name="compilerLibrary" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
-            <xs:simpleType name="ComponentPropertyType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="method"/>
-   <xs:enumeration value="characteristic"/>
-   <xs:enumeration value="coefficient"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
    <xs:annotation>
       <xs:documentation>The set of Couplings used by a Component.  Couplings can only ocurr between child components.  That is, a composition must belong to an ancestor component of the components whose fields are being connected.</xs:documentation>
    </xs:annotation>
@@ -231,21 +224,6 @@
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
-            <xs:simpleType name="NumericalPropertyType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="method"/>
-   <xs:enumeration value="characteristic"/>
-   <xs:enumeration value="coefficient"/>
-</xs:restriction>
-            </xs:simpleType>
-        
-            <xs:simpleType name="ScientificPropertyType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="prognostic"/>
-   <xs:enumeration value="diagnostic"/>
-</xs:restriction>
-            </xs:simpleType>
-        
             <xs:simpleType name="TimingUnits">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="seconds"/>
@@ -481,9 +459,9 @@
                   type="ComponentProperty"/>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_Citation_PropertyType"/>
-      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       <xs:element name="grid" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:sequence>
@@ -495,12 +473,12 @@
          </xs:complexType>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="type" use="required" type="ComponentPropertyType"/>
    <xs:attribute name="represented" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>When set to true, means that this property is used by the component. Covers the case when, for instance, a modeler chooses not to represent some property in their model.</xs:documentation>
       </xs:annotation>
-   </xs:attribute>
-   <xs:attribute name="type" use="required" type="ComponentPropertyType"/>  
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -589,7 +567,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="date" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="deploymentDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
       <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
@@ -646,5 +624,16 @@
       <xs:element name="rate" minOccurs="1" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
    <xs:attribute name="units" use="required" type="TimingUnits"/>
-</xs:complexType>       
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentPropertyType">
+   <xs:union memberTypes="xs:string ComponentPropertyType_Enumeration"/>
+</xs:simpleType>
+            <xs:simpleType name="ComponentPropertyType_Enumeration">
+        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
+   <xs:enumeration value="method"/>
+   <xs:enumeration value="characteristic"/>
+   <xs:enumeration value="coefficient"/>
+</xs:restriction>
+            </xs:simpleType>
+               
 </xs:schema>
