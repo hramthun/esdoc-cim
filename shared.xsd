@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 29 June 2009 -->       
+<!-- generated: 6 July 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -11,14 +11,14 @@
             targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/1999/xlink"
+           schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.opengis.net/gml/3.2"
-           schemaLocation="gml/3.2.1/gml.xsd"/>
+           schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.isotc211.org/2005/gmd"
-           schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
-<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           namespace="http://www.w3.org/1999/xlink"
-           schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+           schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="activity.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="data.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
@@ -96,6 +96,7 @@
             <xs:simpleType name="DocumentRelationshipType">
         <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
    <xs:enumeration value="previousVersion"/>
+   <xs:enumeration value="similarTo"/>
 </xs:restriction>
             </xs:simpleType>
         <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
@@ -153,6 +154,7 @@
    <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="1" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="simulationRelationship" type="SimulationRelationship"/>
                <xs:element name="documentRelationship" type="DocumentRelationship"/>
             </xs:choice>
          </xs:complexType>
@@ -237,21 +239,7 @@
    </xs:sequence>
    <xs:attribute name="version" use="optional" type="xs:integer"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RelationshipType2"
-                mixed="false">
-   <xs:annotation>
-      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
-   </xs:annotation>
-   <xs:attribute name="type" type="RelationshipType2_Enumeration" use="required"/>
-</xs:complexType>
-            <xs:simpleType name="RelationshipType2_Enumeration">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="derivedVersion"/>
-   <xs:enumeration value="variantOf"/>
-   <xs:enumeration value="similarTo"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
                     <xs:sequence/>  

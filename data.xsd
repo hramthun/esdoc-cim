@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 29 June 2009 -->       
+<!-- generated: 6 July 2009 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -11,14 +11,14 @@
             targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           namespace="http://www.w3.org/1999/xlink"
+           schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
+<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.opengis.net/gml/3.2"
-           schemaLocation="gml/3.2.1/gml.xsd"/>
+           schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.isotc211.org/2005/gmd"
-           schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
-<xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           namespace="http://www.w3.org/1999/xlink"
-           schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+           schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="activity.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
@@ -142,6 +142,7 @@
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="citation" type="DataCitation"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="content" type="DataContent"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="extent" type="DataExtent"/>
       <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
@@ -149,12 +150,14 @@
       </xs:element>
       <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
-            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
+            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.
+</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="objectProperty" minOccurs="0" maxOccurs="1" type="DataProperty"/>
+      <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
+      <xs:element name="objectProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty"/>
    </xs:sequence>
-   <xs:attribute name="status" use="required" type="DataStatusType"/>  
+   <xs:attribute name="dataStatus" use="required" type="DataStatusType"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -169,30 +172,20 @@
                      <xs:documentation>The contact for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="parent" minOccurs="0" maxOccurs="1">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-                     </xs:sequence>
-                     <xs:attribute name="version" use="optional" type="xs:integer"/>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
+               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+               <xs:element name="genealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+                  </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
                   <xs:annotation>
                      <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="relationship" minOccurs="0" maxOccurs="1" type="RelationshipType">
-                  <xs:annotation>
-                     <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -215,7 +208,6 @@
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="extent" type="DataExtent"/>
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>ISOattributeDesc, CF?</xs:documentation>

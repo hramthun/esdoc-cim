@@ -132,11 +132,13 @@
                 <xsl:text> these relative paths could really be URLs, but accessing them online cripples performance </xsl:text>
             </xsl:comment>
             <xsl:value-of select="$newline"/>
-            <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="gml/3.2.1/gml.xsd"/>
-            <xs:import namespace="http://www.isotc211.org/2005/gmd"
-                schemaLocation="iso/19139/20070417/gmd/gmd.xsd"/>
+
             <xs:import namespace="http://www.w3.org/1999/xlink"
-                schemaLocation="xlink/1.0.0/xlinks.xsd"/>
+                schemaLocation="../external_schemas/xlink/1.0.0/xlinks.xsd"/>
+            <xs:import namespace="http://www.opengis.net/gml/3.2"
+                schemaLocation="../external_schemas/gml/3.2.1/gml.xsd"/>
+            <xs:import namespace="http://www.isotc211.org/2005/gmd"
+                schemaLocation="../external_schemas/iso/19139/20070417/gmd/gmd.xsd"/>
             <!-- HERE ENDETH THE HACK -->
 
             <xsl:for-each select="//UML:Package[@name!=$packageName]">
@@ -321,12 +323,13 @@
 
     </xsl:template>
 
-<!-- I AM HERE -->
-<!-- ASSUME CODELISTS ARE CLOSED UNLESS THEY ARE SPECIFIED OPEN -->
+    <!-- I AM HERE -->
+    <!-- ASSUME CODELISTS ARE CLOSED UNLESS THEY ARE SPECIFIED OPEN -->
     <xsl:template name="codelistTemplate">
         <xsl:variable name="id" select="@xmi.id"/>
-        <xsl:variable name="open" select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
-        
+        <xsl:variable name="open"
+            select="//UML:TaggedValue[@tag='open'][@modelElement=$id]/@value='true'"/>
+
         <xs:complexType name="{@name}" mixed="{$open}">
             <xsl:apply-templates mode="UMLclass"/>
             <xs:attribute name="type" type="{concat(@name,'_Enumeration')}" use="required"/>
@@ -336,13 +339,13 @@
             <xsl:with-param name="codelist" select="true()"/>
         </xsl:call-template>
     </xsl:template>
-    
+
     <xsl:template name="enumerationTemplate">
         <!-- is this enumeration part of a codelist? -->
         <xsl:param name="codelist" select="false()"/>
         <!-- if so, is it "open" or "closed?" -->
         <xsl:param name="open" select="false()"/>
-        
+
         <xsl:text disable-output-escaping="yes">
             &lt;xs:simpleType name="</xsl:text>
         <xsl:choose>
@@ -357,13 +360,13 @@
         </xsl:choose>
         <xsl:text disable-output-escaping="yes">"&gt;
         </xsl:text>
-        
+
         <xs:restriction base="xs:string">
-            
+
             <xsl:for-each select="descendant::UML:Attribute">
                 <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
-                
-                
+
+
                 <xs:enumeration value="{@name}">
                     <xsl:apply-templates mode="UMLattribute"/>
                 </xs:enumeration>
@@ -372,17 +375,17 @@
                 <xs:enumeration value="other"/>
             </xsl:if>
         </xs:restriction>
-        
+
         <xsl:text disable-output-escaping="yes">
             &lt;/xs:simpleType&gt;
         </xsl:text>
-        
+
     </xsl:template>
-    
+
 
     <!-- codelists (simpleType) -->
     <xsl:template name="codelistTemplate.bak">
-        
+
         <xs:simpleType name="{@name}">
             <xsl:apply-templates mode="UMLclass"/>
             <!-- a codelist is a union of xs:string... -->
