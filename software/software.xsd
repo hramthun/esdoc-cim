@@ -100,12 +100,19 @@
    <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="coupling">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="coupling" type="Coupling"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="rate" minOccurs="1" maxOccurs="1" type="Timing">
@@ -127,12 +134,26 @@
             <xs:documentation>The source property being connected.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="source" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="target" minOccurs="1" maxOccurs="1">
@@ -140,12 +161,19 @@
             <xs:documentation>The target property being connected.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="componentProperty" type="ComponentProperty"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -185,12 +213,19 @@
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="deployment">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="deployment" type="Deployment"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="componentProperties" minOccurs="1" maxOccurs="1"
@@ -205,12 +240,19 @@
             <xs:documentation>A reference to the grid that is used by this component.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="grid" type="gml:AbstractGeometryType"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="numericalProperties" minOccurs="1" maxOccurs="1"
@@ -275,12 +317,19 @@
                     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="activity">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataProcessing" type="DataProcessing"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="type" minOccurs="1" maxOccurs="1" type="ProcessorComponentType">
@@ -355,12 +404,26 @@
             <xs:documentation>The source component of the coupling.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="source" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="modelComponent" type="ModelComponent"/>
+                        <xs:element name="processorComponent" type="ProcessorComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="target" minOccurs="1" maxOccurs="1">
@@ -368,12 +431,26 @@
             <xs:documentation>The target component of the coupling</xs:documentation>
          </xs:annotation>
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="target" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="modelComponent" type="ModelComponent"/>
+                        <xs:element name="processorComponent" type="ProcessorComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -397,12 +474,19 @@
                     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="activity">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="simulationRun" type="SimulationRun"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="type" minOccurs="1" maxOccurs="1" type="ModelComponentType">
@@ -472,12 +556,19 @@
                   type="gmd:CI_Citation_PropertyType"/>
       <xs:element name="grid" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="grid" type="gml:AbstractGeometryType"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -560,7 +651,7 @@
    <xs:annotation>
       <xs:documentation>Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="simulation" minOccurs="1" maxOccurs="1">
+   <xs:sequence><!-- this is an abstract class --><xs:element name="simulation" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="simulationRun" type="SimulationRun"/>

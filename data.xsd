@@ -122,22 +122,36 @@
       <xs:element minOccurs="1" maxOccurs="1" name="distribution" type="DataDistribution"/>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="childObject">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataObject" type="DataObject"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="1" name="parentObject">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="dataObject" type="DataObject"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="citation" type="DataCitation"/>
@@ -157,12 +171,19 @@
       </xs:element>
       <xs:element name="geometryModel" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="objectProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">

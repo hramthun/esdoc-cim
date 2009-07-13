@@ -403,25 +403,77 @@
 
     <!-- <<reference>> elements use XLinks -->
     <xsl:template name="referenceTemplate">
+
+        <xsl:param name="class"/>
+        <xsl:param name="attribute"/>
+        <xsl:param name="association"/>
+
+        <!-- is the class being used as a UML association -->
+        <!-- (or is it being used as a UML attribute) -->
+        <xsl:param name="isAssociation"/>
+
         <xs:complexType>
-            <xs:sequence>
-                <xsl:for-each select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                    <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
-                    <xsl:call-template name="element-attributeTemplate">
-                        <xsl:with-param name="element" select="true()"/>
-                        <xsl:with-param name="attribute" select="false()"/>
-                    </xsl:call-template>
-                </xsl:for-each>
-            </xs:sequence>
-            <xsl:for-each select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
-                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
-                <xsl:call-template name="element-attributeTemplate">
-                    <xsl:with-param name="element" select="false()"/>
-                    <xsl:with-param name="attribute" select="true()"/>
-                </xsl:call-template>
-            </xsl:for-each>
-            <!-- and one hard-coded attribute for all references -->
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+                <xs:element name="reference">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xsl:for-each
+                                select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                <xsl:sort case-order="lower-first"
+                                    select="@name[$sort-attributes='true']"/>
+                                <xsl:call-template name="element-attributeTemplate">
+                                    <xsl:with-param name="element" select="true()"/>
+                                    <xsl:with-param name="attribute" select="false()"/>
+                                </xsl:call-template>
+                            </xsl:for-each>
+                        </xs:sequence>
+                        <xsl:for-each
+                            select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                            <xsl:sort case-order="lower-first"
+                                select="@name[$sort-attributes='true']"/>
+                            <xsl:call-template name="element-attributeTemplate">
+                                <xsl:with-param name="element" select="false()"/>
+                                <xsl:with-param name="attribute" select="true()"/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+                        <!-- and one hard-coded attribute for all references -->
+                        <xs:attribute ref="xlink:href" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
+                
+                <!-- I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE -->
+                <!-- a reference uses the reference type above -->
+                <!-- _or_ embeds the referenced type locally -->
+                <!-- if those referenced classes are abstract, I need to call the abstract template -->
+                <!-- if the type includes a namespace, I can assume it's external and act accordingly -->
+                <!-- IF THEY ARE EXTERNAL; I DON'T KNOW WHAT TO DO -->
+
+                <xsl:choose>
+                    <xsl:when test="$class//UML:TaggedValue[@tag='stereotype']/@value='abstract'">                        
+                        <xsl:call-template name="abstractTemplate">
+                            <xsl:with-param name="class" select="$class"/>
+                            <xsl:with-param name="association" select="$association"/>
+                            <xsl:with-param name="attribute" select="$attribute"/>
+                            <xsl:with-param name="isAssociation" select="$isAssociation"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="empty($class)">
+                        <!-- if $class is empty, then I can assume the type is external -->
+                        <xsl:variable name="classType" select=".//UML:TaggedValue[@tag='type']/@value"/>
+                        <xs:element name="{./@name}" type="{$classType}"/>
+                        
+                    </xsl:when>
+                    <xsl:otherwise>
+                        
+                        <xsl:variable name="className" select="$class/@name"/>
+                        <xs:element
+                            name="{concat(translate(substring($className,1,1),$upperCase,$lowerCase),substring($className,2))}"
+                            type="{$className}"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+
+            </xs:choice>
         </xs:complexType>
     </xsl:template>
 
@@ -667,7 +719,15 @@
                         <xsl:when test="$stereotype='reference'">
                             <!-- annotations have to come _before_ complexContent -->
                             <xsl:apply-templates mode="UMLattribute"/>
-                            <xsl:call-template name="referenceTemplate"/>
+                            <xsl:variable name="referencedClassName"
+                                select=".//UML:TaggedValue[@tag='type']/@value"/>
+                            <xsl:call-template name="referenceTemplate">
+
+                                <xsl:with-param name="class"
+                                    select="//UML:Class[@name=$referencedClassName]"/>
+                                <xsl:with-param name="attribute" select="."/>
+                                <xsl:with-param name="isAssociation" select="false()"/>
+                            </xsl:call-template>
                         </xsl:when>
                         <!-- otherwise, use its specified type -->
                         <xsl:otherwise>
@@ -1062,7 +1122,13 @@
                             ">
                                         <!-- then use XLinks -->
                                         <!-- (specify the class as a reference) -->
-                                        <xsl:call-template name="referenceTemplate"/>
+                                        <xsl:variable name="referencedClassID" select="@type"/>
+                                        <xsl:call-template name="referenceTemplate">
+                                            <xsl:with-param name="class"
+                                                select="//UML:Class[@xmi.id=$referencedClassID]"/>
+                                            <xsl:with-param name="association" select="."/>
+                                            <xsl:with-param name="isAssociation" select="true()"/>
+                                        </xsl:call-template>
                                     </xsl:when>
                                     <!--  otherwise use its native type -->
                                     <!-- (specify the class inline) -->

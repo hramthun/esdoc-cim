@@ -166,12 +166,23 @@
    <xs:sequence><!--type is not used -->       
 <xs:element name="target" minOccurs="1" maxOccurs="1">
          <xs:complexType>
-            <xs:sequence>
-               <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-               <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-            </xs:sequence>
-            <xs:attribute name="version" use="optional" type="xs:integer"/>
-            <xs:attribute ref="xlink:href" use="optional"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                     </xs:sequence>
+                     <xs:attribute name="version" use="optional" type="xs:integer"/>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="target" minOccurs="1" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1"/>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
