@@ -17,15 +17,15 @@
 
     <!-- some useful global variables  -->
     <xsl:param name="version">undefined</xsl:param>
-    <xsl:param name="sort-attributes">false</xsl:param>
+    <xsl:param name="sort-attributes" select="false()"/>
+    <xsl:param name="debug" select="false()"/>
+    
     <xsl:variable name="lowerCase">abcdefghijklmnopqrstuvwxyz</xsl:variable>
     <xsl:variable name="upperCase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
     <xsl:variable name="newline">
         <xsl:text>       
 </xsl:text>
     </xsl:variable>
-    <!-- set to 1 turn on printing -->
-    <xsl:variable name="debug" select="1"/>
 
     <!-- ********************* -->
     <!-- "top-level" templates -->
@@ -44,10 +44,10 @@
                 <xsl:value-of select="$newline"/>
             </xsl:message>
             <xsl:choose>
-                <xsl:when test="$sort-attributes='true'">
+                <xsl:when test="$sort-attributes">
                     <xsl:text> UML attributes will be processed in lexical order </xsl:text>
                 </xsl:when>
-                <xsl:when test="$sort-attributes='false'">
+                <xsl:when test="not($sort-attributes)">
                     <xsl:text> UML attributes will be processed in the order in which they appear </xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
@@ -308,7 +308,7 @@
         <xs:restriction base="xs:string">
 
             <xsl:for-each select="descendant::UML:Attribute">
-                <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
+                <xsl:sort select="@name[$sort-attributes]" case-order="lower-first"/>
 
                 <!-- <xsl:sort case-order="lower-first" select="@name"/>-->
                 <xs:enumeration value="{@name}">
@@ -364,7 +364,7 @@
         <xs:restriction base="xs:string">
 
             <xsl:for-each select="descendant::UML:Attribute">
-                <xsl:sort select="@name[$sort-attributes='true']" case-order="lower-first"/>
+                <xsl:sort select="@name[$sort-attributes]" case-order="lower-first"/>
 
 
                 <xs:enumeration value="{@name}">
@@ -420,7 +420,7 @@
                             <xsl:for-each
                                 select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
                                 <xsl:sort case-order="lower-first"
-                                    select="@name[$sort-attributes='true']"/>
+                                    select="@name[$sort-attributes]"/>
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
                                     <xsl:with-param name="attribute" select="false()"/>
@@ -430,7 +430,7 @@
                         <xsl:for-each
                             select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
                             <xsl:sort case-order="lower-first"
-                                select="@name[$sort-attributes='true']"/>
+                                select="@name[$sort-attributes]"/>
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
                                 <xsl:with-param name="attribute" select="true()"/>
@@ -641,7 +641,7 @@
                             <xsl:for-each
                                 select="//UML:Class[@name='Document']/descendant::UML:Attribute">
                                 <xsl:sort case-order="lower-first"
-                                    select="@name[$sort-attributes='true']"/>
+                                    select="@name[$sort-attributes]"/>
 
                                 <xsl:call-template name="element-attributeTemplate">
                                     <xsl:with-param name="element" select="true()"/>
@@ -655,7 +655,7 @@
                         <xsl:for-each
                             select="//UML:Class[@name='Document']/descendant::UML:Attribute">
                             <xsl:sort case-order="lower-first"
-                                select="@name[$sort-attributes='true']"/>
+                                select="@name[$sort-attributes]"/>
 
                             <xsl:call-template name="element-attributeTemplate">
                                 <xsl:with-param name="element" select="false()"/>
@@ -932,15 +932,15 @@
                         select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
                         mode="UMLclass">
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes='true']"/>
+                            select="descendant::UML:AssociationEnd[1]/@name[$sort-attributes]"/>
                         <xsl:sort case-order="lower-first"
-                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes='true']"/>
+                            select="descendant::UML:AssociationEnd[2]/@name[$sort-attributes]"/>
                         <xsl:with-param name="class" select="$class"/>
                     </xsl:apply-templates>
 
                     <!-- next check if any of the (UML) attributes should be (XML) elements -->
                     <xsl:for-each select="descendant::UML:Attribute">
-                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
                         <xsl:call-template name="element-attributeTemplate">
                             <xsl:with-param name="element" select="true()"/>
                             <xsl:with-param name="attribute" select="false()"/>
@@ -952,7 +952,7 @@
 
             <!-- that's if for the elements, now we loop again and process any attributes -->
             <xsl:for-each select="descendant::UML:Attribute">
-                <xsl:sort case-order="lower-first" select="@name[$sort-attributes='true']"/>
+                <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
 
                 <xsl:call-template name="element-attributeTemplate">
                     <xsl:with-param name="element" select="false()"/>
