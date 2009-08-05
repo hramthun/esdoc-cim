@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 August 2009 -->       
+<!-- generated: 5 August 2009, 15:11 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -35,17 +35,48 @@
    <xs:annotation>
       <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="group" minOccurs="0" maxOccurs="1">
+   <xs:sequence>
+      <xs:element name="group" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="group" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1"/>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
-      <xs:element name="type" minOccurs="1" maxOccurs="1" type="PropertyType"/>
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationship">
+   <xs:annotation>
+      <xs:documentation>Contains the set of relationship supported by a Document.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
                     <xs:sequence/>
@@ -54,11 +85,20 @@
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar" abstract="true">
-   <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="range" type="DateRange"/>
+   <xs:sequence><!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="closedDateRange" type="ClosedDateRange"/>
+               <xs:element name="openDateRange" type="OpenDateRange"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataSource" abstract="true">
+   <xs:annotation>
+      <xs:documentation>A DataSource can be realised by either a DataObject or a ComponentProperty; both of those can supply data.</xs:documentation>
+   </xs:annotation>
    <xs:sequence/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
@@ -66,48 +106,48 @@
    <xs:annotation>
       <xs:documentation>An enumeration of types of changes.</xs:documentation>
    </xs:annotation>
-   <xs:attribute name="type" type="ChangePropertyType_Enumeration" use="required"/>
+   <xs:attribute name="value" type="ChangePropertyType_Enumeration" use="required"/>
 </xs:complexType>
-            <xs:simpleType name="ChangePropertyType_Enumeration">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="new"/>
-   <xs:enumeration value="decrement"/>
-   <xs:enumeration value="increment"/>
-   <xs:enumeration value="redistribution"/>
-   <xs:enumeration value="replacement"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="new"/>
+      <xs:enumeration value="decrement"/>
+      <xs:enumeration value="increment"/>
+      <xs:enumeration value="redistribution"/>
+      <xs:enumeration value="replacement"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
-   <xs:attribute name="type" type="CodeList_Enumeration" use="required"/>
+   <xs:attribute name="value" type="CodeList_Enumeration" use="required"/>
 </xs:complexType>
-            <xs:simpleType name="CodeList_Enumeration">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList_Enumeration">
+   <xs:restriction base="xs:string"/>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-            <xs:simpleType name="DocumentRelationshipType">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="previousVersion"/>
-   <xs:enumeration value="similarTo"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationshipType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="previousVersion"/>
+      <xs:enumeration value="similarTo"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
    <xs:annotation>
-      <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class.  Note that all documents can have quality and change information associated with them.</xs:documentation>
+      <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="author" minOccurs="0" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType">
          <xs:annotation>
-            <xs:documentation>The contact for this document</xs:documentation>
+            <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
@@ -115,10 +155,14 @@
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="genealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+      <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
-            <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+            <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+         <xs:annotation>
+            <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
@@ -127,7 +171,11 @@
          </xs:annotation>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
+   <xs:attribute name="documentVersion" use="required" type="xs:integer">
+      <xs:annotation>
+         <xs:documentation>The version of this document.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
    <xs:restriction base="xs:token">
@@ -151,7 +199,10 @@
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Genealogy">
-   <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="1" maxOccurs="unbounded">
+   <xs:annotation>
+      <xs:documentation>A record of a document's history.  A genealogy element contains a textual description and a set of relationships.  Each relationship has a type and a reference to some target.  There are different relationships for different document types.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="simulationRelationship" type="SimulationRelationship"/>
@@ -163,6 +214,9 @@
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
+   <xs:annotation>
+      <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
+   </xs:annotation>
    <xs:sequence><!--type is not used -->       
 <xs:element name="target" minOccurs="1" maxOccurs="1">
          <xs:complexType>
@@ -170,10 +224,22 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
-                     <xs:attribute name="version" use="optional" type="xs:integer"/>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
@@ -188,28 +254,29 @@
    </xs:sequence>
 </xs:complexType>
 <!--Change is not used -->       
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
    <xs:sequence>
       <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
    </xs:sequence>
 </xs:complexType>
 <!--ChangeProperty is not used -->       
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="false">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
    <xs:annotation>
-      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+      <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
-   <xs:attribute name="type" type="UnitType_Enumeration" use="required"/>
+   <xs:attribute name="value" type="UnitType_Enumeration" use="required"/>
 </xs:complexType>
-            <xs:simpleType name="UnitType_Enumeration">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="meter"/>
-   <xs:enumeration value="hectopascal"/>
-   <xs:enumeration value="pascal"/>
-   <xs:enumeration value="sigma"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="meter"/>
+      <xs:enumeration value="hectopascal"/>
+      <xs:enumeration value="pascal"/>
+      <xs:enumeration value="sigma"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyGroup" abstract="true">
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
@@ -223,9 +290,37 @@
             <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
       </xs:element>
-      <!-- this is an abstract class --><xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
+      <xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
          <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <!-- this is an abstract class --><xs:element name="parentGroup" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1"/>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
@@ -245,10 +340,22 @@
       <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of the element being referenced.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+         <xs:annotation>
+            <xs:documentation>The version of the element being referenced.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
-   <xs:attribute name="version" use="optional" type="xs:integer"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PerpetualPeriod">
                         <xs:complexContent>
@@ -263,15 +370,5 @@
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
-                        </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PropertyType" mixed="false">
-   <xs:annotation>
-      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, and transformers.  More detailed descriptions are to be found in a component's StandardName(s).  CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
-   </xs:annotation>
-   <xs:attribute name="type" type="PropertyType_Enumeration" use="required"/>
-</xs:complexType>
-            <xs:simpleType name="PropertyType_Enumeration">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string"/>
-            </xs:simpleType>
-               
+                        </xs:complexType>       
 </xs:schema>
