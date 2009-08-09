@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 3 August 2009 -->       
+<!-- generated: 9 August 2009, 13:58 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -58,8 +58,8 @@
       <xs:documentation>The GridMosaic class is used to define the geometry properties of an earth system model grid or an exchange grid. Such a grid definition may then be referenced by any number of earth system models. A GridMosaic object consists either of 1 or more child GridMosaics, or one or more child GridTiles, but not both. In the latter case the isLeaf property should be set to true, indicating that the mosaic is a leaf mosaic.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="gridMosaic" type="GridMosaic"/>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="gridTile" type="GridTile"/>
+      <xs:element name="gridMosaic" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+      <xs:element name="gridTile" minOccurs="0" maxOccurs="unbounded" type="GridTile"/>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'.</xs:documentation>
@@ -155,15 +155,15 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-            <xs:simpleType name="ArcTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="geodesic"/>
-   <xs:enumeration value="great_circle"/>
-   <xs:enumeration value="small_circle"/>
-   <xs:enumeration value="complex"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomFeatureGeometry">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArcTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="geodesic"/>
+      <xs:enumeration value="great_circle"/>
+      <xs:enumeration value="small_circle"/>
+      <xs:enumeration value="complex"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomFeatureGeometry">
    <xs:annotation>
       <xs:documentation>This class may be used to provide a custom, i.e. local and non-standard, description of the feature geometry associated with a geophysical dataset. Use-cases for such a class have, however, yet to be identified and elaborated.</xs:documentation>
    </xs:annotation>
@@ -211,14 +211,14 @@
       <xs:element name="edge" minOccurs="3" maxOccurs="unbounded" type="Edge"/>
    </xs:sequence>
 </xs:complexType>
-            <xs:simpleType name="GeometryTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="ellipsoid"/>
-   <xs:enumeration value="plane"/>
-   <xs:enumeration value="sphere"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VertexArray">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeometryTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="ellipsoid"/>
+      <xs:enumeration value="plane"/>
+      <xs:enumeration value="sphere"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VertexArray">
    <xs:sequence>
       <xs:element name="vertex" minOccurs="3" maxOccurs="unbounded" type="gml:PointPropertyType"/>
    </xs:sequence>
@@ -282,13 +282,13 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
    </xs:sequence>
    <xs:attribute name="arcType" use="required" type="ArcTypeEnum"/>
 </xs:complexType>
-            <xs:simpleType name="VerticalCSEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="mass-based"/>
-   <xs:enumeration value="space-based"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridCellRefArray">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="VerticalCSEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="mass-based"/>
+      <xs:enumeration value="space-based"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridCellRefArray">
    <xs:annotation>
       <xs:documentation>Simple data type for encapsulating an array of grid cell reference definitions.</xs:documentation>
    </xs:annotation>
@@ -296,28 +296,27 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       <xs:element name="gridCellRef" minOccurs="1" maxOccurs="unbounded" type="GridCellRef"/>
    </xs:sequence>
 </xs:complexType>
-            <xs:simpleType name="GridTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="cubed_sphere"/>
-   <xs:enumeration value="displaced_pole"/>
-   <xs:enumeration value="icosahedral_geodesic"/>
-   <xs:enumeration value="reduced_gaussian"/>
-   <xs:enumeration value="regular_lat_lon"/>
-   <xs:enumeration value="spectral_gaussian"/>
-   <xs:enumeration value="tripolar"/>
-   <xs:enumeration value="yin_yang"/>
-</xs:restriction>
-            </xs:simpleType>
-        
-            <xs:simpleType name="HorizontalCSEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="cartesian"/>
-   <xs:enumeration value="ellipsoidal"/>
-   <xs:enumeration value="polar"/>
-   <xs:enumeration value="spherical"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ReferenceList">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="cubed_sphere"/>
+      <xs:enumeration value="displaced_pole"/>
+      <xs:enumeration value="icosahedral_geodesic"/>
+      <xs:enumeration value="reduced_gaussian"/>
+      <xs:enumeration value="regular_lat_lon"/>
+      <xs:enumeration value="spectral_gaussian"/>
+      <xs:enumeration value="tripolar"/>
+      <xs:enumeration value="yin_yang"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HorizontalCSEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="cartesian"/>
+      <xs:enumeration value="ellipsoidal"/>
+      <xs:enumeration value="polar"/>
+      <xs:enumeration value="spherical"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ReferenceList">
    <xs:annotation>
       <xs:documentation>Simple data type for specifying a list of references.</xs:documentation>
    </xs:annotation>
@@ -329,21 +328,21 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
       </xs:element>
    </xs:sequence>
 </xs:complexType>
-            <xs:simpleType name="GridNodePositionEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="centre"/>
-   <xs:enumeration value="north"/>
-   <xs:enumeration value="northeast"/>
-   <xs:enumeration value="east"/>
-   <xs:enumeration value="southeast"/>
-   <xs:enumeration value="south"/>
-   <xs:enumeration value="southwest"/>
-   <xs:enumeration value="west"/>
-   <xs:enumeration value="northwest"/>
-   <xs:enumeration value="undefined"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimpleGridCell">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridNodePositionEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="centre"/>
+      <xs:enumeration value="north"/>
+      <xs:enumeration value="northeast"/>
+      <xs:enumeration value="east"/>
+      <xs:enumeration value="southeast"/>
+      <xs:enumeration value="south"/>
+      <xs:enumeration value="southwest"/>
+      <xs:enumeration value="west"/>
+      <xs:enumeration value="northwest"/>
+      <xs:enumeration value="undefined"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimpleGridCell">
    <xs:annotation>
       <xs:documentation>The SimpleGridCell class is intended to be used to specify a grid cell of arbitrary polygonal shape. The vertices of the grid cell are specified using the vertexArray property, which contains three or more vertex definitions. Since a vertex is declared to be of type GML PointPropertyType, each vertex may be specified either as a coordinate tuple or as an xlink reference to a vertex defined elsewhere. Vertices should be specified as an ordered sequence, i.e. proceeding clockwise or counterclockwise around the perimeter of the grid cell. Clockwise vertex ordering is a common convention.</xs:documentation>
    </xs:annotation>
@@ -383,24 +382,24 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
-            <xs:simpleType name="DiscretizationEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="logically_rectangular"/>
-   <xs:enumeration value="structured_triangular"/>
-   <xs:enumeration value="unstructured_triangular"/>
-   <xs:enumeration value="pixel-based_catchment"/>
-   <xs:enumeration value="unstructured_polygonal"/>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridSpec">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DiscretizationEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="logically_rectangular"/>
+      <xs:enumeration value="structured_triangular"/>
+      <xs:enumeration value="unstructured_triangular"/>
+      <xs:enumeration value="pixel-based_catchment"/>
+      <xs:enumeration value="unstructured_polygonal"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridSpec">
    <xs:annotation>
       <xs:documentation>This is a container class for GridSpec objects. A GridSpec object can contain one or more esmModelGrid objects, and one or more esmExchangeGrid objects. These objects may be serialised to one or possibly several files according to taste. Since GridSpec is sub-typed from GML's AbstractGeometryType it can, and should, be identified using a gml:id attribute.</xs:documentation>
    </xs:annotation>
                                 <xs:complexContent>
                                 <xs:extension base="gml:AbstractGeometryType">
                             <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="esmExchangeGrid" type="GridMosaic"/>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="esmModelGrid" type="GridMosaic"/>
+      <xs:element name="esmExchangeGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
+      <xs:element name="esmModelGrid" minOccurs="0" maxOccurs="unbounded" type="GridMosaic"/>
    </xs:sequence>
    <xs:attribute name="id" use="optional" type="Identifier">
       <xs:annotation>
@@ -426,7 +425,7 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                <xs:element name="author" minOccurs="0" maxOccurs="1"
                            type="gmd:CI_ResponsibleParty_PropertyType">
                   <xs:annotation>
-                     <xs:documentation>The contact for this document</xs:documentation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
@@ -434,10 +433,14 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-               <xs:element name="genealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
-                     <xs:documentation>Specifies the relationship of the (optional) parent component.</xs:documentation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
@@ -446,7 +449,11 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer"/>
+            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+               <xs:annotation>
+                  <xs:documentation>The version of this document.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -475,40 +482,38 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
-            <xs:simpleType name="ContactTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="boundary"/>
-   <xs:enumeration value="overlap"/>
-</xs:restriction>
-            </xs:simpleType>
-        
-            <xs:simpleType name="FeatureTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="point"/>
-   <xs:enumeration value="edge"/>
-</xs:restriction>
-            </xs:simpleType>
-        
-            <xs:simpleType name="RefinementTypeEnum">
-        <xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema" base="xs:string">
-   <xs:enumeration value="none">
-      <xs:annotation>
-         <xs:documentation>Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous.</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
-   <xs:enumeration value="integer">
-      <xs:annotation>
-         <xs:documentation>The refinement is integer when grid lines from the coarser grid are continuous on the finer grid, but not vice versa.</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
-   <xs:enumeration value="rational">
-      <xs:annotation>
-         <xs:documentation>The refinement is rational when the adjacent or overlapping grid tiles have grid line counts that are coprime (i.e. no common factor other than 1).</xs:documentation>
-      </xs:annotation>
-   </xs:enumeration>
-</xs:restriction>
-            </xs:simpleType>
-        <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridTile">
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ContactTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="boundary"/>
+      <xs:enumeration value="overlap"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FeatureTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="point"/>
+      <xs:enumeration value="edge"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="RefinementTypeEnum">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="none">
+         <xs:annotation>
+            <xs:documentation>Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous.</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="integer">
+         <xs:annotation>
+            <xs:documentation>The refinement is integer when grid lines from the coarser grid are continuous on the finer grid, but not vice versa.</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="rational">
+         <xs:annotation>
+            <xs:documentation>The refinement is rational when the adjacent or overlapping grid tiles have grid line counts that are coprime (i.e. no common factor other than 1).</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GridTile">
    <xs:annotation>
       <xs:documentation>The GridTile class is used to model an individual grid tile contained within a grid mosaic. A GridTile consists of an array of grid cells which may be defined in one of four ways: 1) for simple grids, by use of the SimpleGridGeometry data type; 2) by defining an array of GridCell objects; 3) by specifying an array of references to externally defined GridCell objects; or 4) by specifying a URI to a remote data file containing the grid cell definitions.
 

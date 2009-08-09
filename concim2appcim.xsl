@@ -353,7 +353,7 @@
 
         <xs:complexType name="{@name}" mixed="{$open}">
             <xsl:apply-templates mode="UMLclass"/>
-            <xs:attribute name="type" type="{concat(@name,'_Enumeration')}" use="required"/>
+            <xs:attribute name="value" type="{concat(@name,'_Enumeration')}" use="required"/>
         </xs:complexType>
         <xsl:call-template name="enumerationTemplate">
             <xsl:with-param name="open" select="$open"/>
