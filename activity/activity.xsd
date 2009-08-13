@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 13 August 2009, 2:50 -->       
+<!-- generated: 13 August 2009, 7:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -184,8 +184,9 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
    <xs:sequence>
       <xs:element name="numericalRequirement" minOccurs="0" maxOccurs="unbounded"
                   type="NumericalRequirement"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationship">
