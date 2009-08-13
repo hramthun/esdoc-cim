@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-08-13 02:21:30">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2009-08-13 02:49:22">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -17328,126 +17328,6 @@
 										<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 									</UML:ModelElement.taggedValue>
 								</UML:Comment>
-								<UML:Class name="OriginType" xmi.id="EAID_5662BB07_CFBB_4f7f_AD30_BFB0EFC2818C" visibility="public" namespace="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
-									<UML:ModelElement.stereotype>
-										<UML:Stereotype name="enumeration"/>
-									</UML:ModelElement.stereotype>
-									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="An enumeration describing the source of a ModelProperty."/>
-										<UML:TaggedValue tag="isSpecification" value="false"/>
-										<UML:TaggedValue tag="ea_stype" value="Class"/>
-										<UML:TaggedValue tag="ea_ntype" value="0"/>
-										<UML:TaggedValue tag="version" value="1.0"/>
-										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
-										<UML:TaggedValue tag="date_created" value="2008-10-10 17:05:34"/>
-										<UML:TaggedValue tag="date_modified" value="2008-11-03 13:58:20"/>
-										<UML:TaggedValue tag="gentype" value="Java"/>
-										<UML:TaggedValue tag="tagged" value="0"/>
-										<UML:TaggedValue tag="package_name" value="software"/>
-										<UML:TaggedValue tag="phase" value="1.0"/>
-										<UML:TaggedValue tag="author" value="Allyn.Treshansky"/>
-										<UML:TaggedValue tag="complexity" value="1"/>
-										<UML:TaggedValue tag="status" value="Proposed"/>
-										<UML:TaggedValue tag="stereotype" value="enumeration"/>
-										<UML:TaggedValue tag="tpos" value="0"/>
-										<UML:TaggedValue tag="ea_localid" value="185"/>
-										<UML:TaggedValue tag="ea_eleType" value="element"/>
-										<UML:TaggedValue tag="style" value="BackColor=16777088;BorderColor=-1;BorderWidth=1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C626DD1E-1294-4afb-B44E-963B9B27BF99}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enumeration;GUID={A1AD21AC-CA5C-4e97-AE19-FB9DC710EA7C};@ENDSTEREO;$DES;$CLT={5662BB07-CFBB-4f7f-AD30-BFB0EFC2818C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={FDAD9091-8673-4d7e-ADE2-13B3D42B1ED7}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5662BB07-CFBB-4f7f-AD30-BFB0EFC2818C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-									</UML:ModelElement.taggedValue>
-									<UML:Classifier.feature>
-										<UML:Attribute name="internal" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
-											<UML:Attribute.initialValue>
-												<UML:Expression/>
-											</UML:Attribute.initialValue>
-											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid4"/>
-											</UML:StructuralFeature.type>
-											<UML:ModelElement.stereotype>
-												<UML:Stereotype name="enum"/>
-											</UML:ModelElement.stereotype>
-											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="description" value="This property's value is set internally."/>
-												<UML:TaggedValue tag="derived" value="0"/>
-												<UML:TaggedValue tag="containment" value="Not Specified"/>
-												<UML:TaggedValue tag="length" value="0"/>
-												<UML:TaggedValue tag="ordered" value="0"/>
-												<UML:TaggedValue tag="precision" value="0"/>
-												<UML:TaggedValue tag="scale" value="0"/>
-												<UML:TaggedValue tag="stereotype" value="enum"/>
-												<UML:TaggedValue tag="collection" value="false"/>
-												<UML:TaggedValue tag="position" value="0"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
-												<UML:TaggedValue tag="upperBound" value="1"/>
-												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{4422BF39-A2F0-4949-87D2-9ED2B0756BE4}"/>
-												<UML:TaggedValue tag="ea_localid" value="364"/>
-												<UML:TaggedValue tag="styleex" value="IsLiteral=1;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={92A0887D-E196-4d7f-B85E-14B88DCC15BE}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={67640FBD-E9A6-42ab-B684-6D6E073FA335};@ENDSTEREO;$DES;$CLT={4422BF39-A2F0-4949-87D2-9ED2B0756BE4}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-											</UML:ModelElement.taggedValue>
-										</UML:Attribute>
-										<UML:Attribute name="external" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
-											<UML:Attribute.initialValue>
-												<UML:Expression/>
-											</UML:Attribute.initialValue>
-											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid4"/>
-											</UML:StructuralFeature.type>
-											<UML:ModelElement.stereotype>
-												<UML:Stereotype name="enum"/>
-											</UML:ModelElement.stereotype>
-											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="description" value="This property's value is set externally; ie: it comes from a file."/>
-												<UML:TaggedValue tag="derived" value="0"/>
-												<UML:TaggedValue tag="containment" value="Not Specified"/>
-												<UML:TaggedValue tag="length" value="0"/>
-												<UML:TaggedValue tag="ordered" value="0"/>
-												<UML:TaggedValue tag="precision" value="0"/>
-												<UML:TaggedValue tag="scale" value="0"/>
-												<UML:TaggedValue tag="stereotype" value="enum"/>
-												<UML:TaggedValue tag="collection" value="false"/>
-												<UML:TaggedValue tag="position" value="1"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
-												<UML:TaggedValue tag="upperBound" value="1"/>
-												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{85C621F4-DE07-4288-8FB7-8AF2E611FD34}"/>
-												<UML:TaggedValue tag="ea_localid" value="365"/>
-												<UML:TaggedValue tag="styleex" value="IsLiteral=1;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={24AB15FC-F39E-491b-BE10-2AC175EF70D7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={67640FBD-E9A6-42ab-B684-6D6E073FA335};@ENDSTEREO;$DES;$CLT={85C621F4-DE07-4288-8FB7-8AF2E611FD34}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-											</UML:ModelElement.taggedValue>
-										</UML:Attribute>
-										<UML:Attribute name="coupled" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
-											<UML:Attribute.initialValue>
-												<UML:Expression/>
-											</UML:Attribute.initialValue>
-											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid4"/>
-											</UML:StructuralFeature.type>
-											<UML:ModelElement.stereotype>
-												<UML:Stereotype name="enum"/>
-											</UML:ModelElement.stereotype>
-											<UML:ModelElement.taggedValue>
-												<UML:TaggedValue tag="description" value="This property's value is set by another component; ie: it must be coupled."/>
-												<UML:TaggedValue tag="derived" value="0"/>
-												<UML:TaggedValue tag="containment" value="Not Specified"/>
-												<UML:TaggedValue tag="length" value="0"/>
-												<UML:TaggedValue tag="ordered" value="0"/>
-												<UML:TaggedValue tag="precision" value="0"/>
-												<UML:TaggedValue tag="scale" value="0"/>
-												<UML:TaggedValue tag="stereotype" value="enum"/>
-												<UML:TaggedValue tag="collection" value="false"/>
-												<UML:TaggedValue tag="position" value="2"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
-												<UML:TaggedValue tag="upperBound" value="1"/>
-												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{A9D19FB7-BFA8-43b2-A848-A0CDA4E89475}"/>
-												<UML:TaggedValue tag="ea_localid" value="366"/>
-												<UML:TaggedValue tag="styleex" value="IsLiteral=1;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={534DBF4A-AE1E-4e35-A479-3BE928A5166D}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={67640FBD-E9A6-42ab-B684-6D6E073FA335};@ENDSTEREO;$DES;$CLT={A9D19FB7-BFA8-43b2-A848-A0CDA4E89475}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-											</UML:ModelElement.taggedValue>
-										</UML:Attribute>
-									</UML:Classifier.feature>
-								</UML:Class>
 								<UML:Collaboration xmi.id="EAID_268C96CA_8485_4365_A349_56E5AFE3C50A_Collaboration" name="Collaborations">
 									<UML:Namespace.ownedElement>
 										<UML:ClassifierRole xmi.id="EAID_5959829D_EAD0_49be_9423_04203FCC9919" visibility="public" base="EAID_11111111_5487_4080_A7F4_41526CB0AA00">
@@ -18420,13 +18300,14 @@
 								</UML:Class>
 								<UML:Class name="ComponentProperties" xmi.id="EAID_8AD65CD8_8EBB_4f98_B25B_5B69842D25DF" visibility="public" namespace="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="documentation" value="Just acting as a container for multiple component properties."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2009-03-09 11:52:16"/>
-										<UML:TaggedValue tag="date_modified" value="2009-03-09 11:52:21"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:41:50"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="software"/>
@@ -19139,14 +19020,14 @@
 								</UML:Class>
 								<UML:Class name="ComponentProperty" xmi.id="EAID_A5ABED44_931A_47c0_BE21_D45501DF3B92" visibility="public" namespace="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="A property being impacted by a component.  This includes things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  "/>
+										<UML:TaggedValue tag="documentation" value="ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  "/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2009-03-04 14:00:14"/>
-										<UML:TaggedValue tag="date_modified" value="2009-06-01 08:46:32"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:43:40"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="software"/>
@@ -19583,13 +19464,14 @@
 								</UML:Class>
 								<UML:Class name="ScientificProperties" xmi.id="EAID_A7643AE1_162D_4c14_9619_9A3D4A5FDDB3" visibility="public" namespace="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="documentation" value="This is just being used as a container for component properties."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2009-03-09 11:52:16"/>
-										<UML:TaggedValue tag="date_modified" value="2009-03-09 11:52:21"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:47:28"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="software"/>
@@ -20126,14 +20008,13 @@
 										<UML:Stereotype name="enumeration"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="The ConnectionType enumeration describes the mechanism of transport for a connection."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2008-10-08 12:08:34"/>
-										<UML:TaggedValue tag="date_modified" value="2008-11-21 11:38:35"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:46:28"/>
 										<UML:TaggedValue tag="genfile" value="H:\metafor\working_copies\softwarePackage\software\ConnectionType.java"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
@@ -20241,13 +20122,14 @@
 								</UML:Class>
 								<UML:Class name="NumericalProperties" xmi.id="EAID_E24E23F1_23AA_41af_AA92_429F02082B38" visibility="public" namespace="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="documentation" value="This is just being used as a container for component properties."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2009-03-09 11:52:16"/>
-										<UML:TaggedValue tag="date_modified" value="2009-03-09 11:52:21"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:47:07"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="software"/>
@@ -20548,13 +20430,14 @@
 										<UML:Stereotype name="CodeList"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="documentation" value="Describes categories of component properties.  Currently supports numerical, scientific, and other."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2008-10-09 15:29:35"/>
-										<UML:TaggedValue tag="date_modified" value="2009-06-29 05:20:43"/>
+										<UML:TaggedValue tag="date_modified" value="2009-08-13 02:44:35"/>
 										<UML:TaggedValue tag="genfile" value="H:\metafor\working_copies\softwarePackage\software\ComponentType.java"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>

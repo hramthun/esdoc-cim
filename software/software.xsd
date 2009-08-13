@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 13 August 2009, 2:21 -->       
+<!-- generated: 13 August 2009, 2:50 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -74,25 +74,6 @@
       <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OriginType">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="internal">
-         <xs:annotation>
-            <xs:documentation>This property's value is set internally.</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="external">
-         <xs:annotation>
-            <xs:documentation>This property's value is set externally; ie: it comes from a file.</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="coupled">
-         <xs:annotation>
-            <xs:documentation>This property's value is set by another component; ie: it must be coupled.</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Connection">
    <xs:annotation>
       <xs:documentation>A Connection represents a link from a source DataSource to a target DataSource.  These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).   It can be associated with another software component (a transformer).  If present, the rate and lag  of this connection overrides the rate and lag of the parent coupling.</xs:documentation>
@@ -365,6 +346,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperties">
+   <xs:annotation>
+      <xs:documentation>Just acting as a container for multiple component properties.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
                   type="ComponentProperty"/>
@@ -686,7 +670,7 @@
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperty">
    <xs:annotation>
-      <xs:documentation>A property being impacted by a component.  This includes things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  </xs:documentation>
+      <xs:documentation>ComponentProperties include things that a component simulates (ie: pressure, humidity) and things that prescribe that simulation (ie: gravity, choice of advection scheme).  Note that this is a specialisation of shared::DataSource.  data::DataObject is also a specialisation of shared::DataSource.  This allows software::Connections and/or activity::Conformance to refer to either ComponentProperties or DataObjects.  </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataSource">
@@ -754,6 +738,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ScientificProperties">
+   <xs:annotation>
+      <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
                   type="ComponentProperty"/>
@@ -801,6 +788,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalProperties">
+   <xs:annotation>
+      <xs:documentation>This is just being used as a container for component properties.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
                   type="ComponentProperty"/>
@@ -874,6 +864,9 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentPropertyType"
                 mixed="true">
+   <xs:annotation>
+      <xs:documentation>Describes categories of component properties.  Currently supports numerical, scientific, and other.</xs:documentation>
+   </xs:annotation>
    <xs:attribute name="value" type="ComponentPropertyType_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
