@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 9 August 2009, 13:58 -->       
+<!-- generated: 13 August 2009, 2:21 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -196,13 +196,6 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identification">
-   <xs:sequence>
-      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
-   </xs:sequence>
-</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EdgeArray">
    <xs:annotation>
       <xs:documentation>Simple data type for encapsulating an array of grid cell edgel definitions.</xs:documentation>

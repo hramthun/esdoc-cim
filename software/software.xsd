@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 9 August 2009, 13:58 -->       
+<!-- generated: 13 August 2009, 2:21 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -774,7 +774,7 @@
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
                 mixed="true">
    <xs:annotation>
-      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, etc.   CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.</xs:documentation>
+      <xs:documentation>An enumeration of types of ModelComponent.  This includes things like atmosphere &amp; ocean models, radiation schemes, etc.   CIM best-practice is to describe every component for which there is a named ComponentType as a separate component, even if it is not a separate unit of software (ie: even if it is embedded), instead of as a (set of) ModelParameters.  This codelist is synonomous with "realm" for the purposes of CMIP5.</xs:documentation>
    </xs:annotation>
    <xs:attribute name="value" type="ModelComponentType_Enumeration" use="required"/>
 </xs:complexType>

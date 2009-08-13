@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 9 August 2009, 13:58 -->       
+<!-- generated: 13 August 2009, 2:21 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -25,6 +25,9 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="shared.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LocalFileStorage">
+   <xs:annotation>
+      <xs:documentation>Contains attributes to describe a DataObject stored as a single file.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
@@ -55,6 +58,9 @@
    </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataStorage" abstract="true">
+   <xs:annotation>
+      <xs:documentation>Describes the method that the DataObject is stored. An abstract class with specific child classes for each supported method.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
@@ -66,6 +72,9 @@
    </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DbStorage">
+   <xs:annotation>
+      <xs:documentation>Contains attributes to describe a DataObject being stored in a database.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataStorage">
                     <xs:sequence>
@@ -97,6 +106,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
+   <xs:annotation>
+      <xs:documentation>Describes how a DataObject is distributed.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
@@ -106,6 +118,9 @@
    <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataObject">
+   <xs:annotation>
+      <xs:documentation>A DataObject describes a unit of data.  DataObjects can be grouped hierarchically.  The attributes hierarchyLevelName and hierarchyLevelValue describe how objects are grouped.  </xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
@@ -222,17 +237,16 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="objectProperty" minOccurs="0" maxOccurs="unbounded" type="DataProperty">
-         <xs:annotation>
-            <xs:documentation>May not be used</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-   </xs:sequence>
+      <!--objectProperty is not used -->       
+</xs:sequence>
    <xs:attribute name="dataStatus" use="required" type="DataStatusType"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dataObject">
+   <xs:annotation>
+      <xs:documentation>A DataObject describes a unit of data.  DataObjects can be grouped hierarchically.  The attributes hierarchyLevelName and hierarchyLevelValue describe how objects are grouped.  </xs:documentation>
+   </xs:annotation>
    <xs:complexType>
       <xs:complexContent>
          <xs:extension base="DataObject">
@@ -320,13 +334,7 @@
       <xs:enumeration value="OnlineFileFTP"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProperty">
-   <xs:sequence>
-      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="value" minOccurs="1" maxOccurs="1" type="PropertyValue"/>
-      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-   </xs:sequence>
-</xs:complexType>
+<!--DataProperty is not used -->       
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestrictionScopeType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="metadataAccessConstraint"/>
@@ -336,6 +344,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataExtent">
+   <xs:annotation>
+      <xs:documentation>Records the geographic (horizontal and vertical) and temporal extent of the DataObject.  </xs:documentation>
+   </xs:annotation>
                                 <xs:complexContent>
                                 <xs:extension base="gmd:EX_Extent_PropertyType">
                             <xs:sequence/>  

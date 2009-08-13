@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 9 August 2009, 13:58 -->       
+<!-- generated: 13 August 2009, 2:21 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -170,11 +170,6 @@ These five entities represent elements of data quality and can be further subcla
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_Description">
-   <xs:sequence>
-      <xs:element name="issueDescription" minOccurs="1" maxOccurs="1" type="CIM_Description"/>
-   </xs:sequence>
-</xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CI_OnlineFunctionCode">
    <xs:restriction base="xs:string">
       <xs:enumeration value="download"/>
@@ -220,12 +215,6 @@ These five entities represent elements of data quality and can be further subcla
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Record" mixed="true">
    <xs:sequence/>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitOfMeasure">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="degrees_C"/>
-      <xs:enumeration value="etc."/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DQ_Scope">
    <xs:sequence>
       <xs:element name="level" minOccurs="1" maxOccurs="1" type="MD_ScopeCode">
@@ -285,13 +274,16 @@ These five entities represent elements of data quality and can be further subcla
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_QualityDetail">
+   <xs:annotation>
+      <xs:documentation>Locates the "target" of a CIM QualityIssue.  (May want to replace with the &lt;&lt;reference&gt;&gt; stereotype, but not sure what type it should be; URI is not appropriate).</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="featureType" minOccurs="1" maxOccurs="1" type="CIM_FeatureType">
          <xs:annotation>
             <xs:documentation>the type of feature that the quality issue refers too (for METAFOR this could be simulation, file, boundary condition etc.)</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="detailDescription" minOccurs="0" maxOccurs="1" type="CIM_Description">
+      <xs:element name="detailDescription" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>a description of the quality issue with reference to this specific feature</xs:documentation>
          </xs:annotation>
@@ -304,11 +296,13 @@ These five entities represent elements of data quality and can be further subcla
    </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_QualityIssue">
+   <xs:annotation>
+      <xs:documentation>Records an issue with an instance of the CIM.  The particular part of the instance being referred to is captured by the detail attribute(s).  A resolution can be added to a quality issue.  A single issue can have multiple subissues.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
-      <xs:element name="cIM_QualityDetail" minOccurs="0" maxOccurs="unbounded"
-                  type="CIM_QualityDetail"/>
+      <xs:element name="detail" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityDetail"/>
       <xs:element name="subIssue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
-      <xs:element name="cIM_QualityResolution" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="resolution" minOccurs="0" maxOccurs="unbounded"
                   type="CIM_QualityResolution"/>
       <xs:element name="dateTime" minOccurs="1" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
@@ -327,7 +321,7 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>person/organisation allocated the responsibuility for addressing this issue</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="issueDescription" minOccurs="1" maxOccurs="1" type="CIM_Description">
+      <xs:element name="issueDescription" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>summary description of quality issue</xs:documentation>
          </xs:annotation>
@@ -350,8 +344,11 @@ These five entities represent elements of data quality and can be further subcla
    </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIM_QualityResolution">
+   <xs:annotation>
+      <xs:documentation>A description of what action was taken because of a quality issue.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
-      <xs:element name="resolutionDescription" minOccurs="1" maxOccurs="1" type="CIM_Description">
+      <xs:element name="resolutionDescription" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>description of resolution of quality issues - including external references if required</xs:documentation>
          </xs:annotation>
@@ -381,6 +378,11 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>value type for reporting a data quality result</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="valueUnit" minOccurs="1" maxOccurs="1" type="UnitType">
+         <xs:annotation>
+            <xs:documentation>value unit for reporting a data quality result</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="errorStatistic" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>statistical method used to determine the value</xs:documentation>
@@ -391,12 +393,7 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>quantitative value or values, content determined by the evaluation procedure used</xs:documentation>
          </xs:annotation>
       </xs:element>
-   </xs:sequence>
-   <xs:attribute name="valueUnit" use="required" type="UnitOfMeasure">
-      <xs:annotation>
-         <xs:documentation>value unit for reporting a data quality result</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -404,13 +401,15 @@ These five entities represent elements of data quality and can be further subcla
    <xs:restriction base="xs:string"/>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DQ_Quality">
+   <xs:annotation>
+      <xs:documentation>The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.</xs:documentation>
+   </xs:annotation>
    <xs:sequence><!-- this is an abstract class --><xs:element name="report" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
       </xs:element>
-      <xs:element name="cIM_QualityIssue" minOccurs="0" maxOccurs="unbounded"
-                  type="CIM_QualityIssue"/>
+      <xs:element name="issue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
       <xs:element name="scope" minOccurs="1" maxOccurs="1" type="DQ_Scope">
          <xs:annotation>
             <xs:documentation>the specific data to which the quality information applies</xs:documentation>

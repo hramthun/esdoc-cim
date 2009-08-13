@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 9 August 2009, 13:58 -->       
+<!-- generated: 13 August 2009, 2:21 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -104,7 +104,9 @@
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
                 mixed="false">
    <xs:annotation>
-      <xs:documentation>An enumeration of types of changes.</xs:documentation>
+      <xs:documentation>An enumeration of types of changes.
+
+Currently unused in the CIM.</xs:documentation>
    </xs:annotation>
    <xs:attribute name="value" type="ChangePropertyType_Enumeration" use="required"/>
 </xs:complexType>
@@ -273,6 +275,7 @@
       <xs:enumeration value="hectopascal"/>
       <xs:enumeration value="pascal"/>
       <xs:enumeration value="sigma"/>
+      <xs:enumeration value="degrees_c"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
