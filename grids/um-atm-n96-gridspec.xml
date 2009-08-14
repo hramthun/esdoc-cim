@@ -31,6 +31,7 @@
 			(lon,lat,r). The UM N96 grid is based upon a spherical Earth with radius 6371229 m.
 
 			Some salient facts concerning use of the UM N96 grid:
+         - Grid cell size: 1.25 deg in latitude x 1.875 deg in longitude
 			- Array indexing in the latitude direction starts at the south pole.
 			- For an unrotated grid mesh, longitude(i=0.5) == Greenwich meridian.
 			- In the UM, the north and south poles coincide with the bounding half-integer j planes, i.e.

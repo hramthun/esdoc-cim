@@ -22,6 +22,7 @@
 			of P-type and w-type model variables. The locations of the u-type and v-type variables can
 			be derived from the P-grid definition. They are offset one-half of a grid cell to the east
 			and north, respectively, and occur at the same vertical level.
+         Grid cell size: 2.5 deg in latitude x 3.75 deg in longitude
 		</description>
 		<referenceList>
 			<reference>Johns,T.C. et al. 1997. The second Hadley Centre coupled ocean-atmosphere GCM:
@@ -39,8 +40,7 @@
 			<simpleGridGeom numDims="3" dimOrder="zyx" isMesh="false">
 				<xcoords length="96" uom="degrees_east" hasConstantOffset="true">0.0 3.75</xcoords>
 				<ycoords length="73" uom="degrees_north" hasConstantOffset="true">-90.0 2.5 </ycoords>
-				<zcoords length="19" uom="level" hasConstantOffset="false">0.997 0.975 0.930 0.870 0.788 0.675 0.541 0.410 0.299 0.215 0.153
-					0.104 0.063 0.031 0.011 0.002 0.000 0.000 0.0000</zcoords>
+				<zcoords length="19" uom="level" hasConstantOffset="false">0.997 0.975 0.930 0.870 0.793 0.699 0.599 0.505 0.422 0.355 0.300 0.250 0.200 0.149 0.100 0.057 0.030 0.015 0.005</zcoords>
 			</simpleGridGeom>
 		</gridTile>
 		<gridTile id="um-atm-n48-wgrid" nx="96" ny="73" nz="19" geometryType="sphere" discretizationType="logically_rectangular" isUniform="true" isRegular="false" isConformal="true">
@@ -55,8 +55,7 @@
 			<simpleGridGeom numDims="3" dimOrder="zyx" isMesh="false">
 				<xcoords length="96" uom="degrees_east" hasConstantOffset="true">0.0 3.75</xcoords>
 				<ycoords length="73" uom="degrees_north" hasConstantOffset="true">-90.0 2.5 </ycoords>
-				<zcoords length="19" uom="level" hasConstantOffset="false">0.994 0.956 0.905 0.835 0.741 0.611 0.473 0.348 0.251 0.179 0.127
-					0.082 0.045 0.018 0.003 0.000 0.000 0.000 0.000</zcoords>
+				<zcoords length="19" uom="level" hasConstantOffset="false">0.994 0.956 0.905 0.835 0.750 0.650 0.550 0.460 0.385 0.325 0.275 0.225 0.175 0.125 0.075 0.040 0.020 0.010 0.0005</zcoords>
 			</simpleGridGeom>
 		</gridTile>
 	</esmModelGrid>
