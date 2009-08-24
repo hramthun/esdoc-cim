@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 August 2009, 7:24 -->       
+<!-- generated: 20 August 2009, 13:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -72,6 +72,33 @@
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
+</xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="License">
+   <xs:annotation>
+      <xs:documentation>A description of a license restricting access to a unit of data or software.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="licenseName" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name that the license goes by (ie: "GPL")</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="licenseContact" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The point of contact for access to this artifact; may be either a person or an institution</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="licenseDescription" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A textual description of the license; might be the full text of the license, more likely to be a brief summary</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="unrestricted" use="required" type="xs:boolean">
+      <xs:annotation>
+         <xs:documentation>If unrestricted="true" then the artifact can be downloaded with no restrictions (ie: there are no administrative steps for the user to deal with; code or data can be downloaded and used directly).</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationship">
    <xs:annotation>
@@ -146,18 +173,18 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="author" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
-         <xs:annotation>
-            <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
          <xs:annotation>
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+      <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                  type="gmd:CI_ResponsibleParty_PropertyType">
+         <xs:annotation>
+            <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
             <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
          </xs:annotation>

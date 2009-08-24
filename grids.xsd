@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 13 August 2009, 7:24 -->       
+<!-- generated: 20 August 2009, 13:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -101,6 +101,16 @@
          <xs:documentation>Indicates whether or not a grid mosaic is a leaf mosaic, that is, it only contains child grid tiles not further mosaics.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="numTiles" use="optional" type="xs:integer">
+      <xs:annotation>
+         <xs:documentation>Specifies the number of tiles associated with a leaf grid mosaic. Set to zero if the grid mosaic is not a leaf mosaic, i.e. it contains child grid mosaics rather than tiles. (Added to align with equivalent ESG/Curator property.)</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="numMosaics" use="optional" type="xs:integer">
+      <xs:annotation>
+         <xs:documentation>Specifies the number of mosaics associated with a non-leaf grid mosaic. Set to zero if the grid mosaic is a leaf mosaic, i.e. it contains child grid tiles not mosaics.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimpleGridGeometry">
    <xs:annotation>
@@ -196,6 +206,13 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identification">
+   <xs:sequence>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EdgeArray">
    <xs:annotation>
       <xs:documentation>Simple data type for encapsulating an array of grid cell edgel definitions.</xs:documentation>
@@ -415,18 +432,18 @@ A grid tile reference is a list of ID references from the top-level mosaic down 
       <xs:complexContent>
          <xs:extension base="GridSpec">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -515,16 +532,6 @@ For all but the simplest grid tiles, it is envisaged that method 4 above will be
 A GridTile object is associated with a geodetic or projected CRS via the horizontalCRS property, and with a vertical CRS via the verticalCRS property.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="cellArray" minOccurs="0" maxOccurs="1" type="GridCellArray">
-         <xs:annotation>
-            <xs:documentation>This property may be used to specify an array of grid cell definitions which together define the coordinate geometry of a grid tile. Depending on context, any of the existing sub-types of GridCell may be used. Mixing types is, however, not currently permitted.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="area" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
-         <xs:annotation>
-            <xs:documentation>Specifies the area of the grid tile in the units defined by the 'uom' attribute that is attached to the GML MeasureType data type.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Specifies the short name associated with a grid tile. The short name will typically be a convenient abbreviation used to refer to a grid tile, e.g. 'NEMO T-Grid'.</xs:documentation>
@@ -540,9 +547,19 @@ A GridTile object is associated with a geodetic or projected CRS via the horizon
             <xs:documentation>A free-text description of a grid tile.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="resolution" minOccurs="0" maxOccurs="1" type="xs:string">
+      <xs:element name="horizontalResolution" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Provides an indication of the approximate spatial sampling size of the grid tile, i.e. the size of the underlying grid cells. (Note: the maximum spatial resolution of the grid is twice the sampling size (e.g. 2 km for a 1 km x 1 km grid pitch).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="verticalResolution" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Provides an indication of the approximate resolution of the grid tile in the vertical dimension. (Added to align with corresponding ESG/Curator and DIF property).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="area" minOccurs="0" maxOccurs="1" type="gml:MeasureType">
+         <xs:annotation>
+            <xs:documentation>Specifies the area of the grid tile in the units defined by the 'uom' attribute that is attached to the GML MeasureType data type.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="gridNorthPole" minOccurs="0" maxOccurs="1" type="gml:PointPropertyType">
@@ -571,6 +588,11 @@ If required, two or more coordinate pole definitions may be distinguished by set
       <xs:element name="simpleGridGeom" minOccurs="0" maxOccurs="1" type="SimpleGridGeometry">
          <xs:annotation>
             <xs:documentation>This property may be used to define the coordinates of the nodes or cells making up a simple (i.e. uniform or regular) grid tile. More details are provided in the description of the SimpleGridGeometry data type.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="cellArray" minOccurs="0" maxOccurs="1" type="GridCellArray">
+         <xs:annotation>
+            <xs:documentation>This property may be used to specify an array of grid cell definitions which together define the coordinate geometry of a grid tile. Depending on context, any of the existing sub-types of GridCell may be used. Mixing types is, however, not currently permitted.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="cellRefArray" minOccurs="0" maxOccurs="1" type="GridCellRefArray">

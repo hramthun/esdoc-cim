@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 13 August 2009, 7:24 -->       
+<!-- generated: 20 August 2009, 13:54 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -32,6 +32,13 @@
       <xs:documentation>An abstract class used as the parent of MeasurementCampaigns, Projects, Experiments, and NumericalActivities.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
+                  type="gmd:CI_ResponsibleParty_PropertyType"/>
+      <xs:element name="principleInvestigator" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The person performing this activity; this may differ from the responsibleParty</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="rationale" minOccurs="1" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
@@ -89,18 +96,18 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
       <xs:complexContent>
          <xs:extension base="SimulationRun">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -433,18 +440,18 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:complexContent>
          <xs:extension base="SimulationComposite">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -536,18 +543,18 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:complexContent>
          <xs:extension base="NumericalExperiment">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -695,18 +702,18 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:complexContent>
          <xs:extension base="DataProcessing">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -1083,18 +1090,18 @@ NB it doesn't stop one form having uris to conformance that point into the datas
       <xs:complexContent>
          <xs:extension base="Ensemble">
             <xs:sequence>
-               <xs:element name="author" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
-                  <xs:annotation>
-                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
                <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="creationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
                   <xs:annotation>
                      <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
                   </xs:annotation>
@@ -1220,6 +1227,7 @@ It is a place for the scientific description of the reason why an experiment was
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="experimentID" minOccurs="0" maxOccurs="1" type="Identifier"/>
       <!-- this is an abstract class --><xs:element name="duration" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
