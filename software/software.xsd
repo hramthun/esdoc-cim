@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 20 August 2009, 13:54 -->       
+<!-- generated: 11 September 2009, 9:09 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -331,6 +331,11 @@
       </xs:element>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
+      <xs:element name="fundingSource" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The entities that funded this software component.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
    <xs:attribute name="embedded" use="optional" type="xs:boolean">
       <xs:annotation>
@@ -412,7 +417,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="type" minOccurs="1" maxOccurs="1" type="ProcessorComponentType">
+      <xs:element name="type" minOccurs="1" maxOccurs="2" type="ProcessorComponentType">
          <xs:annotation>
             <xs:documentation>Describes the type of component.</xs:documentation>
          </xs:annotation>
@@ -613,7 +618,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="type" minOccurs="1" maxOccurs="1" type="ModelComponentType">
+      <xs:element name="type" minOccurs="1" maxOccurs="2" type="ModelComponentType">
          <xs:annotation>
             <xs:documentation>Describes the type of component.</xs:documentation>
          </xs:annotation>
@@ -735,7 +740,7 @@
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
                name="ProcessorComponentType_Enumeration">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="post-processor"/>
+      <xs:enumeration value="post_processor"/>
       <xs:enumeration value="transformer"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
@@ -771,14 +776,14 @@
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType_Enumeration">
    <xs:restriction base="xs:string">
       <xs:enumeration value="advection"/>
-      <xs:enumeration value="atmosphere"/>
-      <xs:enumeration value="atmospheric-chemistry"/>
-      <xs:enumeration value="land-ice"/>
-      <xs:enumeration value="land-surface"/>
+      <xs:enumeration value="atmos"/>
+      <xs:enumeration value="atmos_chemistry"/>
+      <xs:enumeration value="land_ice"/>
+      <xs:enumeration value="land_surface"/>
       <xs:enumeration value="ocean"/>
-      <xs:enumeration value="ocean-biogeochemistry"/>
-      <xs:enumeration value="river-routing"/>
-      <xs:enumeration value="sea-ice"/>
+      <xs:enumeration value="ocean_bgchem"/>
+      <xs:enumeration value="river_routing"/>
+      <xs:enumeration value="sea_ice"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
