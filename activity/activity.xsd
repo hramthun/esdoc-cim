@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 20 August 2009, 13:54 -->       
+<!-- generated: 29 September 2009, 13:22 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -34,9 +34,15 @@
    <xs:sequence>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
-      <xs:element name="principleInvestigator" minOccurs="0" maxOccurs="1" type="xs:string">
+      <xs:element name="principleInvestigator" minOccurs="0" maxOccurs="unbounded"
+                  type="xs:string">
          <xs:annotation>
-            <xs:documentation>The person performing this activity; this may differ from the responsibleParty</xs:documentation>
+            <xs:documentation>The people performing this activity; this may differ from the responsibleParty</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="fundingSource" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The entities that funded this activity.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="rationale" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -328,6 +334,7 @@ So, the conformance links a requirement to a DataSource (which can be either an 
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="dataHolder" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -1004,7 +1011,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
-      <xs:element name="simulation" minOccurs="2" maxOccurs="unbounded">
+      <xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
@@ -1029,7 +1036,7 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="simulation" minOccurs="2" maxOccurs="unbounded">
+               <!-- this is an abstract class --><xs:element name="ensembleMember" minOccurs="2" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element name="simulationRun" type="SimulationRun"/>
