@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 29 September 2009, 16:19 -->       
+<!-- generated: 29 September 2009, 16:40 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1141,7 +1141,12 @@ NB it doesn't stop one form having uris to conformance that point into the datas
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FrequencyType">
-   <xs:restriction base="xs:string"/>
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="daily"/>
+      <xs:enumeration value="monthly"/>
+      <xs:enumeration value="yearly"/>
+      <xs:enumeration value="hourly"/>
+   </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InitialCondition">
    <xs:annotation>
