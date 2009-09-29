@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 29 September 2009, 13:22 -->       
+<!-- generated: 29 September 2009, 15:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -623,7 +623,7 @@
             <xs:documentation>Describes the type of component.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="timing" minOccurs="1" maxOccurs="1" type="Timing">
+      <xs:element name="timing" minOccurs="0" maxOccurs="1" type="Timing">
          <xs:annotation>
             <xs:documentation>Describes information about how this component simulates time.</xs:documentation>
          </xs:annotation>
@@ -688,8 +688,7 @@
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="type" minOccurs="1" maxOccurs="1" type="ComponentPropertyType"/>
-      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="unbounded" type="PropertyValue"/>
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_Citation_PropertyType"/>
       <xs:element name="grid" minOccurs="0" maxOccurs="1">
@@ -869,20 +868,5 @@
       <xs:element name="rate" minOccurs="1" maxOccurs="1" type="xs:integer"/>
    </xs:sequence>
    <xs:attribute name="units" use="required" type="TimingUnits"/>
-</xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentPropertyType"
-                mixed="true">
-   <xs:annotation>
-      <xs:documentation>Describes categories of component properties.  Currently supports numerical, scientific, and other.</xs:documentation>
-   </xs:annotation>
-   <xs:attribute name="value" type="ComponentPropertyType_Enumeration" use="required"/>
-</xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               name="ComponentPropertyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="numerical"/>
-      <xs:enumeration value="scientific"/>
-      <xs:enumeration value="other"/>
-   </xs:restriction>
-</xs:simpleType>       
+</xs:complexType>       
 </xs:schema>
