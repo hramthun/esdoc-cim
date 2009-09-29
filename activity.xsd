@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 29 September 2009, 15:33 -->       
+<!-- generated: 29 September 2009, 16:19 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -776,6 +776,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
+      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
    <xs:attribute name="frequency" use="required" type="FrequencyType"/>
 </xs:complexType>
