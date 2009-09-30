@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 29 September 2009, 16:40 -->       
+<!-- generated: 29 September 2009, 17:20 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -273,7 +273,7 @@
             <xs:documentation>The name of the model (that is recognized externally).</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>A free-text description of the component.</xs:documentation>
          </xs:annotation>

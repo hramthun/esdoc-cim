@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 29 September 2009, 16:40 -->       
+<!-- generated: 29 September 2009, 17:20 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -86,8 +86,16 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
+      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>The start (in simulated time) time of this run</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
+         <xs:annotation>
+            <xs:documentation>The end (in simulated time) time of this run</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -527,6 +535,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       <xs:element name="supports" minOccurs="0" maxOccurs="unbounded" type="Experiment"/>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <!-- this is an abstract class --><xs:element name="calendar" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
