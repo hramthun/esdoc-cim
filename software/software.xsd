@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 29 September 2009, 19:45 -->       
+<!-- generated: 29 September 2009, 20:30 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -79,12 +79,16 @@
       <xs:documentation>A Connection represents a link from a source DataSource to a target DataSource.  These can either be ComponentProperties (ie: the values come from an internal component) or DataObjects (ie: the values come from an external file).   It can be associated with another software component (a transformer).  If present, the rate and lag  of this connection overrides the rate and lag of the parent coupling.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="rate" minOccurs="1" maxOccurs="1" type="Timing">
+      <xs:element name="rate" minOccurs="0" maxOccurs="1" type="Timing">
          <xs:annotation>
-            <xs:documentation>All information having to do with the rate of this connection; the times that it is active.</xs:documentation>
+            <xs:documentation>All information having to do with the rate of this connection; the times that it is active.  This overrides any rate of a Coupling.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="lag" minOccurs="1" maxOccurs="1" type="Timing"/>
+      <xs:element name="lag" minOccurs="0" maxOccurs="1" type="Timing">
+         <xs:annotation>
+            <xs:documentation>This overrides any lag of a Coupling.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <!-- this is an abstract class --><xs:element name="transformer" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -345,6 +349,13 @@
       </xs:annotation>
    </xs:attribute>
 </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentPropertyIntentType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="in"/>
+      <xs:enumeration value="out"/>
+      <xs:enumeration value="inout"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimingUnits">
    <xs:restriction base="xs:string">
       <xs:enumeration value="seconds"/>
@@ -376,7 +387,6 @@
       </xs:element>
       <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLibrary" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineEnvironmentVariables" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineDescription" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLocation" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -725,6 +735,7 @@
          </xs:complexType>
       </xs:element>
    </xs:sequence>
+   <xs:attribute name="intent" use="optional" type="ComponentPropertyIntentType"/>
    <xs:attribute name="represented" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>When set to false, means that this property is not used by the component. Covers the case when, for instance, a modeler chooses not to represent some property in their model.  (But still allows meaningful comparisons between components which _do_ model this property.)</xs:documentation>
