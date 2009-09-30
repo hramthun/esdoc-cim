@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 29 September 2009, 17:20 -->       
+<!-- generated: 29 September 2009, 19:45 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -137,11 +137,12 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -482,11 +483,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -586,11 +588,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -745,11 +748,12 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -1134,11 +1138,12 @@ NB it doesn't stop one form having uris to conformance that point into the datas
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>

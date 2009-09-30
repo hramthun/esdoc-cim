@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 29 September 2009, 17:20 -->       
+<!-- generated: 29 September 2009, 19:45 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -468,11 +468,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -669,11 +670,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
@@ -757,14 +759,21 @@
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="embedded"/>
-      <xs:enumeration value="argument-passing">
+      <xs:enumeration value="OASIS"/>
+      <xs:enumeration value="FMS"/>
+      <xs:enumeration value="ESMF"/>
+      <xs:enumeration value="CCSM">
          <xs:annotation>
-            <xs:documentation>a "direct" connection; implies a sequential rather than parallel simulation.</xs:documentation>
+            <xs:documentation>CCSM Flux Coupler</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="MPI"/>
-      <xs:enumeration value="OASIS"/>
+      <xs:enumeration value="MCT"/>
+      <xs:enumeration value="sharedMemory">
+         <xs:annotation>
+            <xs:documentation>a "direct" connection; implies a sequential rather than parallel simulation; also known as "argument passing."</xs:documentation>
+         </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="files"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
@@ -811,7 +820,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="deploymentDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
-      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
       <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
    </xs:sequence>
@@ -851,11 +860,12 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="documentVersion" use="required" type="xs:integer">
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
                <xs:annotation>
-                  <xs:documentation>The version of this document.</xs:documentation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
                </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>

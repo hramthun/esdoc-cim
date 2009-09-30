@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 29 September 2009, 17:20 -->       
+<!-- generated: 29 September 2009, 19:45 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -200,11 +200,12 @@ Currently unused in the CIM.</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="documentVersion" use="required" type="xs:integer">
+   <xs:attribute name="CIMVersion" use="optional" type="xs:string">
       <xs:annotation>
-         <xs:documentation>The version of this document.</xs:documentation>
+         <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
    <xs:restriction base="xs:token">
@@ -242,6 +243,13 @@ Currently unused in the CIM.</xs:documentation>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentStatusType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="complete"/>
+      <xs:enumeration value="incomplete"/>
+      <xs:enumeration value="in-progress"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Relationship" abstract="true">
    <xs:annotation>
       <xs:documentation>A record of a relationship between one document and another.  This class is abstract; specific document types must specialise this class for their relationshipTypes to be included in a document's genealogy.</xs:documentation>
