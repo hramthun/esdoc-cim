@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 29 September 2009, 20:30 -->       
+<!-- generated: 29 September 2009, 20:53 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -105,6 +105,17 @@
       </xs:enumeration>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
+   <xs:attribute name="value" type="DataHierarchyType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="run"/>
+      <xs:enumeration value="stream"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDistribution">
    <xs:annotation>
       <xs:documentation>Describes how a DataObject is distributed.</xs:documentation>
@@ -196,10 +207,9 @@
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
       <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
-      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="xs:string">
+      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
          <xs:annotation>
-            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.
-</xs:documentation>
+            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
