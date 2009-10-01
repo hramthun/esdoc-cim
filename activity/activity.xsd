@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 30 September 2009, 14:35 -->       
+<!-- generated: 30 September 2009, 17:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -33,7 +33,11 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
-                  type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  type="gmd:CI_ResponsibleParty_PropertyType">
+         <xs:annotation>
+            <xs:documentation>The point of contact(s) for this activity.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="principleInvestigator" minOccurs="0" maxOccurs="unbounded"
                   type="xs:string">
          <xs:annotation>
@@ -272,6 +276,9 @@ So, the conformance links a requirement to a DataSource (which can be either an 
          </xs:complexType>
       </xs:element>
       <xs:element name="requirement" minOccurs="1" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>Points to the NumericalRequirement that the simulation in question is conforming to.</xs:documentation>
+         </xs:annotation>
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
@@ -344,7 +351,11 @@ So, the conformance links a requirement to a DataSource (which can be either an 
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="dataHolder" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+      <xs:element name="dataHolder" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The point of contact for the data associated with this activity; may have to exist before a record of the data exists in the CIM.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
@@ -550,7 +561,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       </xs:element>
       <xs:element name="requiredDuration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
    </xs:sequence>
-   <xs:attribute name="control" use="required" type="xs:boolean"/>  
+   <xs:attribute name="control" use="required" type="xs:boolean">
+      <xs:annotation>
+         <xs:documentation>Is this a control run?</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -639,6 +654,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexType>
       </xs:element>
       <xs:element name="inputs" minOccurs="0" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>the data being processed.</xs:documentation>
+         </xs:annotation>
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
@@ -675,6 +693,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexType>
       </xs:element>
       <xs:element name="outputs" minOccurs="0" maxOccurs="unbounded">
+         <xs:annotation>
+            <xs:documentation>the data being generated.</xs:documentation>
+         </xs:annotation>
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">

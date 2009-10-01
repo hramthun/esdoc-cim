@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 30 September 2009, 14:35 -->       
+<!-- generated: 30 September 2009, 17:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -47,6 +47,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestriction">
+   <xs:annotation>
+      <xs:documentation>An access or use restriction on some element of the DataObject's actual data.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="restriction" minOccurs="1" maxOccurs="1"
                   type="gmd:MD_RestrictionCode_PropertyType"/>
@@ -212,7 +215,11 @@
             <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
+      <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue">
+         <xs:annotation>
+            <xs:documentation>What is the name of the specific HierarchyLevel this DataObject is being organised at (ie: if the HierarchyLevel is "run" then the name might be the runid).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
@@ -249,7 +256,11 @@
       </xs:element>
       <!--objectProperty is not used -->       
 </xs:sequence>
-   <xs:attribute name="dataStatus" use="required" type="DataStatusType"/>  
+   <xs:attribute name="dataStatus" use="required" type="DataStatusType">
+      <xs:annotation>
+         <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -300,7 +311,7 @@
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataCitation">
    <xs:annotation>
-      <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
+      <xs:documentation>A description of references to this data from the scientific literature; like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="abstract" minOccurs="0" maxOccurs="1" type="xs:string"/>
