@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 30 September 2009, 17:39 -->       
+<!-- generated: 2 October 2009, 9:48 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.1" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.1">       
+            xmlns="http://www.metaforclimate.eu/cim/1.2" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -49,7 +49,11 @@
             <xs:documentation>The entities that funded this activity.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="rationale" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="rationale" minOccurs="1" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>For what purpose is this activity being performed?</xs:documentation>
+         </xs:annotation>
+      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRun">
@@ -1277,7 +1281,6 @@ It is a place for the scientific description of the reason why an experiment was
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="why" minOccurs="1" maxOccurs="unbounded" type="xs:string"/>
    </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
