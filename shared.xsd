@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 5 October 2009, 10:45 -->       
+<!-- generated: 5 October 2009, 11:06 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -240,6 +240,7 @@ Currently unused in the CIM.</xs:documentation>
    <xs:sequence><!-- this is an abstract class --><xs:element name="relationship" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="experimentRelationship" type="ExperimentRelationship"/>
                <xs:element name="simulationRelationship" type="SimulationRelationship"/>
                <xs:element name="documentRelationship" type="DocumentRelationship"/>
             </xs:choice>
