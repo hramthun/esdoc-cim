@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 12 October 2009, 11:14 -->       
+<!-- generated: 12 October 2009, 15:46 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -295,7 +295,7 @@
          <xs:documentation>The type of Connection</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="purpose" use="required" type="ConnectionPurposeType">
+   <xs:attribute name="purpose" use="required" type="DataPurpose">
       <xs:annotation>
          <xs:documentation>Describes why this connection is being made.  Possible values include: boundaryCondition, initialCondition, Forcing.</xs:documentation>
       </xs:annotation>
@@ -864,6 +864,7 @@
          <xs:documentation>Describes the method of coupling.</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="purpose" use="required" type="DataPurpose"/>
    <xs:attribute name="fullySpecified" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>If "true" then the coupling is fully-specified.  If "false" then not every Connection has been described within the coupling.</xs:documentation>
@@ -1110,13 +1111,6 @@
    </xs:restriction>
 </xs:simpleType>
 <!--Parallelisation is not used -->       
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionPurposeType">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="boundaryCondition"/>
-      <xs:enumeration value="initialCondition"/>
-      <xs:enumeration value="forcing"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalProperties">
    <xs:annotation>
       <xs:documentation>This is just being used as a container for component properties.</xs:documentation>

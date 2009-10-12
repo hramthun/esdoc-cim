@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 12 October 2009, 11:14 -->       
+<!-- generated: 12 October 2009, 15:46 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -132,6 +132,7 @@
       <xs:documentation>A DataSource can be realised by either a DataObject or a ComponentProperty; both of those can supply data.</xs:documentation>
    </xs:annotation>
    <xs:sequence/>
+   <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
                 mixed="false">
@@ -226,6 +227,13 @@ Currently unused in the CIM.</xs:documentation>
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="boundaryCondition"/>
+      <xs:enumeration value="initialForcing"/>
+      <xs:enumeration value="forcing"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">
                         <xs:complexContent>
                         <xs:extension base="Calendar">
