@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 12 October 2009, 15:46 -->       
+<!-- generated: 13 October 2009, 8:20 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -207,7 +207,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="transformer" minOccurs="0" maxOccurs="1">
+      <xs:element name="transformer" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
             <xs:documentation>An "in-line" transformer.  This references a fully-described transformer (typically that forms part of the top-level composition) used in the context of this coupling.  It is used instead of separately specifying a spatialRegridding, timeTransformation, etc. here.</xs:documentation>
          </xs:annotation>
@@ -776,7 +776,7 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="transformer" minOccurs="0" maxOccurs="1">
+      <xs:element name="transformer" minOccurs="0" maxOccurs="unbounded">
          <xs:annotation>
             <xs:documentation>An "in-line" transformer.  This references a fully-described transformer (typically that forms part of the top-level composition) used in the context of this coupling.  It is used instead of separately specifying a spatialRegridding, timeTransformation, etc. here.</xs:documentation>
          </xs:annotation>
