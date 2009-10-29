@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 26 October 2009, 20:03 -->       
+<!-- generated: 29 October 2009, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -142,9 +142,20 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="target" minOccurs="1" maxOccurs="1">
+               <xs:element name="document">
                   <xs:complexType>
-                     <xs:choice minOccurs="1" maxOccurs="1"/>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element ref="simulationComposite"/>
+                        <xs:element ref="numericalExperiment"/>
+                        <xs:element ref="dataProcessing"/>
+                        <xs:element ref="ensemble"/>
+                        <xs:element ref="dataObject"/>
+                        <xs:element ref="gridSpec"/>
+                        <xs:element ref="processorComponent"/>
+                        <xs:element ref="modelComponent"/>
+                        <xs:element ref="deployment"/>
+                     </xs:choice>
                   </xs:complexType>
                </xs:element>
             </xs:choice>
