@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 29 October 2009, 9:36 -->       
+<!-- generated: 9 November 2009, 8:01 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              xmlns:gml="http://www.opengis.net/gml/3.2"
              xmlns:gmd="http://www.isotc211.org/2005/gmd"
-            xmlns="http://www.metaforclimate.eu/cim/1.2" 
-            targetNamespace="http://www.metaforclimate.eu/cim/1.2">       
+            xmlns="http://www.metaforclimate.eu/cim/1.4" 
+            targetNamespace="http://www.metaforclimate.eu/cim/1.4">       
 <!-- these relative paths could really be URLs, but accessing them online cripples performance -->       
 <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema"
            namespace="http://www.w3.org/1999/xlink"
@@ -51,10 +51,11 @@
       <xs:documentation>An access or use restriction on some element of the DataObject's actual data.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="restriction" minOccurs="1" maxOccurs="1"
+      <xs:element name="restriction" minOccurs="0" maxOccurs="1"
                   type="gmd:MD_RestrictionCode_PropertyType"/>
+      <xs:element name="license" minOccurs="0" maxOccurs="1" type="License"/>
    </xs:sequence>
-   <xs:attribute name="restrictionScope" use="required" type="DataRestrictionScopeType">
+   <xs:attribute name="restrictionScope" use="optional" type="DataRestrictionScopeType">
       <xs:annotation>
          <xs:documentation>The thing (data or metadata, access or use) that this restriction is applied to.</xs:documentation>
       </xs:annotation>
