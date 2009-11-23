@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 23 November 2009, 10:26 -->       
+<!-- generated: 23 November 2009, 11:47 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -470,6 +470,11 @@
       </xs:element>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
+      <xs:element name="releaseDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+         <xs:annotation>
+            <xs:documentation>The date of publication of the software component code (as opposed to the date of publication of the metadata document, or the date of deployment of the model)</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="fundingSource" minOccurs="0" maxOccurs="unbounded" type="xs:string">
          <xs:annotation>
             <xs:documentation>The entities that funded this software component.</xs:documentation>
