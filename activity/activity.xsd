@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 9 November 2009, 8:01 -->       
+<!-- generated: 23 November 2009, 10:26 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -276,6 +276,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="childRelationship" use="optional" type="LogicalRelationshipType">
+      <xs:annotation>
+         <xs:documentation>Describes how any children relationships are related to one another. For example, this covers cases where an experiment has optional requirements; use this boundary condition _or_ that boundary condition. </xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentRelationshipType">
    <xs:restriction base="xs:string">
@@ -346,7 +351,7 @@ For example, for a double CO2 boundary condition, a model component might read a
 So, the conformance links a requirement to a DataSource (which can be either an actual DataObject or a property of a model component).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="requirement" minOccurs="1" maxOccurs="1">
+      <xs:element name="requirement" minOccurs="1" maxOccurs="unbounded">
          <xs:annotation>
             <xs:documentation>Points to the NumericalRequirement that the simulation in question is conforming to.</xs:documentation>
          </xs:annotation>
