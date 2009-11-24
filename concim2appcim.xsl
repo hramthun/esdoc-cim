@@ -186,6 +186,13 @@
                     </xs:complexType>
                 </xs:element>
             </xsl:if>
+            
+            <!-- if this is the shared package -->
+            <xsl:if test="$packageName='shared'">
+                <!-- call the guid template -->
+                <xsl:call-template name="guidTemplate"/>
+            </xsl:if>
+            
             <!-- carry on with the parsing... -->
             <xsl:apply-templates/>
 
@@ -293,6 +300,20 @@
     <!-- named templates -->
     <!-- ***************** -->
 
+    <!-- guid template -->
+    <!-- xsd doesn't have a built-in guid type -->
+    <!-- so I define my own here -->
+    <xsl:template name="guidTemplate">
+        <xs:simpleType name="guid">
+            <xs:annotation>
+                <xs:documentation>An XML representation of a GUID; used for the Identifier class</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+            </xs:restriction>
+        </xs:simpleType>    
+    </xsl:template>
+    
     <!-- unused classes -->
     <xsl:template name="unusedTemplate">
         <xsl:param name="className"/>
@@ -752,7 +773,7 @@
         <xsl:variable name="generalClass"
             select="substring-before(substring-after($externalGeneralisation/attribute::value,'Parent='),';')"/>
 
-        <xsl:if test="not(starts-with($generalClass,'xs:'))">
+        <xsl:if test="not(starts-with($generalClass,'xs:')) and not($generalClass='guid')">
             <xsl:message terminate="yes">
                 <xsl:value-of select="@name"/>
                 <xsl:text> cannot be a simpleType because it is based on: </xsl:text>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 24 November 2009, 7:32 -->       
+<!-- generated: 24 November 2009, 9:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -24,6 +24,14 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="grids.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="quality.xsd"/>
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="guid">
+   <xs:annotation>
+      <xs:documentation>An XML representation of a GUID; used for the Identifier class</xs:documentation>
+   </xs:annotation>
+   <xs:restriction base="xs:string">
+      <xs:pattern value="[a-fA-F0-9]8-[a-fA-F0-9]4-[a-fA-F0-9]4-[a-fA-F0-9]4-[a-fA-F0-9]12"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
                         <xs:complexContent>
                         <xs:extension base="DateRange">
@@ -280,7 +288,7 @@ Currently unused in the CIM.</xs:documentation>
    <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
-   <xs:restriction base="xs:token">
+   <xs:restriction base="guid">
       <xs:annotation>
          <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
       </xs:annotation>
