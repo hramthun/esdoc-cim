@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 23 November 2009, 11:47 -->       
+<!-- generated: 24 November 2009, 7:18 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -191,6 +191,14 @@
 
 Currently unused in the CIM.</xs:documentation>
    </xs:annotation>
+   <xs:sequence>
+      <xs:element name="server">
+         <xs:complexType>
+            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="version" type="xs:integer"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="ChangePropertyType_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType_Enumeration">
@@ -206,6 +214,14 @@ Currently unused in the CIM.</xs:documentation>
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
+   <xs:sequence>
+      <xs:element name="server">
+         <xs:complexType>
+            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="version" type="xs:integer"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="CodeList_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList_Enumeration">
@@ -334,6 +350,14 @@ Currently unused in the CIM.</xs:documentation>
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
+   <xs:sequence>
+      <xs:element name="server">
+         <xs:complexType>
+            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="version" type="xs:integer"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="UnitType_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType_Enumeration">

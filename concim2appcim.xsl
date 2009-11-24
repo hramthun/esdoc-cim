@@ -353,6 +353,16 @@
 
         <xs:complexType name="{@name}" mixed="{$open}">
             <xsl:apply-templates mode="UMLclass"/>
+            <!-- HARD-CODED FOR NOW; WILL REPLACE W/ UML STUFF SOON -->
+            <xs:sequence>
+                <xs:element name="server">
+                    <xs:complexType>
+                        <xs:attribute name="href" type="xs:anyURI"/>
+                        <xs:attribute name="version" type="xs:integer"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>            
+            <!-- END HARD-CODED BIT -->
             <xs:attribute name="value" type="{concat(@name,'_Enumeration')}" use="required"/>
         </xs:complexType>
         <xsl:call-template name="enumerationTemplate">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 23 November 2009, 11:47 -->       
+<!-- generated: 24 November 2009, 7:18 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -110,6 +110,14 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
+   <xs:sequence>
+      <xs:element name="server">
+         <xs:complexType>
+            <xs:attribute name="href" type="xs:anyURI"/>
+            <xs:attribute name="version" type="xs:integer"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
    <xs:attribute name="value" type="DataHierarchyType_Enumeration" use="required"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType_Enumeration">
