@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 24 November 2009, 7:18 -->       
+<!-- generated: 24 November 2009, 7:32 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -285,6 +285,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentRelationshipType">
    <xs:restriction base="xs:string">
       <xs:enumeration value="previousRealisation"/>
+      <xs:enumeration value="continuationOf"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationship">
@@ -1491,6 +1492,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
    <xs:restriction base="xs:string">
       <xs:enumeration value="extensionOf"/>
       <xs:enumeration value="responseTo"/>
+      <xs:enumeration value="continuationOf"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Experiment">
