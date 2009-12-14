@@ -171,7 +171,52 @@
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element ref="CIMRecord" minOccurs="1" maxOccurs="unbounded"/>
+
+                            <!-- a RecordSet includes a reference to a Record -->
+                            <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
+                                <!-- which is implemented as a choice between -->
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <!-- ...the reference type as defined in the CIM... -->
+                                        <xs:element name="reference">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                  <xsl:for-each
+                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                                  <xsl:sort case-order="lower-first"
+                                                  select="@name[$sort-attributes]"/>
+                                                  <xsl:call-template
+                                                  name="element-attributeTemplate">
+                                                  <xsl:with-param name="element" select="true()"/>
+                                                  <xsl:with-param name="attribute" select="false()"
+                                                  />
+                                                  </xsl:call-template>
+                                                  </xsl:for-each>
+                                                </xs:sequence>
+                                                <xsl:for-each
+                                                  select="//UML:Class[@name='Reference']/descendant::UML:Attribute">
+                                                  <xsl:sort case-order="lower-first"
+                                                  select="@name[$sort-attributes]"/>
+                                                  <xsl:call-template
+                                                  name="element-attributeTemplate">
+                                                  <xsl:with-param name="element" select="false()"/>
+                                                  <xsl:with-param name="attribute" select="true()"/>
+                                                  </xsl:call-template>
+                                                </xsl:for-each>
+                                                <!-- ...with one extra hard-coded attribute... -->
+                                                <xs:attribute ref="xlink:href" use="optional"/>
+                                            </xs:complexType>
+                                        </xs:element>
+
+
+
+
+                                        <!-- ...and the actual element itself... -->
+                                        <xs:element ref="CIMRecord" minOccurs="1"
+                                            maxOccurs="1"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -497,7 +542,6 @@
 
                         </xsl:element>
 
-                        <!-- I AM HERE I AM HERE -->
 
                     </xsl:when>
                     <!-- ...that type might be abstract -->
