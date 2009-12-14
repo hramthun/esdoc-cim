@@ -157,6 +157,26 @@
             <!-- (this enables the CIM to work with GeoNetworks) -->
             <xsl:variable name="depth" select="count(ancestor::UML:Package)"/>
             <xsl:if test="$depth=0">
+
+                <!-- A CIM RecordSet -->
+                <xs:element name="CIMRecordSet">
+                    <xsl:comment>
+                        <xsl:text> a CIMRecordSet includes 1 or more CIMRecords </xsl:text>
+                    </xsl:comment>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+                                <xs:annotation>
+                                    <xs:documentation>a unique indentifier for this RecordSet
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element ref="CIMRecord" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- A CIM Record -->
                 <xsl:comment>
                     <xsl:text> a CIMRecord can include any (single) &lt;&lt;document&gt;&gt; </xsl:text>
                 </xsl:comment>
@@ -186,13 +206,13 @@
                     </xs:complexType>
                 </xs:element>
             </xsl:if>
-            
+
             <!-- if this is the shared package -->
             <xsl:if test="$packageName='shared'">
                 <!-- call the guid template -->
                 <xsl:call-template name="guidTemplate"/>
             </xsl:if>
-            
+
             <!-- carry on with the parsing... -->
             <xsl:apply-templates/>
 
@@ -306,14 +326,23 @@
     <xsl:template name="guidTemplate">
         <xs:simpleType name="guid">
             <xs:annotation>
-                <xs:documentation>An XML representation of a GUID; used for the Identifier class</xs:documentation>
+                <xs:documentation>An XML representation of a GUID; used for the Identifier
+                    class</xs:documentation>
             </xs:annotation>
             <xs:restriction base="xs:string">
-                <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+                <xs:pattern
+                    value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+                />
             </xs:restriction>
-        </xs:simpleType>    
+        </xs:simpleType>
     </xsl:template>
-    
+
+    <!-- extensible template -->
+    <!-- supports cases where CIM can be extended by other users -->
+    <xsl:template name="extensibleTemplate">
+        <xs:complexType> </xs:complexType>
+    </xsl:template>
+
     <!-- unused classes -->
     <xsl:template name="unusedTemplate">
         <xsl:param name="className"/>
@@ -382,7 +411,7 @@
                         <xs:attribute name="version" type="xs:integer"/>
                     </xs:complexType>
                 </xs:element>
-            </xs:sequence>            
+            </xs:sequence>
             <!-- END HARD-CODED BIT -->
             <xs:attribute name="value" type="{concat(@name,'_Enumeration')}" use="required"/>
         </xs:complexType>
@@ -447,7 +476,7 @@
                             <xsl:attribute name="name">
                                 <xsl:call-template name="camelCaseTemplate">
                                     <xsl:with-param name="string" select="$class/@name"/>
-                                </xsl:call-template>                                
+                                </xsl:call-template>
                             </xsl:attribute>
 
                             <xs:complexType>
@@ -456,7 +485,7 @@
                                         <xsl:variable name="documentName">
                                             <xsl:call-template name="camelCaseTemplate">
                                                 <xsl:with-param name="string"
-                                                    select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
+                                                  select="./ancestor::UML:ModelElement.stereotype/ancestor::UML:Class/@name"
                                                 />
                                             </xsl:call-template>
                                         </xsl:variable>
@@ -467,9 +496,9 @@
 
 
                         </xsl:element>
-                            
-                            <!-- I AM HERE I AM HERE -->                        
-                            
+
+                        <!-- I AM HERE I AM HERE -->
+
                     </xsl:when>
                     <!-- ...that type might be abstract -->
                     <xsl:when test="$classStereotype='abstract'">
@@ -492,8 +521,8 @@
                             <xsl:call-template name="camelCaseTemplate">
                                 <xsl:with-param name="string" select="$class/@name"/>
                             </xsl:call-template>
-                        </xsl:variable>                            
-                        <xs:element name="{$className}" type="{$class/@name}"/>                                                    
+                        </xsl:variable>
+                        <xs:element name="{$className}" type="{$class/@name}"/>
                     </xsl:otherwise>
                 </xsl:choose>
 

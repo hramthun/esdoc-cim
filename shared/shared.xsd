@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 24 November 2009, 9:16 -->       
+<!-- generated: 14 December 2009, 10:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -26,7 +26,8 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="guid">
    <xs:annotation>
-      <xs:documentation>An XML representation of a GUID; used for the Identifier class</xs:documentation>
+      <xs:documentation>An XML representation of a GUID; used for the Identifier
+                    class</xs:documentation>
    </xs:annotation>
    <xs:restriction base="xs:string">
       <xs:pattern value="[a-fA-F0-9]8-[a-fA-F0-9]4-[a-fA-F0-9]4-[a-fA-F0-9]4-[a-fA-F0-9]12"/>
