@@ -165,7 +165,7 @@
                     </xsl:comment>
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
                                     <xs:documentation>a unique indentifier for this RecordSet
                                     </xs:documentation>
@@ -229,7 +229,7 @@
                 <xs:element name="CIMRecord">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+                            <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
                                     <xs:documentation>a unique indentifier for this
                                         document</xs:documentation>
@@ -375,9 +375,7 @@
                     class</xs:documentation>
             </xs:annotation>
             <xs:restriction base="xs:string">
-                <xs:pattern
-                    value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
-                />
+                <xs:pattern value="{string('[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}')}"/>
             </xs:restriction>
         </xs:simpleType>
     </xsl:template>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 14 December 2009, 11:14 -->       
+<!-- generated: 17 December 2009, 10:46 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -27,7 +27,7 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIMRecordSet"><!-- a CIMRecordSet includes 1 or more CIMRecords --><xs:complexType>
       <xs:sequence>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
             <xs:annotation>
                <xs:documentation>a unique indentifier for this RecordSet
                                     </xs:documentation>
@@ -74,7 +74,7 @@
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIMRecord">
    <xs:complexType>
       <xs:sequence>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier">
+         <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
             <xs:annotation>
                <xs:documentation>a unique indentifier for this
                                         document</xs:documentation>
