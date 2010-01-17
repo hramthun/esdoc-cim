@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 17 December 2009, 10:46 -->       
+<!-- generated: 17 January 2010, 8:17 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -548,7 +548,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="simulation" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
@@ -578,7 +578,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="simulation" minOccurs="1" maxOccurs="unbounded">
+               <!-- this is an abstract class --><xs:element name="simulation" minOccurs="0" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element name="simulationRun" type="SimulationRun"/>
