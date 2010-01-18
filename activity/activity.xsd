@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 17 January 2010, 8:17 -->       
+<!-- generated: 18 January 2010, 15:51 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1027,7 +1027,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:extension base="NumericalActivity">
                     <xs:sequence>
       <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
-      <xs:element name="simulationComposite" minOccurs="1" maxOccurs="1">
+      <xs:element name="simulationComposite" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
