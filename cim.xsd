@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 18 January 2010, 15:51 -->       
+<!-- generated: 18 January 2010, 18:26 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -39,7 +39,7 @@
                   <xs:element name="reference">
                      <xs:complexType>
                         <xs:sequence>
-                           <xs:element name="documentID" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
                               <xs:annotation>
                                  <xs:documentation>the ID of the element being referenced.</xs:documentation>
                               </xs:annotation>
