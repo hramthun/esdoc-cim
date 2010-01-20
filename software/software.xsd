@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 18 January 2010, 18:26 -->       
+<!-- generated: 20 January 2010, 15:42 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -68,18 +68,18 @@
             <xs:documentation>The programming language being compiled.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="compilerOptions" minOccurs="1" maxOccurs="1" type="xs:string">
+      <xs:element name="compilerOptions" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>Any flags used with the compiler.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="compilerEnvironmentVariables" minOccurs="1" maxOccurs="1"
+      <xs:element name="compilerEnvironmentVariables" minOccurs="0" maxOccurs="1"
                   type="xs:string">
          <xs:annotation>
             <xs:documentation>Any environment variables used by the compiler.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="compilerLibrary" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="compilerLibrary" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
@@ -545,10 +545,15 @@
          </xs:annotation>
       </xs:element>
       <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineLibrary" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineDescription" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineLocation" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLibrary" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
    <xs:attribute name="machineType" use="optional" type="MachineType"/>
 </xs:complexType>
