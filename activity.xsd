@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 20 January 2010, 15:42 -->       
+<!-- generated: 20 January 2010, 16:19 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -286,6 +286,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
    <xs:restriction base="xs:string">
       <xs:enumeration value="previousRealisation"/>
       <xs:enumeration value="continuationOf"/>
+      <xs:enumeration value="control"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationship">
@@ -782,12 +783,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
          </xs:complexType>
       </xs:element>
       <xs:element name="requiredDuration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
-   </xs:sequence>
-   <xs:attribute name="control" use="required" type="xs:boolean">
-      <xs:annotation>
-         <xs:documentation>Is this a control run?</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
