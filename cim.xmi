@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-01-22 12:07:46">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-01-22 12:31:27">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -1760,14 +1760,14 @@
 								</UML:Generalization>
 								<UML:Class name="Conformance" xmi.id="EAID_5D63A8F2_6BB3_4d44_8DA1_84A19369C34A" visibility="public" namespace="EAPK_979488DA_0149_4c4b_B458_9C5D1C4741F1" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="A conformance class maps how a configured model component met a specific numerical requirement.&#xA;&#xA;For example, for a double CO2 boundary condition, a model component might read a CO2 dataset in which CO2 has been doubled, or it might modify a parameterisation (presumably with a factor of two somewhere).&#xA;So, the conformance links a requirement to a DataSource (which can be either an actual DataObject or a property of a model component)."/>
+										<UML:TaggedValue tag="documentation" value="A conformance class maps how a configured model component met a specific numerical requirement.&#xA;&#xA;For example, for a double CO2 boundary condition, a model component might read a CO2 dataset in which CO2 has been doubled, or it might modify a parameterisation (presumably with a factor of two somewhere).&#xA;So, the conformance links a requirement to a DataSource (which can be either an actual DataObject or a property of a model component).&#xA;In some cases a model/simulation may _naturally_ conform to a requirement.  In this case there would be no reference to a DataSource but the conformant attribute would be true.&#xA;&#xA;If something is purpopsefully non-conformant then the conformant attribute would be false."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_979488DA_0149_4c4b_B458_9C5D1C4741F1"/>
 										<UML:TaggedValue tag="date_created" value="2008-10-07 10:26:29"/>
-										<UML:TaggedValue tag="date_modified" value="2009-08-12 13:03:17"/>
+										<UML:TaggedValue tag="date_modified" value="2010-01-22 12:25:15"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
 										<UML:TaggedValue tag="package_name" value="activity"/>
@@ -1835,7 +1835,7 @@
 												<UML:TaggedValue tag="stereotype" value="reference"/>
 												<UML:TaggedValue tag="collection" value="false"/>
 												<UML:TaggedValue tag="position" value="1"/>
-												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="lowerBound" value="0"/>
 												<UML:TaggedValue tag="upperBound" value="*"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
 												<UML:TaggedValue tag="ea_guid" value="{83660107-F509-45f2-B870-E93D1B80E8A4}"/>
@@ -1891,6 +1891,29 @@
 												<UML:TaggedValue tag="duplicates" value="0"/>
 												<UML:TaggedValue tag="ea_guid" value="{194D1926-BB4F-46fc-B2F2-B0C405EC40E7}"/>
 												<UML:TaggedValue tag="ea_localid" value="20"/>
+												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+											</UML:ModelElement.taggedValue>
+										</UML:Attribute>
+										<UML:Attribute name="conformant" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+											<UML:Attribute.initialValue>
+												<UML:Expression/>
+											</UML:Attribute.initialValue>
+											<UML:StructuralFeature.type>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
+											</UML:StructuralFeature.type>
+											<UML:ModelElement.taggedValue>
+												<UML:TaggedValue tag="description" value="Records whether or not this conformance satisfies the requirement.  A simulation should have at least one conformance mapping to every experimental requirement.  If a simulation satisfies the requirement - the usual case - then conformant shoudl have a value of &quot;true.&quot;  If conformant is true but there is no reference to a source for the conformance, then we can assume that the simulation conforms to the requiement _naturally_, that is without having to modify code or inputs. If a simulation does not conform to a requirement then conformant should be set to &quot;false.&quot;"/>
+												<UML:TaggedValue tag="type" value="Boolean"/>
+												<UML:TaggedValue tag="derived" value="0"/>
+												<UML:TaggedValue tag="containment" value="Not Specified"/>
+												<UML:TaggedValue tag="ordered" value="0"/>
+												<UML:TaggedValue tag="collection" value="false"/>
+												<UML:TaggedValue tag="position" value="4"/>
+												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="upperBound" value="1"/>
+												<UML:TaggedValue tag="duplicates" value="0"/>
+												<UML:TaggedValue tag="ea_guid" value="{3D5D8BA8-34E9-4832-8FA9-83B8C4E923CF}"/>
+												<UML:TaggedValue tag="ea_localid" value="3566"/>
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
@@ -2513,7 +2536,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid4"/>
+												<UML:Classifier xmi.idref="eaxmiid5"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation"/>
@@ -4855,7 +4878,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid5"/>
+												<UML:Classifier xmi.idref="eaxmiid6"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:MD_RestrictionCode_PropertyType"/>
@@ -5631,7 +5654,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid6"/>
+												<UML:Classifier xmi.idref="eaxmiid7"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="DataFormatType"/>
@@ -5884,7 +5907,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid7"/>
+												<UML:Classifier xmi.idref="eaxmiid8"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="reference"/>
@@ -6208,7 +6231,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid8"/>
+												<UML:Classifier xmi.idref="eaxmiid9"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_PropertyType"/>
@@ -6365,7 +6388,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid9"/>
+												<UML:Classifier xmi.idref="eaxmiid10"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="daily, hourly, ..."/>
@@ -6733,7 +6756,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid10"/>
+												<UML:Classifier xmi.idref="eaxmiid11"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="enum"/>
@@ -6763,7 +6786,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid10"/>
+												<UML:Classifier xmi.idref="eaxmiid11"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="enum"/>
@@ -6793,7 +6816,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid10"/>
+												<UML:Classifier xmi.idref="eaxmiid11"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="enum"/>
@@ -6823,7 +6846,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid10"/>
+												<UML:Classifier xmi.idref="eaxmiid11"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="enum"/>
@@ -7079,7 +7102,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid11"/>
+												<UML:Classifier xmi.idref="eaxmiid12"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -7110,7 +7133,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom grid geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
@@ -7241,7 +7264,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid11"/>
+												<UML:Classifier xmi.idref="eaxmiid12"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -7272,7 +7295,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the short name associated with a grid mosaic. The short name will typically be a convenient abbreviation used to refer to a grid mosaic, e.g. 'UM ATM N96'."/>
@@ -7298,7 +7321,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the long name associated with a grid mosaic. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes."/>
@@ -7324,7 +7347,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="A free-text description of a grid mosaic."/>
@@ -7376,7 +7399,7 @@
 												<UML:Expression body="false"/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Indicates whether or not all the tiles contained within a grid mosaic are congruent, that is, of the same size and shape."/>
@@ -7402,7 +7425,7 @@
 												<UML:Expression body="false"/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Indicates whether or not a grid mosaic is a leaf mosaic, that is, it only contains child grid tiles not further mosaics."/>
@@ -7746,7 +7769,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -7777,7 +7800,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -8131,7 +8154,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -8162,7 +8185,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="This attribute is used to provide a free-text description of a locally-defined custom feature geometry. If serialised in XML format this attribute might contain either plain text, a nested hierarchy of XML elements, or possibly both."/>
@@ -8353,7 +8376,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -8403,7 +8426,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -8719,7 +8742,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid mosaic object."/>
@@ -8745,7 +8768,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid tile object"/>
@@ -8771,7 +8794,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid cell object"/>
@@ -8823,7 +8846,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -9621,7 +9644,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="A free-text description of a reference / citation."/>
@@ -10037,7 +10060,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid mosaic object."/>
@@ -10063,7 +10086,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the ID of a remotely-defined grid tile object."/>
@@ -10089,7 +10112,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10175,7 +10198,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -10200,7 +10223,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -10225,7 +10248,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -10250,7 +10273,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="String"/>
@@ -10307,7 +10330,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid11"/>
+												<UML:Classifier xmi.idref="eaxmiid12"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10338,7 +10361,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10433,7 +10456,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10464,7 +10487,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10782,7 +10805,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid11"/>
+												<UML:Classifier xmi.idref="eaxmiid12"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -10813,7 +10836,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the short name associated with a grid tile. The short name will typically be a convenient abbreviation used to refer to a grid tile, e.g. 'NEMO T-Grid'."/>
@@ -10839,7 +10862,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Specifies the long name associated with a grid tile. The long name will typically be a human-readable string, with acronyms expanded, used for labelling purposes."/>
@@ -10865,7 +10888,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="A free-text description of a grid tile."/>
@@ -10943,7 +10966,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="If true, indicates that horizontal coordinates have fixed offsets in the X and Y directions. If the offset is the same in both directions then the grids are logically square, otherwise they are logically rectangular. The offsets can be specified by two scalar values (or three values in the case of 3D grids)."/>
@@ -10969,7 +10992,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="If true, indicates that the horizontal coordinates of the grid can be defined using 1D arrays (vectors). This means that grid node locations are defined by the cartesian product of the X/Lon and Y/Lat coordinate vectors. It also means that grid cells are logically rectangular (they may also be physically rectangular in the case of projected coordinates)."/>
@@ -10995,7 +11018,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="This property is used to indicate if the grid tile is conformal, i.e. angle-preserving. If so, angles measured on the grid are equal to the equivalent angles on the Earth."/>
@@ -11021,7 +11044,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Set to true if the vertical coordinate system is terrain-following even if, as is often the case, this only applies to the lower levels of the grid."/>
@@ -11140,7 +11163,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Provides an indication of the approximate spatial sampling size of the grid tile, i.e. the size of the underlying grid cells. (Note: the maximum spatial resolution of the grid is twice the sampling size (e.g. 2 km for a 1 km x 1 km grid pitch)."/>
@@ -11166,7 +11189,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="Provides an indication of the approximate resolution of the grid tile in the vertical dimension. (Added to align with corresponding ESG/Curator and DIF property)."/>
@@ -11400,7 +11423,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid12"/>
+												<UML:Classifier xmi.idref="eaxmiid13"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="This property may be used to specify the URI of a file containing grid coordinates that define the geometry of a a grid tile. It is envisaged that this will be the preferred mechanism for specifying the geometry of complex grids."/>
@@ -11479,7 +11502,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid11"/>
+												<UML:Classifier xmi.idref="eaxmiid12"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="attribute"/>
@@ -12732,7 +12755,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid8"/>
+												<UML:Classifier xmi.idref="eaxmiid9"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="reference to the evaluation procedure"/>
@@ -12878,7 +12901,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid8"/>
+												<UML:Classifier xmi.idref="eaxmiid9"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="citation of product specification or user requirement against which data is evaluated"/>
@@ -12930,7 +12953,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="indication of the conformance result where 0 = fail and 1 = pass"/>
@@ -15731,7 +15754,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="If unrestricted=&quot;true&quot; then the artifact can be downloaded with no restrictions (ie: there are no administrative steps for the user to deal with; code or data can be downloaded and used directly)."/>
@@ -18646,7 +18669,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="Boolean"/>
@@ -19724,7 +19747,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="An embedded component cannot exist on its own as an atomic piece of software; instead it is embedded within another (parent) component. When embedded equals &quot;true&quot;, the SoftwareComponent has a corresponding piece of software (otherwise it is acting as a &quot;virtual&quot; component which may be inexorably nested within a piece of software along with several other virtual components)."/>
@@ -19750,7 +19773,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid7"/>
+												<UML:Classifier xmi.idref="eaxmiid8"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="reference"/>
@@ -19855,7 +19878,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid8"/>
+												<UML:Classifier xmi.idref="eaxmiid9"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_PropertyType"/>
@@ -20538,7 +20561,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="Boolean"/>
@@ -20563,7 +20586,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="Boolean"/>
@@ -20958,7 +20981,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="A conservative component conserves fluxes across corresponding times and areas for different grids."/>
@@ -21183,7 +21206,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="If &quot;true&quot; then the coupling is fully-specified.  If &quot;false&quot; then not every Connection has been described within the coupling."/>
@@ -21646,7 +21669,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid8"/>
+												<UML:Classifier xmi.idref="eaxmiid9"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="type" value="gmd:CI_Citation_PropertyType"/>
@@ -21697,7 +21720,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid13"/>
+												<UML:Classifier xmi.idref="eaxmiid4"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.taggedValue>
 												<UML:TaggedValue tag="description" value="When set to false, means that this property is not used by the component. Covers the case when, for instance, a modeler chooses not to represent some property in their model.  (But still allows meaningful comparisons between components which _do_ model this property.)"/>
@@ -21723,7 +21746,7 @@
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
 											<UML:StructuralFeature.type>
-												<UML:Classifier xmi.idref="eaxmiid7"/>
+												<UML:Classifier xmi.idref="eaxmiid8"/>
 											</UML:StructuralFeature.type>
 											<UML:ModelElement.stereotype>
 												<UML:Stereotype name="reference"/>
@@ -24885,7 +24908,7 @@
 				<UML:DataType xmi.id="eaxmiid14" name="Integer" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid34" name="TimeLag" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid26" name="QualitySeverityType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid10" name="MD_Constraints" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid11" name="MD_Constraints" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid28" name="DataPurpose" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid16" name="double" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid32" name="ChangePropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -24894,7 +24917,7 @@
 				<UML:DataType xmi.id="eaxmiid21" name="DateTime" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid36" name="TimeTransformation" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid37" name="MachineType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid9" name="gmd:MD_MaintenanceFrequencyCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid10" name="gmd:MD_MaintenanceFrequencyCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid2" name="LogicalRelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid27" name="DocumentRelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid29" name="DocumentStatusType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -24903,22 +24926,22 @@
 				<UML:DataType xmi.id="eaxmiid18" name="gml:CRSPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid31" name="Date" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid24" name="QualityIssueType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid6" name="DataFormatType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid8" name="gmd:CI_Citation_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid7" name="DataFormatType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid9" name="gmd:CI_Citation_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid20" name="DQ_EvaluationMethodTypeCode" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid23" name="URI" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid5" name="gmd:MD_RestrictionCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid6" name="gmd:MD_RestrictionCode_PropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid30" name="RelationshipType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid12" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid13" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid22" name="MD_ScopeDescription" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid15" name="gml:PointPropertyType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid11" name="Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid7" name="gml:AbstractGeometryType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid12" name="Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid8" name="gml:AbstractGeometryType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid19" name="MD_Identifier" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid4" name="int" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid5" name="int" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid17" name="gml:MeasureType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid38" name="TimingUnits" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<UML:DataType xmi.id="eaxmiid13" name="Boolean" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid4" name="Boolean" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<UML:DataType xmi.id="eaxmiid33" name="SpatialRegriddingDimensionType" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
 			</UML:Namespace.ownedElement>
 		</UML:Model>
