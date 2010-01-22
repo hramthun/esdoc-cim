@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 20 January 2010, 16:19 -->       
+<!-- generated: 22 January 2010, 12:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1125,15 +1125,88 @@
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType_Enumeration">
    <xs:restriction base="xs:string">
       <xs:enumeration value="advection"/>
-      <xs:enumeration value="atmos"/>
-      <xs:enumeration value="atmos_chemistry"/>
-      <xs:enumeration value="land_ice"/>
-      <xs:enumeration value="land_surface"/>
+      <xs:enumeration value="aerosol3D-Sources"/>
+      <xs:enumeration value="aerosol2D-Sources"/>
+      <xs:enumeration value="aerolEmissionAndConc"/>
+      <xs:enumeration value="aerosolKeyProperties"/>
+      <xs:enumeration value="aerosolModel"/>
+      <xs:enumeration value="aerosols"/>
+      <xs:enumeration value="aerosolSpaceConfig"/>
+      <xs:enumeration value="aerosolTransport"/>
+      <xs:enumeration value="atmChem2D-Sources"/>
+      <xs:enumeration value="atmChem3D-Sources"/>
+      <xs:enumeration value="atmChemEmissionAndConc"/>
+      <xs:enumeration value="atmChemKeyProperties"/>
+      <xs:enumeration value="atmChemSpaceConfig"/>
+      <xs:enumeration value="atmChemTransport"/>
+      <xs:enumeration value="atmGasPhaseChemistry"/>
+      <xs:enumeration value="atmHeterogeneousChemistry"/>
+      <xs:enumeration value="atmosAdvection"/>
+      <xs:enumeration value="atmosCloudScheme"/>
+      <xs:enumeration value="atmosConvectTurbulCloud"/>
+      <xs:enumeration value="atmosDynamicalCore"/>
+      <xs:enumeration value="atmosHorizontalDomain"/>
+      <xs:enumeration value="atmosKeyProperties"/>
+      <xs:enumeration value="atmosOrographyAndWaves"/>
+      <xs:enumeration value="atmosphere"/>
+      <xs:enumeration value="atmosphericChemistry"/>
+      <xs:enumeration value="atmosRadiation"/>
+      <xs:enumeration value="atmosSpaceConfiguration"/>
+      <xs:enumeration value="cloudSimulator"/>
+      <xs:enumeration value="iceSheetDynamics"/>
+      <xs:enumeration value="landIce"/>
+      <xs:enumeration value="landIceGlaciers"/>
+      <xs:enumeration value="landIceKeyProperties"/>
+      <xs:enumeration value="landIceSheet"/>
+      <xs:enumeration value="landIceShelves"/>
+      <xs:enumeration value="landIceShelvesDynamics"/>
+      <xs:enumeration value="landSurface"/>
+      <xs:enumeration value="landSurfaceAlbedo"/>
+      <xs:enumeration value="landSurfaceCarbonCycle"/>
+      <xs:enumeration value="landSurfaceEnergyBalance"/>
+      <xs:enumeration value="landSurfaceKeyProperties"/>
+      <xs:enumeration value="landSurfaceLakes"/>
+      <xs:enumeration value="landSurfaceSnow"/>
+      <xs:enumeration value="landSurfaceSoil"/>
+      <xs:enumeration value="landSurfaceSpaceConfiguration"/>
+      <xs:enumeration value="landSurfaceVegetation"/>
+      <xs:enumeration value="landSurfSoilHeatTreatment"/>
+      <xs:enumeration value="landSurfSoilHydrology"/>
       <xs:enumeration value="ocean"/>
-      <xs:enumeration value="ocean_bgchem"/>
-      <xs:enumeration value="river_routing"/>
-      <xs:enumeration value="sea_ice"/>
-      <xs:enumeration value="aerosol"/>
+      <xs:enumeration value="oceanAdvection"/>
+      <xs:enumeration value="oceanBioBoundaryForcing"/>
+      <xs:enumeration value="oceanBioChemistry"/>
+      <xs:enumeration value="oceanBioGazExchange"/>
+      <xs:enumeration value="oceanBioGeoChemistry"/>
+      <xs:enumeration value="oceanBioKeyProperties"/>
+      <xs:enumeration value="oceanBioSpaceConfig"/>
+      <xs:enumeration value="oceanBioTimeStepFramework"/>
+      <xs:enumeration value="oceanBioTracers"/>
+      <xs:enumeration value="oceanBioTracersEcosystem"/>
+      <xs:enumeration value="oceanBoundaryForcing"/>
+      <xs:enumeration value="oceanBoundaryForcingTracers"/>
+      <xs:enumeration value="oceanHorizontalDomain"/>
+      <xs:enumeration value="oceanInteriorMixing"/>
+      <xs:enumeration value="oceanKeyProperties"/>
+      <xs:enumeration value="oceanLateralPhysics"/>
+      <xs:enumeration value="oceanLateralPhysMomentum"/>
+      <xs:enumeration value="oceanLateralPhysTracers"/>
+      <xs:enumeration value="oceanMixedLayer"/>
+      <xs:enumeration value="oceanNudging"/>
+      <xs:enumeration value="oceanSpaceConfiguration"/>
+      <xs:enumeration value="oceanUpAndLowBoundaries"/>
+      <xs:enumeration value="oceanVerticalPhysics"/>
+      <xs:enumeration value="photoChemistry"/>
+      <xs:enumeration value="riverRouting"/>
+      <xs:enumeration value="seaIce"/>
+      <xs:enumeration value="seaIceDynamics"/>
+      <xs:enumeration value="seaIceKeyProperties"/>
+      <xs:enumeration value="seaIceSpaceConfiguration"/>
+      <xs:enumeration value="seaIceThermodynamics"/>
+      <xs:enumeration value="stratosphericHeterChem"/>
+      <xs:enumeration value="topOfAtmosInsolation"/>
+      <xs:enumeration value="toposphericHeterChem"/>
+      <xs:enumeration value="vegetationCarbonCycle"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
