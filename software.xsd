@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 24 January 2010, 22:00 -->       
+<!-- generated: 25 January 2010, 10:39 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1176,7 +1176,7 @@
       <xs:enumeration value="oceanAdvection"/>
       <xs:enumeration value="oceanBioBoundaryForcing"/>
       <xs:enumeration value="oceanBioChemistry"/>
-      <xs:enumeration value="oceanBioGazExchange"/>
+      <xs:enumeration value="oceanBioGasExchange"/>
       <xs:enumeration value="oceanBioGeoChemistry"/>
       <xs:enumeration value="oceanBioKeyProperties"/>
       <xs:enumeration value="oceanBioSpaceConfig"/>
