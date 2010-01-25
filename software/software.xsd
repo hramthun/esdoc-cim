@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 25 January 2010, 10:39 -->       
+<!-- generated: 25 January 2010, 11:13 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -35,6 +35,15 @@
       <xs:enumeration value="serial"/>
       <xs:enumeration value="massivelyParallel"/>
       <xs:enumeration value="sharedMemory"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Linux"/>
+      <xs:enumeration value="AIX"/>
+      <xs:enumeration value="Darwin"/>
+      <xs:enumeration value="Unicos"/>
+      <xs:enumeration value="Irix64"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatialRegridding">
@@ -548,13 +557,13 @@
       <xs:element name="machineLibrary" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="machineOperatingSystem" use="required" type="OperatingSystemType"/>
    <xs:attribute name="machineType" use="optional" type="MachineType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorComponent">
