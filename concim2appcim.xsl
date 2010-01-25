@@ -171,7 +171,26 @@
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
+                            
+                            <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+                                <xs:annotation>
+                                    <xs:documentation>the version of the CIMRecordset</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
 
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>the version of the CIM being used</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
+                                        <xs:pattern value="\d+(\.\d+)*"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                
+                            </xs:element>
+                            
                             <!-- a RecordSet includes a reference to a Record -->
                             <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
                                 <!-- which is implemented as a choice between -->
@@ -235,6 +254,26 @@
                                         document</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
+                            
+                            <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+                                <xs:annotation>
+                                    <xs:documentation>the version of the CIMRecordset</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>the version of the CIM being used</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
+                                        <xs:pattern value="\d+(\.\d+)*"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                
+                            </xs:element>
+                            
                             <xs:choice minOccurs="1" maxOccurs="1">
                                 <xsl:for-each select="//UML:Stereotype[@name='document']">
                                     <xsl:variable name="documentName">
