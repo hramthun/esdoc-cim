@@ -171,26 +171,21 @@
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            
-                            <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+
+                            <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the version of the CIMRecordset</xs:documentation>
+                                    <xs:documentation>the versions (internal &amp; external) of the
+                                        CIMRecordset</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
 
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the version of the CIM being used</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
-                                        <xs:pattern value="\d+(\.\d+)*"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                                
+                                    <xs:documentation>the version of the CIM being
+                                        used</xs:documentation>
+                                </xs:annotation>                                
                             </xs:element>
-                            
+
                             <!-- a RecordSet includes a reference to a Record -->
                             <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
                                 <!-- which is implemented as a choice between -->
@@ -231,8 +226,7 @@
 
 
                                         <!-- ...and the actual element itself... -->
-                                        <xs:element ref="CIMRecord" minOccurs="1"
-                                            maxOccurs="1"/>
+                                        <xs:element ref="CIMRecord" minOccurs="1" maxOccurs="1"/>
                                     </xs:choice>
                                 </xs:complexType>
                             </xs:element>
@@ -254,26 +248,21 @@
                                         document</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            
-                            <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+
+                            <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the version of the CIMRecordset</xs:documentation>
+                                    <xs:documentation>the version(s) (internal &amp; external)  of the
+                                        CIMRecordset</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the version of the CIM being used</xs:documentation>
+                                    <xs:documentation>the version of the CIM being
+                                        used</xs:documentation>
                                 </xs:annotation>
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
-                                        <xs:pattern value="\d+(\.\d+)*"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                                
                             </xs:element>
-                            
+
                             <xs:choice minOccurs="1" maxOccurs="1">
                                 <xsl:for-each select="//UML:Stereotype[@name='document']">
                                     <xsl:variable name="documentName">
@@ -295,6 +284,8 @@
             <xsl:if test="$packageName='shared'">
                 <!-- call the guid template -->
                 <xsl:call-template name="guidTemplate"/>
+                <!-- and the version template -->
+                <xsl:call-template name="versionTemplate"/>
             </xsl:if>
 
             <!-- carry on with the parsing... -->
@@ -414,7 +405,9 @@
                     class</xs:documentation>
             </xs:annotation>
             <xs:restriction base="xs:string">
-                <xs:pattern value="{string('[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}')}"/>
+                <xs:pattern
+                    value="{string('[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}')}"
+                />
             </xs:restriction>
         </xs:simpleType>
     </xsl:template>
@@ -423,6 +416,20 @@
     <!-- supports cases where CIM can be extended by other users -->
     <xsl:template name="extensibleTemplate">
         <xs:complexType> </xs:complexType>
+    </xsl:template>
+
+    <!-- version template -->
+    <!-- a simpleType for versions of the form n.m... -->
+    <xsl:template name="versionTemplate">
+        <xs:simpleType name="version">
+            <xs:annotation>
+                <xs:documentation>restricts strings to one or more digits followed by any number of
+                    "dot plus more numers" sequences</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d+(\.\d+)*"/>
+            </xs:restriction>
+        </xs:simpleType>
     </xsl:template>
 
     <!-- unused classes -->
@@ -489,24 +496,18 @@
             <xs:sequence>
                 <xs:element name="vocabularyServer">
                     <xs:complexType>
-                        
+
                         <xs:sequence>
                             <xs:element name="vocabularyName" type="xs:string"/>
-                            <xs:element name="vocabularyVersion" minOccurs="0">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
-                                        <xs:pattern value="\d+(\.\d+)*"/>
-                                    </xs:restriction>
-                                </xs:simpleType>                                
-                            </xs:element>
+                            <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>                            
                             <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
                                 <xs:annotation>
-                                    <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                                    <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                         </xs:sequence>
-                        
+
                         <xs:attribute name="href" type="xs:anyURI"/>
                     </xs:complexType>
                 </xs:element>

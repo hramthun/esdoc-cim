@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 26 January 2010, 7:35 -->       
+<!-- generated: 26 January 2010, 8:30 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -33,20 +33,17 @@
                                     </xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+         <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
             <xs:annotation>
-               <xs:documentation>the version of the CIMRecordset</xs:documentation>
+               <xs:documentation>the versions (internal &amp; external) of the
+                                        CIMRecordset</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
             <xs:annotation>
-               <xs:documentation>the version of the CIM being used</xs:documentation>
+               <xs:documentation>the version of the CIM being
+                                        used</xs:documentation>
             </xs:annotation>
-            <xs:simpleType>
-               <xs:restriction base="xs:string">
-                  <xs:pattern value="\d+(\.\d+)*"/>
-               </xs:restriction>
-            </xs:simpleType>
          </xs:element>
          <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
             <xs:complexType>
@@ -64,7 +61,7 @@
                                  <xs:documentation>The name of the element being referenced.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
-                           <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                           <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                               <xs:annotation>
                                  <xs:documentation>The version of the element being referenced.</xs:documentation>
                               </xs:annotation>
@@ -95,20 +92,17 @@
                                         document</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="1" type="xs:integer">
+         <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
             <xs:annotation>
-               <xs:documentation>the version of the CIMRecordset</xs:documentation>
+               <xs:documentation>the version(s) (internal &amp; external)  of the
+                                        CIMRecordset</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1">
+         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
             <xs:annotation>
-               <xs:documentation>the version of the CIM being used</xs:documentation>
+               <xs:documentation>the version of the CIM being
+                                        used</xs:documentation>
             </xs:annotation>
-            <xs:simpleType>
-               <xs:restriction base="xs:string">
-                  <xs:pattern value="\d+(\.\d+)*"/>
-               </xs:restriction>
-            </xs:simpleType>
          </xs:element>
          <xs:choice minOccurs="1" maxOccurs="1">
             <xs:element ref="simulationRun"/>

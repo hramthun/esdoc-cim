@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 26 January 2010, 7:35 -->       
+<!-- generated: 26 January 2010, 8:30 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -115,16 +115,11 @@
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0">
-                  <xs:simpleType>
-                     <xs:restriction base="xs:string">
-                        <xs:pattern value="\d+(\.\d+)*"/>
-                     </xs:restriction>
-                  </xs:simpleType>
-               </xs:element>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
                <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
                   <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -188,7 +183,7 @@
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -222,7 +217,7 @@
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -274,7 +269,7 @@
                               <xs:documentation>The name of the element being referenced.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="xs:integer">
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
                            <xs:annotation>
                               <xs:documentation>The version of the element being referenced.</xs:documentation>
                            </xs:annotation>
