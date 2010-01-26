@@ -487,10 +487,27 @@
             <xsl:apply-templates mode="UMLclass"/>
             <!-- HARD-CODED FOR NOW; WILL REPLACE W/ UML STUFF SOON -->
             <xs:sequence>
-                <xs:element name="server">
+                <xs:element name="vocabularyServer">
                     <xs:complexType>
+                        
+                        <xs:sequence>
+                            <xs:element name="vocabularyName" type="xs:string"/>
+                            <xs:element name="vocabularyVersion">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
+                                        <xs:pattern value="\d+(\.\d+)*"/>
+                                    </xs:restriction>
+                                </xs:simpleType>                                
+                            </xs:element>
+                            <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:sequence>
+                        
                         <xs:attribute name="href" type="xs:anyURI"/>
-                        <xs:attribute name="version" type="xs:integer"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
