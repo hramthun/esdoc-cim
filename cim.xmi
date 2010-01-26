@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-01-26 08:30:16">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-01-26 09:03:40">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -22522,7 +22522,7 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={1404079C-470F-47df-835E-D2BB38F064B4}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=CodeList;GUID={19D0F1FF-99D3-4f33-93AD-61C215C64BE5};@ENDSTEREO;$DES;$CLT={CF53BE87-9620-4286-BF0C-3331F781A566}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={AED4952A-AC56-4af9-9A5A-0ABA5EA220FB}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={CF53BE87-9620-4286-BF0C-3331F781A566}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="advection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Advection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22551,7 +22551,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3A77C3B6-43F7-44cf-B636-8BFCD89CD3C7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={4C587C51-DDE9-4b30-A7BE-79393CFDB263}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosol3D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Aerosol3D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22577,7 +22577,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A93A3BFC-B2C8-4bfc-91A3-ECC85D16C9E9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={23675D25-060A-4aa5-91EF-8B35E999569D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosol2D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Aerosol2D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22603,7 +22603,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={E97E4572-469F-4e3a-B00F-70892A6829FA}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={80A0CCFD-4B27-46e7-9E1A-7E2BE0A9DE67}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerolEmissionAndConc" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AerolEmissionAndConc" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22629,7 +22629,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={6BE89D95-01A3-4dd8-9753-FA2F536F254D}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={25360AAB-8A64-4b29-99E7-C32D67A97D12}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosolKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AerosolKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22655,7 +22655,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={39D7DDAD-7EB5-4303-896E-11ADC9EB3948}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={D3565313-C701-4188-88E7-346996547718}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosolModel" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AerosolModel" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22681,7 +22681,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={295535AA-F014-46b9-B71E-F323742ADF51}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={DED5BBD5-635A-442b-8E1D-98FD0DF88CCD}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosols" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Aerosols" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22707,7 +22707,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={345A0920-B9CF-41c3-BE61-15E6030BAA38}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={BD6D93B6-655F-470e-841F-A021500DC86E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosolSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AerosolSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22733,7 +22733,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0432CD21-EC6B-4b46-A5FF-A99EEABC854A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={6E440FF7-A8FF-46b2-B9DA-07CFAB9D3112}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="aerosolTransport" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AerosolTransport" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22759,7 +22759,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={D55E2D92-00F3-42a4-85E2-9D57E88CBA19}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={7E5625D7-B765-4c92-A865-36AA520FC333}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChem2D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChem2D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22785,7 +22785,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={891EAA40-67EB-4d49-84B7-0494E300995E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={73299FF5-3361-4e0c-B4FD-687378DB6F37}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChem3D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChem3D-Sources" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22811,7 +22811,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={69CD076A-855A-431d-9DA5-42878B17571A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={C427B779-034A-4999-B565-FBF3C2A39466}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChemEmissionAndConc" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChemEmissionAndConc" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22837,7 +22837,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A37BD375-B99D-455b-9BA9-90FB6408135E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={84ADA374-9C2D-4604-B482-914BD905B3F3}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChemKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChemKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22863,7 +22863,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A8ECB8D3-B187-47d9-BD94-0D3D88B3A3BB}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={6B4C2297-89F2-4653-9A89-74429D9E967D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChemSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChemSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22889,7 +22889,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F2C28A61-BF5A-4927-A1D6-D7AF4E33F149}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={F3F8DC36-72A2-439d-9D2D-C36831B1A284}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmChemTransport" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmChemTransport" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22915,7 +22915,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F24D7B53-8FD1-400a-8791-48944EDE66B4}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={3DB8811A-B23F-4d0d-AED3-E651B4B7073B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmGasPhaseChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmGasPhaseChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22941,7 +22941,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={46384266-9CC3-42bf-9D0F-55E022B25F67}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={BF7ADC56-53A5-4f1d-910B-3DA36B8164F5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmHeterogeneousChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmHeterogeneousChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22967,7 +22967,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={EF1B3686-CA97-4932-BA3A-F395D7001415}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={26E40E28-131C-47e9-8AE1-CCE9D8EEA15C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosAdvection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosAdvection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -22993,7 +22993,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={E09AADD7-585D-4336-A606-887F47AD31C6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={0AA4A664-6F88-429d-ACFA-32EA7262C14D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosCloudScheme" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosCloudScheme" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23019,7 +23019,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A123812B-9E20-472a-A0C5-E93879072CB9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={05816553-AD58-4263-93E8-046674AECA36}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosConvectTurbulCloud" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosConvectTurbulCloud" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23045,7 +23045,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={EA788B35-3A26-42e8-8F85-A68ACA43A69B}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={6B0855A0-89E7-46ff-B381-01DF737744CF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosDynamicalCore" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosDynamicalCore" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23071,7 +23071,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={E143CF77-04C0-47a5-A332-2112C3C5DB39}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={F3F68379-E2B1-45cb-A8C8-4DA42869E89F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosHorizontalDomain" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosHorizontalDomain" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23097,7 +23097,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={257EC8A3-5DA1-4b82-9FD4-890BD6278663}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={3EBAF434-5A1C-469a-9E6A-EF04350EF7F2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23123,7 +23123,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={03F11309-EB92-4c12-BD54-189146869D93}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={72E4AB0E-F63B-4e9f-ABF1-485FB0DD5F03}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosOrographyAndWaves" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosOrographyAndWaves" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23149,7 +23149,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={B425F1EC-711E-4777-8C59-30445702F104}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1063FB55-B878-4d74-983F-A0C5C7681C9A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosphere" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Atmosphere" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23178,7 +23178,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8D0642FA-91E8-46ac-94C4-22910806D960}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={67640FBD-E9A6-42ab-B684-6D6E073FA335};@ENDSTEREO;$DES;$CLT={36F96F50-6A2E-43c9-9114-6B03A212CE31}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosphericChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosphericChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23207,7 +23207,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0A27D227-9D89-49e7-BF79-9F0EEB503279}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={A53B8FB8-9AF3-4206-AE0A-AA6E50375268}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosRadiation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosRadiation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23233,7 +23233,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={9097DA79-4377-4788-8C4F-80F4A457412A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={3EAA6445-3C12-4e4e-A8FC-47CF002DF487}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="atmosSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="AtmosSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23259,7 +23259,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={414B1CA5-2BB9-4afc-954B-7AA744DD20A9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={EF58EFC4-A141-4e0d-A6EA-4D3F29724C3B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="cloudSimulator" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="CloudSimulator" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23285,7 +23285,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={001A1CAD-F1FD-44dc-A4CA-B12D6A48D5D7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={5E2382A7-99B2-44ff-90CE-40DEF25C48C2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="iceSheetDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="IceSheetDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23311,7 +23311,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={7B4502E6-CF8F-4d95-81F2-2414DB55B619}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1C00548E-A6A7-46ea-87C7-C34BA027BE98}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIce" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIce" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23340,7 +23340,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A8C64FD8-7DEE-4066-842B-CC4C7194DC5F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={8734D8F9-D676-4813-BC01-406CA0F34ED1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIceGlaciers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIceGlaciers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23369,7 +23369,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={ADD23012-A132-466b-8BAC-9AE3D36DDBB6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={33BA208F-C210-4f5d-BEB6-B5340B5BF63A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23398,7 +23398,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C3D53750-567A-4b41-9D10-9B16CE7137C5}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={67640FBD-E9A6-42ab-B684-6D6E073FA335};@ENDSTEREO;$DES;$CLT={857C0334-597A-433a-A3B7-70A9CB95450F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIceSheet" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIceSheet" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23427,7 +23427,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FAF0C670-7B58-4a16-B0C8-1A376AC8823D}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={EA7F3AC0-3B1D-4fed-9C8F-92EFCD01EFEE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIceShelves" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIceShelves" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23456,7 +23456,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FA3AE9AD-E789-409a-8689-2D382DFC64D9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={435A5A5D-8DF7-4b5b-83D5-16537DB48A24}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landIceShelvesDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandIceShelvesDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23485,7 +23485,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0D196CD0-A734-4ecf-93C8-40111EC58494}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=enum;GUID={03CDA7C3-32BF-4d93-8CAF-409847F6FCFF};@ENDSTEREO;$DES;$CLT={E8AF1F4F-5098-4a0c-AB38-C32334F0EDF0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurface" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurface" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23511,7 +23511,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={9A6CCDAB-3B5C-46d3-980E-CB93995A9401}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={A1CC9ADD-5199-4b47-8F5F-986819CFDED2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceAlbedo" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceAlbedo" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23537,7 +23537,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={2B25D75E-B0DF-4e74-A38D-0B2E5616F4C3}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={FAEB16FF-5ED5-41d3-82D2-5753CE8F6CD8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceCarbonCycle" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceCarbonCycle" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23563,7 +23563,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FF8B7EB7-A189-4e76-B8CC-501D3DFF40ED}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={B432BE15-6EDF-41bf-A297-180874E57B73}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceEnergyBalance" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceEnergyBalance" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23589,7 +23589,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={BE72D4AD-94F5-43ba-8554-33804909DEB8}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={96C83195-C5C5-4922-B55B-43A1DDF4B5B5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23615,7 +23615,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={5119C198-6E16-4697-ADE0-82C79948C3F9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={A218AC73-D4F0-434f-92E1-0B6DF51C9D31}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceLakes" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceLakes" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23641,7 +23641,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={044AF126-1B24-4ff2-AB76-F83B55873EF8}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={D46BFE5E-B79B-4a8d-9D34-F436E15A6881}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceSnow" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceSnow" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23667,7 +23667,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A20D0D5D-806D-4a50-B574-2DD1D166B588}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={E8136126-1EFF-45fe-9BBD-069EBD22F8C6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceSoil" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceSoil" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23693,7 +23693,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0A3C6ECC-8AF5-4f19-80D8-D845016A03A1}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={CEA58772-13E5-4d46-B93F-9F1CB1A7367F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23719,7 +23719,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={47F62AE2-D252-486c-8377-06242B1BCD48}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={E1B79812-7BE2-48e2-AB9A-1FDE9E0E5C0A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfaceVegetation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfaceVegetation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23745,7 +23745,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8D8E513E-3E56-456b-B1C8-1503F49F6899}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={65616434-8CA0-4d5c-B313-E9489A0EDA2A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfSoilHeatTreatment" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfSoilHeatTreatment" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23771,7 +23771,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F89A75B7-BE3B-44bd-8898-AC6CE977344C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={C87805AE-021F-4c2c-8F84-2AD34CF76C0A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="landSurfSoilHydrology" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="LandSurfSoilHydrology" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23797,7 +23797,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A2E02873-19E2-48f2-81B3-103982C334B2}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={08E9BDEA-671A-422a-B131-FCFB8ECF8639}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="ocean" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Ocean" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23823,7 +23823,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={1B26F614-A35B-433b-B05A-D9D9B3918C2E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={CC2ECD96-02C4-4c27-AEE5-CD2120A9C3CC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanAdvection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanAdvection" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23849,7 +23849,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C284E0DB-AAB5-4e38-AA63-059E75732183}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={FC02CE0D-5DAB-4758-978D-DEFF24938746}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioBoundaryForcing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioBoundaryForcing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23875,7 +23875,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={8E4BAA5E-213E-4cf6-8E56-63E9C23B7383}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={93B5DE85-068C-4595-93E7-FEB5E964C644}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23901,7 +23901,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0C59D06E-4C07-44e7-B5CE-A9116AF79842}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1A3A668D-AA5F-40a2-935F-58B979A61AFE}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioGasExchange" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioGasExchange" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23927,7 +23927,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CFE8F268-9DB6-4bd2-909A-BE85DAC508A5}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={65B2FE07-F059-4ffa-88C7-634829B01EBD}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioGeoChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioGeoChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23953,7 +23953,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={4D66C459-1E4D-437a-8BB9-70FE85D3407F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={E4F6B8DB-D2C1-4d6a-9479-18FE14ECCC58}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23979,7 +23979,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={589FC030-2E90-4e0f-BF55-B869E66F4652}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={B2E3B567-8270-4d5e-99A4-A05492161DDF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioSpaceConfig" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24005,7 +24005,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FD066305-6180-402f-A63D-AC53DD295154}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={81A56741-1836-4890-BDD6-A66CBC1035E3}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioTimeStepFramework" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioTimeStepFramework" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24031,7 +24031,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3612C39E-BACE-40a3-8196-A0CDC31ED001}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={FE69052B-2C45-4392-99F0-72230DF15DD6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24057,7 +24057,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={7B0130D9-C017-4464-B0CF-7CB94F4ED977}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={509E18B1-18C8-4625-BDF6-492D6F5E0E51}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBioTracersEcosystem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBioTracersEcosystem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24083,7 +24083,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={691BABEF-DDC0-445d-8C02-7C11C82F6817}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1D6444C6-5AD3-4eed-AB65-A40CBA0FD72D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBoundaryForcing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBoundaryForcing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24109,7 +24109,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={681B3318-13FA-47d7-8E9B-B73A0AFBF083}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1996EC6A-7C04-4a99-9B8E-4548E7517F1D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanBoundaryForcingTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanBoundaryForcingTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24135,7 +24135,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={D313C28D-E74D-48c9-91FC-813C46287854}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={1D79D9E3-8A6B-4126-A6D6-B19C2455CE09}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanHorizontalDomain" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanHorizontalDomain" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24161,7 +24161,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DA1EB657-B0B1-4eb3-B811-9CDCC011434A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={E94684C0-6DD8-4dd1-B99C-BF0A5FC3DE66}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanInteriorMixing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanInteriorMixing" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24187,7 +24187,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={0EB51643-A401-40b5-97C7-008E75544851}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={654E77D3-3D84-4fbf-844E-F9ED277E2121}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24213,7 +24213,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={1E42C435-B0C6-42d8-811D-AD1873490DA7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={72796EB1-AA2F-428b-AECC-CBB84A023CFB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanLateralPhysics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanLateralPhysics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24239,7 +24239,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={90AF8E90-82A5-4ba7-868D-05634989BF3A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={30B77A30-5FF8-4ad1-B65E-6C649C3FFD42}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanLateralPhysMomentum" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanLateralPhysMomentum" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24265,7 +24265,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={3F34DEEF-14E0-4d19-82D0-9B8AA8EEFD4F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={5D75591B-2112-4d79-89F2-9C6CDC2BC61C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanLateralPhysTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanLateralPhysTracers" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24291,7 +24291,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={82AC3BB4-A1B7-47a1-A051-0D87D4216F6A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={4AB2E87E-63C8-47fb-978F-8886C1DFEA9F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanMixedLayer" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanMixedLayer" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24317,7 +24317,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={2E2B3B3A-C002-458b-95BE-29B4A20FF9E6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={0BD11919-DBBD-4075-BBBC-F830B4EBB005}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanNudging" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanNudging" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24343,7 +24343,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DF136CBA-CBAF-45f5-BF86-BDC27AC49B0F}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={77FF4F29-72D9-49aa-95A4-A8A2CB5F49D8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24369,7 +24369,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={45440B1D-E98E-45a7-B9DC-2D194B5E29BC}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={DD9D742B-099D-4255-945F-FB3DD14B2F43}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanUpAndLowBoundaries" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanUpAndLowBoundaries" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24395,7 +24395,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={5AA5B4DF-52DB-46d5-BCD6-2A3C76968726}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={92106F30-5178-4d72-BEE5-CB4DF2A3C8E9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="oceanVerticalPhysics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="OceanVerticalPhysics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24421,7 +24421,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={92EB9FDC-4319-4b82-A738-1938DF669D47}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={A62A3206-B728-4db2-A9A9-D1582D54AD77}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="photoChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="PhotoChemistry" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24447,7 +24447,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={FAE115B5-38A4-45dd-B443-5715BC6AD201}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={8A067678-79E7-4c3f-8995-4403092FDC4A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="riverRouting" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="RiverRouting" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24473,7 +24473,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={E15295A5-7E4C-4a55-9B67-15247A9462E6}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={85246330-CC42-4f54-AC34-96FAC575ABD8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="seaIce" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="SeaIce" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24499,7 +24499,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C13D167B-FC35-47ef-BFE4-B9532BE2054C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={28674B39-6989-47e9-AD29-DC0593E1599D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="seaIceDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="SeaIceDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24525,7 +24525,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DD41FD7A-B4F4-48a6-A407-9C25852F5D32}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={9C41F487-8931-4788-8D08-2ED4D8A99A56}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="seaIceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="SeaIceKeyProperties" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24551,7 +24551,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={832C6324-7E34-4213-8AF2-A82F9891784C}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={06043B59-4965-482c-B395-44F6016183B3}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="seaIceSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="SeaIceSpaceConfiguration" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24577,7 +24577,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={CB0DEFB9-F23C-4eff-B845-5430E88C2089}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={70EADD9A-41F0-4967-B50E-39A47BFC260A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="seaIceThermodynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="SeaIceThermodynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24603,7 +24603,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={262A4C59-73EA-4ed0-96FC-623DBE44EA30}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={41A636F5-379D-488a-8549-1055F323B98F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="stratosphericHeterChem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="StratosphericHeterChem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24629,7 +24629,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={F3809E95-3F75-46f6-BDF7-16484F283E03}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={7F1E6E73-6FBE-43ea-8DC8-0EEC838927D7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="topOfAtmosInsolation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="TopOfAtmosInsolation" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24655,7 +24655,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A64A4F78-C87D-4340-9902-8C964A19E457}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={C504D65C-8D64-449d-9A54-67AFB2F56286}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="toposphericHeterChem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="ToposphericHeterChem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -24681,7 +24681,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={062C9157-74D6-4df6-A71A-44A9CA0A4B07}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={D1080603-00B3-4244-836E-3C5AED764E12}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="vegetationCarbonCycle" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="VegetationCarbonCycle" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
