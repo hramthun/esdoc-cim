@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 25 January 2010, 12:20 -->       
+<!-- generated: 25 January 2010, 21:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -341,10 +341,24 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemporalAveType" mixed="true">
    <xs:sequence>
-      <xs:element name="server">
+      <xs:element name="vocabularyServer">
          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+(\.\d+)*"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
             <xs:attribute name="href" type="xs:anyURI"/>
-            <xs:attribute name="version" type="xs:integer"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1393,10 +1407,24 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleType" mixed="true">
    <xs:sequence>
-      <xs:element name="server">
+      <xs:element name="vocabularyServer">
          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+(\.\d+)*"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
             <xs:attribute name="href" type="xs:anyURI"/>
-            <xs:attribute name="version" type="xs:integer"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1415,10 +1443,24 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FrequencyType" mixed="true">
    <xs:sequence>
-      <xs:element name="server">
+      <xs:element name="vocabularyServer">
          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+(\.\d+)*"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
             <xs:attribute name="href" type="xs:anyURI"/>
-            <xs:attribute name="version" type="xs:integer"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>
@@ -1636,10 +1678,24 @@ It is a place for the scientific description of the reason why an experiment was
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResolutionType" mixed="true">
    <xs:sequence>
-      <xs:element name="server">
+      <xs:element name="vocabularyServer">
          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+(\.\d+)*"/>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
             <xs:attribute name="href" type="xs:anyURI"/>
-            <xs:attribute name="version" type="xs:integer"/>
          </xs:complexType>
       </xs:element>
    </xs:sequence>

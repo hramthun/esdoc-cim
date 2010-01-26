@@ -492,7 +492,7 @@
                         
                         <xs:sequence>
                             <xs:element name="vocabularyName" type="xs:string"/>
-                            <xs:element name="vocabularyVersion">
+                            <xs:element name="vocabularyVersion" minOccurs="0">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <!-- matches one or more digits followed by any number of "dot plust numbers" sequences -->
