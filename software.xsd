@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 26 January 2010, 9:03 -->       
+<!-- generated: 27 January 2010, 20:15 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1277,7 +1277,7 @@
       <xs:documentation>Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="deploymentDate" minOccurs="1" maxOccurs="1" type="xs:dateTime"/>
+      <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
       <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
