@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 27 January 2010, 20:15 -->       
+<!-- generated: 28 January 2010, 17:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -30,13 +30,6 @@
       <xs:enumeration value="3D"/>
    </xs:restriction>
 </xs:simpleType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineType">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="serial"/>
-      <xs:enumeration value="massivelyParallel"/>
-      <xs:enumeration value="sharedMemory"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatialRegridding">
    <xs:annotation>
       <xs:documentation>Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) </xs:documentation>
@@ -48,73 +41,6 @@
                  type="SpatialRegriddingDimensionType"/>
    <xs:attribute name="conservativeSpatialRegridding" use="optional" type="xs:boolean"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
-   <xs:annotation>
-      <xs:documentation>Descibes a compiler used to compile the software.</xs:documentation>
-   </xs:annotation>
-   <xs:sequence>
-      <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The name of the compiler.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="compilerVersion" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The version of the compiler</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="compilerLanguage" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The programming language being compiled.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="compilerOptions" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Any flags used with the compiler.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="compilerEnvironmentVariables" minOccurs="0" maxOccurs="1"
-                  type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Any environment variables used by the compiler.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="compilerLibrary" minOccurs="0" maxOccurs="1" type="xs:string"/>
-   </xs:sequence>
-</xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
-                mixed="true">
-   <xs:sequence>
-      <xs:element name="vocabularyServer">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
-         </xs:complexType>
-      </xs:element>
-   </xs:sequence>
-   <xs:attribute name="value" type="OperatingSystemType_Enumeration" use="required"/>
-</xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
-               name="OperatingSystemType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="Linux"/>
-      <xs:enumeration value="AIX"/>
-      <xs:enumeration value="Darwin"/>
-      <xs:enumeration value="Unicos"/>
-      <xs:enumeration value="Irix64"/>
-      <xs:enumeration value="SunOS"/>
-      <xs:enumeration value="other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
    <xs:annotation>
       <xs:documentation>The set of Couplings used by a Component.  Couplings can only ocurr between child components.  That is, a composition must belong to an ancestor component of the components whose fields are being connected.</xs:documentation>
@@ -566,30 +492,6 @@
    <xs:sequence/>
    <xs:attribute name="timeAverage" use="optional" type="xs:boolean"/>
    <xs:attribute name="timeAccumulation" use="optional" type="xs:boolean"/>
-</xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
-   <xs:annotation>
-      <xs:documentation>Describes the machine that software was run on.</xs:documentation>
-   </xs:annotation>
-   <xs:sequence>
-      <xs:element name="machineName" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>the name of the machine onto which this component is deployed.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineLibrary" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
-                  type="OperatingSystemType"/>
-      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
-   </xs:sequence>
-   <xs:attribute name="machineType" use="optional" type="MachineType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorComponent">
    <xs:annotation>
@@ -1279,8 +1181,7 @@
    <xs:sequence>
       <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
-      <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+      <xs:element name="platform" minOccurs="1" maxOccurs="1" type="Platform"/>
    </xs:sequence>
 </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="deployment">

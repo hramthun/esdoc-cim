@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 27 January 2010, 20:15 -->       
+<!-- generated: 28 January 2010, 17:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -96,6 +96,73 @@
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
+   <xs:sequence>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
+      <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+   </xs:sequence>
+</xs:complexType>
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
+   <xs:complexType>
+      <xs:complexContent>
+         <xs:extension base="Platform">
+            <xs:sequence>
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+                  <xs:annotation>
+                     <xs:documentation>a unique indentifier for this document</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
+                           type="gmd:CI_ResponsibleParty_PropertyType">
+                  <xs:annotation>
+                     <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentCreationDate" minOccurs="1" maxOccurs="1" type="xs:dateTime">
+                  <xs:annotation>
+                     <xs:documentation>The date the <i>document </i>was created.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="documentGenealogy" minOccurs="0" maxOccurs="1" type="Genealogy">
+                  <xs:annotation>
+                     <xs:documentation>Specifies the relationship of this document with another document. Various relationship types (depending on the type of document; ie: simulation, component, etc.) are supported.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="quality" minOccurs="0" maxOccurs="unbounded" type="DQ_Quality">
+                  <xs:annotation>
+                     <xs:documentation>a (set of) quality record(s) for this document.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
+               <xs:annotation>
+                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:element>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
+   <xs:sequence>
+      <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="compilerVersion" minOccurs="1" maxOccurs="1" type="version"/>
+      <xs:element name="compilerLanguage" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="compilerOptions" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The set of options used during compilation (recorded here as a single string rather than separate elements)</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="compilerEnvironmentVariables" minOccurs="0" maxOccurs="1"
+                  type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The state of envrionment variables used during compilation (recorded here as a single string rather than separate elements)</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="License">
    <xs:annotation>
       <xs:documentation>A description of a license restricting access to a unit of data or software.</xs:documentation>
@@ -170,6 +237,7 @@
                         <xs:element ref="ensemble"/>
                         <xs:element ref="dataObject"/>
                         <xs:element ref="gridSpec"/>
+                        <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
                         <xs:element ref="deployment"/>
@@ -276,6 +344,13 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="similarTo"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="massivelyParallel"/>
+      <xs:enumeration value="serial"/>
+      <xs:enumeration value="sharedMemory"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
    <xs:annotation>
       <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.</xs:documentation>
@@ -329,11 +404,67 @@ Currently unused in the CIM.</xs:documentation>
                             </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
+   <xs:sequence>
+      <xs:element name="machineName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLibrary" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A library residing on this machine.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
+                  type="OperatingSystemType"/>
+      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="macineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>
+   <xs:attribute name="machineType" use="optional" type="MachineType"/>
+</xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
    <xs:restriction base="xs:string">
       <xs:enumeration value="boundaryCondition"/>
       <xs:enumeration value="initialForcing"/>
       <xs:enumeration value="forcing"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
+                mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of scientific units.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="OperatingSystemType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               name="OperatingSystemType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Linux"/>
+      <xs:enumeration value="AIX"/>
+      <xs:enumeration value="Darwin"/>
+      <xs:enumeration value="Unicos"/>
+      <xs:enumeration value="Irix64"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Daily-360">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 27 January 2010, 20:15 -->       
+<!-- generated: 28 January 2010, 17:08 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -112,6 +112,7 @@
             <xs:element ref="ensemble"/>
             <xs:element ref="dataObject"/>
             <xs:element ref="gridSpec"/>
+            <xs:element ref="platform"/>
             <xs:element ref="processorComponent"/>
             <xs:element ref="modelComponent"/>
             <xs:element ref="deployment"/>
