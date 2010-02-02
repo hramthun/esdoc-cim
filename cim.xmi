@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-02-02 08:07:10">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-02-02 12:47:55">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -23269,7 +23269,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={414B1CA5-2BB9-4afc-954B-7AA744DD20A9}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={EF58EFC4-A141-4e0d-A6EA-4D3F29724C3B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="CloudSimulator" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="Climate" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23289,13 +23289,13 @@
 												<UML:TaggedValue tag="lowerBound" value="1"/>
 												<UML:TaggedValue tag="upperBound" value="1"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{5E2382A7-99B2-44ff-90CE-40DEF25C48C2}"/>
-												<UML:TaggedValue tag="ea_localid" value="3517"/>
+												<UML:TaggedValue tag="ea_guid" value="{04C632C5-6E15-4e68-A4C0-C5699AAB9B0D}"/>
+												<UML:TaggedValue tag="ea_localid" value="3623"/>
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={001A1CAD-F1FD-44dc-A4CA-B12D6A48D5D7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={5E2382A7-99B2-44ff-90CE-40DEF25C48C2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={46E2B462-ED9E-4e03-8E84-BD79F858610A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={04C632C5-6E15-4e68-A4C0-C5699AAB9B0D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="EarthSystem" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="CloudSimulator" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -23315,10 +23315,10 @@
 												<UML:TaggedValue tag="lowerBound" value="1"/>
 												<UML:TaggedValue tag="upperBound" value="1"/>
 												<UML:TaggedValue tag="duplicates" value="0"/>
-												<UML:TaggedValue tag="ea_guid" value="{04C632C5-6E15-4e68-A4C0-C5699AAB9B0D}"/>
-												<UML:TaggedValue tag="ea_localid" value="3623"/>
+												<UML:TaggedValue tag="ea_guid" value="{5E2382A7-99B2-44ff-90CE-40DEF25C48C2}"/>
+												<UML:TaggedValue tag="ea_localid" value="3517"/>
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
-												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={46E2B462-ED9E-4e03-8E84-BD79F858610A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={04C632C5-6E15-4e68-A4C0-C5699AAB9B0D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={001A1CAD-F1FD-44dc-A4CA-B12D6A48D5D7}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={ACAF4126-EE43-4cba-8BA8-86249B1ADDF0};@ENDSTEREO;$DES;$CLT={5E2382A7-99B2-44ff-90CE-40DEF25C48C2}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
 										<UML:Attribute name="IceSheetDynamics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">

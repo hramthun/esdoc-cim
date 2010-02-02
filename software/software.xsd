@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 2 February 2010, 8:07 -->       
+<!-- generated: 2 February 2010, 12:48 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1106,8 +1106,8 @@
       <xs:enumeration value="AtmosphericChemistry"/>
       <xs:enumeration value="AtmosRadiation"/>
       <xs:enumeration value="AtmosSpaceConfiguration"/>
+      <xs:enumeration value="Climate"/>
       <xs:enumeration value="CloudSimulator"/>
-      <xs:enumeration value="EarthSystem"/>
       <xs:enumeration value="IceSheetDynamics"/>
       <xs:enumeration value="LandIce"/>
       <xs:enumeration value="LandIceGlaciers"/>
