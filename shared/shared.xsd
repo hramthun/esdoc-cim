@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 January 2010, 17:08 -->       
+<!-- generated: 2 February 2010, 6:47 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -419,7 +419,7 @@ Currently unused in the CIM.</xs:documentation>
                   type="OperatingSystemType"/>
       <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="macineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>

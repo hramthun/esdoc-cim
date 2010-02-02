@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-01-28 17:07:58">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2010-02-02 06:46:56">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -17433,7 +17433,7 @@
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="macineMaximumProcessors" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="machineMaximumProcessors" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
