@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 2 February 2010, 12:48 -->       
+<!-- generated: 4 February 2010, 7:48 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -96,6 +96,41 @@
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of scientific units.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="CompilerType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Absoft"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="Lahey"/>
+      <xs:enumeration value="NAG"/>
+      <xs:enumeration value="Pathscale"/>
+      <xs:enumeration value="PortlandPGI"/>
+      <xs:enumeration value="Silverfrost"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
    <xs:sequence>
       <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
@@ -417,7 +452,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
                   type="OperatingSystemType"/>
-      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
@@ -464,6 +499,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="Darwin"/>
       <xs:enumeration value="Unicos"/>
       <xs:enumeration value="Irix64"/>
+      <xs:enumeration value="SunOS"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
@@ -513,6 +549,62 @@ Currently unused in the CIM.</xs:documentation>
    </xs:sequence>
 </xs:complexType>
 <!--ChangeProperty is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of scientific units.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="MachineVendorType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTION"/>
+      <xs:enumeration value="ApproInternational"/>
+      <xs:enumeration value="BullSA"/>
+      <xs:enumeration value="ClusterVision/Dell"/>
+      <xs:enumeration value="CrayInc"/>
+      <xs:enumeration value="DALCO-AGSwitzerland"/>
+      <xs:enumeration value="Dawning"/>
+      <xs:enumeration value="Dell"/>
+      <xs:enumeration value="DELL/ACS"/>
+      <xs:enumeration value="Dell/Sun/IBM"/>
+      <xs:enumeration value="Fujitsu"/>
+      <xs:enumeration value="HewlettPackard"/>
+      <xs:enumeration value="Hitachi"/>
+      <xs:enumeration value="IBM"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="KoiComputers"/>
+      <xs:enumeration value="Lenovo"/>
+      <xs:enumeration value="LinuxNetworx"/>
+      <xs:enumeration value="NEC"/>
+      <xs:enumeration value="NEC/Sun"/>
+      <xs:enumeration value="NUDT"/>
+      <xs:enumeration value="PyramidComputer"/>
+      <xs:enumeration value="Raytheon-AspenSystems/Appro"/>
+      <xs:enumeration value="SelfMade"/>
+      <xs:enumeration value="SGI"/>
+      <xs:enumeration value="SKIF/T-Platforms"/>
+      <xs:enumeration value="SunMicrosystems"/>
+      <xs:enumeration value="T-Platforms"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnitType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
