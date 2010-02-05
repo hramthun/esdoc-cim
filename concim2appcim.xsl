@@ -174,16 +174,17 @@
 
                             <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the versions (internal &amp; external) of the
-                                        CIMRecordset</xs:documentation>
+                                    <xs:documentation>the versions (internal &amp; external) of
+                                        the CIMRecordset</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
 
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
+                                type="version">
                                 <xs:annotation>
                                     <xs:documentation>the version of the CIM being
                                         used</xs:documentation>
-                                </xs:annotation>                                
+                                </xs:annotation>
                             </xs:element>
 
                             <!-- a RecordSet includes a reference to a Record -->
@@ -251,12 +252,13 @@
 
                             <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
                                 <xs:annotation>
-                                    <xs:documentation>the version(s) (internal &amp; external)  of the
-                                        CIMRecordset</xs:documentation>
+                                    <xs:documentation>the version(s) (internal &amp; external)
+                                        of the CIMRecordset</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
 
-                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
+                            <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
+                                type="version">
                                 <xs:annotation>
                                     <xs:documentation>the version of the CIM being
                                         used</xs:documentation>
@@ -345,6 +347,18 @@
             </xsl:when>
 
             <!--
+            don't need to do anything _here_ for extensible classes
+            I'll do it when I'm dealing w/ complexTypes
+            <xsl:when test="$classStereotype='extensible'">
+                <xsl:if test="$debug">
+                    <xsl:message>
+                        <xsl:text>it's extensible</xsl:text>
+                    </xsl:message>
+                </xsl:if>
+            </xsl:when>
+            -->
+
+            <!--
             don't need to do anything special for _global_ <<abstract>> classes;
             there's nothing different about them - only when other classes point to them do I need to bother
             <xsl:when test="$classStereotype='abstract'">
@@ -412,12 +426,6 @@
         </xs:simpleType>
     </xsl:template>
 
-    <!-- extensible template -->
-    <!-- supports cases where CIM can be extended by other users -->
-    <xsl:template name="extensibleTemplate">
-        <xs:complexType> </xs:complexType>
-    </xsl:template>
-
     <!-- version template -->
     <!-- a simpleType for versions of the form n.m... -->
     <xsl:template name="versionTemplate">
@@ -440,6 +448,36 @@
             <xsl:text> is not used </xsl:text>
         </xsl:comment>
         <xsl:value-of select="$newline"/>
+    </xsl:template>
+
+    <!-- extensibility points -->
+    <xsl:template name="extensibleTemplate">
+        <xsl:param name="element"/>
+        <xsl:param name="attribute"/>
+
+        <xsl:choose>
+            <xsl:when test="$element">
+                <!-- add the extensible element part -->
+                <xs:element name="extension">
+                    <xs:annotation>
+                        <xs:documentation>this element contains any extensions to the CIM; a
+                            container element is required to prevent ambiguity among extensible
+                            content and optional content</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:any namespace="##any" processContents="lax" minOccurs="0"
+                                maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xsl:when>
+            <xsl:when test="$attribute">
+                <!-- add the extensible attribute part -->
+                <xs:anyAttribute namespace="##any" processContents="lax"/>
+            </xsl:when>
+        </xsl:choose>
+
     </xsl:template>
 
     <!-- enumerations -->
@@ -499,7 +537,7 @@
 
                         <xs:sequence>
                             <xs:element name="vocabularyName" type="xs:string"/>
-                            <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>                            
+                            <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
                             <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
                                 <xs:annotation>
                                     <xs:documentation>information about how to access the vocabulary
@@ -838,6 +876,28 @@
                                 <xsl:with-param name="attribute" select="."/>
                             </xsl:call-template>
                         </xsl:when>
+
+                        <!-- or it might be an extension point -->
+
+                        <xsl:when test="$stereotype='extensible'">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="{$type}">
+                                        <xs:sequence>
+                                            <xsl:call-template name="extensibleTemplate">
+                                                <xsl:with-param name="attribute" select="false()"/>
+                                                <xsl:with-param name="element" select="true()"/>
+                                            </xsl:call-template>
+                                        </xs:sequence>
+                                        <xsl:call-template name="extensibleTemplate">
+                                            <xsl:with-param name="attribute" select="true()"/>
+                                            <xsl:with-param name="element" select="false()"/>
+                                        </xsl:call-template>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xsl:when>
+
                         <!-- otherwise, use its specified type -->
                         <xsl:otherwise>
                             <xsl:call-template name="typeTemplate">
@@ -849,7 +909,6 @@
                     </xsl:choose>
 
                 </xsl:element>
-
             </xsl:otherwise>
         </xsl:choose>
 
@@ -1061,7 +1120,13 @@
                             <xsl:with-param name="attribute" select="false()"/>
                         </xsl:call-template>
                     </xsl:for-each>
-
+                    
+                    <xsl:if test="$stereotype='extensible'">
+                        <xsl:call-template name="extensibleTemplate">
+                            <xsl:with-param name="attribute" select="false()"/>
+                            <xsl:with-param name="element" select="true()"/>
+                        </xsl:call-template>
+                    </xsl:if>
                 </xs:sequence>
             </xsl:if>
 
@@ -1073,7 +1138,15 @@
                     <xsl:with-param name="element" select="false()"/>
                     <xsl:with-param name="attribute" select="true()"/>
                 </xsl:call-template>
+
             </xsl:for-each>
+            
+            <xsl:if test="$stereotype='extensible'">
+                <xsl:call-template name="extensibleTemplate">
+                    <xsl:with-param name="element" select="false()"/>
+                    <xsl:with-param name="attribute" select="true()"/>
+                </xsl:call-template>
+            </xsl:if>
 
             <!-- don't forget to close any tags from a generalisation -->
             <xsl:if test="$internalGeneralisation or $externalGeneralisation">
@@ -1251,15 +1324,40 @@
                                 <xsl:with-param name="association" select="."/>
                             </xsl:call-template>
                         </xsl:when>
+
                         <!-- otherwise it's just a normal element -->
                         <xsl:otherwise>
                             <xsl:element name="xs:element">
                                 <xsl:attribute name="name" select="$associationName"/>
                                 <xsl:attribute name="minOccurs" select="$associationMin"/>
                                 <xsl:attribute name="maxOccurs" select="$associationMax"/>
-                                <xsl:attribute name="type">
-                                    <xsl:value-of select="$endClass/@name"/>
-                                </xsl:attribute>
+                                <xsl:choose>
+                                    <xsl:when test="$endStereotype='extensible'">
+
+                                        <xs:complexType>
+                                            <xs:complexContent>
+                                                <xs:extension base="{$endClass/@name}">
+                                                    <xs:sequence>
+                                                        <xsl:call-template name="extensibleTemplate">
+                                                            <xsl:with-param name="attribute" select="false()"/>
+                                                            <xsl:with-param name="element" select="true()"/>
+                                                        </xsl:call-template>
+                                                    </xs:sequence>
+                                                    <xsl:call-template name="extensibleTemplate">
+                                                        <xsl:with-param name="attribute" select="true()"/>
+                                                        <xsl:with-param name="element" select="false()"/>
+                                                    </xsl:call-template>
+                                                </xs:extension>
+                                            </xs:complexContent>
+                                        </xs:complexType>
+
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:attribute name="type">
+                                            <xsl:value-of select="$endClass/@name"/>
+                                        </xsl:attribute>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </xsl:element>
                         </xsl:otherwise>
                     </xsl:choose>
