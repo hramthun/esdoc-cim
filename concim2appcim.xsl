@@ -165,6 +165,9 @@
                     </xsl:comment>
                     <xs:complexType>
                         <xs:sequence>
+                            
+<!-- 
+This has been commented out b/c a recordset is just a transfer convention    
                             <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
                                     <xs:documentation>a unique indentifier for this RecordSet
@@ -179,6 +182,14 @@
                                 </xs:annotation>
                             </xs:element>
 
+                            <xs:element name="metadataID" minOccurs="0" maxOccurs="1"
+                                type="xs:anyURI">
+                                <xs:annotation>
+                                    <xs:documentation>the location of the CIM being
+                                        used</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+
                             <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
                                 type="version">
                                 <xs:annotation>
@@ -186,7 +197,7 @@
                                         used</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-
+-->
                             <!-- a RecordSet includes a reference to a Record -->
                             <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
                                 <!-- which is implemented as a choice between -->
@@ -243,6 +254,8 @@
                 <xs:element name="CIMRecord">
                     <xs:complexType>
                         <xs:sequence>
+<!-- 
+This is commented out b/c a Record is just a transfer convention    
                             <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
                                 <xs:annotation>
                                     <xs:documentation>a unique indentifier for this
@@ -257,6 +270,14 @@
                                 </xs:annotation>
                             </xs:element>
 
+                            <xs:element name="metadataID" minOccurs="0" maxOccurs="1"
+                                type="xs:anyURI">
+                                <xs:annotation>
+                                    <xs:documentation>the location of the CIM being
+                                        used</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+
                             <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1"
                                 type="version">
                                 <xs:annotation>
@@ -264,6 +285,7 @@
                                         used</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
+-->                            
 
                             <xs:choice minOccurs="1" maxOccurs="1">
                                 <xsl:for-each select="//UML:Stereotype[@name='document']">
@@ -462,7 +484,8 @@
                     <xs:annotation>
                         <xs:documentation>this element contains any extensions to the CIM; a
                             container element is required to prevent ambiguity among extensible
-                            content and optional content</xs:documentation>
+                            content and optional content (please use namespaces for extended
+                            content)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
@@ -532,7 +555,7 @@
             <xsl:apply-templates mode="UMLclass"/>
             <!-- HARD-CODED FOR NOW; WILL REPLACE W/ UML STUFF SOON -->
             <xs:sequence>
-                <xs:element name="vocabularyServer">
+                <xs:element name="vocabularyServer" minOccurs="0">
                     <xs:complexType>
 
                         <xs:sequence>
@@ -616,7 +639,6 @@
                                     <xsl:with-param name="string" select="$class/@name"/>
                                 </xsl:call-template>
                             </xsl:attribute>
-
                             <xs:complexType>
                                 <xs:choice minOccurs="1" maxOccurs="1">
                                     <xsl:for-each select="//UML:Stereotype[@name='document']">
@@ -627,7 +649,10 @@
                                                 />
                                             </xsl:call-template>
                                         </xsl:variable>
-                                        <xs:element ref="{$documentName}"/>
+                                        
+                                        <xs:element ref="{$documentName}">
+<!-- I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE -->                                           
+                                        </xs:element>
                                     </xsl:for-each>
                                 </xs:choice>
                             </xs:complexType>
@@ -1100,7 +1125,16 @@
             <xsl:if test="not($simpleGeneralisation)">
                 <xs:sequence>
 
-                    <!-- first check if there are any associations which have this class as an endpoint -->
+                    <!-- first check if any of the (UML) attributes should be (XML) elements -->
+                    <xsl:for-each select="descendant::UML:Attribute">
+                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
+                        <xsl:call-template name="element-attributeTemplate">
+                            <xsl:with-param name="element" select="true()"/>
+                            <xsl:with-param name="attribute" select="false()"/>
+                        </xsl:call-template>
+                    </xsl:for-each>
+
+                    <!-- next check if there are any associations which have this class as an endpoint -->
                     <!-- (associations are automatically elements) -->
                     <xsl:apply-templates
                         select="//UML:Association//UML:AssociationEnd[@type=$class/@xmi.id]/ancestor::UML:Association"
@@ -1112,15 +1146,7 @@
                         <xsl:with-param name="class" select="$class"/>
                     </xsl:apply-templates>
 
-                    <!-- next check if any of the (UML) attributes should be (XML) elements -->
-                    <xsl:for-each select="descendant::UML:Attribute">
-                        <xsl:sort case-order="lower-first" select="@name[$sort-attributes]"/>
-                        <xsl:call-template name="element-attributeTemplate">
-                            <xsl:with-param name="element" select="true()"/>
-                            <xsl:with-param name="attribute" select="false()"/>
-                        </xsl:call-template>
-                    </xsl:for-each>
-                    
+
                     <xsl:if test="$stereotype='extensible'">
                         <xsl:call-template name="extensibleTemplate">
                             <xsl:with-param name="attribute" select="false()"/>
@@ -1140,7 +1166,7 @@
                 </xsl:call-template>
 
             </xsl:for-each>
-            
+
             <xsl:if test="$stereotype='extensible'">
                 <xsl:call-template name="extensibleTemplate">
                     <xsl:with-param name="element" select="false()"/>
@@ -1337,16 +1363,16 @@
                                         <xs:complexType>
                                             <xs:complexContent>
                                                 <xs:extension base="{$endClass/@name}">
-                                                    <xs:sequence>
-                                                        <xsl:call-template name="extensibleTemplate">
-                                                            <xsl:with-param name="attribute" select="false()"/>
-                                                            <xsl:with-param name="element" select="true()"/>
-                                                        </xsl:call-template>
-                                                    </xs:sequence>
-                                                    <xsl:call-template name="extensibleTemplate">
-                                                        <xsl:with-param name="attribute" select="true()"/>
-                                                        <xsl:with-param name="element" select="false()"/>
-                                                    </xsl:call-template>
+                                                  <xs:sequence>
+                                                  <xsl:call-template name="extensibleTemplate">
+                                                  <xsl:with-param name="attribute" select="false()"/>
+                                                  <xsl:with-param name="element" select="true()"/>
+                                                  </xsl:call-template>
+                                                  </xs:sequence>
+                                                  <xsl:call-template name="extensibleTemplate">
+                                                  <xsl:with-param name="attribute" select="true()"/>
+                                                  <xsl:with-param name="element" select="false()"/>
+                                                  </xsl:call-template>
                                                 </xs:extension>
                                             </xs:complexContent>
                                         </xs:complexType>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 4 February 2010, 7:48 -->       
+<!-- generated: 11 February 2010, 4:34 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -27,31 +27,13 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIMRecordSet"><!-- a CIMRecordSet includes 1 or more CIMRecords --><xs:complexType>
       <xs:sequence>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
-            <xs:annotation>
-               <xs:documentation>a unique indentifier for this RecordSet
-                                    </xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
-            <xs:annotation>
-               <xs:documentation>the versions (internal &amp; external) of the
-                                        CIMRecordset</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
-            <xs:annotation>
-               <xs:documentation>the version of the CIM being
-                                        used</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:element name="CIMRecord" minOccurs="1" maxOccurs="unbounded">
             <xs:complexType>
                <xs:choice>
                   <xs:element name="reference">
                      <xs:complexType>
                         <xs:sequence>
-                           <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                           <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                               <xs:annotation>
                                  <xs:documentation>the ID of the element being referenced.</xs:documentation>
                               </xs:annotation>
@@ -86,24 +68,6 @@
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CIMRecord">
    <xs:complexType>
       <xs:sequence>
-         <xs:element name="id" minOccurs="1" maxOccurs="1" type="guid">
-            <xs:annotation>
-               <xs:documentation>a unique indentifier for this
-                                        document</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="version" minOccurs="1" maxOccurs="2" type="version">
-            <xs:annotation>
-               <xs:documentation>the version(s) (internal &amp; external)  of the
-                                        CIMRecordset</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version">
-            <xs:annotation>
-               <xs:documentation>the version of the CIM being
-                                        used</xs:documentation>
-            </xs:annotation>
-         </xs:element>
          <xs:choice minOccurs="1" maxOccurs="1">
             <xs:element ref="simulationRun"/>
             <xs:element ref="simulationComposite"/>
@@ -115,7 +79,6 @@
             <xs:element ref="platform"/>
             <xs:element ref="processorComponent"/>
             <xs:element ref="modelComponent"/>
-            <xs:element ref="deployment"/>
          </xs:choice>
       </xs:sequence>
    </xs:complexType>

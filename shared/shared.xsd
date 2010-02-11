@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 4 February 2010, 7:48 -->       
+<!-- generated: 11 February 2010, 4:34 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -54,13 +54,15 @@
       <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
+      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
       <xs:element name="group" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -92,8 +94,6 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
-      <xs:element name="value" minOccurs="0" maxOccurs="1" type="PropertyValue"/>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType" mixed="true">
@@ -101,7 +101,7 @@
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -133,7 +133,9 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
    <xs:sequence>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
       <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
    </xs:sequence>
@@ -143,11 +145,14 @@
       <xs:complexContent>
          <xs:extension base="Platform">
             <xs:sequence>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
                            type="gmd:CI_ResponsibleParty_PropertyType">
                   <xs:annotation>
@@ -170,11 +175,6 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
-               <xs:annotation>
-                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
-               </xs:annotation>
-            </xs:attribute>
             <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>
@@ -238,7 +238,7 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -275,7 +275,6 @@
                         <xs:element ref="platform"/>
                         <xs:element ref="processorComponent"/>
                         <xs:element ref="modelComponent"/>
-                        <xs:element ref="deployment"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -313,7 +312,7 @@
 Currently unused in the CIM.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -345,7 +344,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -391,11 +390,14 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>Any class or feature with the &lt;&lt;document&gt;&gt; stereotype uses the attributes of this class. Furthermore, any class or feature with the &lt;&lt;document&gt;&gt; stereotype can form the root of an XML document.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+      <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
          <xs:annotation>
             <xs:documentation>a unique indentifier for this document</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+      <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+      <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
       <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType">
          <xs:annotation>
@@ -418,11 +420,6 @@ Currently unused in the CIM.</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="CIMVersion" use="optional" type="xs:string">
-      <xs:annotation>
-         <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
@@ -473,7 +470,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -554,7 +551,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -610,7 +607,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>A list of scientific units.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -642,7 +639,18 @@ Currently unused in the CIM.</xs:documentation>
    <xs:annotation>
       <xs:documentation>A collection of Properties.  A PropertyGroup can itself contain other PropertyGroups.</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
+   <xs:sequence>
+      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+         <xs:annotation>
+            <xs:documentation>A unique id for this group of properties.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>The name of this group of properties.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1"/>
          </xs:complexType>
@@ -658,7 +666,7 @@ Currently unused in the CIM.</xs:documentation>
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -690,16 +698,6 @@ Currently unused in the CIM.</xs:documentation>
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
-         <xs:annotation>
-            <xs:documentation>A unique id for this group of properties.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>The name of this group of properties.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
    </xs:sequence>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Reference" abstract="true">
@@ -707,7 +705,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+      <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
          <xs:annotation>
             <xs:documentation>the ID of the element being referenced.</xs:documentation>
          </xs:annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 4 February 2010, 7:48 -->       
+<!-- generated: 11 February 2010, 4:34 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -111,7 +111,7 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
    <xs:sequence>
-      <xs:element name="vocabularyServer">
+      <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
             <xs:sequence>
                <xs:element name="vocabularyName" type="xs:string"/>
@@ -142,7 +142,7 @@
       <xs:documentation>Describes how a DataObject is distributed.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="distributionFee" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="distributionFee" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
                   type="gmd:CI_ResponsibleParty_PropertyType"/>
    </xs:sequence>
@@ -156,7 +156,57 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
-      <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
+      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
+         <xs:annotation>
+            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue">
+         <xs:annotation>
+            <xs:documentation>What is the name of the specific HierarchyLevel this DataObject is being organised at (ie: if the HierarchyLevel is "run" then the name might be the runid).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="geometryModel" minOccurs="0" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <!--objectProperty is not used -->       
+<xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
       <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -173,7 +223,7 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -207,7 +257,7 @@
                <xs:element name="reference">
                   <xs:complexType>
                      <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
                            <xs:annotation>
                               <xs:documentation>the ID of the element being referenced.</xs:documentation>
                            </xs:annotation>
@@ -238,57 +288,7 @@
       <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
       <xs:element name="content" minOccurs="0" maxOccurs="unbounded" type="DataContent"/>
       <xs:element name="extent" minOccurs="0" maxOccurs="1" type="DataExtent"/>
-      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
-         <xs:annotation>
-            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue">
-         <xs:annotation>
-            <xs:documentation>What is the name of the specific HierarchyLevel this DataObject is being organised at (ie: if the HierarchyLevel is "run" then the name might be the runid).</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="keyword" minOccurs="0" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="geometryModel" minOccurs="0" maxOccurs="1">
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="Identifier">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <xs:element name="geometryModel" type="gml:AbstractGeometryType"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
-      <!--objectProperty is not used -->       
-</xs:sequence>
+   </xs:sequence>
    <xs:attribute name="dataStatus" use="required" type="DataStatusType">
       <xs:annotation>
          <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
@@ -305,11 +305,14 @@
       <xs:complexContent>
          <xs:extension base="DataObject">
             <xs:sequence>
-               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="Identifier">
+               <xs:element name="documentID" minOccurs="1" maxOccurs="1" type="guid">
                   <xs:annotation>
                      <xs:documentation>a unique indentifier for this document</xs:documentation>
                   </xs:annotation>
                </xs:element>
+               <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
+               <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
                            type="gmd:CI_ResponsibleParty_PropertyType">
                   <xs:annotation>
@@ -332,11 +335,6 @@
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
-            <xs:attribute name="CIMVersion" use="optional" type="xs:string">
-               <xs:annotation>
-                  <xs:documentation>The CIM version this document is written to, and should therefore validate against.</xs:documentation>
-               </xs:annotation>
-            </xs:attribute>
             <xs:attribute name="documentStatus" use="optional" type="DocumentStatusType"/>
          </xs:extension>
       </xs:complexContent>

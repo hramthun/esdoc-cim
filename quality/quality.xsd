@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 4 February 2010, 7:48 -->       
+<!-- generated: 11 February 2010, 4:34 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -300,10 +300,6 @@ These five entities represent elements of data quality and can be further subcla
       <xs:documentation>Records an issue with an instance of the CIM.  The particular part of the instance being referred to is captured by the detail attribute(s).  A resolution can be added to a quality issue.  A single issue can have multiple subissues.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="detail" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityDetail"/>
-      <xs:element name="subIssue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
-      <xs:element name="resolution" minOccurs="0" maxOccurs="unbounded"
-                  type="CIM_QualityResolution"/>
       <xs:element name="dateTime" minOccurs="1" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
             <xs:documentation>date (and time) issue was added to CIM</xs:documentation>
@@ -326,6 +322,10 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>summary description of quality issue</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="detail" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityDetail"/>
+      <xs:element name="subIssue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
+      <xs:element name="resolution" minOccurs="0" maxOccurs="unbounded"
+                  type="CIM_QualityResolution"/>
    </xs:sequence>
    <xs:attribute name="issueType" use="optional" type="QualityIssueType">
       <xs:annotation>
@@ -404,17 +404,18 @@ These five entities represent elements of data quality and can be further subcla
    <xs:annotation>
       <xs:documentation>The starting point for a quality record.  It can contain any number of issues and reports.  An issue is an open-ended description of some issue about a CIM instance.  A record is a prescribed description of some specific quantitative measure that has been applied to a CIM instance.</xs:documentation>
    </xs:annotation>
-   <xs:sequence><!-- this is an abstract class --><xs:element name="report" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
-         </xs:complexType>
-      </xs:element>
-      <xs:element name="issue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
+   <xs:sequence>
       <xs:element name="scope" minOccurs="1" maxOccurs="1" type="DQ_Scope">
          <xs:annotation>
             <xs:documentation>the specific data to which the quality information applies</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <!-- this is an abstract class --><xs:element name="report" minOccurs="0" maxOccurs="unbounded">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1"/>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="issue" minOccurs="0" maxOccurs="unbounded" type="CIM_QualityIssue"/>
    </xs:sequence>
 </xs:complexType>       
 </xs:schema>
