@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 11 February 2010, 4:34 -->       
+<!-- generated: 25 February 2010, 16:59 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -46,6 +46,17 @@
       <xs:enumeration value="WMO_GRIB2"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
+   <xs:annotation>
+      <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="unit" minOccurs="0" maxOccurs="1" type="UnitType"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestriction">
    <xs:annotation>
       <xs:documentation>An access or use restriction on some element of the DataObject's actual data.</xs:documentation>
@@ -156,6 +167,8 @@
                         <xs:complexContent>
                         <xs:extension base="DataSource">
                     <xs:sequence>
+      <xs:element name="acronym" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
          <xs:annotation>
             <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
@@ -184,7 +197,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -230,7 +248,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -264,7 +287,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -354,16 +382,7 @@
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="xs:string">
-         <xs:annotation>
-            <xs:documentation>ISOattributeDesc, CF?</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="unit" minOccurs="1" maxOccurs="1" type="UnitType">
-         <xs:annotation>
-            <xs:documentation>ISOdimension</xs:documentation>
-         </xs:annotation>
-      </xs:element>
+      <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>
       <xs:element name="aggregation" minOccurs="1" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>sum, min, mean, max, ...</xs:documentation>

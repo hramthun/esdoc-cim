@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 11 February 2010, 4:34 -->       
+<!-- generated: 25 February 2010, 16:59 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -92,7 +92,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -121,9 +126,9 @@
             </xs:choice>
          </xs:complexType>
       </xs:element>
-      <xs:element name="connectionTarget" minOccurs="1" maxOccurs="1">
+      <xs:element name="connectionTarget" minOccurs="0" maxOccurs="1">
          <xs:annotation>
-            <xs:documentation>The target property being connected.</xs:documentation>
+            <xs:documentation>The target property being connected.  This is optional to support the way that input is handled in the CMIP5 questionnaire.</xs:documentation>
          </xs:annotation>
          <xs:complexType>
             <xs:choice>
@@ -137,7 +142,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -154,7 +164,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="connectionTarget" minOccurs="1" maxOccurs="1">
+               <!-- this is an abstract class --><xs:element name="connectionTarget" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element name="dataObject" type="DataObject"/>
@@ -182,7 +192,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -219,7 +234,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -322,7 +342,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -379,7 +404,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -420,7 +450,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -490,7 +525,7 @@
       <xs:documentation>Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) </xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="timeMapping" minOccurs="1" maxOccurs="1" type="TimeMappingType"/>
+      <xs:element name="mappingType" minOccurs="1" maxOccurs="1" type="TimeMappingType"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
@@ -529,7 +564,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -648,7 +688,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -668,8 +713,9 @@
                <!-- this is an abstract class --><xs:element name="couplingSource" minOccurs="1" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="modelComponent" type="ModelComponent"/>
-                        <xs:element name="processorComponent" type="ProcessorComponent"/>
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -692,7 +738,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -712,8 +763,9 @@
                <!-- this is an abstract class --><xs:element name="couplingTarget" minOccurs="1" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="modelComponent" type="ModelComponent"/>
-                        <xs:element name="processorComponent" type="ProcessorComponent"/>
+                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element name="componentProperty" type="ComponentProperty"/>
+                        <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -736,7 +788,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -773,7 +830,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -877,7 +939,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
@@ -978,7 +1045,12 @@
                         </xs:element>
                         <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
-                              <xs:documentation>The name of the element being referenced.</xs:documentation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                         <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
