@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 25 February 2010, 17:34 -->       
+<!-- generated: 25 February 2010, 17:42 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -394,6 +394,7 @@
             <xs:documentation>daily, hourly, ...</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="citation" minOccurs="0" maxOccurs="unbounded" type="DataCitation"/>
    </xs:sequence>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataAccessType">
