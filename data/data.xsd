@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 25 February 2010, 16:59 -->       
+<!-- generated: 25 February 2010, 17:34 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -51,8 +51,8 @@
       <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
    </xs:annotation>
    <xs:sequence>
-      <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
-      <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+      <xs:element name="standardName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="unit" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
