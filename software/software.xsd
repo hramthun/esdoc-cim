@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 25 February 2010, 17:42 -->       
+<!-- generated: 28 February 2010, 13:33 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -509,6 +509,8 @@
       <xs:enumeration value="days"/>
       <xs:enumeration value="months"/>
       <xs:enumeration value="years"/>
+      <xs:enumeration value="decades"/>
+      <xs:enumeration value="centuries"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ComponentProperties">
