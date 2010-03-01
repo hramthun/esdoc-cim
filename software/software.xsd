@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 28 February 2010, 21:02 -->       
+<!-- generated: 1 March 2010, 15:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1089,6 +1089,8 @@
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="units" minOccurs="0" maxOccurs="1" type="UnitType"/>
+      <xs:element name="cfName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="value" minOccurs="0" maxOccurs="unbounded" type="PropertyValue">
          <xs:annotation>
             <xs:documentation>The value of the property (not applicable to fields)</xs:documentation>

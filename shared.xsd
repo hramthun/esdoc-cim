@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 February 2010, 21:02 -->       
+<!-- generated: 1 March 2010, 15:38 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -478,9 +478,9 @@
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="ancillaryFile"/>
       <xs:enumeration value="boundaryCondition"/>
-      <xs:enumeration value="initialForcing"/>
-      <xs:enumeration value="forcing"/>
+      <xs:enumeration value="initialCondition"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
