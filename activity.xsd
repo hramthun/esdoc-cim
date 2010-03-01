@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 28 February 2010, 13:33 -->       
+<!-- generated: 28 February 2010, 21:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -62,6 +62,11 @@
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -154,6 +159,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -249,6 +259,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -334,6 +349,11 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -427,6 +447,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -467,6 +492,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -539,6 +569,11 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -630,6 +665,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -749,6 +789,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -794,6 +839,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -946,6 +996,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -996,6 +1051,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1041,6 +1101,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1142,6 +1207,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1181,6 +1251,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1232,6 +1307,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1271,6 +1351,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1308,6 +1393,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1379,6 +1469,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1425,6 +1520,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1588,6 +1688,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1633,6 +1738,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1712,6 +1822,11 @@ It is a place for the scientific description of the reason why an experiment was
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -1757,6 +1872,11 @@ It is a place for the scientific description of the reason why an experiment was
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -1835,6 +1955,11 @@ It is a place for the scientific description of the reason why an experiment was
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>

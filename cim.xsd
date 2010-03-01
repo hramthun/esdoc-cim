@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- cim.xsd -->       
-<!-- generated: 28 February 2010, 13:33 -->       
+<!-- generated: 28 February 2010, 21:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -56,6 +56,11 @@
                            <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                               <xs:annotation>
                                  <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                              <xs:annotation>
+                                 <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 28 February 2010, 13:33 -->       
+<!-- generated: 28 February 2010, 21:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -85,6 +85,11 @@
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -268,6 +273,11 @@
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
                      </xs:sequence>
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
@@ -315,11 +325,9 @@
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
-                mixed="false">
+                mixed="true">
    <xs:annotation>
-      <xs:documentation>An enumeration of types of changes.
-
-Currently unused in the CIM.</xs:documentation>
+      <xs:documentation>An enumeration of types of changes.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
@@ -347,6 +355,7 @@ Currently unused in the CIM.</xs:documentation>
       <xs:enumeration value="increment"/>
       <xs:enumeration value="redistribution"/>
       <xs:enumeration value="replacement"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
@@ -548,14 +557,116 @@ Currently unused in the CIM.</xs:documentation>
 <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
-<!--Change is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Change">
+   <xs:annotation>
+      <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath). Currently unused in the CIM.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="changeTarget" minOccurs="0" maxOccurs="1">
+         <xs:annotation>
+            <xs:documentation>The CIM element being changed.  If this is blank, then it is implied by the target of its parent (a Change instance currently can only appear as part of a reference which has a target anyway).</xs:documentation>
+         </xs:annotation>
+         <xs:complexType>
+            <xs:choice>
+               <xs:element name="reference">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
+                           <xs:annotation>
+                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
+                           <xs:annotation>
+                              <xs:documentation>The version of the element being referenced.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
+                           <xs:annotation>
+                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:sequence>
+                     <xs:attribute ref="xlink:href" use="optional"/>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="document">
+                  <xs:complexType>
+                     <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element ref="simulationRun"/>
+                        <xs:element ref="simulationComposite"/>
+                        <xs:element ref="numericalExperiment"/>
+                        <xs:element ref="dataProcessing"/>
+                        <xs:element ref="ensemble"/>
+                        <xs:element ref="dataObject"/>
+                        <xs:element ref="gridSpec"/>
+                        <xs:element ref="platform"/>
+                        <xs:element ref="processorComponent"/>
+                        <xs:element ref="modelComponent"/>
+                     </xs:choice>
+                  </xs:complexType>
+               </xs:element>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
+      <xs:element name="changeDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
+         <xs:annotation>
+            <xs:documentation>The date the change was implemented.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="changeAuthor" minOccurs="0" maxOccurs="1"
+                  type="gmd:CI_ResponsibleParty_PropertyType">
+         <xs:annotation>
+            <xs:documentation>The person that made the change.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="detail" minOccurs="1" maxOccurs="unbounded" type="ChangeProperty"/>
+   </xs:sequence>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DateRange" abstract="true">
    <xs:sequence>
       <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
       <xs:element name="endDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
    </xs:sequence>
 </xs:complexType>
-<!--ChangeProperty is not used -->       
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangeProperty">
+   <xs:annotation>
+      <xs:documentation>A description of a single change applied to a single target.  Every ChangeProperty has a description, and may also have a name from a controlled vocabulary and a value.
+
+Currently unused in the CIM.</xs:documentation>
+   </xs:annotation>
+                        <xs:complexContent>
+                        <xs:extension base="Property">
+                    <xs:sequence>
+      <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string">
+         <xs:annotation>
+            <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" maxOccurs="1" type="ChangePropertyType">
+         <xs:annotation>
+            <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType" mixed="true">
    <xs:annotation>
       <xs:documentation>A list of scientific units.</xs:documentation>
@@ -662,7 +773,9 @@ Currently unused in the CIM.</xs:documentation>
       </xs:element>
       <!-- this is an abstract class --><xs:element name="property" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1"/>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="changeProperty" type="ChangeProperty"/>
+            </xs:choice>
          </xs:complexType>
       </xs:element>
       <!-- this is an abstract class --><xs:element name="childGroup" minOccurs="0" maxOccurs="unbounded">
@@ -699,6 +812,11 @@ Currently unused in the CIM.</xs:documentation>
                         <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
                            <xs:annotation>
                               <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+                           <xs:annotation>
+                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
                            </xs:annotation>
                         </xs:element>
                      </xs:sequence>
@@ -747,6 +865,11 @@ CIM best practise is to do the latter..</xs:documentation>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
+         <xs:annotation>
+            <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
