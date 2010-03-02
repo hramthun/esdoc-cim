@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 1 March 2010, 15:38 -->       
+<!-- generated: 1 March 2010, 16:43 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -148,6 +148,7 @@
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machine" minOccurs="1" maxOccurs="1" type="Machine"/>
       <xs:element name="compiler" minOccurs="1" maxOccurs="unbounded" type="Compiler"/>
+      <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ResponsibleParty"/>
    </xs:sequence>
 </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
@@ -163,8 +164,7 @@
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
-                           type="gmd:CI_ResponsibleParty_PropertyType">
+               <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
                   <xs:annotation>
                      <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
                   </xs:annotation>
@@ -417,8 +417,7 @@
       <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
       <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
       <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
-      <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+      <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>A contact for the author of this <i>document </i>(as opposed to the author of the artifact being described by this document; ie: the simulation or component or whatever).</xs:documentation>
          </xs:annotation>
@@ -557,6 +556,18 @@
 <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
 </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResponsibleParty">
+   <xs:annotation>
+      <xs:documentation>A CIM-specific ResponsibleParty.  Sub-classes the gmd ResponsibleParty type and adds the attribute "abbreviation."</xs:documentation>
+   </xs:annotation>
+                                <xs:complexContent>
+                                <xs:extension base="gmd:CI_ResponsibleParty_PropertyType">
+                            <xs:sequence>
+      <xs:element name="abbreviation" minOccurs="0" maxOccurs="1" type="xs:string"/>
+   </xs:sequence>  
+                            </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Change">
    <xs:annotation>
       <xs:documentation>A description of [a set of] changes applied at a particular time, by a particular party, to a particular unit of metadata (identified using XPath). Currently unused in the CIM.</xs:documentation>
