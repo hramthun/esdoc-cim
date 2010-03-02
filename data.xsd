@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 1 March 2010, 17:02 -->       
+<!-- generated: 1 March 2010, 21:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -279,7 +279,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="dataObject" type="DataObject"/>
+               <xs:element ref="dataObject"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -323,7 +323,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="dataObject" type="DataObject"/>
+               <xs:element ref="dataObject"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>

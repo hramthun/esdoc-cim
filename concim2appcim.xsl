@@ -632,6 +632,7 @@ This is commented out b/c a Record is just a transfer convention
                 <!-- ...or the locally embedded referenced type... -->
                 <xsl:choose>
                     <!-- if it's a reference to a Document, then I need to hard-code some bits... -->
+                    <!-- NOTE TO SELF: THIS MEANS A REFERENCE OF TYPE DOCUMENT, NOT A REFERENCE TO SOME TYPE THAT IS A DOCUMENT -->
                     <xsl:when test=".//UML:TaggedValue[@tag='type']/@value='Document'">
                         <xsl:element name="xs:element">
                             <xsl:attribute name="name">
@@ -649,10 +650,9 @@ This is commented out b/c a Record is just a transfer convention
                                                 />
                                             </xsl:call-template>
                                         </xsl:variable>
+
+                                        <xs:element ref="{$documentName}"/>
                                         
-                                        <xs:element ref="{$documentName}">
-<!-- I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE I AM HERE -->                                           
-                                        </xs:element>
                                     </xsl:for-each>
                                 </xs:choice>
                             </xs:complexType>
@@ -670,6 +670,15 @@ This is commented out b/c a Record is just a transfer convention
                             <xsl:with-param name="attribute" select="$attribute"/>
                         </xsl:call-template>
                     </xsl:when>
+                    <!-- ...or it might be a document -->
+                    <xsl:when test="$classStereotype='document'">
+                        <xsl:variable name="className">
+                            <xsl:call-template name="camelCaseTemplate">
+                                <xsl:with-param name="string" select="$class/@name"/>
+                            </xsl:call-template>
+                        </xsl:variable>
+                        <xs:element ref="{$className}"/>
+                    </xsl:when>                    
                     <!-- ...or it might be based on some external (to the domain model) class... -->
                     <xsl:when test="empty($class)">
                         <!-- if $class is empty, then I can assume the type is external (ie: the class was never found in the domain model) -->
@@ -769,10 +778,44 @@ This is commented out b/c a Record is just a transfer convention
                         <xsl:variable name="specialisedID" select="@subtype"/>
                         <xsl:variable name="specialisedClass"
                             select="//UML:Class[@xmi.id=$specialisedID]"/>
-                        <!-- so long as the specialised class is not <<unused>> -->
+
                         <xsl:variable name="ea_xref_property">
                             <xsl:text>$ea_xref_property</xsl:text>
                         </xsl:variable>
+                        <xsl:choose>
+                            <!-- if the specialised class is unused, do nothing... -->
+                            <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=unused')"/>
+                            <!-- if the specialised class is a document, then make a reference to the global element, not the complex type... -->
+                            <xsl:when test="contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=document')">
+                                <xsl:element name="xs:element">
+                                    <xsl:variable name="specialisedClassName"
+                                        select="$specialisedClass/@name"/>
+                                    <xsl:attribute name="ref">
+                                        <xsl:call-template name="camelCaseTemplate">
+                                            <xsl:with-param name="string" select="$specialisedClassName"
+                                            />
+                                        </xsl:call-template>
+                                    </xsl:attribute>                                    
+                                </xsl:element>
+                            </xsl:when>
+                            <!-- otherwise, its just a normal class... -->
+                            <xsl:otherwise>
+                                <xsl:element name="xs:element">
+                                    <xsl:variable name="specialisedClassName"
+                                        select="$specialisedClass/@name"/>
+                                    <xsl:attribute name="name">
+                                        <xsl:call-template name="camelCaseTemplate">
+                                            <xsl:with-param name="string" select="$specialisedClassName"
+                                            />
+                                        </xsl:call-template>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="type">
+                                        <xsl:value-of select="$specialisedClassName"/>
+                                    </xsl:attribute>                                    
+                                </xsl:element>        
+                            </xsl:otherwise>
+                        </xsl:choose>
+<!--                        
                         <xsl:if
                             test="not(contains($specialisedClass/UML:ModelElement.taggedValue/UML:TaggedValue[@tag='$ea_xref_property']/@value,'Name=unused'))">
                             <xsl:element name="xs:element">
@@ -790,6 +833,7 @@ This is commented out b/c a Record is just a transfer convention
 
                             </xsl:element>
                         </xsl:if>
+-->                        
                     </xsl:for-each>
                 </xs:choice>
             </xs:complexType>

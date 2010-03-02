@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 1 March 2010, 17:02 -->       
+<!-- generated: 1 March 2010, 21:16 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -122,7 +122,7 @@
                <!-- this is an abstract class --><xs:element name="connectionSource" minOccurs="1" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -177,7 +177,7 @@
                <!-- this is an abstract class --><xs:element name="connectionTarget" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -229,7 +229,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="processorComponent" type="ProcessorComponent"/>
+               <xs:element ref="processorComponent"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -279,7 +279,7 @@
                <!-- this is an abstract class --><xs:element name="priming" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -411,8 +411,8 @@
       <!-- this is an abstract class --><xs:element name="childComponent" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element name="modelComponent" type="ModelComponent"/>
-               <xs:element name="processorComponent" type="ProcessorComponent"/>
+               <xs:element ref="modelComponent"/>
+               <xs:element ref="processorComponent"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -459,8 +459,8 @@
                <!-- this is an abstract class --><xs:element name="parentComponent" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="modelComponent" type="ModelComponent"/>
-                        <xs:element name="processorComponent" type="ProcessorComponent"/>
+                        <xs:element ref="modelComponent"/>
+                        <xs:element ref="processorComponent"/>
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
@@ -628,7 +628,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="dataProcessing" type="DataProcessing"/>
+               <xs:element ref="dataProcessing"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -759,7 +759,7 @@
                <!-- this is an abstract class --><xs:element name="couplingSource" minOccurs="1" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -814,7 +814,7 @@
                <!-- this is an abstract class --><xs:element name="couplingTarget" minOccurs="1" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -866,7 +866,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="processorComponent" type="ProcessorComponent"/>
+               <xs:element ref="processorComponent"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -916,7 +916,7 @@
                <!-- this is an abstract class --><xs:element name="priming" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
-                        <xs:element name="dataObject" type="DataObject"/>
+                        <xs:element ref="dataObject"/>
                         <xs:element name="componentProperty" type="ComponentProperty"/>
                         <xs:element name="softwareComponent" type="SoftwareComponent"/>
                      </xs:choice>
@@ -1027,7 +1027,7 @@
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <xs:element name="simulationRun" type="SimulationRun"/>
+               <xs:element ref="simulationRun"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
