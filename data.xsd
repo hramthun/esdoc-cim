@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 1 March 2010, 16:43 -->       
+<!-- generated: 1 March 2010, 17:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -154,8 +154,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType"/>
+      <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="ResponsibleParty"/>
    </xs:sequence>
    <xs:attribute name="distributionFormat" use="required" type="DataFormatType"/>
    <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>

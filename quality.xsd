@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 1 March 2010, 16:43 -->       
+<!-- generated: 1 March 2010, 17:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -305,14 +305,13 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>date (and time) issue was added to CIM</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="issueIdentifiedBy" minOccurs="1" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+      <xs:element name="issueIdentifiedBy" minOccurs="1" maxOccurs="1" type="CI_ResponsibleParty">
          <xs:annotation>
             <xs:documentation>person/organisation responsible for identifying this quality issue</xs:documentation>
          </xs:annotation>
       </xs:element>
       <xs:element name="issueResponsibilityOf" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+                  type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>person/organisation allocated the responsibuility for addressing this issue</xs:documentation>
          </xs:annotation>
@@ -358,8 +357,7 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>date of resolution information</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="resolvedBy" minOccurs="1" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+      <xs:element name="resolvedBy" minOccurs="1" maxOccurs="1" type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>person/organisation responsible for resolution, or the person/organisation who should be contacted with any queries about the resolution of this quality issue</xs:documentation>
          </xs:annotation>

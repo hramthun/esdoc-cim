@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 1 March 2010, 16:43 -->       
+<!-- generated: 1 March 2010, 17:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -640,8 +640,7 @@
             <xs:documentation>The date the change was implemented.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="changeAuthor" minOccurs="0" maxOccurs="1"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+      <xs:element name="changeAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>The person that made the change.</xs:documentation>
          </xs:annotation>

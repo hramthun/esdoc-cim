@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 1 March 2010, 16:43 -->       
+<!-- generated: 1 March 2010, 17:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -88,7 +88,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
-                  type="gmd:CI_ResponsibleParty_PropertyType">
+                  type="CI_ResponsibleParty">
          <xs:annotation>
             <xs:documentation>The point of contact(s) for this activity.</xs:documentation>
          </xs:annotation>

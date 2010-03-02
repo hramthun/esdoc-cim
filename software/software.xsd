@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 1 March 2010, 16:43 -->       
+<!-- generated: 1 March 2010, 17:02 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -394,7 +394,7 @@
          </xs:complexType>
       </xs:element>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
-                  type="gmd:CI_ResponsibleParty_PropertyType"/>
+                  type="ResponsibleParty"/>
       <xs:element name="releaseDate" minOccurs="0" maxOccurs="1" type="xs:dateTime">
          <xs:annotation>
             <xs:documentation>The date of publication of the software component code (as opposed to the date of publication of the metadata document, or the date of deployment of the model)</xs:documentation>
@@ -1349,7 +1349,10 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Deployment">
    <xs:annotation>
-      <xs:documentation>Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.</xs:documentation>
+      <xs:documentation>Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.
+
+A deployment basically associates a deploymentDate with a Platform.  A deployment only exists if something has been deployed.  A platform, in contrast, can exist independently, waiting to be used in deployments.
+</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="deploymentDate" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
