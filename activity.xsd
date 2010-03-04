@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 3 March 2010, 7:00 -->       
+<!-- generated: 4 March 2010, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -88,7 +88,7 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="responsibleParty" minOccurs="0" maxOccurs="unbounded"
-                  type="CI_ResponsibleParty">
+                  type="ResponsibleParty">
          <xs:annotation>
             <xs:documentation>The point of contact(s) for this activity.This includes, among others, the principle investigator.</xs:documentation>
          </xs:annotation>
@@ -509,13 +509,13 @@ If something is purpopsefully non-conformant then the conformant attribute would
          </xs:complexType>
       </xs:element>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="frequency" minOccurs="0" maxOccurs="1" type="FrequencyType"/>
    </xs:sequence>
    <xs:attribute name="conformant" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Records whether or not this conformance satisfies the requirement.  A simulation should have at least one conformance mapping to every experimental requirement.  If a simulation satisfies the requirement - the usual case - then conformant should have a value of "true."  If conformant is true but there is no reference to a source for the conformance, then we can assume that the simulation conforms to the requirement _naturally_, that is without having to modify code or inputs. If a simulation does not conform to a requirement then conformant should be set to "false."</xs:documentation>
       </xs:annotation>
    </xs:attribute>
+   <xs:attribute name="frequency" use="optional" type="FrequencyType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalActivity"
                 abstract="true">
@@ -861,11 +861,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatioTemporalConstraint">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
-                    <xs:sequence>
-      <xs:element name="outputFrequency" minOccurs="1" maxOccurs="1" type="FrequencyType"/>
-      <xs:element name="spatialResolution" minOccurs="0" maxOccurs="1" type="ResolutionType"/>
-      <xs:element name="temporalAveraging" minOccurs="0" maxOccurs="1" type="TemporalAveType"/>
-      <!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
+                    <xs:sequence><!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>
@@ -873,7 +869,10 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-   </xs:sequence>  
+   </xs:sequence>
+   <xs:attribute name="outputFrequency" use="required" type="FrequencyType"/>
+   <xs:attribute name="spatialResolution" use="optional" type="ResolutionType"/>
+   <xs:attribute name="temporalAveraging" use="optional" type="TemporalAveType"/>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>

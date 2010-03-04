@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 3 March 2010, 7:00 -->       
+<!-- generated: 4 March 2010, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -190,6 +190,13 @@
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName">
+   <xs:annotation>
+      <xs:documentation>Contains the name of an item taken from a given standard.  For example, if standard="cf", then we would expect the value of standardName to be a cf standard name.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence/>
+   <xs:attribute name="standard" use="optional" type="xs:string"/>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
    <xs:sequence>
       <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -324,40 +331,6 @@
    <xs:sequence/>
    <xs:attribute name="purpose" use="optional" type="DataPurpose"/>
 </xs:complexType>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType"
-                mixed="true">
-   <xs:annotation>
-      <xs:documentation>An enumeration of types of changes.</xs:documentation>
-   </xs:annotation>
-   <xs:sequence>
-      <xs:element name="vocabularyServer" minOccurs="0">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element name="vocabularyName" type="xs:string"/>
-               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
-               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
-                  <xs:annotation>
-                     <xs:documentation>information about how to access the vocabulary
-                                    </xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:sequence>
-            <xs:attribute name="href" type="xs:anyURI"/>
-         </xs:complexType>
-      </xs:element>
-   </xs:sequence>
-   <xs:attribute name="value" type="ChangePropertyType_Enumeration" use="required"/>
-</xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType_Enumeration">
-   <xs:restriction base="xs:string">
-      <xs:enumeration value="new"/>
-      <xs:enumeration value="decrement"/>
-      <xs:enumeration value="increment"/>
-      <xs:enumeration value="redistribution"/>
-      <xs:enumeration value="replacement"/>
-      <xs:enumeration value="other"/>
-   </xs:restriction>
-</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CodeList" mixed="false">
    <xs:annotation>
       <xs:documentation>A placeholder for "still-to-be-defined" codelists (required for XSL generation).</xs:documentation>
@@ -402,6 +375,16 @@
       <xs:enumeration value="massivelyParallel"/>
       <xs:enumeration value="serial"/>
       <xs:enumeration value="sharedMemory"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="inputMod"/>
+      <xs:enumeration value="modelMod"/>
+      <xs:enumeration value="decrement"/>
+      <xs:enumeration value="increment"/>
+      <xs:enumeration value="redistribution"/>
+      <xs:enumeration value="replacement"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
@@ -465,15 +448,14 @@
       </xs:element>
       <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
-                  type="OperatingSystemType"/>
-      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
+   <xs:attribute name="machineOperatingSystem" use="required" type="OperatingSystemType"/>
    <xs:attribute name="machineType" use="optional" type="MachineType"/>
+   <xs:attribute name="machineVendor" use="optional" type="MachineVendorType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
    <xs:restriction base="xs:string">
@@ -668,12 +650,12 @@ Currently unused in the CIM.</xs:documentation>
             <xs:documentation>A text description of the change.  May be used in addition to, or instead of, the more formal description provided by the "type" and "value" attributes.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="name" minOccurs="0" maxOccurs="1" type="ChangePropertyType">
-         <xs:annotation>
-            <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
-         </xs:annotation>
-      </xs:element>
-   </xs:sequence>  
+   </xs:sequence>
+   <xs:attribute name="type" use="optional" type="ChangePropertyType">
+      <xs:annotation>
+         <xs:documentation>Describes the type of change (the operation applied to the content identified in the "what" attribute of the ChangeProperty).</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>

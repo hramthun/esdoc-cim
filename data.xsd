@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 3 March 2010, 7:00 -->       
+<!-- generated: 4 March 2010, 9:36 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -54,8 +54,8 @@
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="standardName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="unit" minOccurs="0" maxOccurs="1" type="UnitType"/>
    </xs:sequence>
+   <xs:attribute name="unit" use="optional" type="UnitType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataRestriction">
    <xs:annotation>
@@ -168,11 +168,6 @@
                     <xs:sequence>
       <xs:element name="acronym" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      <xs:element name="hierarchyLevelName" minOccurs="0" maxOccurs="1" type="DataHierarchyType">
-         <xs:annotation>
-            <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
-         </xs:annotation>
-      </xs:element>
       <xs:element name="hierarchyLevelValue" minOccurs="0" maxOccurs="1" type="PropertyValue">
          <xs:annotation>
             <xs:documentation>What is the name of the specific HierarchyLevel this DataObject is being organised at (ie: if the HierarchyLevel is "run" then the name might be the runid).</xs:documentation>
@@ -334,6 +329,11 @@
    <xs:attribute name="dataStatus" use="required" type="DataStatusType">
       <xs:annotation>
          <xs:documentation>The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+   <xs:attribute name="hierarchyLevelName" use="optional" type="DataHierarchyType">
+      <xs:annotation>
+         <xs:documentation>What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.</xs:documentation>
       </xs:annotation>
    </xs:attribute>  
                             </xs:extension>
