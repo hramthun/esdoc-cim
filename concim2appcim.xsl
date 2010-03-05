@@ -1577,15 +1577,15 @@ This is commented out b/c a Record is just a transfer convention
 
         <!-- isAttribute is true when... -->
         <!-- the maximum is not greater than 1 -->
-        <!-- AND the stereotype is either an enumeration or codelist or explicit attribute or the type is an explicit enumeration or codelist or boolean or URI  -->
-        <!-- OR the type has a stereotype of enumeration or codelist -->
+        <!-- AND the stereotype is either an enumeration or explicit attribute or the type is an explicit enumeration or boolean or URI  -->
+        <!-- OR the type has a stereotype of enumeration -->
         <xsl:variable name="isAttribute"
             select="string($attMax)='1' 
             and
             (
-            ($attStereotype='enumeration' or $attStereotype='codelist' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='codelist' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
+            ($attStereotype='enumeration' or $attStereotype='attribute' or translate($attType,$upperCase,$lowerCase)='enumeration' or translate($attType,$upperCase,$lowerCase)='boolean' or translate($attType,$upperCase,$lowerCase)='uri')
             or
-            (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration' or translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='codelist')
+            (translate(//UML:Class[@name=$attType]/UML:ModelElement.stereotype/UML:Stereotype/@name,$upperCase,$lowerCase)='enumeration')
             )"/>
 
         <xsl:choose>
