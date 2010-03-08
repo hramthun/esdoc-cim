@@ -1088,6 +1088,14 @@ This is commented out b/c a Record is just a transfer convention
                 <xsl:attribute name="mixed">true</xsl:attribute>
             </xsl:if>
 
+            <!-- also if it has a tagged value explicitly specifying 'mixed' then make it mixed -->
+            <xsl:variable name="id" select="@xmi.id"/>
+            <xsl:variable name="mixed"
+            select="//UML:TaggedValue[@tag='mixed'][@modelElement=$id]/@value='true'"/>
+            <xsl:if test="$mixed">
+                <xsl:attribute name="mixed">true</xsl:attribute>
+            </xsl:if>
+            
             <xsl:apply-templates mode="UMLclass"/>
 
             <!-- first check if this is a specialisation of another class -->

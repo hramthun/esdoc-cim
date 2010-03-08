@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 4 March 2010, 9:36 -->       
+<!-- generated: 8 March 2010, 12:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -509,13 +509,13 @@ If something is purpopsefully non-conformant then the conformant attribute would
          </xs:complexType>
       </xs:element>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="frequency" minOccurs="0" maxOccurs="1" type="FrequencyType"/>
    </xs:sequence>
    <xs:attribute name="conformant" use="required" type="xs:boolean">
       <xs:annotation>
          <xs:documentation>Records whether or not this conformance satisfies the requirement.  A simulation should have at least one conformance mapping to every experimental requirement.  If a simulation satisfies the requirement - the usual case - then conformant should have a value of "true."  If conformant is true but there is no reference to a source for the conformance, then we can assume that the simulation conforms to the requirement _naturally_, that is without having to modify code or inputs. If a simulation does not conform to a requirement then conformant should be set to "false."</xs:documentation>
       </xs:annotation>
    </xs:attribute>
-   <xs:attribute name="frequency" use="optional" type="FrequencyType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalActivity"
                 abstract="true">
@@ -629,7 +629,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="simulation" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
                <xs:element name="reference">
@@ -669,7 +669,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      <xs:attribute ref="xlink:href" use="optional"/>
                   </xs:complexType>
                </xs:element>
-               <!-- this is an abstract class --><xs:element name="simulation" minOccurs="0" maxOccurs="unbounded">
+               <!-- this is an abstract class --><xs:element name="child" minOccurs="0" maxOccurs="unbounded">
                   <xs:complexType>
                      <xs:choice minOccurs="1" maxOccurs="1">
                         <xs:element ref="simulationRun"/>
@@ -678,15 +678,6 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                      </xs:choice>
                   </xs:complexType>
                </xs:element>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
-      <!-- this is an abstract class --><xs:element name="child" minOccurs="0" maxOccurs="unbounded">
-         <xs:complexType>
-            <xs:choice minOccurs="1" maxOccurs="1">
-               <xs:element ref="simulationRun"/>
-               <xs:element name="assimilation" type="Assimilation"/>
-               <xs:element ref="simulationComposite"/>
             </xs:choice>
          </xs:complexType>
       </xs:element>
@@ -861,7 +852,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SpatioTemporalConstraint">
                         <xs:complexContent>
                         <xs:extension base="NumericalRequirement">
-                    <xs:sequence><!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
+                    <xs:sequence>
+      <xs:element name="outputFrequency" minOccurs="1" maxOccurs="1" type="FrequencyType"/>
+      <xs:element name="spatialResolution" minOccurs="0" maxOccurs="1" type="ResolutionType"/>
+      <xs:element name="temporalAveraging" minOccurs="0" maxOccurs="1" type="TemporalAveType"/>
+      <!-- this is an abstract class --><xs:element name="outputPeriod" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="closedDateRange" type="ClosedDateRange"/>
@@ -869,10 +864,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             </xs:choice>
          </xs:complexType>
       </xs:element>
-   </xs:sequence>
-   <xs:attribute name="outputFrequency" use="required" type="FrequencyType"/>
-   <xs:attribute name="spatialResolution" use="optional" type="ResolutionType"/>
-   <xs:attribute name="temporalAveraging" use="optional" type="TemporalAveType"/>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -1265,50 +1257,6 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
       </xs:element>
       <xs:element name="simulationID" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="conformance" minOccurs="0" maxOccurs="unbounded" type="Conformance"/>
-      <xs:element name="simulationComposite" minOccurs="0" maxOccurs="1">
-         <xs:complexType>
-            <xs:choice>
-               <xs:element name="reference">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">
-                           <xs:annotation>
-                              <xs:documentation>the ID of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The name of the instance being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="type" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>The type of item being referenced (should correspond to the name of the referenced XML element).</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="version" minOccurs="0" maxOccurs="1" type="version">
-                           <xs:annotation>
-                              <xs:documentation>The version of the element being referenced.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string">
-                           <xs:annotation>
-                              <xs:documentation>A description of the element being referenced, in the context of the current class.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                        <xs:element name="change" minOccurs="0" maxOccurs="1" type="Change">
-                           <xs:annotation>
-                              <xs:documentation>An optional description of how the item being referenced has been modified.  This is particularly useful for dealing with Ensembles (a set of simulations where something about each simulation has changed) or Conformances.</xs:documentation>
-                           </xs:annotation>
-                        </xs:element>
-                     </xs:sequence>
-                     <xs:attribute ref="xlink:href" use="optional"/>
-                  </xs:complexType>
-               </xs:element>
-               <xs:element ref="simulationComposite"/>
-            </xs:choice>
-         </xs:complexType>
-      </xs:element>
       <xs:element name="ensemble" minOccurs="0" maxOccurs="1">
          <xs:complexType>
             <xs:choice>

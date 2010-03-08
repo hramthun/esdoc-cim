@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 4 March 2010, 9:36 -->       
+<!-- generated: 8 March 2010, 12:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -563,9 +563,9 @@
       <xs:documentation>Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) </xs:documentation>
    </xs:annotation>
    <xs:sequence>
+      <xs:element name="mappingType" minOccurs="1" maxOccurs="1" type="TimeMappingType"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
-   <xs:attribute name="mappingType" use="required" type="TimeMappingType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorComponent">
    <xs:annotation>
@@ -1088,6 +1088,7 @@
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="units" minOccurs="0" maxOccurs="1" type="UnitType"/>
       <xs:element name="cfName" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="value" minOccurs="0" maxOccurs="unbounded" type="PropertyValue">
          <xs:annotation>
@@ -1146,7 +1147,6 @@
       <xs:element name="componentProperty" minOccurs="0" maxOccurs="unbounded"
                   type="ComponentProperty"/>
    </xs:sequence>
-   <xs:attribute name="units" use="optional" type="UnitType"/>
    <xs:attribute name="intent" use="optional" type="ComponentPropertyIntentType">
       <xs:annotation>
          <xs:documentation>The direction that this property is intended to be coupled: in, out, or inout.</xs:documentation>

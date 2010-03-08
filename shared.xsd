@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 4 March 2010, 9:36 -->       
+<!-- generated: 8 March 2010, 12:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -190,13 +190,6 @@
       </xs:complexContent>
    </xs:complexType>
 </xs:element>
-<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName">
-   <xs:annotation>
-      <xs:documentation>Contains the name of an item taken from a given standard.  For example, if standard="cf", then we would expect the value of standardName to be a cf standard name.</xs:documentation>
-   </xs:annotation>
-   <xs:sequence/>
-   <xs:attribute name="standard" use="optional" type="xs:string"/>
-</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
    <xs:sequence>
       <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -448,14 +441,15 @@
       </xs:element>
       <xs:element name="machineDescription" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineLocation" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
+                  type="OperatingSystemType"/>
+      <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
       <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
    </xs:sequence>
-   <xs:attribute name="machineOperatingSystem" use="required" type="OperatingSystemType"/>
    <xs:attribute name="machineType" use="optional" type="MachineType"/>
-   <xs:attribute name="machineVendor" use="optional" type="MachineVendorType"/>
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataPurpose">
    <xs:restriction base="xs:string">
@@ -464,6 +458,17 @@
       <xs:enumeration value="initialCondition"/>
    </xs:restriction>
 </xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StandardName" mixed="true">
+   <xs:annotation>
+      <xs:documentation>Contains the name of an item taken from a given standard. For example, if standard="CF," then we would expect the value of standardName to be a CF Standard Name.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence/>
+   <xs:attribute name="standard" use="required" type="xs:string">
+      <xs:annotation>
+         <xs:documentation>The standard from which this name is taken</xs:documentation>
+      </xs:annotation>
+   </xs:attribute>
+</xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
                 mixed="true">
    <xs:annotation>

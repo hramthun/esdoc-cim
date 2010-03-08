@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- quality.xsd -->       
-<!-- generated: 4 March 2010, 9:36 -->       
+<!-- generated: 8 March 2010, 12:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -376,6 +376,11 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>value type for reporting a data quality result</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="valueUnit" minOccurs="1" maxOccurs="1" type="UnitType">
+         <xs:annotation>
+            <xs:documentation>value unit for reporting a data quality result</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="errorStatistic" minOccurs="0" maxOccurs="1" type="xs:string">
          <xs:annotation>
             <xs:documentation>statistical method used to determine the value</xs:documentation>
@@ -386,12 +391,7 @@ These five entities represent elements of data quality and can be further subcla
             <xs:documentation>quantitative value or values, content determined by the evaluation procedure used</xs:documentation>
          </xs:annotation>
       </xs:element>
-   </xs:sequence>
-   <xs:attribute name="valueUnit" use="required" type="UnitType">
-      <xs:annotation>
-         <xs:documentation>value unit for reporting a data quality result</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>  
+   </xs:sequence>  
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
