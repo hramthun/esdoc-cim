@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 8 March 2010, 15:30 -->       
+<!-- generated: 9 March 2010, 6:53 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -188,6 +188,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
@@ -702,6 +703,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
@@ -909,6 +911,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
@@ -1116,6 +1119,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
@@ -1446,6 +1450,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                   </xs:annotation>
                </xs:element>
                <xs:element name="documentVersion" minOccurs="1" maxOccurs="1" type="version"/>
+               <xs:element name="documentInternalVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="metadataID" minOccurs="0" maxOccurs="1" type="xs:anyURI"/>
                <xs:element name="metadataVersion" minOccurs="0" maxOccurs="1" type="version"/>
                <xs:element name="documentAuthor" minOccurs="0" maxOccurs="1" type="ResponsibleParty">
