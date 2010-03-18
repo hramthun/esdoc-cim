@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 16 March 2010, 5:47 -->       
+<!-- generated: 18 March 2010, 9:27 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1160,7 +1160,15 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:documentation>implemented as a mapping from a source to target; can be a forcing file, a boundary condition, etc.</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
+      <!-- this is an abstract class --><xs:element name="duration" minOccurs="1" maxOccurs="1">
+         <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+               <xs:element name="daily-360" type="Daily-360"/>
+               <xs:element name="realCalendar" type="RealCalendar"/>
+               <xs:element name="perpetualPeriod" type="PerpetualPeriod"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:element>
       <xs:element name="output" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
