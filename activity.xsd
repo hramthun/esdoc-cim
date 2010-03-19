@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 18 March 2010, 9:27 -->       
+<!-- generated: 19 March 2010, 9:19 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -1509,6 +1509,11 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EnsembleType_Enumeration">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="boundaryConditions"/>
+      <xs:enumeration value="crossModel"/>
+      <xs:enumeration value="initialCondition"/>
+      <xs:enumeration value="modelModification"/>
+      <xs:enumeration value="staggeredStart"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
