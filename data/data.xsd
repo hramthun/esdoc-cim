@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 19 March 2010, 9:19 -->       
+<!-- generated: 23 March 2010, 10:01 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -229,7 +229,7 @@
       </xs:element>
       <!--objectProperty is not used -->       
 <xs:element name="restriction" minOccurs="0" maxOccurs="unbounded" type="DataRestriction"/>
-      <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="1">
+      <!-- this is an abstract class --><xs:element name="storage" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
                <xs:element name="localFileStorage" type="LocalFileStorage"/>
