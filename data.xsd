@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 25 March 2010, 9:58 -->       
+<!-- generated: 25 March 2010, 10:10 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -38,12 +38,40 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataFormatType">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataFormatType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>Describes the internal format of the dataset.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="DataFormatType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataFormatType_Enumeration">
    <xs:restriction base="xs:string">
+      <xs:enumeration value="Excel"/>
+      <xs:enumeration value="HDF"/>
       <xs:enumeration value="NetCDF"/>
       <xs:enumeration value="NetCDF_CF"/>
       <xs:enumeration value="WMO_GRIB1"/>
       <xs:enumeration value="WMO_GRIB2"/>
+      <xs:enumeration value="PP"/>
+      <xs:enumeration value="Text"/>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
@@ -78,8 +106,8 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="dataSize" minOccurs="1" maxOccurs="1" type="xs:integer"/>
+      <xs:element name="dataFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
    </xs:sequence>
-   <xs:attribute name="dataFormat" use="required" type="DataFormatType"/>
    <xs:attribute name="dataLocation" use="required" type="xs:anyURI">
       <xs:annotation>
          <xs:documentation>Points to the actual location of the data (used to be dataURI, a feature of DataObject).</xs:documentation>
@@ -154,9 +182,9 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="distributionFee" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="distributionFormat" minOccurs="1" maxOccurs="1" type="DataFormatType"/>
       <xs:element name="responsibleParty" minOccurs="1" maxOccurs="1" type="ResponsibleParty"/>
    </xs:sequence>
-   <xs:attribute name="distributionFormat" use="required" type="DataFormatType"/>
    <xs:attribute name="distributionAccess" use="required" type="DataAccessType"/>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataObject">
