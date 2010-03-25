@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 25 March 2010, 9:33 -->       
+<!-- generated: 25 March 2010, 9:58 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -56,6 +56,11 @@
    </xs:annotation>
    <xs:sequence>
       <xs:element name="description" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="type" minOccurs="1" maxOccurs="1" type="ConnectionType">
+         <xs:annotation>
+            <xs:documentation>The type of Connection</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="timeProfile" minOccurs="0" maxOccurs="1" type="Timing">
          <xs:annotation>
             <xs:documentation>All information having to do with the rate of this connection; the times that it is active.  This overrides any rate of a Coupling.</xs:documentation>
@@ -289,11 +294,6 @@
          </xs:complexType>
       </xs:element>
    </xs:sequence>
-   <xs:attribute name="type" use="required" type="ConnectionType">
-      <xs:annotation>
-         <xs:documentation>The type of Connection</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="purpose" use="required" type="DataPurpose">
       <xs:annotation>
          <xs:documentation>Describes why this connection is being made.  Possible values include: boundaryCondition, initialCondition, Forcing.</xs:documentation>
@@ -652,6 +652,11 @@
             <xs:documentation>A free-text description of the coupling.</xs:documentation>
          </xs:annotation>
       </xs:element>
+      <xs:element name="type" minOccurs="0" maxOccurs="1" type="ConnectionType">
+         <xs:annotation>
+            <xs:documentation>Describes the method of coupling.</xs:documentation>
+         </xs:annotation>
+      </xs:element>
       <xs:element name="timeProfile" minOccurs="0" maxOccurs="1" type="Timing">
          <xs:annotation>
             <xs:documentation>Describes how often the coupling takes place.</xs:documentation>
@@ -886,11 +891,6 @@
       </xs:element>
       <xs:element name="connection" minOccurs="0" maxOccurs="unbounded" type="Connection"/>
    </xs:sequence>
-   <xs:attribute name="type" use="optional" type="ConnectionType">
-      <xs:annotation>
-         <xs:documentation>Describes the method of coupling.</xs:documentation>
-      </xs:annotation>
-   </xs:attribute>
    <xs:attribute name="purpose" use="required" type="DataPurpose"/>
    <xs:attribute name="fullySpecified" use="required" type="xs:boolean">
       <xs:annotation>
@@ -1161,28 +1161,49 @@
                   type="ComponentProperty"/>
    </xs:sequence>
 </xs:complexType>
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType">
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>The ConnectionType enumeration describes the mechanism of transport for a connection.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="ConnectionType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ConnectionType_Enumeration">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="OASIS"/>
-      <xs:enumeration value="FMS"/>
+      <xs:enumeration value="CCSM Flux Coupler"/>
       <xs:enumeration value="ESMF"/>
-      <xs:enumeration value="CCSM">
-         <xs:annotation>
-            <xs:documentation>CCSM Flux Coupler</xs:documentation>
-         </xs:annotation>
-      </xs:enumeration>
+      <xs:enumeration value="FMS"/>
+      <xs:enumeration value="Files"/>
       <xs:enumeration value="MCT"/>
-      <xs:enumeration value="sharedMemory">
+      <xs:enumeration value="OASIS3"/>
+      <xs:enumeration value="OASIS4"/>
+      <xs:enumeration value="Shared Memory">
          <xs:annotation>
             <xs:documentation>a "direct" connection; implies a sequential rather than parallel simulation; also known as "argument passing."</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="files"/>
-      <xs:enumeration value="embedded">
+      <xs:enumeration value="Embedded">
          <xs:annotation>
             <xs:documentation>An embedded connection is a "virtual" connection.  It represents a connection between two embedded components which means that they are not implemented as separate comopnents in software and so there is no "real" inter-component coupling going on.</xs:documentation>
          </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ModelComponentType"
