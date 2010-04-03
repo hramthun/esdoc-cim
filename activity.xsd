@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 25 March 2010, 10:10 -->       
+<!-- generated: 2 April 2010, 23:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -26,9 +26,8 @@
 <xs:include xmlns:xs="http://www.w3.org/2001/XMLSchema" schemaLocation="software.xsd"/>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExperimentRelationship">
    <xs:annotation>
-      <xs:documentation><ol style="margin-top: 0mm; margin-bottom: 0mm; "><ol style="margin-top: 0mm; margin-bottom: 0mm; "> <li>Contains a set of relationship types specific to a simulation document that can be used to describe its genealogy.</li>
-</ol>
-</ol></xs:documentation>
+      <xs:documentation><ul style="margin-top: 0mm; margin-bottom: 0mm; list-style-type: disk; "><ul style="margin-top: 0mm; margin-bottom: 0mm; list-style-type: circle; ">Contains a set of relationship types specific to a simulation document that can be used to describe its genealogy.</ul>
+</ul></xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
@@ -218,6 +217,9 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
    </xs:complexType>
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Project">
+   <xs:annotation>
+      <xs:documentation>A climate project.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Activity">
                     <xs:sequence>
@@ -283,7 +285,7 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NumericalRequirement">
    <xs:annotation>
-      <xs:documentation>A data entitiy is made up of model simulations that have identical numerical requirements.</xs:documentation>
+      <xs:documentation>A description of the requirements of particular experiments.  Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
@@ -307,9 +309,9 @@ There is a one to one association between SimulationRun and (a top-level) Softwa
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SimulationRelationship">
    <xs:annotation>
-      <xs:documentation><ol style="margin-top: 0mm; margin-bottom: 0mm; "><ol style="margin-top: 0mm; margin-bottom: 0mm; "> <li>Contains a set of relationship types specific to a simulation document that can be used to describe its genealogy.</li>
-</ol>
-</ol></xs:documentation>
+      <xs:documentation>Contains a set of relationship types specific to a simulation document that can be used to describe its genealogy.
+<ul style="margin-top: 0mm; margin-bottom: 0mm; list-style-type: disk; "><ul style="margin-top: 0mm; margin-bottom: 0mm; list-style-type: circle; "></ul>
+</ul></xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
@@ -584,7 +586,7 @@ If something is purpopsefully non-conformant then the conformant attribute would
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Assimilation">
    <xs:annotation>
-      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an acutal period in the past eg ERA-40. </xs:documentation>
+      <xs:documentation>An assimilation is a simulation that is constrained by observations. It is representative of an actual period in the past eg ERA-40. </xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Simulation">
@@ -620,16 +622,8 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
             <xs:documentation>Position of a simulation in the SimulationComposite timeline. eg:  Is this the first (rank = 1) or second (rank = 2) simulation</xs:documentation>
          </xs:annotation>
       </xs:element>
-      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite.  </xs:documentation>
-         </xs:annotation>
-      </xs:element>
-      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange">
-         <xs:annotation>
-            <xs:documentation>Defining the part of the simulation that will become a piece of the SimulationComposite</xs:documentation>
-         </xs:annotation>
-      </xs:element>
+      <xs:element name="startPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
+      <xs:element name="endPoint" minOccurs="1" maxOccurs="1" type="ClosedDateRange"/>
       <xs:element name="child" minOccurs="0" maxOccurs="unbounded">
          <xs:complexType>
             <xs:choice>
@@ -942,7 +936,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataProcessing">
    <xs:annotation>
-      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate sceintific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
+      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate scientific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
@@ -1107,7 +1101,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
                         </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dataProcessing">
    <xs:annotation>
-      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate sceintific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
+      <xs:documentation>A DataProcessing activity refers to the processing of observation data or post processing of data from a simulation. It does not simulate scientific phenomena like a Simulation activity does.  It is associated with a ProcessorComponent as opposed to a ModelComponent.</xs:documentation>
    </xs:annotation>
    <xs:complexType>
       <xs:complexContent>
@@ -1150,7 +1144,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Simulation" abstract="true">
    <xs:annotation>
-      <xs:documentation>A simulation is the implentation of a numerical experiment.  A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations, the simulation attributes need to be able to capture this.</xs:documentation>
+      <xs:documentation>A simulation is the implementation of a numerical experiment.  A simulation can be made up of "child" simulations aggregated together to form a "simulation composite".  The "parent" simulation can be made up of whole or partial child simulations, the simulation attributes need to be able to capture this.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="NumericalActivity">
@@ -1481,6 +1475,9 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FrequencyType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>Measures of frequency.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
@@ -1634,7 +1631,7 @@ The SimulationComposite is the new name for the concept of SimulationCollection:
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Experiment">
    <xs:annotation>
-      <xs:documentation>An experiment might be an acitivity which is both observational and numerical in focus, for example, a measurement campaign and numerical experiments for an alpine experiment.
+      <xs:documentation>An experiment might be an activity which is both observational and numerical in focus, for example, a measurement campaign and numerical experiments for an alpine experiment.
 It is a place for the scientific description of the reason why an experiment was made.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>

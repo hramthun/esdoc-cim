@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 25 March 2010, 10:10 -->       
+<!-- generated: 2 April 2010, 23:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -76,7 +76,7 @@
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataTopic">
    <xs:annotation>
-      <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
+      <xs:documentation>Describes the content  of a data object; the variable's name, units, etc.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="name" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -149,6 +149,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataHierarchyType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>The type of data object that is grouped together into a particular hierarchy.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
@@ -421,7 +424,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataContent">
    <xs:annotation>
-      <xs:documentation>like ISO: MD_ContentInformation</xs:documentation>
+      <xs:documentation>The contents of the data object; like ISO: MD_ContentInformation.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="topic" minOccurs="1" maxOccurs="1" type="DataTopic"/>

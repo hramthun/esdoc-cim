@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 25 March 2010, 10:10 -->       
+<!-- generated: 2 April 2010, 23:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,6 +43,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ClosedDateRange">
+   <xs:annotation>
+      <xs:documentation>A date range with specified start and end points.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -51,7 +54,7 @@
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Property" abstract="true">
    <xs:annotation>
-      <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  For example, the ComponentProperty describes features that are modeled by a component and (potentially) coupled via a connection.  Possible names of Properties are CodeLists which are bound to concrete subclasses; Thus, ChangeProperties can have names like "replacement" or "increment" (ChangePropertyType) while ComponentProperties can have names like "seaSurfaceTemperature" or "pressure" (ComponentPropertyType).</xs:documentation>
+      <xs:documentation>An abstract property is simply a name/value pair.  Properties may be grouped into PropertyGroups.  Properties are used to describe features of a class whose details can't be known beforehand and, hence, can't be hard-coded into the schema.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="id" minOccurs="1" maxOccurs="1" type="Identifier"/>
@@ -108,7 +111,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CompilerType" mixed="true">
    <xs:annotation>
-      <xs:documentation>A list of scientific units.</xs:documentation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
@@ -142,6 +145,9 @@
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Platform">
+   <xs:annotation>
+      <xs:documentation>A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform. </xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="shortName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="longName" minOccurs="0" maxOccurs="1" type="xs:string"/>
@@ -152,6 +158,9 @@
    </xs:sequence>
 </xs:complexType>
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform">
+   <xs:annotation>
+      <xs:documentation>A platform is a description of resources used to deploy a component/simulation.  A platform pairs a machine with a (set of) compilers.  There is also a point of contact for the platform. </xs:documentation>
+   </xs:annotation>
    <xs:complexType>
       <xs:complexContent>
          <xs:extension base="Platform">
@@ -192,6 +201,9 @@
    </xs:complexType>
 </xs:element>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Compiler">
+   <xs:annotation>
+      <xs:documentation>A description of a compiler used on a particular platform.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="compilerName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="compilerVersion" minOccurs="1" maxOccurs="1" type="version"/>
@@ -238,7 +250,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationship">
    <xs:annotation>
-      <xs:documentation>Contains the set of relationship supported by a Document.</xs:documentation>
+      <xs:documentation>Contains the set of relationships supported by a Document.</xs:documentation>
    </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="Relationship">
@@ -308,6 +320,9 @@
                             </xs:complexContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Calendar" abstract="true">
+   <xs:annotation>
+      <xs:documentation>Describes a method of calculating a span of dates.</xs:documentation>
+   </xs:annotation>
    <xs:sequence><!-- this is an abstract class --><xs:element name="range" minOccurs="1" maxOccurs="1">
          <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
@@ -353,6 +368,9 @@
    <xs:restriction base="xs:string"/>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OpenDateRange">
+   <xs:annotation>
+      <xs:documentation>A date range without a specified start and/or end point.</xs:documentation>
+   </xs:annotation>
                         <xs:complexContent>
                         <xs:extension base="DateRange">
                     <xs:sequence/>  
@@ -423,7 +441,7 @@
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Identifier">
    <xs:restriction base="xs:token">
       <xs:annotation>
-         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule.  This is the level to which Michael Lautenshlager would like to be able to refernece data. </xs:documentation>
+         <xs:documentation>Needed so that a Numerical Requirement can be be uniquely identified and related to a specific data granule. </xs:documentation>
       </xs:annotation>
    </xs:restriction>
 </xs:simpleType>
@@ -435,6 +453,9 @@
                             </xs:simpleContent>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Machine">
+   <xs:annotation>
+      <xs:documentation>A description of a machine used by a particular platform.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="machineName" minOccurs="1" maxOccurs="1" type="xs:string"/>
       <xs:element name="machineSystem" minOccurs="1" maxOccurs="1" type="xs:string"/>
@@ -476,7 +497,7 @@
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OperatingSystemType"
                 mixed="true">
    <xs:annotation>
-      <xs:documentation>A list of scientific units.</xs:documentation>
+      <xs:documentation>A list of common operating systems.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
@@ -677,7 +698,7 @@ Currently unused in the CIM.</xs:documentation>
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType" mixed="true">
    <xs:annotation>
-      <xs:documentation>A list of scientific units.</xs:documentation>
+      <xs:documentation>A list of organisations that create machines.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
@@ -845,9 +866,7 @@ Currently unused in the CIM.</xs:documentation>
    <xs:annotation>
       <xs:documentation>Any class or feature with the &lt;&lt;reference&gt;&gt; stereotype uses the attributes of this class.  
 
-With all the different ways of pinpointing an XML item, a reference can either use XPATH to directly locate the item or it can just identifiy the document and then use the other attributes (name,type,etc.) to narrow down the parituclar element within that document.  
-
-CIM best practise is to do the latter..</xs:documentation>
+With all the different ways of pinpointing an XML item, a reference can either use XPATH to directly locate the item or it can just identifiy the document and then use the other attributes (name,type,etc.) to narrow down the particular element within that document.  </xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="id" minOccurs="0" maxOccurs="1" type="guid">

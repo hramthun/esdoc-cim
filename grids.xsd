@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- grids.xsd -->       
-<!-- generated: 25 March 2010, 10:10 -->       
+<!-- generated: 2 April 2010, 23:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -215,7 +215,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EdgeArray">
    <xs:annotation>
-      <xs:documentation>Simple data type for encapsulating an array of grid cell edgel definitions.</xs:documentation>
+      <xs:documentation>Simple data type for encapsulating an array of grid cell edge definitions.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="edge" minOccurs="3" maxOccurs="unbounded" type="Edge"/>
@@ -269,7 +269,7 @@ A GridCellRef object consists of a reference to a cell in a separately-defined g
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Edge">
    <xs:annotation>
-      <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. I think (check with Balaji)!</xs:documentation>
+      <xs:documentation>The Edge data type is used to define the topological edge between adjacent (touching) grid cells. </xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="vertex1" minOccurs="1" maxOccurs="1" type="gml:PointPropertyType">

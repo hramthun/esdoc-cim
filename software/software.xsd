@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- software.xsd -->       
-<!-- generated: 25 March 2010, 10:10 -->       
+<!-- generated: 2 April 2010, 23:23 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -43,7 +43,7 @@
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Composition">
    <xs:annotation>
-      <xs:documentation>The set of Couplings used by a Component.  Couplings can only ocurr between child components.  That is, a composition must belong to an ancestor component of the components whose fields are being connected.</xs:documentation>
+      <xs:documentation>The set of Couplings used by a Component.  Couplings can only occur between child components.  That is, a composition must belong to an ancestor component of the components whose fields are being connected.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="coupling" minOccurs="1" maxOccurs="unbounded" type="Coupling"/>
@@ -480,7 +480,7 @@
                         </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeLag">
    <xs:annotation>
-      <xs:documentation> The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. </xs:documentation>
+      <xs:documentation>The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. This lag specifies the difference in time.</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="value" minOccurs="0" maxOccurs="1" type="xs:integer"/>
@@ -899,6 +899,9 @@
    </xs:attribute>
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TimeMappingType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>Enumerates the different ways that time can be mapped when transforming from one field to another.</xs:documentation>
+   </xs:annotation>
    <xs:sequence>
       <xs:element name="vocabularyServer" minOccurs="0">
          <xs:complexType>
@@ -1387,7 +1390,7 @@ A deployment basically associates a deploymentDate with a Platform.  A deploymen
 </xs:complexType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Timing">
    <xs:annotation>
-      <xs:documentation>Provides information about the rate of couplings and connections and/or the timing characterstics of individual components - for example, the start and stop times that the compnent was run for or the units of time that a component is able to model (in a single timestep).</xs:documentation>
+      <xs:documentation>Provides information about the rate of couplings and connections and/or the timing characteristics of individual components - for example, the start and stop times that the component was run for or the units of time that a component is able to model (in a single timestep).</xs:documentation>
    </xs:annotation>
    <xs:sequence>
       <xs:element name="start" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
