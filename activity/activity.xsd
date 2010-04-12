@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- activity.xsd -->       
-<!-- generated: 2 April 2010, 23:23 -->       
+<!-- generated: 12 April 2010, 9:26 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -81,6 +81,34 @@
                             </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProjectType" mixed="true">
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="ProjectType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProjectType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="CMIP5"/>
+      <xs:enumeration value="AMIP"/>
+      <xs:enumeration value="TAMIP"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Activity" abstract="true">
    <xs:annotation>
       <xs:documentation>An abstract class used as the parent of MeasurementCampaigns, Projects, Experiments, and NumericalActivities.</xs:documentation>
@@ -100,6 +128,11 @@
       <xs:element name="rationale" minOccurs="1" maxOccurs="unbounded" type="xs:string">
          <xs:annotation>
             <xs:documentation>For what purpose is this activity being performed?</xs:documentation>
+         </xs:annotation>
+      </xs:element>
+      <xs:element name="project" minOccurs="0" maxOccurs="unbounded" type="ProjectType">
+         <xs:annotation>
+            <xs:documentation>The project(s) that this activity is associated with (ie: CMIP5, AMIP, etc.)</xs:documentation>
          </xs:annotation>
       </xs:element>
    </xs:sequence>
