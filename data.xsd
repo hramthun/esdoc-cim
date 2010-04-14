@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- data.xsd -->       
-<!-- generated: 12 April 2010, 9:26 -->       
+<!-- generated: 13 April 2010, 21:11 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -66,11 +66,14 @@
       <xs:enumeration value="Excel"/>
       <xs:enumeration value="HDF"/>
       <xs:enumeration value="NetCDF"/>
-      <xs:enumeration value="NetCDF_CF"/>
-      <xs:enumeration value="WMO_GRIB1"/>
-      <xs:enumeration value="WMO_GRIB2"/>
+      <xs:enumeration value="GRIB 1"/>
+      <xs:enumeration value="GRIB 2"/>
       <xs:enumeration value="PP"/>
-      <xs:enumeration value="Text"/>
+      <xs:enumeration value="ASCII"/>
+      <xs:enumeration value="HDF EOS"/>
+      <xs:enumeration value="NCEP ON29"/>
+      <xs:enumeration value="NCEP ON129"/>
+      <xs:enumeration value="Binary"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
