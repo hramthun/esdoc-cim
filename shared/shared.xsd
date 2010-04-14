@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- shared.xsd -->       
-<!-- generated: 13 April 2010, 21:11 -->       
+<!-- generated: 13 April 2010, 23:24 -->       
 <xs:schema
              elementFormDefault="qualified" attributeFormDefault="unqualified"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -139,7 +139,7 @@
       <xs:enumeration value="Lahey"/>
       <xs:enumeration value="NAG"/>
       <xs:enumeration value="Pathscale"/>
-      <xs:enumeration value="PortlandPGI"/>
+      <xs:enumeration value="Portland PGI"/>
       <xs:enumeration value="Silverfrost"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
@@ -379,26 +379,27 @@
                         </xs:complexType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DocumentRelationshipType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="previousVersion"/>
       <xs:enumeration value="similarTo"/>
       <xs:enumeration value="other"/>
+      <xs:enumeration value="laterVersionOf"/>
+      <xs:enumeration value="fixedVersionOf"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="massivelyParallel"/>
-      <xs:enumeration value="serial"/>
-      <xs:enumeration value="sharedMemory"/>
+      <xs:enumeration value="Parallel"/>
+      <xs:enumeration value="Vector"/>
+      <xs:enumeration value="Beowulf"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ChangePropertyType">
    <xs:restriction base="xs:string">
-      <xs:enumeration value="inputMod"/>
-      <xs:enumeration value="modelMod"/>
-      <xs:enumeration value="decrement"/>
-      <xs:enumeration value="increment"/>
-      <xs:enumeration value="redistribution"/>
-      <xs:enumeration value="replacement"/>
+      <xs:enumeration value="InputMod"/>
+      <xs:enumeration value="ModelMod"/>
+      <xs:enumeration value="Decrement"/>
+      <xs:enumeration value="Increment"/>
+      <xs:enumeration value="Redistribution"/>
+      <xs:enumeration value="Replacement"/>
    </xs:restriction>
 </xs:simpleType>
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Document" abstract="true">
@@ -469,10 +470,10 @@
       <xs:element name="machineOperatingSystem" minOccurs="1" maxOccurs="1"
                   type="OperatingSystemType"/>
       <xs:element name="machineVendor" minOccurs="0" maxOccurs="1" type="MachineVendorType"/>
-      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineInterconnect" minOccurs="0" maxOccurs="1" type="InterconnectType"/>
       <xs:element name="machineMaximumProcessors" minOccurs="0" maxOccurs="1" type="xs:integer"/>
       <xs:element name="machineCoresPerProcessor" minOccurs="0" maxOccurs="1" type="xs:integer"/>
-      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="xs:string"/>
+      <xs:element name="machineProcessorType" minOccurs="0" maxOccurs="1" type="ProcessorType"/>
    </xs:sequence>
    <xs:attribute name="machineType" use="optional" type="MachineType"/>
 </xs:complexType>
@@ -722,33 +723,71 @@ Currently unused in the CIM.</xs:documentation>
 <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="MachineVendorType_Enumeration">
    <xs:restriction base="xs:string">
       <xs:enumeration value="ACTION"/>
-      <xs:enumeration value="ApproInternational"/>
-      <xs:enumeration value="BullSA"/>
+      <xs:enumeration value="Appro International"/>
+      <xs:enumeration value="Bull SA"/>
       <xs:enumeration value="ClusterVision/Dell"/>
-      <xs:enumeration value="CrayInc"/>
-      <xs:enumeration value="DALCO-AGSwitzerland"/>
+      <xs:enumeration value="ClusterVision/IBM"/>
+      <xs:enumeration value="Cray Inc"/>
+      <xs:enumeration value="DALCO AG Switzerland"/>
       <xs:enumeration value="Dawning"/>
       <xs:enumeration value="Dell"/>
       <xs:enumeration value="DELL/ACS"/>
       <xs:enumeration value="Dell/Sun/IBM"/>
       <xs:enumeration value="Fujitsu"/>
-      <xs:enumeration value="HewlettPackard"/>
+      <xs:enumeration value="Hewlett-Packard"/>
       <xs:enumeration value="Hitachi"/>
       <xs:enumeration value="IBM"/>
       <xs:enumeration value="Intel"/>
-      <xs:enumeration value="KoiComputers"/>
+      <xs:enumeration value="Koi Computers"/>
       <xs:enumeration value="Lenovo"/>
-      <xs:enumeration value="LinuxNetworx"/>
+      <xs:enumeration value="Linux Networx"/>
       <xs:enumeration value="NEC"/>
       <xs:enumeration value="NEC/Sun"/>
       <xs:enumeration value="NUDT"/>
-      <xs:enumeration value="PyramidComputer"/>
-      <xs:enumeration value="Raytheon-AspenSystems/Appro"/>
-      <xs:enumeration value="SelfMade"/>
+      <xs:enumeration value="Pyramid Computer"/>
+      <xs:enumeration value="Raytheon-Aspen Systems/Appro"/>
+      <xs:enumeration value="Self-made"/>
       <xs:enumeration value="SGI"/>
       <xs:enumeration value="SKIF/T-Platforms"/>
-      <xs:enumeration value="SunMicrosystems"/>
+      <xs:enumeration value="Sun Microsystems"/>
       <xs:enumeration value="T-Platforms"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="InterconnectType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="InterconnectType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="Myrinet"/>
+      <xs:enumeration value="Quadrics"/>
+      <xs:enumeration value="Gigabit Ethernet"/>
+      <xs:enumeration value="Infiniband"/>
+      <xs:enumeration value="Mixed"/>
+      <xs:enumeration value="NUMAlink"/>
+      <xs:enumeration value="SP Switch"/>
+      <xs:enumeration value="Cray Interconnect"/>
+      <xs:enumeration value="Fat Tree"/>
       <xs:enumeration value="other"/>
    </xs:restriction>
 </xs:simpleType>
@@ -921,5 +960,41 @@ With all the different ways of pinpointing an XML item, a reference can either u
                     <xs:sequence/>  
                             </xs:extension>
                             </xs:complexContent>
-                        </xs:complexType>       
+                        </xs:complexType>
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorType" mixed="true">
+   <xs:annotation>
+      <xs:documentation>A list of known compilers.</xs:documentation>
+   </xs:annotation>
+   <xs:sequence>
+      <xs:element name="vocabularyServer" minOccurs="0">
+         <xs:complexType>
+            <xs:sequence>
+               <xs:element name="vocabularyName" type="xs:string"/>
+               <xs:element name="vocabularyVersion" minOccurs="0" type="version"/>
+               <xs:element name="vocabularyDetails" type="xs:string" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>information about how to access the vocabulary
+                                    </xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="href" type="xs:anyURI"/>
+         </xs:complexType>
+      </xs:element>
+   </xs:sequence>
+   <xs:attribute name="value" type="ProcessorType_Enumeration" use="required"/>
+</xs:complexType>
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessorType_Enumeration">
+   <xs:restriction base="xs:string">
+      <xs:enumeration value="NEC"/>
+      <xs:enumeration value="Sparc"/>
+      <xs:enumeration value="Intel"/>
+      <xs:enumeration value="Intel IA-64"/>
+      <xs:enumeration value="Intel EM64T"/>
+      <xs:enumeration value="AMD X86_64"/>
+      <xs:enumeration value="Other Intel"/>
+      <xs:enumeration value="Other AMD"/>
+      <xs:enumeration value="other"/>
+   </xs:restriction>
+</xs:simpleType>       
 </xs:schema>
