@@ -147,7 +147,7 @@
 						</UML:Dependency>
 						<UML:Package name="quality" xmi.id="EAPK_18AE3D5C_A78B_4193_87D3_5A820CCB03F8" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_1D78BBD2_48E0_4eaf_8182_11F5B866E37C"/>
+								<UML:Stereotype xmi.idref="EAID_2FAEECC3_95E5_409a_88B5_7184F841E5C2"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="parent" value="EAPK_03FABA6B_8DF7_41db_8FE3_80E6303260E4"/>
@@ -2649,7 +2649,7 @@
 						</UML:Package>
 						<UML:Package name="shared" xmi.id="EAPK_325FDFFC_1671_4a33_9579_029B6555B109" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_1D78BBD2_48E0_4eaf_8182_11F5B866E37C"/>
+								<UML:Stereotype xmi.idref="EAID_2FAEECC3_95E5_409a_88B5_7184F841E5C2"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="parent" value="EAPK_03FABA6B_8DF7_41db_8FE3_80E6303260E4"/>
@@ -4106,7 +4106,7 @@
 						</UML:Package>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_1D78BBD2_48E0_4eaf_8182_11F5B866E37C" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_2FAEECC3_95E5_409a_88B5_7184F841E5C2" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid0" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
