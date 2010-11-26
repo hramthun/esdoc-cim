@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:gmd="http://www.isotc211.org/2005/gmd"
+	xmlns="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0"
+	xsi:schemaLocation="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0 http://projects.arcs.org.au/svn/fullmoon/trunk/resources/dependency-util/package-class-map.xsd"
+	id="ClassMap_CIM.xml"> I
+	<description>Provides a mapping of classes used in CIM</description>
+	<!-- <imports>
+		<schema prefix="cim" namespace="http://www.metafor.climate.eu/schema/cim/1.5" schemaLocation="cimbase.xsd" />
+	</imports> -->
+	<imports>
+			<schema prefix="gmd" namespace="http://www.isotc211.org/2005/gmd" schemaLocation="gmd.xsd" />
+	</imports>
+	<entry>
+		<umlClass>ResponsibleParty</umlClass>
+		<gmlObjectElement>cim:ResponsibleParty</gmlObjectElement>
+		<gmlType>cim:ResponsibleParty</gmlType>
+		<gmlPropertyType>cim:ResponsibleParty</gmlPropertyType>
+	</entry> -->
+	<entry>
+		<umlClass>Document</umlClass>
+		<gmlObjectElement>cim:Document</gmlObjectElement>
+		<gmlType>cim:Document</gmlType>
+		<gmlPropertyType>cim:Document</gmlPropertyType>
+	</entry>
+	<entry>
+		<umlClass>URI</umlClass>
+		<gmlObjectElement xsi:nil="true"></gmlObjectElement>
+		<gmlType>xsd:anyURI</gmlType>
+		<gmlPropertyType>xsd:anyURI</gmlPropertyType>
+	</entry>
+
+</mapping>
