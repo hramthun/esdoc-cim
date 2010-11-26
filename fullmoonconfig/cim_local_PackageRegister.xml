@@ -7,7 +7,7 @@
 	id="cim_local_PackageRegister.xml">
 	<description>A register of additional EA packages with classmap implementations for HMA		
 	The FullMoon processing framework uses this to resolve external dependencies in Application Schemas</description>
-	<package name="CIM">
+	<package name="shared">
                 <implementation binding="GML 3.2">
                         <classMap location="file:///usr/local/fullmoon/cim/ClassMap_CIM.xml"/>
                 </implementation>

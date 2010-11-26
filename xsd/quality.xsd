@@ -3,6 +3,7 @@
         <documentation>[WARN-A001] - No package description in UML model</documentation>
     </annotation>
     <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <include schemaLocation="shared.xsd"/>
     <element name="CIM_Result" substitutionGroup="gml:AbstractGML" type="cim:CIM_ResultType"/>
     <complexType name="CIM_ResultType">
         <complexContent>
@@ -67,7 +68,7 @@
             <extension base="gmd:DQ_DomainConsistency_Type">
                 <sequence>
                     <element maxOccurs="1" minOccurs="0" name="dateTime" type="dateTime"/>
-                    <element maxOccurs="1" minOccurs="0" name="evaluator" type="cim:ResponsibleParty"/>
+                    <element maxOccurs="1" minOccurs="0" name="evaluator" type="cim:ResponsiblePartyPropertyType"/>
                     <element maxOccurs="3" minOccurs="1" name="result" type="gmd:DQ_Result_PropertyType"/>
                     <element maxOccurs="1" minOccurs="0" name="measure" type="cim:CIM_MeasurePropertyType"/>
                 </sequence>
@@ -100,7 +101,7 @@
                             <documentation>the type of feature that the quality issue refers too (for METAFOR this could be simulation, file, boundary condition etc.)</documentation>
                         </annotation>
                     </element>
-                    <element name="feature" type="cim:Document">
+                    <element name="feature" type="cim:DocumentPropertyType">
                         <annotation>
                             <documentation>the reference to the specific feature (e.g. a URI to a file)</documentation>
                         </annotation>
@@ -136,12 +137,12 @@
                             <documentation>summary description of quality issue</documentation>
                         </annotation>
                     </element>
-                    <element name="issueIdentifiedBy" type="cim:ResponsibleParty">
+                    <element name="issueIdentifiedBy" type="cim:ResponsiblePartyPropertyType">
                         <annotation>
                             <documentation>person/organisation responsible for identifying this quality issue</documentation>
                         </annotation>
                     </element>
-                    <element maxOccurs="1" minOccurs="0" name="issueResponsibilityOf" type="cim:ResponsibleParty">
+                    <element maxOccurs="1" minOccurs="0" name="issueResponsibilityOf" type="cim:ResponsiblePartyPropertyType">
                         <annotation>
                             <documentation>person/organisation allocated the responsibuility for addressing this issue</documentation>
                         </annotation>
@@ -222,7 +223,7 @@
     </element>
     <complexType name="CIM_QualityType">
         <complexContent>
-            <extension base="cim:Document">
+            <extension base="cim:DocumentType">
                 <sequence>
                     <element name="scope" type="cim:CIM_ScopePropertyType">
                         <annotation>

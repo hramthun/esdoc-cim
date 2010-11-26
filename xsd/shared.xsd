@@ -14,6 +14,8 @@
                 <sequence>
                     <element name="type" type="cim:DocumentRelationshipTypeType"/>
                     <element name="target" type="cim:DocumentPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="report" type="cim:CIM_DomainConsistencyPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="issue" type="cim:CIM_QualityIssuePropertyType"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -36,7 +38,7 @@
                 <sequence>
                     <element name="documentID" type="string">
                         <annotation>
-                            <documentation>a unique indentifier for this document</documentation>
+                            <documentation>a unique indentifier for this document - must be a GUID</documentation>
                         </annotation>
                     </element>
                     <element name="documentVersion" type="string"/>
@@ -68,6 +70,8 @@
                         </annotation>
                     </element>
                     <element maxOccurs="1" minOccurs="0" name="documentStatus" type="cim:DocumentStatusTypeType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="report" type="cim:CIM_DomainConsistencyPropertyType"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="issue" type="cim:CIM_QualityIssuePropertyType"/>
                 </sequence>
             </extension>
         </complexContent>
