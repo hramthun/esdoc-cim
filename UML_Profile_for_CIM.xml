@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<UMLProfile>
+
+	<!-- created by Dominic Lowe, STFC. A UML profile for Metafor Common Information Model. Contains the 'document' stereotype. Based on the UML Profile for GML Application Schemas by Cox/Portele -->
+
+	<Documentation id="CIM" name="UML Profile for CIM" version="1.0" notes="This profile defines a document stereotype CIM."/>
+
+	<Content>	
+		<Stereotypes>
+			<Stereotype name="Document" notes="A Document according to the CIM conceptual model">
+				<AppliesTo>
+					<Apply type="class"/>
+				</AppliesTo>
+				<TaggedValues>
+				</TaggedValues>
+			</Stereotype>
+		</Stereotypes>
+	</Content>	
+</UMLProfile>
