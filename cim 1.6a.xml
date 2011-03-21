@@ -24,7 +24,7 @@
 						<UML:TaggedValue tag="owner" value="lgzkms"/>
 						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
 						<UML:TaggedValue tag="logxml" value="FALSE"/>
-						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=0;VCCFG=cim1.6a;CheckedOutTo=lgzkms;CRC=0;"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=0;VCCFG=cim1.6a;CRC=0;"/>
 						<UML:TaggedValue tag="batchsave" value="0"/>
 						<UML:TaggedValue tag="batchload" value="0"/>
 						<UML:TaggedValue tag="phase" value="1.0"/>
@@ -96,7 +96,7 @@
 						</UML:Collaboration>
 						<UML:Package name="cim" xmi.id="EAPK_7F78C79F_1EEE_4374_8AF4_803D69D428B8" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
 							<UML:ModelElement.stereotype>
-								<UML:Stereotype xmi.idref="EAID_EC9EF753_C3CD_4760_A14F_120A1B93312F"/>
+								<UML:Stereotype xmi.idref="EAID_E4F2D4DC_956F_4b39_96A9_50E6A7C51877"/>
 							</UML:ModelElement.stereotype>
 							<UML:ModelElement.taggedValue>
 								<UML:TaggedValue tag="parent" value="EAPK_6C57D981_0617_4628_BBA6_33DEAC9D8855"/>
@@ -4751,7 +4751,7 @@
 						</UML:Package>
 					</UML:Namespace.ownedElement>
 				</UML:Package>
-				<UML:Stereotype xmi.id="EAID_EC9EF753_C3CD_4760_A14F_120A1B93312F" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
+				<UML:Stereotype xmi.id="EAID_E4F2D4DC_956F_4b39_96A9_50E6A7C51877" name="Application Schema" isRoot="false" isLeaf="false" isAbstract="false">
 					<UML:Stereotype.baseClass>Package</UML:Stereotype.baseClass>
 				</UML:Stereotype>
 				<UML:DataType xmi.id="eaxmiid1" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
