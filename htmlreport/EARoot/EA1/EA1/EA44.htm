@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Activity::M4A_ExperimentRelationshipType</title>
+<title>M4A_Deployment</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4A_ExperimentRelationshipType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">M4A_Deployment  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">29/06/2009 18:53:56</td>
+			<td width="85%" class="ObjectDetailsValue">10/10/2008 14:45:26</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">17/03/2011 17:54:49</td>
+			<td class="ObjectDetailsValue">14/04/2011 17:10:31</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{D674BEB3-5B32-4e77-A0B4-DC7D1FF87213}</td>
+			<td class="ObjectDetailsValue">{3BB8299C-8F1E-41cf-9203-F098C251DFF9}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA7/EA194.htm">Common</a></td>
+			<td class="ObjectDetailsValue"><a href="EA17.htm">Deployment</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The type of experiment relationship being recorded by an experiment&#39;s genealogy.</div>
+	<div class="ObjectDetailsNotes">Gives information about the technical properties of a component: what machine it was run on, which compilers were used, how it was parallised, etc.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A deployment basically associates a deploymentDate with a Platform.&#160; A deployment only exists if something has been deployed.&#160; A platform, in contrast, can exist independently, waiting to be used in deployments.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,57 +76,78 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;previousRealisation</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public DateTime</i><br /><strong>&nbsp;&nbsp;deploymentDate</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes34" onclick="parent.toggleDiv('detailsDIVAttributes34','DetailsImageAttributes34')" />Details:
-						<div id="detailsDIVAttributes34" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes28" onclick="parent.toggleDiv('detailsDIVAttributes28','DetailsImageAttributes28')" />Details:
+						<div id="detailsDIVAttributes28" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;continuationOf</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes35" onclick="parent.toggleDiv('detailsDIVAttributes35','DetailsImageAttributes35')" />Details:
-						<div id="detailsDIVAttributes35" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes29" onclick="parent.toggleDiv('detailsDIVAttributes29','DetailsImageAttributes29')" />Details:
+						<div id="detailsDIVAttributes29" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;controlExperiment</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA55.htm">M4A_Parallelisation</a></i><br /><strong>&nbsp;&nbsp;parallelisation</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes36" onclick="parent.toggleDiv('detailsDIVAttributes36','DetailsImageAttributes36')" />Details:
-						<div id="detailsDIVAttributes36" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes30" onclick="parent.toggleDiv('detailsDIVAttributes30','DetailsImageAttributes30')" />Details:
+						<div id="detailsDIVAttributes30" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;higherResolutionVersionOf</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA229.htm">M4C_Platform</a></i><br /><strong>&nbsp;&nbsp;platform</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes37" onclick="parent.toggleDiv('detailsDIVAttributes37','DetailsImageAttributes37')" />Details:
-						<div id="detailsDIVAttributes37" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes31" onclick="parent.toggleDiv('detailsDIVAttributes31','DetailsImageAttributes31')" />Details:
+						<div id="detailsDIVAttributes31" class="DetailsDiv" >
+						<i>Range:0 to 1</i>reference=true<br><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			The platform that this deployment has been run on.&nbsp;<WBR> It is optional to allow for &quot;unconfigured&quot; models, that nonetheless specify their parallelisation constraints (a feature needed by OASIS).
+		</td>
+	</tr>
+</table></div>
+
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;lowerResolutionVersionOf</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;executableName</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes38" onclick="parent.toggleDiv('detailsDIVAttributes38','DetailsImageAttributes38')" />Details:
-						<div id="detailsDIVAttributes38" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes32" onclick="parent.toggleDiv('detailsDIVAttributes32','DetailsImageAttributes32')" />Details:
+						<div id="detailsDIVAttributes32" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;executableArgument</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes33" onclick="parent.toggleDiv('detailsDIVAttributes33','DetailsImageAttributes33')" />Details:
+						<div id="detailsDIVAttributes33" class="DetailsDiv" >
+						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
 				</td>
