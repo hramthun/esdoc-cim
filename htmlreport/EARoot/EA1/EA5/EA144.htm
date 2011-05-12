@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Data::M4D_DataFormatType</title>
+<title>Data::M4D_DataRestrictionScopeType</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,7 +16,7 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4D_DataFormatType  : public  &lt;&lt;codelist&gt;&gt; class</span>
+	<span class="ObjectTitle">M4D_DataRestrictionScopeType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
@@ -24,7 +24,7 @@ function initPage(src) {
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">18/03/2011 17:10:42</td>
+			<td class="ObjectDetailsValue">18/03/2011 17:10:28</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,19 +57,18 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{31B4B4FA-46A0-4269-B567-A93974C93DDF}</td>
+			<td class="ObjectDetailsValue">{F169604C-C156-450f-A4A6-12A5ABAC9712}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA132.htm">Data</a></td>
+			<td class="ObjectDetailsValue"><a href="EA127.htm">Data</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Describes the internal format of the dataset.</div>
+	<div class="ObjectDetailsNotes">The method by which a data object is restricted.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -77,122 +76,45 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Excel</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;metadataAccessConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes452" onclick="parent.toggleDiv('detailsDIVAttributes452','DetailsImageAttributes452')" />Details:
-						<div id="detailsDIVAttributes452" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes508" onclick="parent.toggleDiv('detailsDIVAttributes508','DetailsImageAttributes508')" />Details:
+						<div id="detailsDIVAttributes508" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;HDF</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;metadataUseConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes453" onclick="parent.toggleDiv('detailsDIVAttributes453','DetailsImageAttributes453')" />Details:
-						<div id="detailsDIVAttributes453" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes509" onclick="parent.toggleDiv('detailsDIVAttributes509','DetailsImageAttributes509')" />Details:
+						<div id="detailsDIVAttributes509" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NetCDF</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;dataAccessConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes454" onclick="parent.toggleDiv('detailsDIVAttributes454','DetailsImageAttributes454')" />Details:
-						<div id="detailsDIVAttributes454" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes510" onclick="parent.toggleDiv('detailsDIVAttributes510','DetailsImageAttributes510')" />Details:
+						<div id="detailsDIVAttributes510" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;GRIB 1</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public MD_Constraints</i><br /><strong>&nbsp;&nbsp;dataUseConstraint</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes455" onclick="parent.toggleDiv('detailsDIVAttributes455','DetailsImageAttributes455')" />Details:
-						<div id="detailsDIVAttributes455" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;GRIB 2</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes456" onclick="parent.toggleDiv('detailsDIVAttributes456','DetailsImageAttributes456')" />Details:
-						<div id="detailsDIVAttributes456" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;PP</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes457" onclick="parent.toggleDiv('detailsDIVAttributes457','DetailsImageAttributes457')" />Details:
-						<div id="detailsDIVAttributes457" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;ASCII</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes458" onclick="parent.toggleDiv('detailsDIVAttributes458','DetailsImageAttributes458')" />Details:
-						<div id="detailsDIVAttributes458" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;HDF EOS</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes459" onclick="parent.toggleDiv('detailsDIVAttributes459','DetailsImageAttributes459')" />Details:
-						<div id="detailsDIVAttributes459" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NCEP ON29</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes460" onclick="parent.toggleDiv('detailsDIVAttributes460','DetailsImageAttributes460')" />Details:
-						<div id="detailsDIVAttributes460" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;NCEP ON129</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes461" onclick="parent.toggleDiv('detailsDIVAttributes461','DetailsImageAttributes461')" />Details:
-						<div id="detailsDIVAttributes461" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;Binary</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes462" onclick="parent.toggleDiv('detailsDIVAttributes462','DetailsImageAttributes462')" />Details:
-						<div id="detailsDIVAttributes462" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes511" onclick="parent.toggleDiv('detailsDIVAttributes511','DetailsImageAttributes511')" />Details:
+						<div id="detailsDIVAttributes511" class="DetailsDiv" >
 						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
@@ -200,27 +122,7 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
-<div class="ItemBody" id="TaggedValTable">
-	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="50%" class="TableHeading">Tag</td>
-			<td width="50%" class="TableHeading">Value</td>
-		</tr>
-					<tr>
-				<td width="50%" class="TableRow" valign="top">open</td>
-				<td width="50%" class="TableRow" valign="top">true</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario463" onclick="parent.toggleDiv('detailsDIVScenario463','DetailsImageScenario463')" />Details:
-						<div id="detailsDIVScenario463" class="DetailsDiv" >
-						&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>
-	</table>
-</div>	</div>
+	</div>
 <div class="pageFooter"></div>
  
 </body>

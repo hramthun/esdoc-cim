@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::M4G_ArcTypeEnum</title>
+<title>Grids::M4G_EdgeArray</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4G_ArcTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">M4G_EdgeArray  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">09/10/2008 11:05:50</td>
+			<td width="85%" class="ObjectDetailsValue">22/01/2009 16:17:54</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 15:32:45</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:33:02</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{8CE76ECE-C2B3-4811-9FD5-7546E56BF472}</td>
+			<td class="ObjectDetailsValue">{771D14F8-15B1-473f-9BB4-B1D1E2A09AAA}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The ArcType enumeration may be used to indicate the type of the curves (arcs) that connect the grid nodes in a grid tile. The &#39;complex&#39; enumeration should be used when the arc type is not one of the other well-known types.</div>
+	<div class="ObjectDetailsNotes">Simple data type for encapsulating an array of grid cell edge definitions.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,46 +76,13 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;geodesic</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA166.htm">M4G_Edge</a></i><br /><strong>&nbsp;&nbsp;edge</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes560" onclick="parent.toggleDiv('detailsDIVAttributes560','DetailsImageAttributes560')" />Details:
-						<div id="detailsDIVAttributes560" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;great_circle</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes561" onclick="parent.toggleDiv('detailsDIVAttributes561','DetailsImageAttributes561')" />Details:
-						<div id="detailsDIVAttributes561" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;small_circle</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes562" onclick="parent.toggleDiv('detailsDIVAttributes562','DetailsImageAttributes562')" />Details:
-						<div id="detailsDIVAttributes562" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;complex</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes563" onclick="parent.toggleDiv('detailsDIVAttributes563','DetailsImageAttributes563')" />Details:
-						<div id="detailsDIVAttributes563" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes581" onclick="parent.toggleDiv('detailsDIVAttributes581','DetailsImageAttributes581')" />Details:
+						<div id="detailsDIVAttributes581" class="DetailsDiv" >
+						<i>Range:3 to *</i>&nbsp;
 						</div>
 					</div>
 				</td>

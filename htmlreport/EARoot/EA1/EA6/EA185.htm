@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::M4G_RefinementTypeEnum</title>
+<title>Grids::M4G_VerticalCoordinateFormTypeEnum</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4G_RefinementTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">M4G_VerticalCoordinateFormTypeEnum  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">09/10/2008 11:06:58</td>
+			<td width="85%" class="ObjectDetailsValue">09/10/2008 11:12:15</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 15:18:19</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:23:55</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{077AFA2D-2B26-47c7-BDAE-3B5754AFF5EB}</td>
+			<td class="ObjectDetailsValue">{1D34C641-D86F-44d4-A6DB-19CC25525EEA}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The RefinementType enumeration is used to indicate the spatial relationship between two overlapping or adjacent grid tiles. The meaning of the various refinement values is described in section 2.8 of the GridSpec paper.</div>
+	<div class="ObjectDetailsNotes">A list of different types of vertical coordinates you could have.&#160; Only certain subsets of these can be selected depending on the VerticalCoordinateType selected.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,65 +76,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;none</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;sigma</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes689" onclick="parent.toggleDiv('detailsDIVAttributes689','DetailsImageAttributes689')" />Details:
-						<div id="detailsDIVAttributes689" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Tile boundaries have no refinement when the grid lines meeting at the tile boundary are continuous.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes702" onclick="parent.toggleDiv('detailsDIVAttributes702','DetailsImageAttributes702')" />Details:
+						<div id="detailsDIVAttributes702" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;integer</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;S-coordinate</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes690" onclick="parent.toggleDiv('detailsDIVAttributes690','DetailsImageAttributes690')" />Details:
-						<div id="detailsDIVAttributes690" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The refinement is integer when grid lines from the coarser grid are continuous on the finer grid, but not vice versa.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;rational</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes691" onclick="parent.toggleDiv('detailsDIVAttributes691','DetailsImageAttributes691')" />Details:
-						<div id="detailsDIVAttributes691" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The refinement is rational when the adjacent or overlapping grid tiles have grid line counts that are coprime (i.e. no common factor other than 1).
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes703" onclick="parent.toggleDiv('detailsDIVAttributes703','DetailsImageAttributes703')" />Details:
+						<div id="detailsDIVAttributes703" class="DetailsDiv" >
+						<i>&lt;&lt;enum&gt;&gt;</i>&nbsp;
 						</div>
 					</div>
 				</td>

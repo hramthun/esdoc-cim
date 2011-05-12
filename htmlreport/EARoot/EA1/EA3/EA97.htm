@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Process::M4P_ConformanceType</title>
+<title>Process::M4P_DataProcessType</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4P_ConformanceType  : public  &lt;&lt;enumeration&gt;&gt; enumeration</span>
+	<span class="ObjectTitle">M4P_DataProcessType  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">29/06/2009 18:53:56</td>
+			<td width="85%" class="ObjectDetailsValue">24/09/2008 12:11:01</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 18:00:46</td>
+			<td class="ObjectDetailsValue">18/04/2011 17:53:34</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">allyn</td>
+			<td class="ObjectDetailsValue">lawrence</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{DF504BA4-BC5F-46bf-8DA5-C458AC1D5E03}</td>
+			<td class="ObjectDetailsValue">{F44D13BF-9B1E-4626-AC57-637D651B3DF4}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA77.htm">Configuration</a></td>
+			<td class="ObjectDetailsValue"><a href="EA74.htm">ObservationalProcess</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Enumerates the different ways that a simulation can be conformant to an experimental requirement.</div>
+	<div class="ObjectDetailsNotes">A set of attributes that are specific to a data process (as opposed to a simulation).</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -76,19 +76,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;not conformant</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA99.htm">M4P_ProcessorComponentType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes264" onclick="parent.toggleDiv('detailsDIVAttributes264','DetailsImageAttributes264')" />Details:
-						<div id="detailsDIVAttributes264" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes271" onclick="parent.toggleDiv('detailsDIVAttributes271','DetailsImageAttributes271')" />Details:
+						<div id="detailsDIVAttributes271" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes a simulation that is purpefully non-conformant to an experimental requirement.&lt;br /&gt;
+			Describes the type of component.&nbsp;<WBR> There can be multiple types.
 		</td>
 	</tr>
 </table></div>
@@ -97,19 +97,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;standard config</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;conservative</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes265" onclick="parent.toggleDiv('detailsDIVAttributes265','DetailsImageAttributes265')" />Details:
-						<div id="detailsDIVAttributes265" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes272" onclick="parent.toggleDiv('detailsDIVAttributes272','DetailsImageAttributes272')" />Details:
+						<div id="detailsDIVAttributes272" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes a simulation that is &quot;naturally&quot; conformant to an experimental requirement.&lt;br /&gt;
+			A conservative component conserves fluxes across corresponding times and areas for different grids.
 		</td>
 	</tr>
 </table></div>
@@ -118,19 +118,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;via inputs</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA102.htm">M4P_SpatialRegridding</a></i><br /><strong>&nbsp;&nbsp;spatialRegridding</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes266" onclick="parent.toggleDiv('detailsDIVAttributes266','DetailsImageAttributes266')" />Details:
-						<div id="detailsDIVAttributes266" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes273" onclick="parent.toggleDiv('detailsDIVAttributes273','DetailsImageAttributes273')" />Details:
+						<div id="detailsDIVAttributes273" class="DetailsDiv" >
+						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes a simulation that conforms to an experimental requirement by using particular inputs.&lt;br /&gt;
+			Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) 
 		</td>
 	</tr>
 </table></div>
@@ -139,40 +139,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;via model mods</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public TimeTransformation</i><br /><strong>&nbsp;&nbsp;timeTransformation</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes267" onclick="parent.toggleDiv('detailsDIVAttributes267','DetailsImageAttributes267')" />Details:
-						<div id="detailsDIVAttributes267" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes274" onclick="parent.toggleDiv('detailsDIVAttributes274','DetailsImageAttributes274')" />Details:
+						<div id="detailsDIVAttributes274" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes a simulation that conforms to an experimental requirement by changing the configuration of the software model implementing that simulation.&lt;br /&gt;
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public </i><br /><strong>&nbsp;&nbsp;combination</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes268" onclick="parent.toggleDiv('detailsDIVAttributes268','DetailsImageAttributes268')" />Details:
-						<div id="detailsDIVAttributes268" class="DetailsDiv" >
-						<i>&lt;&lt;enum&gt;&gt;</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes a simulation that conforms to an experimental requirement by using more than one method.&lt;br /&gt;
+			 Temporal transformation performed on the coupling field before or after regridding onto the target grid. 
 		</td>
 	</tr>
 </table></div>

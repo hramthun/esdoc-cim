@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Data::M4D_DataProperty</title>
+<title>Data::M4D_DbStorage</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4D_DataProperty  : public   class</span>
+	<span class="ObjectTitle">M4D_DbStorage  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">20/10/2008 13:56:13</td>
+			<td width="85%" class="ObjectDetailsValue">20/10/2008 14:03:58</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">18/03/2011 17:10:56</td>
+			<td class="ObjectDetailsValue">18/03/2011 17:11:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{69C9B0EA-D0BB-496b-8340-D6C5C43C33B7}</td>
+			<td class="ObjectDetailsValue">{67E46DB6-CF6F-4a97-9423-FE0D47B728AC}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA132.htm">Data</a></td>
+			<td class="ObjectDetailsValue"><a href="EA127.htm">Data</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A property of a DataObject.&#160; Currently this is intended to be used to record CF specific information (like packing, scaling, etc.) for OASIS4.</div>
+	<div class="ObjectDetailsNotes">Contains attributes to describe a DataObject being stored in a database.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -77,12 +77,45 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;dbAccessString</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes500" onclick="parent.toggleDiv('detailsDIVAttributes500','DetailsImageAttributes500')" />Details:
-						<div id="detailsDIVAttributes500" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes521" onclick="parent.toggleDiv('detailsDIVAttributes521','DetailsImageAttributes521')" />Details:
+						<div id="detailsDIVAttributes521" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;dbName</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes522" onclick="parent.toggleDiv('detailsDIVAttributes522','DetailsImageAttributes522')" />Details:
+						<div id="detailsDIVAttributes522" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;owner</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes523" onclick="parent.toggleDiv('detailsDIVAttributes523','DetailsImageAttributes523')" />Details:
+						<div id="detailsDIVAttributes523" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;dbTable</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes524" onclick="parent.toggleDiv('detailsDIVAttributes524','DetailsImageAttributes524')" />Details:
+						<div id="detailsDIVAttributes524" class="DetailsDiv" >
 						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
@@ -99,7 +132,7 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA7/EA231.htm">«abstract» M4C_Property</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA146.htm">«abstract» M4D_DataStorage</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::M4G_SimpleGridGeometry</title>
+<title>Grids::M4G_VerticalCoordList</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4G_SimpleGridGeometry  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4G_VerticalCoordList  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">09/10/2008 12:55:00</td>
+			<td width="85%" class="ObjectDetailsValue">29/01/2009 12:08:50</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 15:25:03</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:24:11</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{2E96147C-9794-42e7-B5E8-E9BC93B307E5}</td>
+			<td class="ObjectDetailsValue">{02F080E0-BDAA-4006-82C6-9E6119512C23}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">This class may be used to encode the parameters needed to define a simple grid, i.e. a grid based on repeating square or rectangular grid cells.</div>
+	<div class="ObjectDetailsNotes">There are some specific attributes that are associated with vertical coordinates.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,134 +77,58 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private Integer</i><br /><strong>&nbsp;&nbsp;numDims</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA186.htm">M4G_VerticalCoordinateTypeEnum</a></i><br /><strong>&nbsp;&nbsp;coordinateType</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes693" onclick="parent.toggleDiv('detailsDIVAttributes693','DetailsImageAttributes693')" />Details:
-						<div id="detailsDIVAttributes693" class="DetailsDiv" >
-						<i></i>attribute=true<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the number of dimensions (i.e. the rank) of the grid, e.g. 2 for 2D grids, 3 for 3D grids.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes709" onclick="parent.toggleDiv('detailsDIVAttributes709','DetailsImageAttributes709')" />Details:
+						<div id="detailsDIVAttributes709" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;dimOrder</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA175.htm">M4G_GridProperty</a></i><br /><strong>&nbsp;&nbsp;property</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes694" onclick="parent.toggleDiv('detailsDIVAttributes694','DetailsImageAttributes694')" />Details:
-						<div id="detailsDIVAttributes694" class="DetailsDiv" >
-						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Text string specifying the order in which the coordinate dimensions are traversed. This determines the ordering of grid cells defined by the grid parameters, e.g. row order or column order. The default is &quot;yx&quot; (&quot;zyx&quot; for 3D grids), i.e. row order for logically rectangular grids. This syntax follows CF conventions.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes710" onclick="parent.toggleDiv('detailsDIVAttributes710','DetailsImageAttributes710')" />Details:
+						<div id="detailsDIVAttributes710" class="DetailsDiv" >
+						<i>Range:0 to *</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private Boolean</i><br /><strong>&nbsp;&nbsp;isMesh</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA185.htm">M4G_VerticalCoordinateFormTypeEnum</a></i><br /><strong>&nbsp;&nbsp;coordinateForm</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes695" onclick="parent.toggleDiv('detailsDIVAttributes695','DetailsImageAttributes695')" />Details:
-						<div id="detailsDIVAttributes695" class="DetailsDiv" >
-						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Set to True if the grid geometry defines a grid mesh that fully partitions a 2D or 3D space. Set to false (the default) if the grid geometry simply defines the locations of grid nodes, making no statement about the shape or extent of surrounding grid cells.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA169.htm">M4G_CoordList</a></i><br /><strong>&nbsp;&nbsp;xcoords</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes696" onclick="parent.toggleDiv('detailsDIVAttributes696','DetailsImageAttributes696')" />Details:
-						<div id="detailsDIVAttributes696" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the X (or i) coordinate of each &#39;vertical&#39; grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two X coordinates are required: the X coordinate of the initial grid node, plus the offset or spacing between successive grid nodes.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA169.htm">M4G_CoordList</a></i><br /><strong>&nbsp;&nbsp;ycoords</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes697" onclick="parent.toggleDiv('detailsDIVAttributes697','DetailsImageAttributes697')" />Details:
-						<div id="detailsDIVAttributes697" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Specifies the Y (or j) coordinate of each &#39;horizontal&#39; grid line making up the grid mesh. For uniform grids (square or rectangular cells), only two Y coordinates are required: the Y coordinate of the initial grid node, plus the offset or spacing between successive grid nodes.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA169.htm">M4G_CoordList</a></i><br /><strong>&nbsp;&nbsp;zcoords</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes698" onclick="parent.toggleDiv('detailsDIVAttributes698','DetailsImageAttributes698')" />Details:
-						<div id="detailsDIVAttributes698" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			For 3D grids, specifies the Z coordinates of the grid.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes711" onclick="parent.toggleDiv('detailsDIVAttributes711','DetailsImageAttributes711')" />Details:
+						<div id="detailsDIVAttributes711" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA164.htm">«DataType» M4G_CoordList</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

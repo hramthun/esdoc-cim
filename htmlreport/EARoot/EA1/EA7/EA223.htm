@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Common::M4C_MachineCompilerUnit</title>
+<title>Common::M4C_Property</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4C_MachineCompilerUnit  : public   class</span>
+	<span class="ObjectTitle">M4C_Property  : public  &lt;&lt;abstract&gt;&gt; abstract</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">22/09/2008 11:43:33</td>
+			<td width="85%" class="ObjectDetailsValue">31/10/2008 14:25:42</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">18/03/2011 20:00:56</td>
+			<td class="ObjectDetailsValue">18/03/2011 19:56:46</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue"></td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{016017C3-E9C2-40d9-A83B-B1AF155E7EEA}</td>
+			<td class="ObjectDetailsValue">{A7CA6867-3A3D-478c-B153-C70BFA78E433}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA194.htm">Common</a></td>
+			<td class="ObjectDetailsValue"><a href="EA189.htm">Common</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Associates a machine with a [set of] compilers.&#160; This is a separate class in case a platform needs to specify more than one machine/compiler pair.</div>
+	<div class="ObjectDetailsNotes">An abstract property is simply a name/value pair.&#160; Properties may be grouped into PropertyGroups.&#160; Properties are used to describe features of a class whose details can&#39;t be known beforehand and, hence, can&#39;t be hard-coded into the schema.&#160; </div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,24 +78,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA222.htm">M4C_Machine</a></i><br /><strong>&nbsp;&nbsp;machine</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA225.htm">M4C_PropertyValue</a></i><br /><strong>&nbsp;&nbsp;value</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes823" onclick="parent.toggleDiv('detailsDIVAttributes823','DetailsImageAttributes823')" />Details:
-						<div id="detailsDIVAttributes823" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes882" onclick="parent.toggleDiv('detailsDIVAttributes882','DetailsImageAttributes882')" />Details:
+						<div id="detailsDIVAttributes882" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA209.htm">M4C_Compiler</a></i><br /><strong>&nbsp;&nbsp;compiler</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes824" onclick="parent.toggleDiv('detailsDIVAttributes824','DetailsImageAttributes824')" />Details:
-						<div id="detailsDIVAttributes824" class="DetailsDiv" >
-						<i>Range:0 to *</i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes883" onclick="parent.toggleDiv('detailsDIVAttributes883','DetailsImageAttributes883')" />Details:
+						<div id="detailsDIVAttributes883" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -111,22 +111,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA229.htm">M4C_Platform</a><br />
+						<a href="EA224.htm">M4C_PropertyGroup</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> unit<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> group<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink825" onclick="parent.toggleDiv('detailsDIVLink825','DetailsImageLink825')" />Details:
-							<div id="detailsDIVLink825" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink884" onclick="parent.toggleDiv('detailsDIVLink884','DetailsImageLink884')" />Details:
+							<div id="detailsDIVLink884" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -144,7 +144,19 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA229.htm">M4C_Platform</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA200.htm">M4C_ChangeProperty</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA5/EA142.htm">M4D_DataProperty</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA224.htm">M4C_PropertyGroup</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Process::M4P_PropertyRole</title>
+<title>Process::M4P_ConfigurationOptions</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4P_PropertyRole  : public  &lt;&lt;featureType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4P_ConfigurationOptions  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">08/04/2011 17:10:51</td>
+			<td width="85%" class="ObjectDetailsValue">15/02/2011 22:02:43</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">08/04/2011 17:12:12</td>
+			<td class="ObjectDetailsValue">08/04/2011 17:54:21</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">lgzkms</td>
+			<td class="ObjectDetailsValue">bnl</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,104 +57,21 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{22499347-E8A4-4f13-96CD-E496B67FE059}</td>
+			<td class="ObjectDetailsValue">{B4FDA92B-962F-4f26-9A41-5F3C8053F4AB}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA77.htm">Configuration</a></td>
+			<td class="ObjectDetailsValue"><a href="EA72.htm">Configuration</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The use of a real world earth system property by a particular process, either as part of a set of possible uses (for an unconfigured process) or an actual use (for a configured process).</div>
+	<div class="ObjectDetailsNotes">The set of possible configuration options that a software or scientific process may use.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
-<div class="ItemBody" id="AttributesTable">
-	<table border="0" cellspacing="0" cellpadding="0" class="Table">
-		<tr>
-			<td width="100%" class="TableHeading">Attribute</td>
-		</tr>
-						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA88.htm">M4P_PropertyRoleType</a></i><br /><strong>&nbsp;&nbsp;propertyRole</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes208" onclick="parent.toggleDiv('detailsDIVAttributes208','DetailsImageAttributes208')" />Details:
-						<div id="detailsDIVAttributes208" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA98.htm">M4P_ConnectionProperty</a></i><br /><strong>&nbsp;&nbsp;connectionProperty</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes209" onclick="parent.toggleDiv('detailsDIVAttributes209','DetailsImageAttributes209')" />Details:
-						<div id="detailsDIVAttributes209" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The place to describe features specific to the role of the property within the process.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;represented</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes210" onclick="parent.toggleDiv('detailsDIVAttributes210','DetailsImageAttributes210')" />Details:
-						<div id="detailsDIVAttributes210" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			When set to false, means that this property is not used by the component. Covers the case when, for instance, a modeler chooses not to represent some property in their model.&nbsp;<WBR> (But still allows meaningful comparisons between components which _do_ model this property.)
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public GM_Object</i><br /><strong>&nbsp;&nbsp;grid</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes211" onclick="parent.toggleDiv('detailsDIVAttributes211','DetailsImageAttributes211')" />Details:
-						<div id="detailsDIVAttributes211" class="DetailsDiv" >
-						<i>Range:0 to 1</i>reference=true<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A reference to the grid that this property maps onto; may override the ModelComponent grid.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>
-	</table>
-</div>
-		<div class="ItemBody" id="AssociationsToTable">
+		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -163,11 +80,11 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA91.htm">«type» M4P_Configuration</a><br />
+						<a href="EA91.htm">M4P_Conformance</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> actualPropertyRole<br />
+						<strong>Name:</strong> possibleRequirements<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -177,8 +94,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink212" onclick="parent.toggleDiv('detailsDIVLink212','DetailsImageLink212')" />Details:
-							<div id="detailsDIVLink212" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink225" onclick="parent.toggleDiv('detailsDIVLink225','DetailsImageLink225')" />Details:
+							<div id="detailsDIVLink225" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -186,7 +103,30 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA92.htm">«type» M4P_ConfigurationOptions</a><br />
+						<a href="../EA6/EA176.htm">M4G_GridSpec</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> possibleGrids<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink226" onclick="parent.toggleDiv('detailsDIVLink226','DetailsImageLink226')" />Details:
+							<div id="detailsDIVLink226" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA82.htm">«featureType» M4P_PropertyRole</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -200,8 +140,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink213" onclick="parent.toggleDiv('detailsDIVLink213','DetailsImageLink213')" />Details:
-							<div id="detailsDIVLink213" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink227" onclick="parent.toggleDiv('detailsDIVLink227','DetailsImageLink227')" />Details:
+							<div id="detailsDIVLink227" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -209,45 +149,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA4/EA129.htm">«type» M4R_RealWorldEarthSystemProperty</a><br />
+						<a href="EA78.htm">«featureType» M4P_ProcessInteraction</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> possibleProcessInteraction<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> property<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink214" onclick="parent.toggleDiv('detailsDIVLink214','DetailsImageLink214')" />Details:
-							<div id="detailsDIVLink214" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA86.htm">M4P_PropertyInteractionTarget</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> target<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink215" onclick="parent.toggleDiv('detailsDIVLink215','DetailsImageLink215')" />Details:
-							<div id="detailsDIVLink215" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink228" onclick="parent.toggleDiv('detailsDIVLink228','DetailsImageLink228')" />Details:
+							<div id="detailsDIVLink228" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -265,33 +182,27 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA7/EA214.htm">«abstract» M4C_DataSource</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA86.htm">M4P_PropertyInteractionTarget</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA91.htm">«type» M4P_Configuration</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA91.htm">M4P_Conformance</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA92.htm">«type» M4P_ConfigurationOptions</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA6/EA176.htm">M4G_GridSpec</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA86.htm">M4P_PropertyInteractionTarget</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA82.htm">«featureType» M4P_PropertyRole</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA78.htm">«featureType» M4P_ProcessInteraction</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

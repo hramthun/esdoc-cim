@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::GridTileRef</title>
+<title>Grids::M4G_CoordList</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">GridTileRef  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4G_CoordList  : public  &lt;&lt;DataType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">07/10/2008 16:58:04</td>
+			<td width="85%" class="ObjectDetailsValue">22/01/2009 17:25:02</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">03/02/2009 10:08:23</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:23:12</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{C19E5BDA-558B-4eb1-A9A1-EFDE51F603EA}</td>
+			<td class="ObjectDetailsValue">{F8BC1456-15EE-416b-8D65-4D7FF9B3E788}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">This data type is used to encode a reference to a grid tile defined as part of some other grid mosaic, which may itself be part of the same hierarchy of grid mosaics or else part of an entirely separate mosaic (possibly even in a separate physical realisation, e.g. XML file or database table).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;A grid tile reference is a list of ID references from the top-level mosaic down to the grid tile itself. A tile reference can be specified either as a sequence of mosaic ID elements and a tile ID element, or as a text string attribute (idPath) containing colon-separated ID values (e.g. &quot;m1:m2:m3:t1&quot;).&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate value and the offset (spacing) value need to be specified; however, the length attribute must still define the final &#39;as-built&#39; size of the coordinate list.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,19 +77,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;mosaicID</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Integer</i><br /><strong>&nbsp;&nbsp;length</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes550" onclick="parent.toggleDiv('detailsDIVAttributes550','DetailsImageAttributes550')" />Details:
-						<div id="detailsDIVAttributes550" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes566" onclick="parent.toggleDiv('detailsDIVAttributes566','DetailsImageAttributes566')" />Details:
+						<div id="detailsDIVAttributes566" class="DetailsDiv" >
+						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Specifies the ID of a remotely-defined grid mosaic object.
+			Specifies the length of the coordinate array. This should always be the final, as-built length of the array if the hasConstantOffset property is set to true and the compact notation (start coordinate plus offset) is used.
 		</td>
 	</tr>
 </table></div>
@@ -97,19 +98,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;tileID</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Boolean</i><br /><strong>&nbsp;&nbsp;hasConstantOffset</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes551" onclick="parent.toggleDiv('detailsDIVAttributes551','DetailsImageAttributes551')" />Details:
-						<div id="detailsDIVAttributes551" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes567" onclick="parent.toggleDiv('detailsDIVAttributes567','DetailsImageAttributes567')" />Details:
+						<div id="detailsDIVAttributes567" class="DetailsDiv" >
+						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Specifies the ID of a remotely-defined grid tile object.
+			Set to true if coordinates in the built array have constant offset.
 		</td>
 	</tr>
 </table></div>
@@ -118,19 +119,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;idPath</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;uom</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes552" onclick="parent.toggleDiv('detailsDIVAttributes552','DetailsImageAttributes552')" />Details:
-						<div id="detailsDIVAttributes552" class="DetailsDiv" >
-						<i>&lt;&lt;attribute&gt;&gt;Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes568" onclick="parent.toggleDiv('detailsDIVAttributes568','DetailsImageAttributes568')" />Details:
+						<div id="detailsDIVAttributes568" class="DetailsDiv" >
+						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The idPath property may be used as a more compact alternative to specifying a grid tile reference. The value of an idPath string is a colon-separated list comprising 1 or more mosaic IDs, and a tile ID.
+			Units of measure used by the coordinates.
 		</td>
 	</tr>
 </table></div>
@@ -141,6 +142,23 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA187.htm">«DataType» M4G_VerticalCoordList</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

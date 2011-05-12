@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Data::M4D_DataContent</title>
+<title>Data::M4D_DataObject</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4D_DataContent  : public  &lt;&lt;type&gt;&gt; class</span>
+	<span class="ObjectTitle">M4D_DataObject  : public  &lt;&lt;featureType&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">08/10/2008 13:18:00</td>
+			<td width="85%" class="ObjectDetailsValue">06/10/2008 16:07:31</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">01/04/2011 20:27:10</td>
+			<td class="ObjectDetailsValue">18/03/2011 17:04:03</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{D67BF10E-465F-4ba2-8E86-B4A02FBAD52F}</td>
+			<td class="ObjectDetailsValue">{CDD3FBEE-EFB6-4dc5-8724-6566B480EF16}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="../EA1/EA21.htm">Observations and Measurements</a>, <a href="../EA5.htm">Overview</a>, <a href="EA132.htm">Data</a>, <a href="../EA3/EA77.htm">Configuration</a>, <a href="../EA4/EA120.htm">Domain Feature Type Catalogue</a></td>
+			<td class="ObjectDetailsValue"><a href="../EA5.htm">Overview</a>, <a href="EA127.htm">Data</a>, <a href="../EA3/EA72.htm">Configuration</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The contents of the data object; like ISO: MD_ContentInformation.</div>
+	<div class="ObjectDetailsNotes">A DataObject describes a unit of data.&#160; DataObjects can be grouped hierarchically.&#160; The attributes hierarchyLevelName and hierarchyLevelValue describe how objects are grouped.&#160; </div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -79,19 +79,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;aggregation</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA145.htm">M4D_DataStatusType</a></i><br /><strong>&nbsp;&nbsp;dataStatus</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes434" onclick="parent.toggleDiv('detailsDIVAttributes434','DetailsImageAttributes434')" />Details:
-						<div id="detailsDIVAttributes434" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes476" onclick="parent.toggleDiv('detailsDIVAttributes476','DetailsImageAttributes476')" />Details:
+						<div id="detailsDIVAttributes476" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes how the content has been aggregated together: sum, min, mean, max, ...
+			The current status of the data - is it complete, or is this metadata description all that is available, or is the data continuously supplemented.
 		</td>
 	</tr>
 </table></div>
@@ -100,23 +100,130 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA1/EA47.htm">M4A_FrequencyType</a></i><br /><strong>&nbsp;&nbsp;frequency</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;acronym</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes435" onclick="parent.toggleDiv('detailsDIVAttributes435','DetailsImageAttributes435')" />Details:
-						<div id="detailsDIVAttributes435" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes477" onclick="parent.toggleDiv('detailsDIVAttributes477','DetailsImageAttributes477')" />Details:
+						<div id="detailsDIVAttributes477" class="DetailsDiv" >
+						<i></i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes478" onclick="parent.toggleDiv('detailsDIVAttributes478','DetailsImageAttributes478')" />Details:
+						<div id="detailsDIVAttributes478" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA140.htm">M4D_DataHierarchyType</a></i><br /><strong>&nbsp;&nbsp;hierarchyLevelName</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes479" onclick="parent.toggleDiv('detailsDIVAttributes479','DetailsImageAttributes479')" />Details:
+						<div id="detailsDIVAttributes479" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Describes the frequency of the data content: daily, hourly, ...
+			What level in the data hierarchy (constructed by the self-referential parent/child aggregations) is this DataObject.
 		</td>
 	</tr>
 </table></div>
 
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA225.htm">M4C_PropertyValue</a></i><br /><strong>&nbsp;&nbsp;hierarchyLevelValue</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes480" onclick="parent.toggleDiv('detailsDIVAttributes480','DetailsImageAttributes480')" />Details:
+						<div id="detailsDIVAttributes480" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			What is the name of the specific HierarchyLevel this DataObject is being organised at (ie: if the HierarchyLevel is &quot;run&quot; then the name might be the runid).
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;keyword</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes481" onclick="parent.toggleDiv('detailsDIVAttributes481','DetailsImageAttributes481')" />Details:
+						<div id="detailsDIVAttributes481" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Descriptive keyword used when searching for DataObjects (this is not the same as shortName / longName / description).
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public GM_Object</i><br /><strong>&nbsp;&nbsp;geometryModel</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes482" onclick="parent.toggleDiv('detailsDIVAttributes482','DetailsImageAttributes482')" />Details:
+						<div id="detailsDIVAttributes482" class="DetailsDiv" >
+						<i>Range:0 to 1</i>reference=true<br>&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA142.htm">M4D_DataProperty</a></i><br /><strong>&nbsp;&nbsp;dataProperty</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes483" onclick="parent.toggleDiv('detailsDIVAttributes483','DetailsImageAttributes483')" />Details:
+						<div id="detailsDIVAttributes483" class="DetailsDiv" >
+						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			May not be used
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA210.htm">M4C_DocumentMetadata</a></i><br /><strong>&nbsp;&nbsp;documentMetadata</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes484" onclick="parent.toggleDiv('detailsDIVAttributes484','DetailsImageAttributes484')" />Details:
+						<div id="detailsDIVAttributes484" class="DetailsDiv" >
+						<i></i>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -132,45 +239,22 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA1/EA34.htm">«featureType» M4A_Observation</a><br />
+						<a href="EA141.htm">«featureType» M4D_DataObject</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> result<br />
+						<strong>Name:</strong> childObject<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> parentObject<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink438" onclick="parent.toggleDiv('detailsDIVLink438','DetailsImageLink438')" />Details:
-							<div id="detailsDIVLink438" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA146.htm">«featureType» M4D_DataObject</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> content<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink439" onclick="parent.toggleDiv('detailsDIVLink439','DetailsImageLink439')" />Details:
-							<div id="detailsDIVLink439" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink485" onclick="parent.toggleDiv('detailsDIVLink485','DetailsImageLink485')" />Details:
+							<div id="detailsDIVLink485" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -188,7 +272,76 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA140.htm">M4D_DataCitation</a><br />
+						<a href="EA141.htm">«featureType» M4D_DataObject</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> childObject<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> parentObject<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink493" onclick="parent.toggleDiv('detailsDIVLink493','DetailsImageLink493')" />Details:
+							<div id="detailsDIVLink493" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA138.htm">M4D_DataExtent</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> extent<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink494" onclick="parent.toggleDiv('detailsDIVLink494','DetailsImageLink494')" />Details:
+							<div id="detailsDIVLink494" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA136.htm">«type» M4D_DataContent</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> content<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink495" onclick="parent.toggleDiv('detailsDIVLink495','DetailsImageLink495')" />Details:
+							<div id="detailsDIVLink495" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA135.htm">M4D_DataCitation</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -202,8 +355,8 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink440" onclick="parent.toggleDiv('detailsDIVLink440','DetailsImageLink440')" />Details:
-							<div id="detailsDIVLink440" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink496" onclick="parent.toggleDiv('detailsDIVLink496','DetailsImageLink496')" />Details:
+							<div id="detailsDIVLink496" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -211,22 +364,68 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA4/EA129.htm">«type» M4R_RealWorldEarthSystemProperty</a><br />
+						<a href="EA137.htm">M4D_DataDistribution</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
+						<strong>Name:</strong> distribution<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> data<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink441" onclick="parent.toggleDiv('detailsDIVLink441','DetailsImageLink441')" />Details:
-							<div id="detailsDIVLink441" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink497" onclick="parent.toggleDiv('detailsDIVLink497','DetailsImageLink497')" />Details:
+							<div id="detailsDIVLink497" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA146.htm">«abstract» M4D_DataStorage</a><br />
+						Abstract &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> storage<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink498" onclick="parent.toggleDiv('detailsDIVLink498','DetailsImageLink498')" />Details:
+							<div id="detailsDIVLink498" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA143.htm">M4D_DataRestriction</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> restriction<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink499" onclick="parent.toggleDiv('detailsDIVLink499','DetailsImageLink499')" />Details:
+							<div id="detailsDIVLink499" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -244,31 +443,49 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA140.htm">M4D_DataCitation</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA141.htm">«featureType» M4D_DataObject</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA1/EA34.htm">«featureType» M4A_Observation</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Strong</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA7/EA214.htm">«abstract» M4C_DataSource</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA146.htm">«featureType» M4D_DataObject</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA138.htm">M4D_DataExtent</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA3/EA86.htm">M4P_PropertyInteractionTarget</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA136.htm">«type» M4D_DataContent</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA135.htm">M4D_DataCitation</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA137.htm">M4D_DataDistribution</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA146.htm">«abstract» M4D_DataStorage</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA143.htm">M4D_DataRestriction</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA3/EA79.htm">M4P_ProcessInteractionTarget</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

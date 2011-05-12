@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Process::M4P_InteractionAttributes</title>
+<title>Process::M4P_PropertyInteractionTarget</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4P_InteractionAttributes  : public  &lt;&lt;type&gt;&gt; class</span>
+	<span class="ObjectTitle">M4P_PropertyInteractionTarget  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">19/04/2011 15:53:25</td>
+			<td width="85%" class="ObjectDetailsValue">22/04/2011 14:46:02</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">19/04/2011 15:54:30</td>
+			<td class="ObjectDetailsValue">12/05/2011 17:05:00</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{283A116B-53F8-4ecc-8309-4F909B97414A}</td>
+			<td class="ObjectDetailsValue">{D650B354-FF80-4ce5-A904-2E56C0961475}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA77.htm">Configuration</a></td>
+			<td class="ObjectDetailsValue"><a href="EA72.htm">Configuration</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A set of attributes that apply to interactions between properties and between processes.</div>
+	<div class="ObjectDetailsNotes">A class that generalises two possible objects that may be part of a property interaction: a property in its role within a process, or a data content (data variable).&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;It is assumed that interactions between two data contents would never occur, except through a process, and hence at least one of the participants in all interactions will be the role of the property in a process (the predecessor and successor interactionType can be used to distinguish which end in the case of an interaction with a data object at one end).&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,135 +78,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public M4C_Identifier</i><br /><strong>&nbsp;&nbsp;instanceID</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes177" onclick="parent.toggleDiv('detailsDIVAttributes177','DetailsImageAttributes177')" />Details:
-						<div id="detailsDIVAttributes177" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA82.htm">M4P_InteractionType</a></i><br /><strong>&nbsp;&nbsp;interactionType</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes178" onclick="parent.toggleDiv('detailsDIVAttributes178','DetailsImageAttributes178')" />Details:
-						<div id="detailsDIVAttributes178" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The type of interaction between the two processes (for one of which this is the configuration), encompassing relationships between scientific processes and other scientific processes, software components and other software components, and workflow related interactions (the most simple of which is the case in which the outputs of one process become inputs into another process).&nbsp;<WBR> All of these interactions are part of the configuration, meaning that an unconfigured process can have potential interactions, while the configured process can have actual interactions.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA99.htm">M4P_ConnectionType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes179" onclick="parent.toggleDiv('detailsDIVAttributes179','DetailsImageAttributes179')" />Details:
-						<div id="detailsDIVAttributes179" class="DetailsDiv" >
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes190" onclick="parent.toggleDiv('detailsDIVAttributes190','DetailsImageAttributes190')" />Details:
+						<div id="detailsDIVAttributes190" class="DetailsDiv" >
 						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The type of Connection
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA213.htm">M4C_DataPurpose</a></i><br /><strong>&nbsp;&nbsp;purpose</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes180" onclick="parent.toggleDiv('detailsDIVAttributes180','DetailsImageAttributes180')" />Details:
-						<div id="detailsDIVAttributes180" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes why this connection is being made.&nbsp;<WBR> Possible values include: boundaryCondition, initialCondition, Forcing.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA115.htm">M4P_Timing</a></i><br /><strong>&nbsp;&nbsp;timeProfile</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes181" onclick="parent.toggleDiv('detailsDIVAttributes181','DetailsImageAttributes181')" />Details:
-						<div id="detailsDIVAttributes181" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			All information having to do with the rate of this connection; the times that it is active.&nbsp;<WBR> This overrides any rate of a Coupling.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA112.htm">M4P_TimeLag</a></i><br /><strong>&nbsp;&nbsp;timeLag</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes182" onclick="parent.toggleDiv('detailsDIVAttributes182','DetailsImageAttributes182')" />Details:
-						<div id="detailsDIVAttributes182" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			The coupling field used in the target at a given time corresponds to a field produced by the source at a previous time. 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public M4C_DataSource</i><br /><strong>&nbsp;&nbsp;priming</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes183" onclick="parent.toggleDiv('detailsDIVAttributes183','DetailsImageAttributes183')" />Details:
-						<div id="detailsDIVAttributes183" class="DetailsDiv" >
-						<i>Range:0 to 1</i>reference=true<br><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A priming source is one that is active on the first available timestep only (before &quot;proper&quot; coupling can ocurr).&nbsp;<WBR> It can either be described here explicitly, or else a separate coupling/connection with a timing profile that is active on only the first timestep can be created.
+			If the same real world property is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).
 		</td>
 	</tr>
 </table></div>
@@ -215,6 +101,68 @@ function initPage(src) {
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA82.htm">«featureType» M4P_PropertyRole</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> target<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink192" onclick="parent.toggleDiv('detailsDIVLink192','DetailsImageLink192')" />Details:
+							<div id="detailsDIVLink192" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA82.htm">«featureType» M4P_PropertyRole</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="../EA5/EA136.htm">«type» M4D_DataContent</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA82.htm">«featureType» M4P_PropertyRole</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

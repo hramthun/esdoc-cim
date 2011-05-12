@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::M4G_CoordList</title>
+<title>Grids::M4G_GridCell</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4G_CoordList  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4G_GridCell  : public abstract  class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">22/01/2009 17:25:02</td>
+			<td width="85%" class="ObjectDetailsValue">07/10/2008 14:29:50</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 15:23:12</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:19:47</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F8BC1456-15EE-416b-8D65-4D7FF9B3E788}</td>
+			<td class="ObjectDetailsValue">{18000D10-11C0-4005-A086-5E89B275C3BB}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">The CoordList type may be used to specify a list of coordinates, typically for the purpose of defining coordinates along the X, Y or Z axes. The length of the coordinate list is given by the attribute of that name. This may be used by software to allocate memory in advance of storing the coordinate values. The hasConstantOffset attribute may be used to indicate that the coordinate list consists of values with constant offset (spacing). In this case only the first coordinate value and the offset (spacing) value need to be specified; however, the length attribute must still define the final &#39;as-built&#39; size of the coordinate list.</div>
+	<div class="ObjectDetailsNotes">This abstract base class is used to model various types of grid cells. Every GridCell object has its boundary defined by at least 3 vertices, though 4 will probably be more typical. Vertices are either defined directly (e.g. in the case of a SimpleGridCell object), or indirectly by referencing a remote grid cell (in the case of an ExchangeGridCell object).</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -77,19 +77,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private Integer</i><br /><strong>&nbsp;&nbsp;length</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Identifier</i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes565" onclick="parent.toggleDiv('detailsDIVAttributes565','DetailsImageAttributes565')" />Details:
-						<div id="detailsDIVAttributes565" class="DetailsDiv" >
-						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes585" onclick="parent.toggleDiv('detailsDIVAttributes585','DetailsImageAttributes585')" />Details:
+						<div id="detailsDIVAttributes585" class="DetailsDiv" >
+						<i></i>attribute=true<br><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Specifies the length of the coordinate array. This should always be the final, as-built length of the array if the hasConstantOffset property is set to true and the compact notation (start coordinate plus offset) is used.
+			Specifies an identifer that uniquely identifies a cell within its parent grid tile.
 		</td>
 	</tr>
 </table></div>
@@ -98,19 +98,19 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private Boolean</i><br /><strong>&nbsp;&nbsp;hasConstantOffset</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private GM_Point</i><br /><strong>&nbsp;&nbsp;centroid</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes566" onclick="parent.toggleDiv('detailsDIVAttributes566','DetailsImageAttributes566')" />Details:
-						<div id="detailsDIVAttributes566" class="DetailsDiv" >
-						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes586" onclick="parent.toggleDiv('detailsDIVAttributes586','DetailsImageAttributes586')" />Details:
+						<div id="detailsDIVAttributes586" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Set to true if coordinates in the built array have constant offset.
+			Optionally specifies the coordinate location of the centroid of a grid cell.
 		</td>
 	</tr>
 </table></div>
@@ -119,19 +119,40 @@ function initPage(src) {
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private String</i><br /><strong>&nbsp;&nbsp;uom</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private Measure</i><br /><strong>&nbsp;&nbsp;area</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes567" onclick="parent.toggleDiv('detailsDIVAttributes567','DetailsImageAttributes567')" />Details:
-						<div id="detailsDIVAttributes567" class="DetailsDiv" >
-						<i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes587" onclick="parent.toggleDiv('detailsDIVAttributes587','DetailsImageAttributes587')" />Details:
+						<div id="detailsDIVAttributes587" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Units of measure used by the coordinates.
+			Optionally specifies the area of a 2D grid cell (or the footprint of a 3D grid cell). The units used must be specified via the &#39;uom&#39; attribute associated with GML&#39;s MeasureType class.
+		</td>
+	</tr>
+</table></div>
+
+						</div>
+					</div>
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow" valign="top"><i>private Measure</i><br /><strong>&nbsp;&nbsp;volume</strong></td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes588" onclick="parent.toggleDiv('detailsDIVAttributes588','DetailsImageAttributes588')" />Details:
+						<div id="detailsDIVAttributes588" class="DetailsDiv" >
+						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
+			Optionally specifies the volume of a 3D grid cell.The units used must be specified via the &#39;uom&#39; attribute associated with GML&#39;s MeasureType class.
 		</td>
 	</tr>
 </table></div>
@@ -151,7 +172,19 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA192.htm">«DataType» M4G_VerticalCoordList</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA183.htm">M4G_UnstructuredGridCell</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA181.htm">M4G_SimpleGridCell</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA156.htm">ExchangeGridCell</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>

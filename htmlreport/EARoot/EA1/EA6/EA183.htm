@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Grids::M4G_GridTileResolutionType</title>
+<title>Grids::M4G_UnstructuredGridCell</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4G_GridTileResolutionType  : public  &lt;&lt;DataType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4G_UnstructuredGridCell  : public   class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">29/01/2009 12:08:50</td>
+			<td width="85%" class="ObjectDetailsValue">07/10/2008 14:57:53</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">21/04/2011 15:21:36</td>
+			<td class="ObjectDetailsValue">21/04/2011 15:29:20</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,18 +57,19 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{62CF7962-2753-47a2-AB31-22FE3395E779}</td>
+			<td class="ObjectDetailsValue">{F38868A9-4859-4686-9C79-B947936DB065}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA155.htm">Grids</a></td>
+			<td class="ObjectDetailsValue"><a href="EA150.htm">Grids</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">Provides a description and set of named properties for the horizontal or vertical resolution.</div>
+	<div class="ObjectDetailsNotes">This class is used to define grid cells that form the basis of unstructured triangular or polygonal grids, as per the gridspec paper. The grid cell boundary is defined by specifying three or more edges via the edgeArray property. Each edge member of this array is defined by specifying references to the start and end points of the edge.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,19 +77,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private </i><br /><strong>&nbsp;&nbsp;description</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA167.htm">M4G_EdgeArray</a></i><br /><strong>&nbsp;&nbsp;edgeArray</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes677" onclick="parent.toggleDiv('detailsDIVAttributes677','DetailsImageAttributes677')" />Details:
-						<div id="detailsDIVAttributes677" class="DetailsDiv" >
-						<i>Alias:</i> CharacterString<br><i>Range:0 to 1</i>attribute=true<br><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes700" onclick="parent.toggleDiv('detailsDIVAttributes700','DetailsImageAttributes700')" />Details:
+						<div id="detailsDIVAttributes700" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			A description of the resolution.
+			The edgeArray attribute is used to specify three or more edges that define the boundary of the grid cell. Each edge member is specified by reference to two remotely-defined grid points. The latter may, for instance, have been defined as part of a SimpleGridCell definition.
 		</td>
 	</tr>
 </table></div>
@@ -96,20 +97,26 @@ function initPage(src) {
 						</div>
 					</div>
 				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>private <a href="EA180.htm">M4G_GridProperty</a></i><br /><strong>&nbsp;&nbsp;property</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes678" onclick="parent.toggleDiv('detailsDIVAttributes678','DetailsImageAttributes678')" />Details:
-						<div id="detailsDIVAttributes678" class="DetailsDiv" >
-						<i>Range:0 to *</i>&nbsp;
-						</div>
-					</div>
-				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA169.htm">M4G_GridCell</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

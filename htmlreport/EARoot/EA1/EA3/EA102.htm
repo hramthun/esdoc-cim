@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Process::M4P_DataProcessType</title>
+<title>Process::M4P_SpatialRegridding</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4P_DataProcessType  : public  &lt;&lt;type&gt;&gt; class</span>
+	<span class="ObjectTitle">M4P_SpatialRegridding  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">24/09/2008 12:11:01</td>
+			<td width="85%" class="ObjectDetailsValue">16/12/2008 11:19:42</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">18/04/2011 17:53:34</td>
+			<td class="ObjectDetailsValue">18/04/2011 18:00:34</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">lawrence</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,18 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F44D13BF-9B1E-4626-AC57-637D651B3DF4}</td>
+			<td class="ObjectDetailsValue">{514E2CD3-8EFA-45de-80E5-F90A9F059F70}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA79.htm">ObservationalProcess</a></td>
+			<td class="ObjectDetailsValue"><a href="EA74.htm">ObservationalProcess</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A set of attributes that are specific to a data process (as opposed to a simulation).</div>
+	<div class="ObjectDetailsNotes">Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Documents should use either the spatialRegriddingStandardMethod _or_ the spatialRegriddingUserMethod, but not both.&lt;br /&gt;&lt;/p&gt;</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
+			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
 	<table border="0" cellspacing="0" cellpadding="0" class="Table">
@@ -76,92 +78,91 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA104.htm">M4P_ProcessorComponentType</a></i><br /><strong>&nbsp;&nbsp;type</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA103.htm">M4P_SpatialRegriddingDimensionType</a></i><br /><strong>&nbsp;&nbsp;spatialRegriddingDimension</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes282" onclick="parent.toggleDiv('detailsDIVAttributes282','DetailsImageAttributes282')" />Details:
-						<div id="detailsDIVAttributes282" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Describes the type of component.&nbsp;<WBR> There can be multiple types.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes325" onclick="parent.toggleDiv('detailsDIVAttributes325','DetailsImageAttributes325')" />Details:
+						<div id="detailsDIVAttributes325" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public Boolean</i><br /><strong>&nbsp;&nbsp;conservative</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA105.htm">M4P_SpatialRegriddingStandardMethodType</a></i><br /><strong>&nbsp;&nbsp;spatialRegriddingStandardMethod</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes283" onclick="parent.toggleDiv('detailsDIVAttributes283','DetailsImageAttributes283')" />Details:
-						<div id="detailsDIVAttributes283" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A conservative component conserves fluxes across corresponding times and areas for different grids.
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes326" onclick="parent.toggleDiv('detailsDIVAttributes326','DetailsImageAttributes326')" />Details:
+						<div id="detailsDIVAttributes326" class="DetailsDiv" >
+						<i>Range:0 to 1</i>element=true<br>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA107.htm">M4P_SpatialRegridding</a></i><br /><strong>&nbsp;&nbsp;spatialRegridding</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA106.htm">M4P_SpatialRegriddingUserMethod</a></i><br /><strong>&nbsp;&nbsp;spatialRegriddingUserMethod</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes284" onclick="parent.toggleDiv('detailsDIVAttributes284','DetailsImageAttributes284')" />Details:
-						<div id="detailsDIVAttributes284" class="DetailsDiv" >
-						<i>Range:0 to 3</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Characteristics of the scheme used to interpolate a field from one grid (source grid) to another (target grid) 
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public TimeTransformation</i><br /><strong>&nbsp;&nbsp;timeTransformation</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes285" onclick="parent.toggleDiv('detailsDIVAttributes285','DetailsImageAttributes285')" />Details:
-						<div id="detailsDIVAttributes285" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			 Temporal transformation performed on the coupling field before or after regridding onto the target grid. 
-		</td>
-	</tr>
-</table></div>
-
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes327" onclick="parent.toggleDiv('detailsDIVAttributes327','DetailsImageAttributes327')" />Details:
+						<div id="detailsDIVAttributes327" class="DetailsDiv" >
+						<i>Range:0 to 1</i>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA104.htm">M4P_SpatialRegriddingProperty</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink329" onclick="parent.toggleDiv('detailsDIVLink329','DetailsImageLink329')" />Details:
+							<div id="detailsDIVLink329" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="LinksTable">
+			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+				<tr>
+					<td width="30%" class="TableHeading">Object</td>
+					<td width="15%" class="TableHeading">Type</td>
+					<td width="15%" class="TableHeading">Connection</td>
+					<td width="40%" class="TableHeading">Notes</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA104.htm">M4P_SpatialRegriddingProperty</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+
+			</table>
+		</div>
 	</div>
 <div class="pageFooter"></div>
  

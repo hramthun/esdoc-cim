@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Process::M4P_ProcessInteractionTarget</title>
+<title>Process::M4P_ComponentLanguage</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4P_ProcessInteractionTarget  : public   class</span>
+	<span class="ObjectTitle">M4P_ComponentLanguage  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">22/04/2011 14:36:22</td>
+			<td width="85%" class="ObjectDetailsValue">20/11/2008 13:46:42</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">22/04/2011 14:39:03</td>
+			<td class="ObjectDetailsValue">14/04/2011 18:21:49</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -33,7 +33,7 @@ function initPage(src) {
 		</tr>
 		<tr id="proj00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
-			<td class="ObjectDetailsValue">lgzkms</td>
+			<td class="ObjectDetailsValue">Allyn.Treshansky</td>
 		</tr>
 		<tr id="proj01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
@@ -57,14 +57,14 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{F840DCC7-AD65-4f1d-ADF5-0EC7CAEA123F}</td>
+			<td class="ObjectDetailsValue">{61550E74-DCEB-42e5-A513-5195E1D18387}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA77.htm">Configuration</a></td>
+			<td class="ObjectDetailsValue"><a href="EA74.htm">ObservationalProcess</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A class that generalises two possible objects that may be part of a process interaction: another process or a data object.&#160; &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;It is assumed that interactions between two data objects would never occur, except through a process, and hence at least one of the participants in all interactions will be process (the predecessor and successor interactionType can be used to distinguish which end in the case of an interaction with a data object at one end).&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">Details of the programming language a component is written in. There is an assumption that all EntryPoints use the same ComponentLanguage.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
@@ -78,40 +78,19 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA218.htm">M4C_Identifier</a></i><br /><strong>&nbsp;&nbsp;instanceID</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes198" onclick="parent.toggleDiv('detailsDIVAttributes198','DetailsImageAttributes198')" />Details:
-						<div id="detailsDIVAttributes198" class="DetailsDiv" >
-						<i>Range:0 to 1</i><div class="ObjectDetailsNotes"><table>
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes208" onclick="parent.toggleDiv('detailsDIVAttributes208','DetailsImageAttributes208')" />Details:
+						<div id="detailsDIVAttributes208" class="DetailsDiv" >
+						<i></i><div class="ObjectDetailsNotes"><table>
 	<tr>
 		<td valign="top">
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			If the same process is used more than once in a coupled model then a method for identifying which particular instance is being referenced is needed (for BFG).&nbsp;<WBR> This attribute can be used to identify the role of a target process in a process interaction.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA101.htm">M4P_CouplingProperty</a></i><br /><strong>&nbsp;&nbsp;couplingProperty</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes199" onclick="parent.toggleDiv('detailsDIVAttributes199','DetailsImageAttributes199')" />Details:
-						<div id="detailsDIVAttributes199" class="DetailsDiv" >
-						<i>Range:0 to *</i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			A place to describe features specific to the source/target of a coupling
+			The name of the language
 		</td>
 	</tr>
 </table></div>
@@ -131,7 +110,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA83.htm">«featureType» M4P_ProcessInteraction</a><br />
+						<a href="EA85.htm">«type» M4P_ComponentLanguageProperty</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -139,14 +118,14 @@ function initPage(src) {
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> target<br />
+						<strong>Name:</strong> &nbsp;<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink201" onclick="parent.toggleDiv('detailsDIVLink201','DetailsImageLink201')" />Details:
-							<div id="detailsDIVLink201" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink210" onclick="parent.toggleDiv('detailsDIVLink210','DetailsImageLink210')" />Details:
+							<div id="detailsDIVLink210" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -164,15 +143,9 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA103.htm">«featureType» M4P_ObservationalProcess</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA85.htm">«type» M4P_ComponentLanguageProperty</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
-					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
-				</tr>
-				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="../EA5/EA146.htm">«featureType» M4D_DataObject</a></td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 

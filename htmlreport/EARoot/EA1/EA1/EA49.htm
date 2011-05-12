@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>M4A_NumericalExperiment</title>
+<title>Activity::M4A_NumericalRequirement</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script>
 function initPage(src) {
@@ -16,15 +16,15 @@ function initPage(src) {
 <body onload="initPage(this);" class="Content">
 <div class="pageHeader"></div>
 <div class="PageBody">
-	<span class="ObjectTitle">M4A_NumericalExperiment  : public  &lt;&lt;featureType&gt;&gt; class</span>
+	<span class="ObjectTitle">M4A_NumericalRequirement  : public  &lt;&lt;type&gt;&gt; class</span>
 	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">22/09/2008 17:03:48</td>
+			<td width="85%" class="ObjectDetailsValue">22/09/2008 11:47:45</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">23/03/2011 18:40:15</td>
+			<td class="ObjectDetailsValue">23/03/2011 18:39:39</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -57,20 +57,20 @@ function initPage(src) {
 		</tr>
 		<tr id="adv00" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
-			<td class="ObjectDetailsValue">{BBAA93AD-4201-4f0f-816B-8CF7DC656C3F}</td>
+			<td class="ObjectDetailsValue">{17BF66A6-BC8E-4452-BE1C-F8580AEE5A7D}</td>
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA23.htm">Project</a>, <a href="../EA5.htm">Overview</a></td>
+			<td class="ObjectDetailsValue"><a href="EA23.htm">Project</a></td>
 		</tr>
 	</table>
-	<div class="ObjectDetailsNotes">A numerical experiment may be conducted as part of a MIP. Examples: AR4 individual experiments, AR5 individual experiments, RAPID THC experiments etc. &lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;The Experiment class from v1.5 grouped together various activities which are now catered for by the observations and procedures classes and their subclasses, as well as this, NumericalExperiment.&#160; The different aspects of the experiment need to be separated out to fit O&amp;M: the observation that is part of the experiment, the process that is used, and the experiment itself, being the reason for conducting the observation etc.&lt;br /&gt;&lt;/p&gt;</div>
+	<div class="ObjectDetailsNotes">A description of the requirements of particular experiments.&#160; Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</div>
 
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
 			<li onClick="parent.toggleItem('Attributes');" id="AttributesTitle">Attributes</li>
-			<li onClick="parent.toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
 			<li onClick="parent.toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent.toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent.toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="AttributesTable">
@@ -79,24 +79,24 @@ function initPage(src) {
 			<td width="100%" class="TableHeading">Attribute</td>
 		</tr>
 						<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;shortName</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public M4C_Identifier</i><br /><strong>&nbsp;&nbsp;id</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes47" onclick="parent.toggleDiv('detailsDIVAttributes47','DetailsImageAttributes47')" />Details:
-						<div id="detailsDIVAttributes47" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes68" onclick="parent.toggleDiv('detailsDIVAttributes68','DetailsImageAttributes68')" />Details:
+						<div id="detailsDIVAttributes68" class="DetailsDiv" >
+						<i>Range:0 to 1</i>sequenceNumber=1<br>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;longName</strong></td>
+				<td width="100%" class="TableRow" valign="top"><i>public CharacterString</i><br /><strong>&nbsp;&nbsp;name</strong></td>
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes48" onclick="parent.toggleDiv('detailsDIVAttributes48','DetailsImageAttributes48')" />Details:
-						<div id="detailsDIVAttributes48" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes69" onclick="parent.toggleDiv('detailsDIVAttributes69','DetailsImageAttributes69')" />Details:
+						<div id="detailsDIVAttributes69" class="DetailsDiv" >
+						<i></i>sequenceNumber=2<br>&nbsp;
 						</div>
 					</div>
 				</td>
@@ -105,125 +105,15 @@ function initPage(src) {
 			</tr>
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes49" onclick="parent.toggleDiv('detailsDIVAttributes49','DetailsImageAttributes49')" />Details:
-						<div id="detailsDIVAttributes49" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA218.htm">M4C_Identifier</a></i><br /><strong>&nbsp;&nbsp;experimentID</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes50" onclick="parent.toggleDiv('detailsDIVAttributes50','DetailsImageAttributes50')" />Details:
-						<div id="detailsDIVAttributes50" class="DetailsDiv" >
-						<i>Range:0 to 1</i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public TM_Period</i><br /><strong>&nbsp;&nbsp;timePeriod</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes51" onclick="parent.toggleDiv('detailsDIVAttributes51','DetailsImageAttributes51')" />Details:
-						<div id="detailsDIVAttributes51" class="DetailsDiv" >
-						<i></i><div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			TM_Period allows for a start and end date to be specified.&nbsp;<WBR> They can be indeterminate, and while the Julian calendar is the preference, it is also possible to reference a different temporal reference system.&nbsp;<WBR> The perpetual period and daily 360 calendars need to be defined as instances of TM_Calendar in order for them to be referred to as temporal reference systems for TM_Period by this attribute.
-		</td>
-	</tr>
-</table></div>
-
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="EA50.htm">M4A_NumericalRequirement</a></i><br /><strong>&nbsp;&nbsp;numericalRequirement</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes52" onclick="parent.toggleDiv('detailsDIVAttributes52','DetailsImageAttributes52')" />Details:
-						<div id="detailsDIVAttributes52" class="DetailsDiv" >
-						<i></i>&nbsp;
-						</div>
-					</div>
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow" valign="top"><i>public <a href="../EA7/EA216.htm">M4C_DocumentMetadata</a></i><br /><strong>&nbsp;&nbsp;documentMetadata</strong></td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">
-					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes53" onclick="parent.toggleDiv('detailsDIVAttributes53','DetailsImageAttributes53')" />Details:
-						<div id="detailsDIVAttributes53" class="DetailsDiv" >
-						<i></i>&nbsp;
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageAttributes70" onclick="parent.toggleDiv('detailsDIVAttributes70','DetailsImageAttributes70')" />Details:
+						<div id="detailsDIVAttributes70" class="DetailsDiv" >
+						<i>Range:0 to 1</i>sequenceNumber=3<br>&nbsp;
 						</div>
 					</div>
 				</td>
 			</tr>
 	</table>
 </div>
-		<div class="ItemBody" id="AssociationsToTable">
-			<table border="0" cellspacing="0" cellpadding="0" class="Table">
-				<tr>
-					<td width="40%" class="TableHeading">Element</td>
-					<td width="30%" class="TableHeading">Source Role</td>
-					<td width="30%" class="TableHeading">Target Role</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA49.htm">«featureType» M4A_NumericalExperiment</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> target<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink54" onclick="parent.toggleDiv('detailsDIVLink54','DetailsImageLink54')" />Details:
-							<div id="detailsDIVLink54" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA68.htm">«featureType» M4A_Project</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> rationale<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink55" onclick="parent.toggleDiv('detailsDIVLink55','DetailsImageLink55')" />Details:
-							<div id="detailsDIVLink55" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-
-			</table>
-		</div>
 		<div class="ItemBody" id="AssociationsFromTable">
 			<table border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
@@ -233,7 +123,7 @@ function initPage(src) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA49.htm">«featureType» M4A_NumericalExperiment</a><br />
+						<a href="EA57.htm">«type» M4A_RequirementOption</a><br />
 						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -241,14 +131,14 @@ function initPage(src) {
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> target<br />
+						<strong>Name:</strong> parentRequirement<br />
 						&nbsp;	
 					</td>
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink57" onclick="parent.toggleDiv('detailsDIVLink57','DetailsImageLink57')" />Details:
-							<div id="detailsDIVLink57" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink72" onclick="parent.toggleDiv('detailsDIVLink72','DetailsImageLink72')" />Details:
+							<div id="detailsDIVLink72" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -257,7 +147,27 @@ function initPage(src) {
 
 			</table>
 		</div>
-		<div class="ItemBody" id="LinksTable">
+<div class="ItemBody" id="TaggedValTable">
+	<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
+		<tr>
+			<td width="50%" class="TableHeading">Tag</td>
+			<td width="50%" class="TableHeading">Value</td>
+		</tr>
+					<tr>
+				<td width="50%" class="TableRow" valign="top">documentation</td>
+				<td width="50%" class="TableRow" valign="top">A description of the requirements of particular experiments.  Numerical Requirements can be initial conditions, boundary conditions, or physical modificiations.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					<div class="DetailsDivParent"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageScenario73" onclick="parent.toggleDiv('detailsDIVScenario73','DetailsImageScenario73')" />Details:
+						<div id="detailsDIVScenario73" class="DetailsDiv" >
+						&nbsp;
+						</div>
+					</div>
+				</td>
+			</tr>
+	</table>
+</div>		<div class="ItemBody" id="LinksTable">
 			<table align="center" border="0" cellspacing="0" cellpadding="0" class="Table">
 				<tr>
 					<td width="30%" class="TableHeading">Object</td>
@@ -266,13 +176,31 @@ function initPage(src) {
 					<td width="40%" class="TableHeading">Notes</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA49.htm">«featureType» M4A_NumericalExperiment</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA60.htm">«type» M4A_SpatioTemporalConstraint</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
-					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="30%" class="TableRow" valign="top"><a href="EA68.htm">«featureType» M4A_Project</a></td>
+					<td width="30%" class="TableRow" valign="top"><a href="EA47.htm">«type» M4A_InitialCondition</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA41.htm">«type» M4A_BoundaryCondition</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA53.htm">«type» M4A_OutputRequirement</a></td>
+					<td width="15%" class="TableRow" valign="top">Class</td>
+					<td width="15%" class="TableRow" valign="top">Generalization</td>
+					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="30%" class="TableRow" valign="top"><a href="EA57.htm">«type» M4A_RequirementOption</a></td>
 					<td width="15%" class="TableRow" valign="top">Class</td>
 					<td width="15%" class="TableRow" valign="top">Weak</td>
 					<td width="40%" class="TableRow" valign="top">&nbsp;</td>
