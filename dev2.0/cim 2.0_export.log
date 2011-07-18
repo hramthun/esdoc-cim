@@ -1,0 +1,211 @@
+Exporting package to 'C:\Data Files\allworlds\projects\badc metafor\cim\dev2.0\cim 2.0.xml'
+Retrieving data for export: diagram elements
+Retrieving data for export: links
+Retrieving data for export: constraints
+Retrieving data for export: attribute tagged values
+Retrieving data for export: operation tagged values
+Retrieving data for export: operation parameter tagged values
+Retrieving data for export: connector tagged values
+Completed data retrieval
+Pre-processing export tree...
+Completed pre-processing
+Processing package: cim 2.0
+Element:0: cim
+Element:1: moles v4
+Processing package: cim
+Element:2: Grids
+Element:3: Common
+Element:4: Quality
+Element:5: Process
+Element:6: Domain Feature Type Catalogue
+Element:7: Data
+Element:8: ISO 19115 ProcessStep Extension
+Element:9: ISO 19100
+Element:10: Activity
+Diagram: Context Diagram: Package Suppliers of CIM
+Diagram: Package Dependencies
+Diagram: Overview
+Processing package: Activity
+Element:11: M4A_CodeModification
+Element:12: M4A_NumericalRequirement
+Element:13: incompleteSimulation
+Element:14: M4A_NamedValue
+Element:15: duration
+Element:16: M4A_ProjectType
+Element:17: rank
+Element:18: exploitedDataCollection
+Element:19: M4A_RuntimeChange
+Element:20: M4A_OutputRequirement
+Element:21: M4A_CompositeObservationContext
+Element:22: M4A_Deployment
+Element:23: M4A_Project
+Element:24: observationType
+Element:25: M4A_ResolutionType
+Element:26: M4A_ContextRoleType
+Element:27: M4A_ConfigurationChange
+Element:28: M4A_ObservationStation
+Element:29: M4A_CompositeObservation
+Element:30: M4A_FixityType
+Element:31: M4A_InitialCondition
+Element:32: 
+Element:33: M4A_TemporalAveType
+Element:34: M4A_ExperimentRelationship
+Element:35: M4A_RequirementOption
+Element:36: 
+Element:37: 
+Element:38: spinUpDateRange
+Element:39: 
+Element:40: 
+Element:41: M4A_Rank
+Element:42: M4A_SpatioTemporalConstraint
+Element:43: M4A_Parallelisation
+Element:44: runTimeChange
+Element:45: documentMetadata
+Element:46: deploymentInfo
+Element:47: M4A_NumericalExperiment
+Element:48: M4A_BoundaryCondition
+Element:49: M4A_ExperimentRelationshipType
+Element:50: 
+Element:51: M4A_ObservationType
+Element:52: 
+Element:53: observationDateRange
+Element:54: M4A_ValueModification
+Diagram: Observations and Measurements
+Diagram: O&M Named Values
+Diagram: Project
+Diagram: Deployment
+Processing package: Domain Feature Type Catalogue
+Element:55: M4R_RealWorldEarthSystemProcess
+Element:56: M4R_AssociationRoleType
+Element:57: M4R_FeatureAssociationRole
+Element:58: M4R_Constraint
+Element:59: M4R_PropertyAssociationRole
+Element:60: M4R_RealWorldEarthSystemProperty
+Diagram: RealWorldEarthSystem
+Diagram: Domain Feature Type Catalogue
+Processing package: ISO 19100
+Element:61: OM_Observation
+Processing package: ISO 19115 ProcessStep Extension
+Element:62: M4I_LE_ProcessStep
+Diagram: ISO 19115 ProcessStep Extension
+Processing package: Process
+Element:63: M4P_ObservedProperty
+Element:64: M4P_Timing
+Element:65: M4P_InteractionAttributes
+Element:66: M4P_PropertyTarget
+Element:67: M4P_CouplingFrameworkType
+Element:68: M4P_ActualConfiguration
+Element:69: M4P_PropertyRoleType
+Element:70: M4P_SpatialRegridding
+Element:71: M4P_ConfiguredScience
+Element:72: M4P_ConfiguredProcess
+Element:73: M4P_ComponentLanguage
+Element:74: M4P_ScienceProcessing
+Element:75: M4P_ProcessInteraction
+Element:76: M4P_ObservationalProcess
+Element:77: M4P_PropertyInteraction
+Element:78: M4P_InteractionType
+Element:79: M4P_ProcessorComponentType
+Element:80: M4P_TimeTransformation
+Element:81: M4P_SpatialRegriddingUserMethod
+Element:82: M4P_UnConfiguredSoftware
+Element:83: M4P_Conformance
+Element:84: M4P_UnconfiguredScience
+Element:85: M4P_SoftwareProcessing
+Element:86: M4P_PossibleConfigurations
+Element:87: M4P_ConfiguredSoftware
+Element:88: M4P_ConnectionType
+Element:89: M4P_SpatialRegriddingStandardMethodType
+Element:90: M4P_ArtificialProperty
+Element:91: M4P_TimeLag
+Element:92: M4P_ConformanceType
+Element:93: M4P_UnconfiguredProcess
+Element:94: M4P_SpatialRegriddingDimensionType
+Element:95: M4P_TimeMappingType
+Element:96: M4P_DataProcessAttributes
+Element:97: M4P_ProcessInteractionEnd
+Diagram: ObservationalProcess
+Diagram: Configuration
+Processing package: Data
+Element:98: M4D_DataStorage
+Element:99: M4D_DataHierarchyType
+Element:100: M4D_DataStatusType
+Element:101: M4D_DbStorage
+Element:102: M4D_IpStorage
+Element:103: M4D_DataObject
+Element:104: M4D_FileStorage
+Element:105: M4D_DataContent
+Diagram: Data
+Processing package: Grids
+Element:106: M4G_VerticalCoordList
+Element:107: M4G_RefinementType
+Element:108: M4G_ExchangeGridCell
+Element:109: M4G_GridCellRef
+Element:110: M4G_GridCell
+Element:111: M4G_VerticalCoordinateType
+Element:112: M4G_VerticalCoordinateFormType
+Element:113: M4G_SimpleGridGeometry
+Element:114: M4G_GridTile
+Element:115: M4G_GridTileResolution
+Element:116: M4G_EdgeArray
+Element:117: M4G_GridType
+Element:118: M4G_GridMosaic
+Element:119: M4G_GridCellRefArray
+Element:120: M4G_VertexArray
+Element:121: M4G_DiscretizationType
+Element:122: M4G_GridSpec
+Element:123: M4G_GridProperty
+Element:124: M4G_SimpleGridCell
+Element:125: M4G_UnstructuredGridCell
+Element:126: M4G_GridCellArray
+Element:127: M4G_CoordList
+Diagram: Grids
+Processing package: Common
+Element:128: M4C_MachineCompilerUnit
+Element:129: M4C_Machine
+Element:130: M4C_Change
+Element:131: M4C_DataPurposeType
+Element:132: M4C_MachineType
+Element:133: M4C_DocumentMetadata
+Element:134: M4C_DocumentRelationship
+Element:135: M4C_TimeUnitType
+Element:136: M4C_CompilerType
+Element:137: M4C_Platform
+Element:138: M4C_LogicalChoiceType
+Element:139: M4C_License
+Element:140: M4C_DocumentRelationshipType
+Element:141: M4C_InterconnectType
+Element:142: M4C_ChangePropertyType
+Element:143: M4C_ResponsibleParty
+Element:144: M4C_ProcessorType
+Element:145: M4C_Reference
+Element:146: M4C_Compiler
+Element:147: M4C_OperatingSystemType
+Element:148: M4C_MachineVendorType
+Diagram: Common
+Processing package: Quality
+Element:149: M4Q_QualityIssueType
+Element:150: M4Q_DomainConsistency
+Element:151: M4Q_QualitySeverityType
+Element:152: M4Q_Measure
+Element:153: M4Q_Quality
+Element:154: M4Q_QualityIssue
+Element:155: M4Q_QualityResolution
+Element:156: M4Q_QualityStatusType
+Element:157: M4Q_ResultType
+Element:158: M4Q_Result
+Element:159: M4Q_Scope
+Element:160: ISO 19115 [Data Quality Information]
+Element:161: M4Q_ResultSet
+Element:162: M4Q_FeatureType
+Diagram: Quality
+Processing package: moles v4
+Element:163: MO_Procedure
+Element:164: 
+Element:165: 
+Element:166: MO_Project
+Element:167: MO_Computation
+Diagram: moles v4
+Adding State-Tables
+Formatting output XML...please wait
+XMI Document Export Complete!
