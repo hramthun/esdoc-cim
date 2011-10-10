@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<register xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:x-auscope:xmlns:CSIRO:FullMoon:package-register:2.0"
+	id="my-register.xml">
+	<description>A register of additional EA packages with classmap
+		implementations for HMA
+		The FullMoon processing framework uses this to resolve external
+		dependencies in Application Schemas</description>
+	<package name="ISO 19110 Feature Catalog">
+		<implementation binding="GML 3.2">
+			<classMap
+				location="request://localClassmaps/ClassMap_ISO_19110_GML32.xml" />
+		</implementation>
+	</package>
+	<package name="MOLES3.4">
+		<implementation binding="GML 3.2">
+			<classMap
+				location="request://localClassmaps/ClassMap_MOLES34_GML32.xml" />
+		</implementation>
+	</package>
+</register>
