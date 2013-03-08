@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2012-07-10 22:18:30">
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2013-03-08 11:39:35">
 	<XMI.header>
 		<XMI.documentation>
 			<XMI.exporter>Enterprise Architect</XMI.exporter>
@@ -20930,7 +20930,7 @@
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_325FDFFC_1671_4a33_9579_029B6555B109"/>
 										<UML:TaggedValue tag="date_created" value="2008-10-02 11:15:02"/>
-										<UML:TaggedValue tag="date_modified" value="2010-04-02 23:23:25"/>
+										<UML:TaggedValue tag="date_modified" value="2012-08-23 13:20:46"/>
 										<UML:TaggedValue tag="genlinks" value="Parent=xs:token;"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
@@ -28689,14 +28689,14 @@
 										<UML:Stereotype name="CodeList"/>
 									</UML:ModelElement.stereotype>
 									<UML:ModelElement.taggedValue>
-										<UML:TaggedValue tag="documentation" value="An enumeration of types of ProcessorComponent.  This includes things like transformers and post-processors."/>
+										<UML:TaggedValue tag="documentation" value="An enumeration of types of StatisticalModelComponent.  This includes more than just statistical downscaling techniques; it can be used for forecast or impact models too."/>
 										<UML:TaggedValue tag="isSpecification" value="false"/>
 										<UML:TaggedValue tag="ea_stype" value="Class"/>
 										<UML:TaggedValue tag="ea_ntype" value="0"/>
 										<UML:TaggedValue tag="version" value="1.0"/>
 										<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 										<UML:TaggedValue tag="date_created" value="2012-07-10 21:51:37"/>
-										<UML:TaggedValue tag="date_modified" value="2009-03-09 14:29:34"/>
+										<UML:TaggedValue tag="date_modified" value="2013-03-08 11:38:30"/>
 										<UML:TaggedValue tag="genfile" value="H:\metafor\working_copies\softwarePackage\software\ComponentType.java"/>
 										<UML:TaggedValue tag="gentype" value="Java"/>
 										<UML:TaggedValue tag="tagged" value="0"/>
@@ -28713,7 +28713,7 @@
 										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={DDC4BEEE-979D-42da-92E0-93979461DD81}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@STEREO;Name=CodeList;GUID={19D0F1FF-99D3-4f33-93AD-61C215C64BE5};@ENDSTEREO;$DES;$CLT={962BFCAE-72DC-4789-9BC5-13BEE74C2B0D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={25A03F03-69D7-46c2-9405-881FE8FA2376}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$DES=@PROP=@NAME=isActive@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={962BFCAE-72DC-4789-9BC5-13BEE74C2B0D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 									</UML:ModelElement.taggedValue>
 									<UML:Classifier.feature>
-										<UML:Attribute name="perfectProg" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="downscaling" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -28740,7 +28740,7 @@
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={2D25BEF7-0C26-429a-AD09-AACFE03A3411}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;@ENDSTEREO;$DES;$CLT={173C503A-98A0-4da7-86F4-2A390AB26999}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
-										<UML:Attribute name="modelOutputStatistics" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+										<UML:Attribute name="impact" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
 											<UML:Attribute.initialValue>
 												<UML:Expression/>
 											</UML:Attribute.initialValue>
@@ -28765,6 +28765,32 @@
 												<UML:TaggedValue tag="ea_localid" value="3799"/>
 												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
 												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={7D67775D-5637-46f3-A571-00FEBACDC1D2}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;@ENDSTEREO;$DES;$CLT={AFFFAE2B-A964-4a4c-BF3B-3A8EFE6A3AA9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+											</UML:ModelElement.taggedValue>
+										</UML:Attribute>
+										<UML:Attribute name="forecast" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+											<UML:Attribute.initialValue>
+												<UML:Expression/>
+											</UML:Attribute.initialValue>
+											<UML:StructuralFeature.type>
+												<UML:Classifier xmi.idref="eaxmiid0"/>
+											</UML:StructuralFeature.type>
+											<UML:ModelElement.stereotype>
+												<UML:Stereotype name="enum"/>
+											</UML:ModelElement.stereotype>
+											<UML:ModelElement.taggedValue>
+												<UML:TaggedValue tag="derived" value="0"/>
+												<UML:TaggedValue tag="containment" value="Not Specified"/>
+												<UML:TaggedValue tag="ordered" value="0"/>
+												<UML:TaggedValue tag="stereotype" value="enum"/>
+												<UML:TaggedValue tag="collection" value="false"/>
+												<UML:TaggedValue tag="position" value="2"/>
+												<UML:TaggedValue tag="lowerBound" value="1"/>
+												<UML:TaggedValue tag="upperBound" value="1"/>
+												<UML:TaggedValue tag="duplicates" value="0"/>
+												<UML:TaggedValue tag="ea_guid" value="{4EDD3AA3-40AB-455f-B678-4D67C33DEAF1}"/>
+												<UML:TaggedValue tag="ea_localid" value="3824"/>
+												<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+												<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={A50779CA-8439-47d8-ADA8-1779B7476D82}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;GUID={E1796CEA-0A4E-4156-A5BB-F3E01B8DEDD3};@ENDSTEREO;$DES;$CLT={4EDD3AA3-40AB-455f-B678-4D67C33DEAF1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 											</UML:ModelElement.taggedValue>
 										</UML:Attribute>
 									</UML:Classifier.feature>
@@ -34206,7 +34232,7 @@
 				<UML:TaggedValue tag="version" value="1.0"/>
 				<UML:TaggedValue tag="author" value="Allyn.Treshansky"/>
 				<UML:TaggedValue tag="created_date" value="2008-10-03 10:41:07"/>
-				<UML:TaggedValue tag="modified_date" value="2012-07-10 21:54:52"/>
+				<UML:TaggedValue tag="modified_date" value="2012-10-19 14:11:11"/>
 				<UML:TaggedValue tag="package" value="EAPK_268C96CA_8485_4365_A349_56E5AFE3C50A"/>
 				<UML:TaggedValue tag="type" value="Logical"/>
 				<UML:TaggedValue tag="swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;;cls=0;"/>
